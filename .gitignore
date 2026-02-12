@@ -19,8 +19,14 @@ venv/
 data_*/
 mono_crash.*.json
 
-# OSX 
+# OSX
 .DS_Store
 
 # Snyk Security Extension - AI Rules (auto-generated)
 .cursor/rules/snyk_rules.mdc
+
+# Cursor
+.cursor/
+.windsurf/
+.gemini/
+
