@@ -1,32 +1,43 @@
 # Godot 4+ specific ignores
 .godot/
-.export/
-.import/
-*.tmp
 *.translation
-.history/
-# Python
-venv/
+*.tres-
+*.tscn-
+*.gd-
+export_presets.cfg
 
-# VSCode
+# Imported formats
+*.import
+
+# Compiled script files
+*.gdc
+
+# Android Studio project
+android/
+
+# Export folder
+.export/
+
+# Python/UV
+.venv/
+__pycache__/
+*.pyc
+
+# IDEs
 .vscode/
-
-# Jetbrains (Rider)
 .idea/
+*.sln
+*.csproj
+.vs/
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
-
-# OSX
+# OS specific
 .DS_Store
+Thumbs.db
+Desktop.ini
 
-# Snyk Security Extension - AI Rules (auto-generated)
-.cursor/rules/snyk_rules.mdc
+# Deployment tools
+scripts/tools/
+butler.zip
 
-# Cursor
-.cursor/
-.windsurf/
-.gemini/
-
+# Stray build artifacts
+pako_inflate.min.js

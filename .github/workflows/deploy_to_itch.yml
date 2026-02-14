@@ -17,7 +17,7 @@ env:
   GODOT_VERSION: 4.6
   EXPORT_NAME: BrackeysJam2026
   ITCH_USERNAME: ranamzes
-  ITCH_GAME_ID: brackeys-jam-2026-test # ЗАМЕНИТЕ на ваш itch.io slug
+  ITCH_GAME_ID: testdev # ЗАМЕНИТЕ на ваш itch.io slug
 
 jobs:
   export-web:
@@ -59,10 +59,13 @@ jobs:
           path: build/web
 
       - name: Deploy Web
-        uses: manleydev/butler-publish-itchio-action@master
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: html5
+          BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
           ITCH_GAME: ${{ env.ITCH_GAME_ID }}
           ITCH_USER: ${{ env.ITCH_USERNAME }}
           PACKAGE: build/web
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler push $PACKAGE $ITCH_USER/$ITCH_GAME:html5

@@ -19,6 +19,18 @@ This project uses [uv](https://docs.astral.sh/uv/) for Python dependency managem
 -   **GDLinter** - Script linting.
 -   **Script-IDE** - Enhanced script editor.
 
+### Local Deployment (Fast & Autonomous)
+
+We use a Python script that handles everything:
+1.  **Auto-Discovery**: Finds Godot/Butler on your system.
+2.  **Auto-Install**: Downloads Butler automatically if missing.
+3.  **Deploy**: Exports and pushes to Itch.io.
+
+**Run:**
+```bash
+uv run scripts/deploy.py
+```
+
 ## Known Issues
 
 -   **SplitContainer Errors**: You may see error messages related to `split_container.cpp` in the Godot console. These are a known engine regression and can be safely ignored.
