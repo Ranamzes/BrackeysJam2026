@@ -116,7 +116,7 @@ func _enter_tree() -> void:
 		event2.meta_pressed = true
 		event2.keycode = KEY_O
 
-		shortcut.events = [ event, event2 ]
+		shortcut.events = [event, event2]
 		editor_settings.set_setting(OPEN_OUTLINE_POPUP, shortcut)
 		editor_settings.set_initial_value(OPEN_OUTLINE_POPUP, shortcut, false)
 
@@ -132,7 +132,7 @@ func _enter_tree() -> void:
 		event2.meta_pressed = true
 		event2.keycode = KEY_U
 
-		shortcut.events = [ event, event2 ]
+		shortcut.events = [event, event2]
 		editor_settings.set_setting(OPEN_SCRIPTS_POPUP, shortcut)
 		editor_settings.set_initial_value(OPEN_SCRIPTS_POPUP, shortcut, false)
 
@@ -183,7 +183,7 @@ func _enter_tree() -> void:
 
 	# Remove existing outline and add own outline
 	split_container = find_or_null(script_editor.find_children("*", "HSplitContainer", true, false))
-	if (split_container != null):
+	if (split_container != null && split_container.get_child_count() > 0):
 		outline_container = split_container.get_child(0)
 
 		if (is_outline_right):
@@ -253,7 +253,7 @@ func _exit_tree() -> void:
 			split_container.add_child(outline_container)
 
 		# Try to restore the previous split offset.
-		if (is_outline_right):
+		if (is_outline_right && split_container.get_child_count() > 1):
 			var split_offset: float = split_container.get_child(1).size.x
 			split_container.split_offset = split_offset
 
@@ -455,7 +455,8 @@ func on_outline_popup_hidden(outline_initially_closed: bool, old_text: String, b
 
 	outline_container.reparent(split_container)
 	if (!is_outline_right):
-		split_container.move_child(outline_container, 0)
+		if split_container.get_child_count() > 0:
+			split_container.move_child(outline_container, 0)
 
 	outline_filter_txt.text = old_text
 
@@ -629,11 +630,13 @@ func on_filter_button_pressed(pressed: bool, btn: Button):
 func update_outline_position():
 	if (is_outline_right):
 		# Try to restore the previous split offset.
-		var split_offset: float = split_container.get_child(1).size.x
-		split_container.split_offset = split_offset
-		split_container.move_child(outline_container, 1)
+		if split_container.get_child_count() > 1:
+			var split_offset: float = split_container.get_child(1).size.x
+			split_container.split_offset = split_offset
+			split_container.move_child(outline_container, 1)
 	else:
-		split_container.move_child(outline_container, 0)
+		if split_container.get_child_count() > 0:
+			split_container.move_child(outline_container, 0)
 
 func update_script_list_visibility():
 	scripts_item_list.get_parent().visible = is_script_list_visible

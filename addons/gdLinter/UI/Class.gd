@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var _owner: GDLinterIgnoreWindow = owner
+var _owner: AcceptDialog = owner
 
 @onready var private_method_call: CheckBox = %PrivateMethodCall
 @onready var class_definition_order: CheckBox = %ClassDefinitionOrder
