@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var _owner: GDLinterIgnoreWindow = owner
+var _owner: AcceptDialog = owner
 
 @onready var max_file_lines: CheckBox = %MaxFileLines
 @onready var trailing_whitespace_check_box: CheckBox = %TrailingWhitespaceCheckBox

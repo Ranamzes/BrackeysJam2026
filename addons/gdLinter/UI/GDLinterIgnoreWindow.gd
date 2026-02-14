@@ -3,7 +3,7 @@ class_name GDLinterIgnoreWindow
 extends AcceptDialog
 
 var ignore: GDLinterIgnore
-var dock_ui: GDLinterDock
+var dock_ui: Control
 
 @onready var basic: MarginContainer = %Basic
 @onready var design: MarginContainer = %Design

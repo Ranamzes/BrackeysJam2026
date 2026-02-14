@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var _owner: GDLinterIgnoreWindow = owner
+var _owner: AcceptDialog = owner
 
 @onready var max_public_methods: CheckBox = %MaxPublicMethods
 @onready var function_argument_number: CheckBox = %FunctionArgumentNumber

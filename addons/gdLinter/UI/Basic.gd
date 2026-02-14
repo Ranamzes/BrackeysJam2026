@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var _owner: GDLinterIgnoreWindow = owner
+var _owner: AcceptDialog = owner
 
 @onready var duplicated_load: CheckBox = %DuplicatedLoad
 @onready var expression_not_assigned: CheckBox = %ExpressionNotAssigned

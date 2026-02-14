@@ -1,7 +1,7 @@
 @tool
 extends MarginContainer
 
-var _owner: GDLinterIgnoreWindow = owner
+var _owner: AcceptDialog = owner
 
 @onready var no_elif_return: CheckBox = %NoElifReturn
 @onready var no_else_return: CheckBox = %NoElseReturn

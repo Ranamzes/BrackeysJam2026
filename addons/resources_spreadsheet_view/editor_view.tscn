@@ -110,7 +110,7 @@ flat = true
 
 [node name="HBoxContainer" type="HSplitContainer" parent="HeaderContentSplit/VBoxContainer"]
 layout_mode = 2
-split_offset = -249
+split_offset = 250
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HeaderContentSplit/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -182,8 +182,6 @@ text = "Import/Export CSV..."
 script = ExtResource("3_7ja2l")
 icon_name = "TextFile"
 
-[node name="DummyChild" type="Control" parent="HeaderContentSplit/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 
 [node name="Search" type="VBoxContainer" parent="HeaderContentSplit/VBoxContainer"]
 layout_mode = 2
