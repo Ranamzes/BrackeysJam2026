@@ -28,7 +28,7 @@ def get_platform_info():
 
 def download_butler(target_path):
     os_name, arch, binary_name = get_platform_info()
-    url = f"https://broth.itch.ovh/butler/{os_name}-{arch}/{BUTLER_VERSION}/archive/default"
+    url = f"https://broth.itch.zone/butler/{os_name}-{arch}/{BUTLER_VERSION}/archive/default"
     dest_dir = Path("scripts/tools/butler")
     zip_path = dest_dir / "butler.zip"
     exe_path = dest_dir / binary_name

@@ -65,7 +65,7 @@ jobs:
           ITCH_USER: ${{ env.ITCH_USERNAME }}
           PACKAGE: build/web
         run: |
-          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
           unzip butler.zip
           chmod +x butler
           ./butler push $PACKAGE $ITCH_USER/$ITCH_GAME:html5
