@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bnshl7dkigs4x"]
+
+[ext_resource type="Script" uid="uid://djmn3t4i8ttvj" path="res://scripts/UI/inventory/inventory_ui.gd" id="1_vxdyr"]
+[ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="2_aem0y"]
+
+[node name="Inventory" type="Control" unique_id=1388742349]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vxdyr")
+item_slot_background = ExtResource("2_aem0y")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=76953243]
+layout_mode = 0
+offset_right = 234.0
+offset_bottom = 1037.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1643257148]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

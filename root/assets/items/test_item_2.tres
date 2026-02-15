@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bddlu2khd71o7"]
 
-[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://scripts/UI/inventory/item_data.gd" id="1_t2j2l"]
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://scripts/inventory/item_data.gd" id="1_t2j2l"]
+[ext_resource type="Texture2D" uid="uid://didtwu4lxln11" path="res://root/assets/player/placeholder.png" id="1_uqgd1"]
 
 [resource]
 script = ExtResource("1_t2j2l")
+id = "2"
+display_name = "2"
+description = "2"
+icon = ExtResource("1_uqgd1")
 metadata/_custom_type_script = "uid://sfjgktjvkx2l"

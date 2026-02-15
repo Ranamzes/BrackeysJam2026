@@ -1,7 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0j6mj58sxaxm"]
 
-[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://scripts/UI/inventory/item_data.gd" id="1_kue1t"]
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://scripts/inventory/item_data.gd" id="1_kue1t"]
+[ext_resource type="Texture2D" uid="uid://didtwu4lxln11" path="res://root/assets/player/placeholder.png" id="1_njru8"]
 
 [resource]
 script = ExtResource("1_kue1t")
+id = "test1"
+display_name = "Тестовый итем 1"
+description = "Итем для тестирования, че не понятно?"
+icon = ExtResource("1_njru8")
 metadata/_custom_type_script = "uid://sfjgktjvkx2l"
