@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://guvm58yj3ul4"]
+
+[ext_resource type="Texture2D" uid="uid://dwehuqawaihaj" path="res://root/assets/UI/buttons/button_placeholder.png" id="1_pvw6g"]
+[ext_resource type="Script" uid="uid://dj8nrnkh813lt" path="res://root/scenes/UI/elements/sounded_button/sounded_button.gd" id="2_cbcsm"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="3_qat4j"]
+[ext_resource type="AudioStream" uid="uid://h8ooq3l7i3hx" path="res://root/assets/UI/audio/click5.ogg" id="4_61wic"]
+
+[node name="SoundedButton" type="TextureButton" unique_id=1880091726]
+custom_minimum_size = Vector2(120, 54)
+offset_right = 120.0
+offset_bottom = 56.0
+texture_normal = ExtResource("1_pvw6g")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2_cbcsm")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=859170609]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=337406540]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Placeholder"
+
+[node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("3_qat4j")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("4_61wic")])
