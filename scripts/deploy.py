@@ -12,7 +12,7 @@ import stat
 ITCH_USER = "ranamzes"
 ITCH_GAME = "testdev" # Your itch.io game slug
 EXPORT_PRESET = "Web"
-EXPORT_DIR = ".export/web"
+EXPORT_DIR = "build/web"
 EXPORT_FILE = "index.html"
 BUTLER_VERSION = "LATEST" # or specific version like "15.21.0"
 # ---------------------
@@ -92,14 +92,6 @@ def run_command(command, description):
 
 def main():
     # Common paths for tools
-    godot_paths = [
-        r"C:\Program Files\Godot\Godot.exe",
-        r"C:\Program Files (x86)\Godot\Godot.exe",
-        r"D:\Godot\Godot.exe",
-        r"/Applications/Godot.app/Contents/MacOS/Godot", # Mac
-        r"/usr/bin/godot", # Linux
-    ]
-
     # Local bootstrap path is checked first in find_tool if we add it to the list,
     # but we want to download if *none* are found.
     # So we used a separate check for download.
@@ -116,14 +108,7 @@ def main():
         r"~/.config/itch/bin/butler", # Linux/Mac
     ]
 
-    godot_path = find_tool("godot", godot_paths)
     butler_path = find_tool("butler", butler_paths)
-
-    if not godot_path:
-        print("ERROR: Godot Engine not found!")
-        print("Please ensure Godot is in your PATH or installed in standard locations.")
-        print("Download Godot: https://godotengine.org/download")
-        sys.exit(1)
 
     if not butler_path:
         butler_path = download_butler("scripts/tools/butler")
@@ -132,22 +117,19 @@ def main():
             print("Please download it manually: https://itch.io/docs/butler/installing.html")
             sys.exit(1)
 
-    print(f"Using Godot: {godot_path}")
     print(f"Using Butler: {butler_path}")
 
-    # Ensure Export Directory exists
-    Path(EXPORT_DIR).mkdir(parents=True, exist_ok=True)
+    # 1. Build Web Version (using manual build script)
+    print("--- Building Web Version ---")
+    build_script = "scripts/build_web.py"
+    if not os.path.exists(build_script):
+        print(f"ERROR: Build script not found: {build_script}")
+        sys.exit(1)
 
-    # 1. Godot Export
-    godot_cmd = [
-        godot_path,
-        "--headless",
-        "--export-release",
-        EXPORT_PRESET,
-        str(Path(EXPORT_DIR) / EXPORT_FILE)
-    ]
-
-    if not run_command(godot_cmd, f"Godot Export ({EXPORT_PRESET})"):
+    try:
+        subprocess.run([sys.executable, build_script], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"ERROR: Build failed with return code {e.returncode}")
         sys.exit(1)
 
     # 2. Butler Push
