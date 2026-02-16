@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dh2d65h3v50dk"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_ij2d3"]
+[ext_resource type="Texture2D" uid="uid://bqds5ff056kg" path="res://root/assets/UI/buttons/nav_buttons/nav_left_w.png" id="2_lbtg2"]
+
+[node name="Level1Left" type="Node2D" unique_id=1790017103]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_ij2d3")]
+right_scene = "uid://c3odhd3retu8g"
+
+[node name="NavLeftW" type="Sprite2D" parent="." unique_id=794580458]
+position = Vector2(1005, 518)
+texture = ExtResource("2_lbtg2")

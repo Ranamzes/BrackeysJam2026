@@ -9,7 +9,7 @@ func _ready() -> void:
 func on_play_pressed():
 	ScreenTransition.transition()
 	await ScreenTransition.transition_halfway
-	get_tree().change_scene_to_file("res://root/scenes/levels/level1/Level1.tscn")
+	get_tree().change_scene_to_file("res://root/scenes/levels/level1/Level1Center.tscn")
 	
 	
 func on_options_pressed():

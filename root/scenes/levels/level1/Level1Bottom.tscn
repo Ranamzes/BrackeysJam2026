@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://doyahxijnapg4"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_4nkuw"]
+[ext_resource type="Texture2D" uid="uid://cgayyc5vfokrw" path="res://root/assets/UI/buttons/nav_buttons/nav_down_w.png" id="2_kyoml"]
+
+[node name="Level1Bottom" type="Node2D" unique_id=1612719515]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_4nkuw")]
+top_scene = "uid://c3odhd3retu8g"
+
+[node name="NavDownW" type="Sprite2D" parent="." unique_id=1814588808]
+position = Vector2(993, 527)
+texture = ExtResource("2_kyoml")
