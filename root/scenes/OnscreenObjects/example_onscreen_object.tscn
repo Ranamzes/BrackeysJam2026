@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://vj8ldu42btrd"]
+
+[ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/Scripts/on_screen_object/onscreen_object_state.gd" id="1_jgkj5"]
+[ext_resource type="Texture2D" uid="uid://v0pfyqt138vu" path="res://root/assets/UI/5.png" id="2_xer6t"]
+[ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/Scripts/on_screen_object/object_state_transition.gd" id="3_2ahd4"]
+[ext_resource type="Texture2D" uid="uid://esfd7bidac48" path="res://root/assets/UI/4.png" id="4_e1mmi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1mmi"]
+
+[node name="ExampleOnscreenObject" type="Node2D" unique_id=1076354259]
+
+[node name="InitialStateUnchecked" type="Area2D" parent="." unique_id=1546940309 node_paths=PackedStringArray("transitions")]
+script = ExtResource("1_jgkj5")
+transitions = [NodePath("CheckedTransition")]
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InitialStateUnchecked" unique_id=1717244962]
+scale = Vector2(2.195, 2.195)
+shape = SubResource("RectangleShape2D_jgkj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="InitialStateUnchecked" unique_id=564708646]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xer6t")
+
+[node name="CheckedTransition" type="Node2D" parent="InitialStateUnchecked" unique_id=540759260 node_paths=PackedStringArray("new_state", "old_state")]
+script = ExtResource("3_2ahd4")
+new_state = NodePath("../../CheckedState")
+old_state = NodePath("..")
+item_id = "2"
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="CheckedState" type="Area2D" parent="." unique_id=1150894185 node_paths=PackedStringArray("transitions")]
+visible = false
+script = ExtResource("1_jgkj5")
+transitions = [NodePath("UncheckedTransition")]
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckedState" unique_id=2037858917]
+scale = Vector2(2.195, 2.195)
+shape = SubResource("RectangleShape2D_e1mmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="CheckedState" unique_id=13117133]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_e1mmi")
+
+[node name="UncheckedTransition" type="Node2D" parent="CheckedState" unique_id=587843494 node_paths=PackedStringArray("new_state", "old_state")]
+script = ExtResource("3_2ahd4")
+new_state = NodePath("../../InitialStateUnchecked")
+old_state = NodePath("..")
+item_id = "3"
+metadata/_custom_type_script = "uid://badqbpg0t61d3"

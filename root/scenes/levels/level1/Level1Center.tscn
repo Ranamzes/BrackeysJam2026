@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_adajf"]
 [ext_resource type="Script" uid="uid://d068ctkbagweo" path="res://root/scenes/levels/level1/level_1_center.gd" id="1_hh81y"]
+[ext_resource type="PackedScene" uid="uid://vj8ldu42btrd" path="res://root/scenes/OnscreenObjects/example_onscreen_object.tscn" id="3_j743v"]
 
 [node name="Level1Center" type="Node2D" unique_id=595355603]
 script = ExtResource("1_hh81y")
@@ -18,3 +19,6 @@ offset_left = 970.0
 offset_top = 526.0
 offset_right = 1010.0
 offset_bottom = 566.0
+
+[node name="ExampleOnscreenObject" parent="." unique_id=1076354259 instance=ExtResource("3_j743v")]
+position = Vector2(566, 453)
