@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://mub4rw3nc1mc"]
+
+[ext_resource type="PackedScene" uid="uid://dh8hy6s86bhw7" path="res://root/components/camera/MainCamera.tscn" id="1_1wq5q"]
+[ext_resource type="PackedScene" uid="uid://cx4k10qtqvk6o" path="res://root/scenes/characters/player/Player.tscn" id="2_lqq02"]
+[ext_resource type="PackedScene" uid="uid://bnshl7dkigs4x" path="res://root/scenes/UI/inventory/Inventory.tscn" id="2_o2w4q"]
+
+[node name="Level1" type="Node2D" unique_id=1952078548]
+
+[node name="MainCamera" parent="." unique_id=1863523005 instance=ExtResource("1_1wq5q")]
+position = Vector2(1449, 483)
+
+[node name="Player" parent="." unique_id=832008626 instance=ExtResource("2_lqq02")]
+position = Vector2(165, 200)
+
+[node name="Inventory" parent="." unique_id=1388742349 instance=ExtResource("2_o2w4q")]
