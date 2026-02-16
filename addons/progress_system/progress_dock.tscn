@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c6r8qj0v5x7w2"]
+
+[ext_resource type="Script" path="res://addons/progress_system/progress_dock.gd" id="1_script"]
+
+[node name="Progress" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_script")
+
+[node name="Header" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Progress Flags"
+autowrap_mode = 3
+
+[node name="RefreshButton" type="Button" parent="Header"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Refresh from ProgressionManager"
+flat = true
+
+[node name="Search" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Search flags..."
+clear_button_enabled = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FlagList" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="AddContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NewFlagName" type="LineEdit" parent="AddContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "new_flag_name"
+
+[node name="AddButton" type="Button" parent="AddContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
