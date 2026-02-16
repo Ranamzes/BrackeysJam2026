@@ -34,9 +34,25 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	resource = dialogue_resource
 	temporary_game_states = extra_game_states
 
+	# 1. Get the first line BEFORE animation
+	# This allows us to know if we should show the portrait/name before animating in
+	var line = await DialogueManager.get_next_dialogue_line(resource, title, temporary_game_states)
+	print("DialogueUI: get_next_dialogue_line (first) returned: ", line)
+
+	if line == null:
+		print("DialogueUI: No starting line found for title: ", title)
+		_close_and_finish()
+		return
+
+	# Set portrait visibility based on the first line
+	if line.character != "":
+		portrait_rect.show()
+	else:
+		portrait_rect.hide()
+
 	show()
 
-	# 1. Play "open" animation
+	# 2. Play "open" animation
 	if anim_player.has_animation("open"):
 		anim_player.play("open")
 		var anim_name = await anim_player.animation_finished
@@ -44,15 +60,6 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 			anim_name = await anim_player.animation_finished
 	else:
 		panel.modulate.a = 1.0
-
-	# 2. Get the first line
-	var line = await DialogueManager.get_next_dialogue_line(resource, title, temporary_game_states)
-	print("DialogueUI: get_next_dialogue_line returned: ", line)
-
-	if line == null:
-		print("DialogueUI: No starting line found for title: ", title)
-		_close_and_finish()
-		return
 
 	while line != null:
 		_display_line(line)
@@ -73,7 +80,6 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	_close_and_finish()
 
 func _display_line(line) -> void:
-	print("DialogueUI: Processing line: ", line.text)
 	if line.character != "":
 		portrait_rect.show()
 	else:
