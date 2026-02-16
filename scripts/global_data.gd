@@ -2,6 +2,7 @@ class_name GlobalData
 extends Node
 
 static var player_inventory : Inventory
+static var selected_slot : ItemSlotUI
 
 
 func _ready() -> void:
