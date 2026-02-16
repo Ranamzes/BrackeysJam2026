@@ -13,61 +13,84 @@ var temporary_game_states: Array = []
 var is_waiting_for_input: bool = false
 
 func _ready() -> void:
-		hide()
-		# Connect gui_input to handle clicks on the full-screen control
-		$DialogueControl.gui_input.connect(_on_dialogue_control_gui_input)
-		# Also connect the panel in case it consumes input
-		panel.gui_input.connect(_on_dialogue_control_gui_input)
-		# Ensure connections if any built-in signals need it
-		# dialogue_label.finished_typing.connect(_on_dialogue_label_finished_typing)
+	hide()
+	# Only connect the background control. If it covers the full screen/panel area,
+	# it's enough. Clicks on the panel will bubble up to this control.
+	$DialogueControl.gui_input.connect(_on_dialogue_control_gui_input)
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
-	print("DialogueUI: start called")
+	if not is_node_ready():
+		await ready
+
+	print("DialogueUI: start called with title: ", title)
+
+	# Since it's a fresh instance, we don't need heavy resets,
+	# but let's ensure the label is empty during fade-in.
+	dialogue_label.text = ""
+	portrait_rect.hide()
+
 	resource = dialogue_resource
 	temporary_game_states = extra_game_states
 
+	# 1. Get the first line BEFORE animation
+	# This allows us to know if we should show the portrait/name before animating in
+	var line = await DialogueManager.get_next_dialogue_line(resource, title, temporary_game_states)
+	print("DialogueUI: get_next_dialogue_line (first) returned: ", line)
+
+	if line == null:
+		print("DialogueUI: No starting line found for title: ", title)
+		_close_and_finish()
+		return
+
+	# Set portrait visibility based on the first line
+	if line.character != "":
+		portrait_rect.show()
+	else:
+		portrait_rect.hide()
+
 	show()
-	# Play "open" animation
+
+	# 2. Play "open" animation
 	if anim_player.has_animation("open"):
 		anim_player.play("open")
-		await anim_player.animation_finished
+		var anim_name = await anim_player.animation_finished
+		while anim_name != "open":
+			anim_name = await anim_player.animation_finished
 	else:
-		# Fallback if animation missing
 		panel.modulate.a = 1.0
 
-	var line = await DialogueManager.get_next_dialogue_line(resource, title, temporary_game_states)
 	while line != null:
-		# 1. Update UI Elements
-		if line.character != "":
-			portrait_rect.show()
-			# portrait_rect.texture = ...
-		else:
-			portrait_rect.hide()
+		_display_line(line)
 
-		# 2. Update Text using DialogueLabel logic
-		dialogue_label.hide() # Hide before typing
-		dialogue_label.dialogue_line = line
-		dialogue_label.show()
-		dialogue_label.type_out()
-
-		# Wait for typing to finish
+		# Wait for typing
 		await dialogue_label.finished_typing
 
-		# 3. Handle Responses
 		if line.responses.size() > 0:
 			show_responses(line.responses)
 			var response = await self.response_selected
 			line = await DialogueManager.get_next_dialogue_line(resource, response.next_id, temporary_game_states)
 		else:
-			# 4. Wait for player input to advance
 			is_waiting_for_input = true
 			await self.advance_input
 			is_waiting_for_input = false
 			line = await DialogueManager.get_next_dialogue_line(resource, line.next_id, temporary_game_states)
 
-	# Play "close" animation
+	_close_and_finish()
+
+func _display_line(line) -> void:
+	if line.character != "":
+		portrait_rect.show()
+	else:
+		portrait_rect.hide()
+
+	dialogue_label.hide()
+	dialogue_label.dialogue_line = line
+	dialogue_label.show()
+	dialogue_label.type_out()
+
+func _close_and_finish() -> void:
 	if anim_player.has_animation("close"):
 		anim_player.play("close")
 		await anim_player.animation_finished
@@ -83,13 +106,15 @@ signal response_selected(response)
 func _on_dialogue_control_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("DialogueUI: Click received via gui_input.")
+		get_viewport().set_input_as_handled()
 		_advance_conversation()
 
 func _input(event: InputEvent) -> void:
-	if not visible: return
+	if not visible or is_queued_for_deletion(): return
 
 	if event.is_action_pressed("ui_accept"):
 		print("DialogueUI: Key received.")
+		get_viewport().set_input_as_handled()
 		_advance_conversation()
 
 func _advance_conversation() -> void:
@@ -120,3 +145,7 @@ func _on_response_pressed(response) -> void:
 	for child in responses_menu.get_children():
 		child.queue_free()
 	response_selected.emit(response)
+
+func _exit_tree() -> void:
+	# Failsafe if the node is deleted externally
+	finished.emit()
