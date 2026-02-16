@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bh1po4gfyrh87"]
+
+[ext_resource type="Script" uid="uid://dcfkur6y07n1s" path="res://scripts/UI/inventory/item_slot_ui.gd" id="1_sswvr"]
+
+[node name="ItemSLotUI" type="CenterContainer" unique_id=2056054890]
+offset_right = 952.0
+offset_bottom = 406.0
+script = ExtResource("1_sswvr")
+
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1835142883]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ItemTexture" type="TextureRect" parent="." unique_id=37004770]
+layout_mode = 2
+stretch_mode = 3
