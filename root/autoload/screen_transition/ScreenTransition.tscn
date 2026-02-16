@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://hod4ni37c20v" path="res://root/autoload/screen_transition/screen_transition.gd" id="1_spnda"]
 [ext_resource type="Shader" uid="uid://dvgoyrsv47jti" path="res://root/resources/shaders/screen_transition.gdshader" id="2_0jvma"]
-[ext_resource type="Texture2D" uid="uid://cvw5j0ul10kom" path="res://root/assets/shader_textures/transition_texture.png" id="3_hw84o"]
 
 [sub_resource type="Animation" id="Animation_dy3cu"]
 length = 0.001
@@ -33,7 +32,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0ecq1"]
 resource_name = "transition"
-length = 0.35
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,8 +40,8 @@ tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(2.0000005, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.0000005, 2.0000002),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -67,7 +66,6 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oyxju"]
 shader = ExtResource("2_0jvma")
-shader_parameter/transition_texture = ExtResource("3_hw84o")
 shader_parameter/percent = 0.0
 shader_parameter/transition_color = Color(0.43137255, 0.40392157, 0.2627451, 1)
 
@@ -88,3 +86,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.04755766, 0.047557645, 0.047557645, 1)

@@ -38,6 +38,7 @@ Desktop.ini
 # Deployment tools
 scripts/tools/
 butler.zip
+build/
 
 # Stray build artifacts
 pako_inflate.min.js

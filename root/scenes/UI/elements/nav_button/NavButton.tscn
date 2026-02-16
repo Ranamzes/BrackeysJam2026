@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dyh6c3om2n3nn"]
+
+[ext_resource type="Texture2D" uid="uid://0xod2bvyv7no" path="res://root/assets/UI/buttons/nav_buttons/nav_left.png" id="1_155du"]
+[ext_resource type="Texture2D" uid="uid://bqds5ff056kg" path="res://root/assets/UI/buttons/nav_buttons/nav_left_w.png" id="2_k345k"]
+[ext_resource type="Script" uid="uid://yhvtrbtl3a8w" path="res://root/scenes/UI/elements/nav_button/nav_button.gd" id="3_ye4or"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="4_q16fi"]
+[ext_resource type="AudioStream" uid="uid://h8ooq3l7i3hx" path="res://root/assets/UI/audio/click5.ogg" id="5_x4i5r"]
+
+[node name="NavButton" type="TextureButton" unique_id=1177771894]
+texture_normal = ExtResource("1_155du")
+texture_hover = ExtResource("2_k345k")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("3_ye4or")
+
+[node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("4_q16fi")]
+streams = Array[AudioStream]([ExtResource("5_x4i5r")])

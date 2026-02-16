@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c3odhd3retu8g"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_adajf"]
+[ext_resource type="Script" uid="uid://d068ctkbagweo" path="res://root/scenes/levels/level1/level_1_center.gd" id="1_hh81y"]
+
+[node name="Level1Center" type="Node2D" unique_id=595355603]
+script = ExtResource("1_hh81y")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
+left_scene = "uid://dh2d65h3v50dk"
+right_scene = "uid://bcyhhrogf6g01"
+top_scene = "uid://csggopkacp6ep"
+bottom_scene = "uid://doyahxijnapg4"
+
+[node name="TestRect" type="ColorRect" parent="." unique_id=71121828]
+unique_name_in_owner = true
+offset_left = 970.0
+offset_top = 526.0
+offset_right = 1010.0
+offset_bottom = 566.0

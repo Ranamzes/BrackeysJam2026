@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bcyhhrogf6g01"]
+
+[ext_resource type="Script" uid="uid://l7bgek2il2yu" path="res://root/scenes/levels/level1/level_1_right.gd" id="1_2hgiq"]
+[ext_resource type="Texture2D" uid="uid://c52p8r0ynbfox" path="res://root/assets/UI/buttons/nav_buttons/nav_right_w.png" id="1_m30oe"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_2hgiq"]
+[ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="4_v4bo5"]
+
+[node name="Level1Right" type="Node2D" unique_id=503568121]
+script = ExtResource("1_2hgiq")
+
+[node name="NavRightW" type="Sprite2D" parent="." unique_id=179359134]
+position = Vector2(1003, 515)
+texture = ExtResource("1_m30oe")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_2hgiq")]
+left_scene = "res://root/scenes/levels/level1/Level1Center.tscn"
+
+[node name="TestButton" parent="." unique_id=1880091726 instance=ExtResource("4_v4bo5")]
+unique_name_in_owner = true
+offset_left = 884.0
+offset_top = 688.0
+offset_right = 1144.0
+offset_bottom = 802.0
+text = "Click me"

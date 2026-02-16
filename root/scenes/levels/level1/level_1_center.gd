@@ -1,10 +1,11 @@
-extends Label
+extends Node2D
 
-@export var label_text : String = "Placeholder";
-@onready var label: Label = %Label
+
+@onready var test_rect:ColorRect = %TestRect
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	label.text = label_text
+	if ProgressionManager.get_flag("button_on_right_screen_clicked"):
+		test_rect.color = Color.RED
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

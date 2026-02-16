@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="BrakaeysJam2026"
-run/main_scene="uid://bc773vl1l3ltw"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="res://root/scenes/UI/main_menu/MainMenu.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
@@ -23,6 +23,8 @@ buses/default_bus_layout="uid://du1lb8iv2wykk"
 
 ScreenTransition="*uid://4icidbllsll0"
 Global="*uid://1c480t154ayk"
+DialogueManager="*uid://c3rodes2l3gxb"
+ProgressionManager="*uid://b5pg7wx7t2eo2"
 
 [display]
 
@@ -33,6 +35,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="BrakaeysJam2026"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
@@ -73,3 +79,5 @@ move_left={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
