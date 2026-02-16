@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh1po4gfyrh87"]
 
-[ext_resource type="Script" uid="uid://dcfkur6y07n1s" path="res://scripts/UI/inventory/item_slot_ui.gd" id="1_sswvr"]
+[ext_resource type="Script" uid="uid://dcfkur6y07n1s" path="res://root/Scripts/UI/inventory/item_slot_ui.gd" id="1_sswvr"]
 
 [node name="ItemSLotUI" type="MarginContainer" unique_id=1544706374]
 offset_right = 952.0
