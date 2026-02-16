@@ -22,12 +22,12 @@ func _ready() -> void:
 	if bottom_scene != "":
 		bottom_button.visible = true
 		bottom_button.pressed.connect(on_nav_button_pressed.bind("bottom"))
-		
-		
+
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

@@ -1,0 +1,14 @@
+~ start
+
+Nathan: Hello! Welcome to the Brackeys Jam 2026 project.
+Nathan: This is a test of the custom style dialogue system.
+Nathan: Well, it's just a prototype.
+Nathan: Good luck with the game!
+=> END
+
+~ button_clicked
+
+Nathan: You picked the "Click me" button!
+Nathan: That changed the state of the world.
+Nathan: Good job!
+=> END
