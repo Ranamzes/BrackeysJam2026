@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5pg7wx7t2eo2"]
+
+[ext_resource type="Script" uid="uid://btuujer4ejmr" path="res://root/autoload/progression_manager/progression_manager.gd" id="1_rgotn"]
+
+[node name="ProgressionManager" type="Node" unique_id=497393570]
+script = ExtResource("1_rgotn")
+state_table = Dictionary[String, bool]({
+"button_on_right_screen_clicked": false
+})
