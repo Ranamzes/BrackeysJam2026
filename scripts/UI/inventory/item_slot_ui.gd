@@ -1,7 +1,7 @@
-extends Control
+extends MarginContainer
 
-@onready var backgroun_texture:TextureRect = $BackgroundTexture
-@onready var item_texture:TextureRect = $ItemTexture
+@onready var backgroun_texture:TextureRect = %BackgroundTexture
+@onready var item_texture:TextureRect = %ItemTexture
 
 @export var inventory_slot : ItemSlot
 

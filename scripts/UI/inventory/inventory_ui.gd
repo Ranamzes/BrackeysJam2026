@@ -1,7 +1,7 @@
-extends Control
+extends Container
 
 @onready var player_inventory : Inventory = GlobalData.player_inventory
-@onready var vbox_container = $ScrollContainer/VBoxContainer
+@onready var vbox_container = %VBoxContainer
 @onready var item_slot_packed_scene: PackedScene = preload("res://root/scenes/UI/inventory/ItemSlotUI.tscn")
 
 @export var item_slot_background : Texture2D
