@@ -5,6 +5,9 @@ extends Area2D
 @export var to_set_true: Array[String]
 @export var to_set_false: Array[String]
 
+func _ready() -> void:
+	self.input_event.connect(_on_input_event)
+
 func go_to(new_state : OnScreenObjectState) ->  void:
 	for true_flag in to_set_true:
 		ProgressionManager.set_flag(true_flag, true)
