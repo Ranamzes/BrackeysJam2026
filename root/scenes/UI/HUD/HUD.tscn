@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dugsxqisa0n8i"]
+
+[ext_resource type="PackedScene" uid="uid://dyh6c3om2n3nn" path="res://root/scenes/UI/elements/nav_button/NavButton.tscn" id="1_fai1r"]
+[ext_resource type="Script" uid="uid://d3avlydxlui34" path="res://root/scenes/UI/HUD/hud.gd" id="1_xka2d"]
+[ext_resource type="Texture2D" uid="uid://d37cdxff3coj2" path="res://root/assets/UI/buttons/nav_buttons/nav_right.png" id="2_xka2d"]
+[ext_resource type="Texture2D" uid="uid://c52p8r0ynbfox" path="res://root/assets/UI/buttons/nav_buttons/nav_right_w.png" id="3_qooty"]
+[ext_resource type="Texture2D" uid="uid://dgfdar2ig7baj" path="res://root/assets/UI/buttons/nav_buttons/nav_up.png" id="4_fjlug"]
+[ext_resource type="Texture2D" uid="uid://clvemxenrincv" path="res://root/assets/UI/buttons/nav_buttons/nav_up_w.png" id="5_n7qg1"]
+[ext_resource type="Texture2D" uid="uid://bv0msu4not0t3" path="res://root/assets/UI/buttons/nav_buttons/nav_down.png" id="6_r43g1"]
+[ext_resource type="Texture2D" uid="uid://cgayyc5vfokrw" path="res://root/assets/UI/buttons/nav_buttons/nav_down_w.png" id="7_3j03w"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1101607946]
+script = ExtResource("1_xka2d")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=153710600]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MarginContainerLeft" type="MarginContainer" parent="MarginContainer" unique_id=478531500]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainerLeft" unique_id=692933428]
+layout_mode = 2
+
+[node name="NavButtonLeft" parent="MarginContainer/MarginContainerLeft/CenterContainer" unique_id=1177771894 instance=ExtResource("1_fai1r")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="MarginContainerRight" type="MarginContainer" parent="MarginContainer" unique_id=1191707494]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainerRight" unique_id=1879854260]
+layout_mode = 2
+
+[node name="NavButtonRight" parent="MarginContainer/MarginContainerRight/CenterContainer" unique_id=224772514 instance=ExtResource("1_fai1r")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("2_xka2d")
+texture_hover = ExtResource("3_qooty")
+
+[node name="MarginContainerTop" type="MarginContainer" parent="MarginContainer" unique_id=828470264]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainerTop" unique_id=418476312]
+layout_mode = 2
+
+[node name="NavButtonTop" parent="MarginContainer/MarginContainerTop/CenterContainer" unique_id=160792502 instance=ExtResource("1_fai1r")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("4_fjlug")
+texture_hover = ExtResource("5_n7qg1")
+
+[node name="MarginContainerBottom" type="MarginContainer" parent="MarginContainer" unique_id=752883464]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MarginContainerBottom" unique_id=831033801]
+layout_mode = 2
+
+[node name="NavButtonBottom" parent="MarginContainer/MarginContainerBottom/CenterContainer" unique_id=1535570572 instance=ExtResource("1_fai1r")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("6_r43g1")
+texture_hover = ExtResource("7_3j03w")
