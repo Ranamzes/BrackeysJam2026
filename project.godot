@@ -22,9 +22,9 @@ buses/default_bus_layout="uid://du1lb8iv2wykk"
 [autoload]
 
 ScreenTransition="*uid://4icidbllsll0"
-Global="*uid://1c480t154ayk"
 DialogueManager="*uid://c3rodes2l3gxb"
 ProgressionManager="*uid://b5pg7wx7t2eo2"
+Global="*uid://1c480t154ayk"
 
 [display]
 
