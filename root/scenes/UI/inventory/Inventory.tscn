@@ -15,6 +15,7 @@ item_slot_background = ExtResource("2_aem0y")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2111852392]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2034296601]
 custom_minimum_size = Vector2(180, 1080)
