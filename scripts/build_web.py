@@ -12,6 +12,53 @@ GODOT_BIN = r"C:\Program Files\Godot\Godot.exe"
 EXPORT_PRESET = "Web"
 EXPORT_PATH = "build/web/index.html"
 
+def ignore_patterns(path, names):
+    # Ignore these directories/files during copy
+    return {'.godot', '.git', '.history', 'temp_build_env', 'build', '.import'}
+
+def setup_build_env():
+    if os.path.exists(BUILD_DIR):
+        print(f"Cleaning previous build env: {BUILD_DIR}")
+        shutil.rmtree(BUILD_DIR)
+
+    print(f"Copying project to {BUILD_DIR}...")
+    shutil.copytree(SOURCE_DIR, BUILD_DIR, ignore=shutil.ignore_patterns('.godot', '.git', '.history', 'temp_build_env', 'build', '.import'))
+    print("Copy complete.")
+
+def patch_project_godot():
+    project_file = os.path.join(BUILD_DIR, "project.godot")
+    print(f"Patching {project_file}...")
+
+    if not os.path.exists(project_file):
+        print("project.godot not found in build env!")
+        return
+
+    with open(project_file, "r") as f:
+        lines = f.readlines()
+
+    new_lines = []
+    for line in lines:
+        if "locale/translations_pot_files" in line and ".history" in line:
+            print("  Removing invalid line")
+            # Empty array to be safe
+            new_lines.append('locale/translations_pot_files=PackedStringArray()\n')
+        else:
+            new_lines.append(line)
+
+    with open(project_file, "w") as f:
+        f.writelines(new_lines)
+
+def patch_export_presets():
+    presets_file = os.path.join(BUILD_DIR, "export_presets.cfg")
+    print(f"Patching {presets_file}...")
+
+    if not os.path.exists(presets_file):
+        print("export_presets.cfg not found!")
+        return
+
+    # No patching needed right now
+    pass
+
 def run_export_web():
     print("Running Godot export-release for Web...")
     # Ensure export directory exists in the temp env
@@ -25,7 +72,8 @@ def run_export_web():
         "--verbose",
         "--export-release",
         EXPORT_PRESET,
-        EXPORT_PATH
+        EXPORT_PATH,
+        "--display-driver", "headless"
     ]
 
     with open("build_safe_log.txt", "w") as log_file:
