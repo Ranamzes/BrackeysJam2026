@@ -1,7 +1,7 @@
 @tool
 extends VBoxContainer
 
-const PROGRESSION_MANAGER_TSCN = "res://root/autoload/progression_manager/ProgressionManager.tscn"
+const PROGRESSION_DATA_TRES = "res://root/autoload/progression_manager/progression_data.tres"
 
 @onready var flag_list = %FlagList
 @onready var search_edit = %Search
@@ -55,11 +55,15 @@ func _add_flag_row(key: String, value: bool):
 	var label = Label.new()
 	label.text = key
 	label.size_flags_horizontal = SIZE_EXPAND_FILL
+	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	label.clip_text = true
+	label.tooltip_text = key
 	row.add_child(label)
 
 	var delete_btn = Button.new()
 	delete_btn.icon = get_theme_icon("Remove", "EditorIcons")
 	delete_btn.flat = true
+	delete_btn.tooltip_text = "Delete flag"
 	delete_btn.pressed.connect(func(): _on_delete_flag(key))
 	row.add_child(delete_btn)
 
@@ -67,60 +71,64 @@ func _get_state_table() -> Dictionary:
 	# Priority 1: Currently edited scene root (if it's the ProgressionManager)
 	var root = EditorInterface.get_edited_scene_root()
 	if is_instance_valid(root) and root.get_script() and root.get_script().resource_path.contains("progression_manager.gd"):
-		return root.get("state_table").duplicate()
+		var data = root.get("progression_data")
+		if data:
+			return data.state_table.duplicate()
 
-	# Priority 2: Load the scene file
-	var path = PROGRESSION_MANAGER_TSCN
+	# Priority 2: Load the resource file
+	var path = PROGRESSION_DATA_TRES
 	if not FileAccess.file_exists(path):
 		return {}
 
-	var scene = load(path)
-	if not scene: return {}
+	var res = load(path)
+	if not res: return {}
 
-	var inst = scene.instantiate()
-	var table = inst.get("state_table").duplicate()
-	inst.free()
-	return table
+	return res.state_table.duplicate()
 
 func _apply_table_change(new_table: Dictionary):
 	var root = EditorInterface.get_edited_scene_root()
-	var target_node = null
+	var target_resource = null
 
 	if is_instance_valid(root) and root.get_script() and root.get_script().resource_path.contains("progression_manager.gd"):
-		target_node = root
+		target_resource = root.get("progression_data")
+
+	if not target_resource or not "state_table" in target_resource:
+		target_resource = load(PROGRESSION_DATA_TRES)
+
+	if not target_resource or not "state_table" in target_resource:
+		var detail = "Resource is null" if not target_resource else "Missing state_table property"
+		push_error("Could not find valid ProgressionData resource: %s" % detail)
+		return
+
+	# Safety check: if the new table is empty but the old one wasn't,
+	# and this isn't a deliberate deletion of the last flag, something is wrong.
+	var old_table = _get_state_table()
+	if new_table.is_empty() and not old_table.is_empty():
+		# This could happen if the list failed to load correctly.
+		# We should probably warn or block it unless it's a known deletion.
+		pass
 
 	if undo_redo:
-		if target_node:
-			undo_redo.create_action("Modify Progress Flags")
-			undo_redo.add_do_property(target_node, "state_table", new_table)
-			undo_redo.add_undo_property(target_node, "state_table", _get_state_table())
-			undo_redo.add_do_method(self, "refresh_list")
-			undo_redo.add_undo_method(self, "refresh_list")
-			undo_redo.commit_action()
-		else:
-			# If manual file edit needed
-			_save_to_file(new_table)
-			refresh_list()
+		undo_redo.create_action("Modify Progress Flags")
+		undo_redo.add_do_property(target_resource, "state_table", new_table)
+		undo_redo.add_undo_property(target_resource, "state_table", _get_state_table())
+		undo_redo.add_do_method(self, "refresh_list")
+		undo_redo.add_undo_method(self, "refresh_list")
+		undo_redo.add_do_method(self, "_save_resource", target_resource)
+		undo_redo.add_undo_method(self, "_save_resource", target_resource)
+		undo_redo.commit_action()
 	else:
-		if target_node:
-			target_node.set("state_table", new_table)
-		else:
-			_save_to_file(new_table)
+		target_resource.state_table = new_table
+		_save_resource(target_resource)
 		refresh_list()
 
-func _save_to_file(new_table: Dictionary):
-	var path = PROGRESSION_MANAGER_TSCN
-	var scene = load(path)
-	if not scene: return
-
-	var inst = scene.instantiate()
-	inst.set("state_table", new_table)
-
-	var packed = PackedScene.new()
-	packed.pack(inst)
-	ResourceSaver.save(packed, path)
-	inst.free()
+func _save_resource(res: Resource):
+	ResourceSaver.save(res, PROGRESSION_DATA_TRES)
 	EditorInterface.get_resource_filesystem().scan()
+
+func _save_to_file(_new_table: Dictionary):
+	# Obsolete but kept for compatibility if needed during transition
+	pass
 
 func _on_add_button_pressed():
 	var new_name = new_flag_name_edit.text.strip_edges()

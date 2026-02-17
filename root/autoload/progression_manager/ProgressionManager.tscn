@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btuujer4ejmr" path="res://root/autoload/progression_manager/progression_manager.gd" id="1_rgotn"]
 
+[ext_resource type="Resource" uid="uid://c8n6r5m4q7y2x" path="res://root/autoload/progression_manager/progression_data.tres" id="2_rgotn"]
+
 [node name="ProgressionManager" type="Node" unique_id=497393570]
 script = ExtResource("1_rgotn")
-state_table = Dictionary[String, bool]({
-"button_on_right_screen_clicked": false
-})
+progression_data = ExtResource("2_rgotn")

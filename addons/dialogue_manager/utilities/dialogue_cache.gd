@@ -177,7 +177,7 @@ static func _get_dialogue_files_in_filesystem(path: String = "res://") -> Packed
 		while file_name != "":
 			var file_path: String = (path + "/" + file_name).simplify_path()
 			if dir.current_is_dir():
-				if not file_name in [".godot", ".tmp"]:
+				if not file_name in [".godot", ".tmp", ".history"]:
 					files.append_array(_get_dialogue_files_in_filesystem(file_path))
 			elif file_name.get_extension() == "dialogue":
 				files.append(file_path)
