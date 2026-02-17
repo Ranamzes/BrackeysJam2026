@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1dfklbpfdw80"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_pbueu"]
+[ext_resource type="PackedScene" uid="uid://dxytaxeda5mqu" path="res://root/components/pipes_components/pipes_puzzle/PipesPuzzle.tscn" id="2_ahd56"]
+[ext_resource type="Texture2D" uid="uid://bf7yhk3dykbki" path="res://root/assets/button_light.png" id="3_lxrxd"]
+
+[node name="PipeLevel" type="Node2D" unique_id=1000876568]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_pbueu")]
+bottom_scene = "uid://c3odhd3retu8g"
+
+[node name="PipesPuzzle" parent="." unique_id=731806862 instance=ExtResource("2_ahd56")]
+position = Vector2(400, 226)
+
+[node name="ButtonLight" type="Sprite2D" parent="." unique_id=1882797746]
+position = Vector2(348.99997, 475.99994)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("3_lxrxd")
+
+[node name="ButtonLight2" type="Sprite2D" parent="." unique_id=252211403]
+position = Vector2(1449.0001, 475.99997)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("3_lxrxd")
