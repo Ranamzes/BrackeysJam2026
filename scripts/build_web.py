@@ -151,6 +151,13 @@ if __name__ == "__main__":
                 # Cleanup
                 print(f"Cleaning up build environment: {BUILD_DIR}")
                 shutil.rmtree(BUILD_DIR)
+
+                # Cleanup log file on success
+                if os.path.exists("build_safe_log.txt"):
+                    print("Cleaning up build_safe_log.txt...")
+                    os.remove("build_safe_log.txt")
+
+                print("Build and export successful!")
                 sys.exit(0)
             else:
                  sys.exit(1)
