@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnshl7dkigs4x"]
 
-[ext_resource type="Script" uid="uid://djmn3t4i8ttvj" path="res://scripts/UI/inventory/inventory_ui.gd" id="1_vxdyr"]
+[ext_resource type="Script" uid="uid://djmn3t4i8ttvj" path="res://root/Scripts/UI/inventory/inventory_ui.gd" id="1_vxdyr"]
 [ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="2_aem0y"]
 
 [node name="Inventory" type="Container" unique_id=240920203]
@@ -15,21 +15,18 @@ item_slot_background = ExtResource("2_aem0y")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2111852392]
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=2034296601]
 custom_minimum_size = Vector2(180, 1080)
 layout_mode = 2
 size_flags_horizontal = 0
-mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer" unique_id=76953243]
 layout_mode = 2
-mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer" unique_id=1643257148]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2

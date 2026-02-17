@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://bh1po4gfyrh87"]
 
-[ext_resource type="Script" uid="uid://dcfkur6y07n1s" path="res://scripts/UI/inventory/item_slot_ui.gd" id="1_sswvr"]
+[ext_resource type="Script" uid="uid://dcfkur6y07n1s" path="res://root/Scripts/UI/inventory/item_slot_ui.gd" id="1_sswvr"]
 
 [node name="ItemSLotUI" type="MarginContainer" unique_id=1544706374]
 offset_right = 952.0
 offset_bottom = 406.0
+mouse_filter = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_sswvr")
+background_selected_modulate_color = Color(0.5839219, 0.58392197, 0.5839219, 0.9990001)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=864585309]
 layout_mode = 2
@@ -24,3 +26,5 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 layout_mode = 2
 stretch_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
