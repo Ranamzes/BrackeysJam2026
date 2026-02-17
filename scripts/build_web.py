@@ -10,60 +10,10 @@ SOURCE_DIR = os.getcwd()
 BUILD_DIR = os.path.join(SOURCE_DIR, "temp_build_env")
 GODOT_BIN = r"C:\Program Files\Godot\Godot.exe"
 EXPORT_PRESET = "Web"
-EXPORT_PATH = "build/web/index.pck" # Export as PCK
-TEMPLATE_ZIP = r"C:\Users\Ranamzes\AppData\Roaming\Godot\export_templates\4.6.stable\web_release.zip"
+EXPORT_PATH = "build/web/index.html"
 
-def ignore_patterns(path, names):
-    # Ignore these directories/files during copy
-    return {'.godot', '.git', '.history', 'temp_build_env', 'build', '.import'}
-
-def setup_build_env():
-    if os.path.exists(BUILD_DIR):
-        print(f"Cleaning previous build env: {BUILD_DIR}")
-        shutil.rmtree(BUILD_DIR)
-
-    print(f"Copying project to {BUILD_DIR}...")
-    shutil.copytree(SOURCE_DIR, BUILD_DIR, ignore=shutil.ignore_patterns('.godot', '.git', '.history', 'temp_build_env', 'build', '.import'))
-    print("Copy complete.")
-
-def patch_project_godot():
-    project_file = os.path.join(BUILD_DIR, "project.godot")
-    print(f"Patching {project_file}...")
-
-    with open(project_file, "r") as f:
-        lines = f.readlines()
-
-    new_lines = []
-    for line in lines:
-        if "locale/translations_pot_files" in line and ".history" in line:
-            print("  Removing invalid line")
-            # Empty array to be safe
-            new_lines.append('locale/translations_pot_files=PackedStringArray()\n')
-        # We can keep plugins enabled for pack export, or disable them if they cause issues.
-        # Let's keep them disabled to be safe as previously determined.
-        elif "[editor_plugins]" in line:
-             print("  Disabling editor plugins section")
-             new_lines.append('; [editor_plugins]\n')
-        elif "enabled=PackedStringArray" in line and "plugin.cfg" in line:
-             print("  Commenting out plugin list")
-             new_lines.append(';' + line)
-        else:
-            new_lines.append(line)
-
-    with open(project_file, "w") as f:
-        f.writelines(new_lines)
-
-def patch_export_presets():
-    presets_file = os.path.join(BUILD_DIR, "export_presets.cfg")
-    print(f"Patching {presets_file}...")
-
-    if not os.path.exists(presets_file):
-        print("export_presets.cfg not found!")
-        return
-    # We don't need to patch head_include for export-pack
-
-def run_export_pack():
-    print("Running Godot export-pack...")
+def run_export_web():
+    print("Running Godot export-release for Web...")
     # Ensure export directory exists in the temp env
     export_dir = os.path.dirname(os.path.join(BUILD_DIR, EXPORT_PATH))
     os.makedirs(export_dir, exist_ok=True)
@@ -71,9 +21,9 @@ def run_export_pack():
     cmd = [
         GODOT_BIN,
         "--headless",
-        "--path", BUILD_DIR, # Run in the build dir
+        "--path", BUILD_DIR,
         "--verbose",
-        "--export-pack", # CHANGED to export-pack
+        "--export-release",
         EXPORT_PRESET,
         EXPORT_PATH
     ]
@@ -87,40 +37,11 @@ def run_export_pack():
                 stderr=subprocess.STDOUT,
                 text=True
             )
-            print("Export PCK SUCCESS!")
+            print("Export SUCCESS!")
             return True
         except subprocess.CalledProcessError as e:
             print(f"Export FAILED with code {e.returncode}")
             return False
-
-def extract_template_files():
-    print(f"Extracting template files from {TEMPLATE_ZIP}...")
-    dest_dir = os.path.dirname(os.path.join(BUILD_DIR, EXPORT_PATH))
-
-    try:
-        with zipfile.ZipFile(TEMPLATE_ZIP, 'r') as zip_ref:
-            # Extract required files
-            zip_ref.extract("godot.html", dest_dir)
-            zip_ref.extract("godot.js", dest_dir)
-            zip_ref.extract("godot.wasm", dest_dir)
-            # Maybe service worker?
-            if "godot.service.worker.js" in zip_ref.namelist():
-                 zip_ref.extract("godot.service.worker.js", dest_dir)
-
-        # Rename godot.html to index.html
-        os.rename(os.path.join(dest_dir, "godot.html"), os.path.join(dest_dir, "index.html"))
-
-        # We need to ensure index.html loads index.pck
-        # The default godot.html usually looks for a .pck with the same base name as the .html?
-        # Or it uses "index.pck" by default?
-        # Let's hope it works with index.pck (which we exported to).
-        # Actually we exported to index.pck so renaming godot.html to index.html makes them match!
-
-        print("Template extraction complete.")
-        return True
-    except Exception as e:
-        print(f"Error extracting template: {e}")
-        return False
 
 def copy_artifacts_back():
     # EXPORT_PATH is "build/web/index.pck"
@@ -145,22 +66,19 @@ if __name__ == "__main__":
         setup_build_env()
         patch_project_godot()
         patch_export_presets()
-        if run_export_pack():
-            if extract_template_files():
-                copy_artifacts_back()
-                # Cleanup
-                print(f"Cleaning up build environment: {BUILD_DIR}")
-                shutil.rmtree(BUILD_DIR)
+        if run_export_web():
+            copy_artifacts_back()
+            # Cleanup
+            print(f"Cleaning up build environment: {BUILD_DIR}")
+            shutil.rmtree(BUILD_DIR)
 
-                # Cleanup log file on success
-                if os.path.exists("build_safe_log.txt"):
-                    print("Cleaning up build_safe_log.txt...")
-                    os.remove("build_safe_log.txt")
+            # Cleanup log file on success
+            if os.path.exists("build_safe_log.txt"):
+                print("Cleaning up build_safe_log.txt...")
+                os.remove("build_safe_log.txt")
 
-                print("Build and export successful!")
-                sys.exit(0)
-            else:
-                 sys.exit(1)
+            print("Build and export successful!")
+            sys.exit(0)
         else:
             sys.exit(1)
     except Exception as e:
