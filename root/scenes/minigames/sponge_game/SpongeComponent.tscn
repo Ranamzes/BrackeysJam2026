@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dvfl0xdvxfc1m"]
+
+[ext_resource type="Script" uid="uid://dwt1tyabmygxs" path="res://root/scenes/minigames/sponge_game/sponge_component.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="2_red_texture"]
+
+[sub_resource type="Animation" id="Animation_pnsbi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_squish"]
+resource_name = "squish"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_squish"]
+_data = {
+&"RESET": SubResource("Animation_pnsbi"),
+&"squish": SubResource("Animation_squish")
+}
+
+[node name="SpongeComponent" type="TextureButton" unique_id=1622902131]
+offset_right = 256.0
+offset_bottom = 256.0
+pivot_offset = Vector2(128, 128)
+texture_normal = ExtResource("2_red_texture")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_script")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=666628363]
+libraries/ = SubResource("AnimationLibrary_squish")

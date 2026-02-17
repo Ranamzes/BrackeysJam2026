@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cggnymtinp5ci"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_k185b"]
+[ext_resource type="Script" uid="uid://i614mmmowlpc" path="res://root/scenes/minigames/sponge_game/sponge_minigame_manager.gd" id="1_manager"]
+[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_bg"]
+[ext_resource type="PackedScene" uid="uid://dvfl0xdvxfc1m" path="res://root/scenes/minigames/sponge_game/SpongeComponent.tscn" id="3_sponge_scene"]
+[ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="5_0md0p"]
+[ext_resource type="Texture2D" uid="uid://cuhdchqv4hycl" path="res://root/assets/atlases/sponges.sprites/sponge_green.tres" id="6_76uhp"]
+
+[node name="SpongeMinigame" type="Node2D" unique_id=2126055972]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_k185b")]
+right_scene = "uid://c3odhd3retu8g"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1798040954]
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("2_bg")
+centered = false
+
+[node name="MinigameManager" type="Node" parent="." unique_id=936679426]
+script = ExtResource("1_manager")
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="MinigameManager" unique_id=787640237]
+
+[node name="FailureSound" type="AudioStreamPlayer" parent="MinigameManager" unique_id=1567116073]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="MinigameManager" unique_id=244685845]
+
+[node name="Sponges" type="Node2D" parent="." unique_id=1937187658]
+
+[node name="SpongeRed" parent="Sponges" unique_id=2124786994 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
+offset_left = 171.0
+offset_top = 401.0
+offset_right = 898.56335
+offset_bottom = 1107.0
+pivot_offset = Vector2(363.78168, 353)
+id = &"red"
+normal_texture = ExtResource("5_0md0p")
+
+[node name="SpongeGreen" parent="Sponges" unique_id=602853998 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
+offset_left = 740.0
+offset_top = 403.0
+offset_right = 1474.7771
+offset_bottom = 1116.0
+pivot_offset = Vector2(367.38855, 356.5)
+texture_normal = ExtResource("6_76uhp")
+id = &"green"
+normal_texture = ExtResource("6_76uhp")

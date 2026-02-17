@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "sponges.png",
+			"size": {
+				"w": 1024,
+				"h": 2048
+			},
+			"sprites": [
+				{
+					"filename": "sponge_green",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 911,
+						"h": 849
+					},
+					"margin": {
+						"x": 0,
+						"y": 17,
+						"w": 0,
+						"h": 35
+					}
+				},
+				{
+					"filename": "sponge_red",
+					"region": {
+						"x": 3,
+						"y": 856,
+						"w": 911,
+						"h": 849
+					},
+					"margin": {
+						"x": 0,
+						"y": 17,
+						"w": 0,
+						"h": 35
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:09d9c74d3fd4f89fa5ee51af5ad5195a:5ff591a4a569377f7cc668a30e10646d:30d05f458ee713454a7f60894be282f6$"
+	}
+}
