@@ -20,8 +20,6 @@ signal sponge_clicked(id: StringName)
 var _angular_velocity: float = 0.0
 var _is_idle: bool = true
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 func _ready() -> void:
 	ignore_texture_size = true
 	stretch_mode = TextureButton.STRETCH_SCALE

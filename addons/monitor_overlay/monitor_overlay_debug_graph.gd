@@ -15,8 +15,6 @@ var antialiased: bool
 
 var _history := []
 var _last_value: float
-var _min_value: float = 0.0
-var _max_value: float = 1.0
 
 
 func _draw() -> void:
@@ -27,7 +25,9 @@ func _draw() -> void:
 
 
 func _draw_background_panel() -> void:
-	var panel := Rect2(Vector2.ZERO, size)
+	var panel := Rect2()
+	panel.position = get_canvas_transform().origin
+	panel.size = size
 	draw_rect(panel, background_color)
 
 
@@ -39,29 +39,35 @@ func _draw_text() -> void:
 	var position = Vector2(0, font_size) # Y offset = font size
 	draw_string(font, position, text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
 
-
+# TODO: That function is unoptimized
 func _draw_graph() -> void:
-	if not plot_graph or _history.is_empty():
+	if not plot_graph:
 		return
 
-	var min_val = _min_value
-	var max_val = _max_value
+	# Get the values range
+	var min_value = _history[0]
+	var max_value = _history[0]
+	for value in _history:
+		min_value = min(value, min_value)
+		max_value = max(value, max_value)
 
-	if min_val == max_val:
-		min_val -= 1.0
-		max_val += 1.0
+	if min_value == max_value:
+		min_value -= 1
+		max_value += 1
 
 	# Convert to 2D coordinates
 	var x := 0.0
 	var offset := size.x / max_points
 	var height := size.y
 	var margin = height / 10.0
+	var origin := get_canvas_transform().origin
 	var points = PackedVector2Array()
-	points.resize(_history.size())
 
-	for i in range(_history.size()):
-		var value = remap(_history[i], min_val, max_val, margin, height - margin)
-		points[i] = Vector2(x, height - value)
+	for value in _history:
+		value = remap(value, min_value, max_value, margin, height - margin)
+		if x > 0:
+			points.push_back(Vector2(x, height - value) + origin)
+
 		x += offset
 
 	if points.size() > 1:
@@ -74,15 +80,8 @@ func _update_history():
 		return
 
 	_history.push_back(_last_value)
-	if _history.size() > max_points:
+	if _history.size() >= max_points:
 		_history.pop_front()
-
-	# Update min/max efficiently
-	_min_value = _history[0]
-	_max_value = _history[0]
-	for val in _history:
-		if val < _min_value: _min_value = val
-		if val > _max_value: _max_value = val
 
 
 func _normalize_value(value: float) -> String:
