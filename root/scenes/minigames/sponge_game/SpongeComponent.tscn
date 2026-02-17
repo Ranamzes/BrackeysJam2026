@@ -43,11 +43,15 @@ _data = {
 [node name="SpongeComponent" type="TextureButton" unique_id=1622902131]
 offset_right = 256.0
 offset_bottom = 256.0
-pivot_offset = Vector2(128, 128)
+pivot_offset = Vector2(122, 55)
 texture_normal = ExtResource("2_red_texture")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_script")
+swing_force = null
+spring_stiffness = null
+damping = null
+max_swing_angle = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=666628363]
 libraries/ = SubResource("AnimationLibrary_squish")

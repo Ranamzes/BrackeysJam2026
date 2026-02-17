@@ -33,16 +33,24 @@ offset_left = 171.0
 offset_top = 401.0
 offset_right = 898.56335
 offset_bottom = 1107.0
-pivot_offset = Vector2(363.78168, 353)
+pivot_offset = Vector2(358, 146)
 id = &"red"
 normal_texture = ExtResource("5_0md0p")
+swing_force = 1.5
+spring_stiffness = 40.0
+damping = 0.92
+max_swing_angle = 0.3
 
 [node name="SpongeGreen" parent="Sponges" unique_id=602853998 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
 offset_left = 740.0
 offset_top = 403.0
 offset_right = 1474.7771
 offset_bottom = 1116.0
-pivot_offset = Vector2(367.38855, 356.5)
+pivot_offset = Vector2(346, 157)
 texture_normal = ExtResource("6_76uhp")
 id = &"green"
 normal_texture = ExtResource("6_76uhp")
+swing_force = 1.5
+spring_stiffness = 40.0
+damping = 0.92
+max_swing_angle = 0.3
