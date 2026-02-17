@@ -1,13 +1,13 @@
 extends CanvasLayer
 
-@export_file("*.tscn") var left_scene:String
-@export_file("*.tscn")var right_scene:String
-@export_file("*.tscn") var top_scene:String
-@export_file("*.tscn")var bottom_scene:String
-@onready var left_button:NavButton = %NavButtonLeft
-@onready var right_button:NavButton = %NavButtonRight
-@onready var top_button:NavButton = %NavButtonTop
-@onready var bottom_button:NavButton = %NavButtonBottom
+@export_file("*.tscn") var left_scene: String
+@export_file("*.tscn") var right_scene: String
+@export_file("*.tscn") var top_scene: String
+@export_file("*.tscn") var bottom_scene: String
+@onready var left_button: NavButton = %NavButtonLeft
+@onready var right_button: NavButton = %NavButtonRight
+@onready var top_button: NavButton = %NavButtonTop
+@onready var bottom_button: NavButton = %NavButtonBottom
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if left_scene != "":
@@ -24,15 +24,13 @@ func _ready() -> void:
 		bottom_button.pressed.connect(on_nav_button_pressed.bind("bottom"))
 
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 
 func on_nav_button_pressed(direction: String) -> void:
-	var new_scene_path:String
+	var new_scene_path: String
 	match direction:
 		"left":
 			new_scene_path = left_scene
@@ -44,6 +42,4 @@ func on_nav_button_pressed(direction: String) -> void:
 			new_scene_path = bottom_scene
 	if new_scene_path == "":
 		return
-	ScreenTransition.transition()
-	await ScreenTransition.transition_halfway
-	get_tree().change_scene_to_file(new_scene_path)
+	ScreenTransition.transition_to_scene(new_scene_path)

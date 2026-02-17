@@ -72,7 +72,7 @@ shader_parameter/transition_color = Color(0.43137255, 0.40392157, 0.2627451, 1)
 
 [node name="ScreenTransition" type="CanvasLayer" unique_id=2054202826]
 process_mode = 3
-layer = 128
+layer = 5
 script = ExtResource("1_spnda")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1292632044]
@@ -92,8 +92,8 @@ color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 [node name="MonitorOverlay" type="VBoxContainer" parent="." unique_id=669926720]
 visible = false
 custom_minimum_size = Vector2(300, 0)
-offset_right = 471.0
-offset_bottom = 398.0
+offset_right = 300.0
+offset_bottom = 40.0
 script = ExtResource("3_spnda")
 static_memory = true
 nodes = true
@@ -101,6 +101,4 @@ orphan_nodes = true
 objects_drawn = true
 total_draw_calls = true
 video_memory = true
-sampling_rate = 20.0
-graph_height = 64
 metadata/_custom_type_script = "uid://comno723yru5m"
