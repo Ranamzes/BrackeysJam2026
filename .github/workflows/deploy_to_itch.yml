@@ -33,8 +33,13 @@ jobs:
 
       - name: Setup
         run: |
+          apt-get update && apt-get install -y libfontconfig1
           mkdir -v -p ~/.local/share/godot/export_templates
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          cp -r /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/
+
+      - name: Import Assets
+        run: |
+          godot --headless --editor --quit
 
       - name: Web Build
         run: |

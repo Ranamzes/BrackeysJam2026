@@ -60,6 +60,13 @@ func _add_flag_row(key: String, value: bool):
 	label.tooltip_text = key
 	row.add_child(label)
 
+	var copy_btn = Button.new()
+	copy_btn.icon = get_theme_icon("ActionCopy", "EditorIcons")
+	copy_btn.flat = true
+	copy_btn.tooltip_text = "Copy flag key to clipboard"
+	copy_btn.pressed.connect(func(): DisplayServer.clipboard_set(key))
+	row.add_child(copy_btn)
+
 	var delete_btn = Button.new()
 	delete_btn.icon = get_theme_icon("Remove", "EditorIcons")
 	delete_btn.flat = true
