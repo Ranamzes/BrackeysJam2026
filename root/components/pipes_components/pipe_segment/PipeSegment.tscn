@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ce2n4ucx13wo0"]
+
+[ext_resource type="Script" uid="uid://f3y4c3m8sqlw" path="res://root/components/pipes_components/pipe_segment/pipe_segment.gd" id="1_7cv1g"]
+[ext_resource type="Texture2D" uid="uid://cyqo2abl4fs53" path="res://root/assets/t_form.png" id="1_f2ghl"]
+[ext_resource type="Texture2D" uid="uid://dr6u2dnh2ople" path="res://root/assets/line.png" id="2_0xhvd"]
+[ext_resource type="Texture2D" uid="uid://bgb7bpkdnu7v2" path="res://root/assets/cross.png" id="4_8028p"]
+[ext_resource type="Texture2D" uid="uid://dath6qk56p3vw" path="res://root/assets/angle.png" id="5_msoir"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="6_65ptr"]
+[ext_resource type="AudioStream" uid="uid://b8b4l1ny5mlpj" path="res://root/assets/UI/audio/creak3.ogg" id="9_7708c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cv1g"]
+size = Vector2(100, 100)
+
+[node name="PipeSegment" type="Area2D" unique_id=1716969247]
+script = ExtResource("1_7cv1g")
+type = "angle"
+straight_sprite_texture = ExtResource("2_0xhvd")
+tshape_sprite_texture = ExtResource("1_f2ghl")
+cross_sprite_texture = ExtResource("4_8028p")
+angle_sprite_texture = ExtResource("5_msoir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1047984036]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_7cv1g")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=377446491]
+unique_name_in_owner = true
+position = Vector2(50, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1107514053]
+unique_name_in_owner = true
+scale = Vector2(2, 2)
+texture = ExtResource("1_f2ghl")
+
+[node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("6_65ptr")]
+streams = Array[AudioStream]([ExtResource("9_7708c")])
+min_pitch = 0.85
+max_pitch = 1.2
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
