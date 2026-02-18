@@ -13,7 +13,6 @@
 right_scene = "uid://c3odhd3retu8g"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1798040954]
-position = Vector2(115, -92)
 scale = Vector2(0.9375, 0.9375)
 texture = ExtResource("2_bg")
 centered = false
@@ -28,6 +27,7 @@ script = ExtResource("1_manager")
 [node name="ClickSound" type="AudioStreamPlayer" parent="MinigameManager" unique_id=244685845]
 
 [node name="Sponges" type="Node2D" parent="." unique_id=1937187658]
+position = Vector2(-115, 92)
 
 [node name="SpongeRed" parent="Sponges" unique_id=2124786994 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
 offset_left = 333.38513
