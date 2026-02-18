@@ -26,6 +26,7 @@ Global="*res://root/Scripts/global_data.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 ProgressionManager="*res://root/autoload/progression_manager/ProgressionManager.tscn"
 DialogueService="*res://root/autoloads/DialogueService.gd"
+Cursor="*res://root/autoloads/CursorService.gd"
 
 [display]
 

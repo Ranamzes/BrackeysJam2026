@@ -32,8 +32,8 @@ script = ExtResource("1_manager")
 [node name="SpongeRed" parent="Sponges" unique_id=2124786994 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
 offset_left = 333.38513
 offset_top = 327.0
-offset_right = 982.0
-offset_bottom = 944.0
+offset_right = 981.38513
+offset_bottom = 943.0
 pivot_offset = Vector2(311.61487, 125)
 id = &"red"
 normal_texture = ExtResource("5_0md0p")
@@ -41,8 +41,8 @@ normal_texture = ExtResource("5_0md0p")
 [node name="SpongeGreen" parent="Sponges" unique_id=602853998 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
 offset_left = 901.0
 offset_top = 321.0
-offset_right = 1547.1504
-offset_bottom = 948.0
+offset_right = 1549.0
+offset_bottom = 938.0
 pivot_offset = Vector2(300, 136)
 texture_normal = ExtResource("6_76uhp")
 id = &"green"
