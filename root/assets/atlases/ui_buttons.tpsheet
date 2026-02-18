@@ -1,0 +1,228 @@
+{
+	"textures": [
+		{
+			"image": "ui_buttons.png",
+			"size": {
+				"w": 512,
+				"h": 512
+			},
+			"sprites": [
+				{
+					"filename": "music_button_on",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 127,
+						"h": 190
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "music_button_off",
+					"region": {
+						"x": 3,
+						"y": 197,
+						"w": 127,
+						"h": 188
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "check_click",
+					"region": {
+						"x": 3,
+						"y": 389,
+						"w": 94,
+						"h": 81
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "check_1",
+					"region": {
+						"x": 101,
+						"y": 389,
+						"w": 95,
+						"h": 80
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "inventory_2",
+					"region": {
+						"x": 200,
+						"y": 3,
+						"w": 136,
+						"h": 129
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cursor",
+					"region": {
+						"x": 340,
+						"y": 3,
+						"w": 134,
+						"h": 163
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "sound_1",
+					"region": {
+						"x": 200,
+						"y": 136,
+						"w": 131,
+						"h": 132
+					},
+					"margin": {
+						"x": 2,
+						"y": 1,
+						"w": 5,
+						"h": 3
+					}
+				},
+				{
+					"filename": "cross_click",
+					"region": {
+						"x": 134,
+						"y": 272,
+						"w": 93,
+						"h": 79
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cursor_click",
+					"region": {
+						"x": 200,
+						"y": 355,
+						"w": 126,
+						"h": 154
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cross_1",
+					"region": {
+						"x": 231,
+						"y": 272,
+						"w": 95,
+						"h": 77
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "sound_2",
+					"region": {
+						"x": 335,
+						"y": 170,
+						"w": 131,
+						"h": 131
+					},
+					"margin": {
+						"x": 2,
+						"y": 1,
+						"w": 5,
+						"h": 4
+					}
+				},
+				{
+					"filename": "slider",
+					"region": {
+						"x": 330,
+						"y": 305,
+						"w": 111,
+						"h": 136
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pointer_click",
+					"region": {
+						"x": 330,
+						"y": 445,
+						"w": 67,
+						"h": 59
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pointer_rest",
+					"region": {
+						"x": 401,
+						"y": 445,
+						"w": 67,
+						"h": 59
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:ffb3b3eaf79ac6497dfd88b89ec855a7:b5eee37c0c52fbe2ceddc45ba05d756f:e2446b8fade388e48f64b80a87362696$"
+	}
+}
