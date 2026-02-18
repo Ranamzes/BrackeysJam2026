@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dp05khmm574vw"]
+
+[ext_resource type="Texture2D" uid="uid://bupcw6tq1q8b1" path="res://root/assets/atlases/shampoo.png" id="1_lhxm4"]
+
+[resource]
+atlas = ExtResource("1_lhxm4")
+region = Rect2(3, 708, 181, 230)

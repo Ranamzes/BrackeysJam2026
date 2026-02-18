@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://bxuv3uvr7k80h"]
+
+[ext_resource type="Texture2D" uid="uid://dywhq2h3x2lq" path="res://root/assets/atlases/switchs.png" id="1_3m8ms"]
+
+[resource]
+atlas = ExtResource("1_3m8ms")
+region = Rect2(3, 3, 159, 247)

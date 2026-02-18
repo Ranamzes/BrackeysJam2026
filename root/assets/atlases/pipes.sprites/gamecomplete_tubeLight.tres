@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cg3c7s2pleeml"]
+
+[ext_resource type="Texture2D" uid="uid://dthyu60pp7dty" path="res://root/assets/atlases/pipes.png" id="1_iysld"]
+
+[resource]
+atlas = ExtResource("1_iysld")
+region = Rect2(3, 3, 502, 691)
+margin = Rect2(24, 31, 24, 58)

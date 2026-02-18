@@ -1,0 +1,48 @@
+{
+	"textures": [
+		{
+			"image": "switchs.png",
+			"size": {
+				"w": 256,
+				"h": 512
+			},
+			"sprites": [
+				{
+					"filename": "lever_up",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 159,
+						"h": 247
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "lever_down",
+					"region": {
+						"x": 3,
+						"y": 254,
+						"w": 156,
+						"h": 230
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:246c7ceb92628bba332c5a868d05ed67:e8da09527801c19dac981e546051391b:0feb54e71a8f224df3a745e1c83bf984$"
+	}
+}

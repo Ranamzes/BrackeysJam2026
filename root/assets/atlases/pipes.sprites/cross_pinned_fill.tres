@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://gr5dnj8kabdw"]
+
+[ext_resource type="Texture2D" uid="uid://dthyu60pp7dty" path="res://root/assets/atlases/pipes.png" id="1_fa3ny"]
+
+[resource]
+atlas = ExtResource("1_fa3ny")
+region = Rect2(247, 942, 240, 240)

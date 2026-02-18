@@ -1,0 +1,93 @@
+{
+	"textures": [
+		{
+			"image": "shampoo.png",
+			"size": {
+				"w": 512,
+				"h": 1024
+			},
+			"sprites": [
+				{
+					"filename": "jar_1",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 251,
+						"h": 184
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "jar_3",
+					"region": {
+						"x": 258,
+						"y": 3,
+						"w": 226,
+						"h": 343
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "jar_5",
+					"region": {
+						"x": 3,
+						"y": 191,
+						"w": 223,
+						"h": 513
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "jar_2",
+					"region": {
+						"x": 3,
+						"y": 708,
+						"w": 181,
+						"h": 230
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "jar_4",
+					"region": {
+						"x": 230,
+						"y": 350,
+						"w": 190,
+						"h": 395
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:19dfb36e33774dbd3690a62ebe1d7f3d:7e50d6c9c79a07dabd9f171c56a0b741:7ae96f27bd49c5fb79487c666899e0bb$"
+	}
+}

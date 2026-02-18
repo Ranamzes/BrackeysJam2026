@@ -1,0 +1,243 @@
+{
+	"textures": [
+		{
+			"image": "pipes.png",
+			"size": {
+				"w": 512,
+				"h": 2048
+			},
+			"sprites": [
+				{
+					"filename": "gamecomplete_tubeLight",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 502,
+						"h": 691
+					},
+					"margin": {
+						"x": 24,
+						"y": 31,
+						"w": 24,
+						"h": 58
+					}
+				},
+				{
+					"filename": "cross",
+					"region": {
+						"x": 3,
+						"y": 698,
+						"w": 240,
+						"h": 240
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cross_fill",
+					"region": {
+						"x": 247,
+						"y": 698,
+						"w": 240,
+						"h": 240
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cross_pinned",
+					"region": {
+						"x": 3,
+						"y": 942,
+						"w": 240,
+						"h": 240
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "cross_pinned_fill",
+					"region": {
+						"x": 247,
+						"y": 942,
+						"w": 240,
+						"h": 240
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "line_pinned",
+					"region": {
+						"x": 3,
+						"y": 1186,
+						"w": 240,
+						"h": 117
+					},
+					"margin": {
+						"x": 0,
+						"y": 62,
+						"w": 0,
+						"h": 123
+					}
+				},
+				{
+					"filename": "line_pinned_fill",
+					"region": {
+						"x": 247,
+						"y": 1186,
+						"w": 240,
+						"h": 117
+					},
+					"margin": {
+						"x": 0,
+						"y": 62,
+						"w": 0,
+						"h": 123
+					}
+				},
+				{
+					"filename": "line",
+					"region": {
+						"x": 3,
+						"y": 1307,
+						"w": 240,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 64,
+						"w": 0,
+						"h": 128
+					}
+				},
+				{
+					"filename": "line_fill",
+					"region": {
+						"x": 247,
+						"y": 1307,
+						"w": 240,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 64,
+						"w": 0,
+						"h": 128
+					}
+				},
+				{
+					"filename": "angle_pinned",
+					"region": {
+						"x": 3,
+						"y": 1423,
+						"w": 177,
+						"h": 176
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 63,
+						"h": 64
+					}
+				},
+				{
+					"filename": "angle_pinned_fill",
+					"region": {
+						"x": 184,
+						"y": 1423,
+						"w": 177,
+						"h": 176
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 63,
+						"h": 64
+					}
+				},
+				{
+					"filename": "t_form",
+					"region": {
+						"x": 3,
+						"y": 1603,
+						"w": 173,
+						"h": 240
+					},
+					"margin": {
+						"x": 67,
+						"y": 0,
+						"w": 67,
+						"h": 0
+					}
+				},
+				{
+					"filename": "angle",
+					"region": {
+						"x": 3,
+						"y": 1847,
+						"w": 173,
+						"h": 176
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 64
+					}
+				},
+				{
+					"filename": "T_form_fill",
+					"region": {
+						"x": 180,
+						"y": 1603,
+						"w": 173,
+						"h": 240
+					},
+					"margin": {
+						"x": 67,
+						"y": 0,
+						"w": 67,
+						"h": 0
+					}
+				},
+				{
+					"filename": "angle_fill",
+					"region": {
+						"x": 180,
+						"y": 1847,
+						"w": 173,
+						"h": 176
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 67,
+						"h": 64
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:43c57d08428651a86da3f19e91d45743:a51724296342d2724fbd065f51e929c5:5b53d0084072ff25c10de09b1d5f94a4$"
+	}
+}
