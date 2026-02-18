@@ -1,0 +1,183 @@
+{
+	"textures": [
+		{
+			"image": "menu.png",
+			"size": {
+				"w": 1024,
+				"h": 2048
+			},
+			"sprites": [
+				{
+					"filename": "options_click",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 446,
+						"h": 404
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "options_point",
+					"region": {
+						"x": 3,
+						"y": 411,
+						"w": 446,
+						"h": 404
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "options_rest",
+					"region": {
+						"x": 453,
+						"y": 3,
+						"w": 446,
+						"h": 404
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "credits_point",
+					"region": {
+						"x": 3,
+						"y": 819,
+						"w": 444,
+						"h": 361
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "credits_rest",
+					"region": {
+						"x": 453,
+						"y": 411,
+						"w": 444,
+						"h": 361
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "credits_click",
+					"region": {
+						"x": 3,
+						"y": 1184,
+						"w": 444,
+						"h": 360
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 1
+					}
+				},
+				{
+					"filename": "options_base_2",
+					"region": {
+						"x": 3,
+						"y": 1548,
+						"w": 399,
+						"h": 405
+					},
+					"margin": {
+						"x": 10,
+						"y": 0,
+						"w": 19,
+						"h": 9
+					}
+				},
+				{
+					"filename": "exit_click",
+					"region": {
+						"x": 453,
+						"y": 776,
+						"w": 433,
+						"h": 367
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "exit_point",
+					"region": {
+						"x": 451,
+						"y": 1147,
+						"w": 433,
+						"h": 367
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "exit_rest",
+					"region": {
+						"x": 451,
+						"y": 1518,
+						"w": 433,
+						"h": 367
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "options_base",
+					"region": {
+						"x": 406,
+						"y": 1889,
+						"w": 418,
+						"h": 148
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:819d0ebf334d1dfd32773b217ab52857:aca7f1a0744cb3e27e2e6ff38922721d:96898df3d5f0f86a521ce41fc295dd82$"
+	}
+}
