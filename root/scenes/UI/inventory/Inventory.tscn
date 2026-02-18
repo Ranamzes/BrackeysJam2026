@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnshl7dkigs4x"]
 
 [ext_resource type="Script" uid="uid://djmn3t4i8ttvj" path="res://root/Scripts/UI/inventory/inventory_ui.gd" id="1_vxdyr"]
-[ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="2_aem0y"]
+[ext_resource type="Texture2D" uid="uid://djbgsknypteex" path="res://root/assets/inventory_2.png" id="2_aem0y"]
 
 [node name="Inventory" type="Container" unique_id=240920203]
 anchors_preset = 15
