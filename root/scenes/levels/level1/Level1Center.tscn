@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_adajf"]
 [ext_resource type="Script" uid="uid://d068ctkbagweo" path="res://root/scenes/levels/level1/level_1_center.gd" id="1_hh81y"]
-[ext_resource type="PackedScene" uid="uid://vj8ldu42btrd" path="res://root/scenes/OnscreenObjects/example_onscreen_object.tscn" id="3_j743v"]
+[ext_resource type="PackedScene" uid="uid://vj8ldu42btrd" path="res://root/scenes/examples/example_onscreen_object.tscn" id="3_j743v"]
 [ext_resource type="PackedScene" uid="uid://b8q7x6y504w3" path="res://root/components/dialogue/DialogueTrigger.tscn" id="3_kuou6"]
-[ext_resource type="Resource" uid="uid://bmoynfy4skffw" path="res://root/resources/dialogue/test.dialogue" id="4_ob1xk"]
+[ext_resource type="Resource" uid="uid://droimmss6m2a5" path="res://root/resources/dialogue/test.dialogue" id="4_ob1xk"]
 [ext_resource type="Script" uid="uid://cg83nxuwmycas" path="res://root/components/dialogue/dialogue_variant.gd" id="5_ob1xk"]
+[ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/scenes/examples/example_pickup_object.tscn" id="7_t7bhs"]
 
 [sub_resource type="Resource" id="Resource_gwx3o"]
 script = ExtResource("5_ob1xk")
@@ -45,3 +46,6 @@ variants = Array[ExtResource("5_ob1xk")]([SubResource("Resource_gwx3o")])
 [node name="AutoCollisionShape" type="CollisionShape2D" parent="TestRect/DialogueClickable" unique_id=1852738009]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_t7bhs")
+
+[node name="PickupObject" parent="." unique_id=1562232421 instance=ExtResource("7_t7bhs")]
+position = Vector2(760, 558)
