@@ -101,6 +101,5 @@ orphan_nodes = true
 objects_drawn = true
 total_draw_calls = true
 video_memory = true
-sampling_rate = 60.0
 graph_height = 64
 metadata/_custom_type_script = "uid://comno723yru5m"
