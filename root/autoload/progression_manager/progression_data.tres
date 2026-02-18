@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ProgressionData" format=3 uid="uid://c8n6r5m4q7y2x"]
+[gd_resource type="Resource" script_class="ProgressionData" format=3 uid="uid://cooa3w065nuk7"]
 
-[ext_resource type="Script" uid="uid://bb7n36hnftdpn" path="res://root/autoload/progression_manager/progression_data.gd" id="1_bb7n3"]
+[ext_resource type="Script" path="res://root/autoload/progression_manager/progression_data.gd" id="1_bb7n3"]
 
 [resource]
 script = ExtResource("1_bb7n3")
 state_table = Dictionary[String, bool]({
-"button_on_right_screen_clicked": false
+"button_on_right_screen_clicked": false,
+"pipes_solved": false
 })

@@ -3,12 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dyh6c3om2n3nn" path="res://root/scenes/UI/elements/nav_button/NavButton.tscn" id="1_fai1r"]
 [ext_resource type="Script" uid="uid://d3avlydxlui34" path="res://root/scenes/UI/HUD/hud.gd" id="1_xka2d"]
 [ext_resource type="Texture2D" uid="uid://d37cdxff3coj2" path="res://root/assets/UI/buttons/nav_buttons/nav_right.png" id="2_xka2d"]
+[ext_resource type="Texture2D" uid="uid://c3v876d565rft" path="res://root/assets/UI/sound_2.png" id="3_n7qg1"]
 [ext_resource type="Texture2D" uid="uid://c52p8r0ynbfox" path="res://root/assets/UI/buttons/nav_buttons/nav_right_w.png" id="3_qooty"]
+[ext_resource type="Texture2D" uid="uid://chb50tr85d32p" path="res://root/assets/UI/sound_1.png" id="3_r43g1"]
 [ext_resource type="Texture2D" uid="uid://dgfdar2ig7baj" path="res://root/assets/UI/buttons/nav_buttons/nav_up.png" id="4_fjlug"]
 [ext_resource type="Texture2D" uid="uid://clvemxenrincv" path="res://root/assets/UI/buttons/nav_buttons/nav_up_w.png" id="5_n7qg1"]
 [ext_resource type="Texture2D" uid="uid://bv0msu4not0t3" path="res://root/assets/UI/buttons/nav_buttons/nav_down.png" id="6_r43g1"]
 [ext_resource type="Texture2D" uid="uid://cgayyc5vfokrw" path="res://root/assets/UI/buttons/nav_buttons/nav_down_w.png" id="7_3j03w"]
 [ext_resource type="PackedScene" uid="uid://bnshl7dkigs4x" path="res://root/scenes/UI/inventory/Inventory.tscn" id="9_qooty"]
+[ext_resource type="Script" path="res://scripts/UI/inventory/inventory_ui.gd" id="11_r43g1"]
 
 [node name="Hud" type="CanvasLayer" unique_id=1101607946]
 script = ExtResource("1_xka2d")
@@ -42,6 +45,8 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
+texture_normal = ExtResource("3_r43g1")
+texture_hover = ExtResource("3_n7qg1")
 
 [node name="MarginContainerRight" type="MarginContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=1191707494]
 layout_mode = 2
@@ -95,3 +100,4 @@ size_flags_horizontal = 8
 [node name="Inventory" parent="MarginContainer/HBoxContainer/MarginContainerInventory" unique_id=1388742349 instance=ExtResource("9_qooty")]
 layout_mode = 2
 size_flags_horizontal = 8
+script = ExtResource("11_r43g1")

@@ -22,9 +22,9 @@ buses/default_bus_layout="uid://du1lb8iv2wykk"
 [autoload]
 
 ScreenTransition="*res://root/autoload/screen_transition/ScreenTransition.tscn"
-Global="*res://root/Scripts/global_data.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 ProgressionManager="*res://root/autoload/progression_manager/ProgressionManager.tscn"
+Global="*res://root/Scripts/global_data.gd"
 DialogueService="*res://root/autoloads/DialogueService.gd"
 
 [display]

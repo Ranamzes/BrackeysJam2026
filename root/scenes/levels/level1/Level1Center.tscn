@@ -22,6 +22,11 @@ size = Vector2(40, 40)
 [node name="Level1Center" type="Node2D" unique_id=595355603]
 script = ExtResource("1_hh81y")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144609579]
+position = Vector2(960, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_t7bhs")
+
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
 left_scene = "res://root/scenes/minigames/sponge_game/SpongeMinigame.tscn"
 right_scene = "uid://bcyhhrogf6g01"
@@ -29,6 +34,7 @@ top_scene = "uid://1dfklbpfdw80"
 bottom_scene = "uid://doyahxijnapg4"
 
 [node name="ExampleOnscreenObject" parent="." unique_id=1076354259 instance=ExtResource("3_j743v")]
+visible = false
 position = Vector2(566, 453)
 
 [node name="TestRect" type="ColorRect" parent="." unique_id=71121828]

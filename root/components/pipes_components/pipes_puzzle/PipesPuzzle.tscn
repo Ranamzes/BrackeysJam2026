@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cxd7ext4j1k8u" path="res://root/components/pipes_components/pipes_puzzle/pipes_puzzle.gd" id="1_h73tt"]
 [ext_resource type="PackedScene" uid="uid://ce2n4ucx13wo0" path="res://root/components/pipes_components/pipe_segment/PipeSegment.tscn" id="4_cyvoy"]
 
-[node name="PipesPuzzle" type="Node2D" unique_id=731806862]
+[node name="PipesPuzzle" type="Node2D" unique_id=731806862 node_paths=PackedStringArray("pipes")]
 script = ExtResource("1_h73tt")
+pipes = [null, null, null, NodePath("Row2/PS_2_d"), NodePath("Row2/PS_2_e"), NodePath("Row2/PS_2_f"), NodePath("Row2/PS_2_g"), NodePath("Row2/PS_2_h"), NodePath("Row2/PS_2_i"), NodePath("Row2/PS_2_j"), null, NodePath("Row3/PS_3_b"), NodePath("Row3/PS_3_c"), NodePath("Row3/PS_3_d"), null, null, null, null, NodePath("Row3/PS_3_i"), NodePath("Row3/PS_3_j"), NodePath("Row4/PS_4_a"), NodePath("Row4/PS_4_b"), null, NodePath("Row4/PS_4_d"), NodePath("Row4/PS_4_e"), NodePath("Row4/PS_4_f"), null, null, NodePath("Row4/PS_4_i"), NodePath("Row4/PS_4_j"), NodePath("Row5/PS_5_a"), NodePath("Row5/PS_5_b"), NodePath("Row5/PS_5_c"), NodePath("Row5/PS_5_d"), NodePath("Row5/PS_5_e"), NodePath("Row5/PS_5_f"), NodePath("Row5/PS_5_g"), null, NodePath("Row5/PS_5_i"), null, NodePath("Row6/PS_6_a"), NodePath("Row6/PS_6_b"), null, null, null, null, NodePath("Row6/PS_6_g"), null, NodePath("Row6/PS_6_i"), null, null, null, null, null, null, null, NodePath("Row7/PS_7_g"), NodePath("Row7/PS_7_h"), NodePath("Row7/PS_7_i"), null]
 
 [node name="Row2" type="Node2D" parent="." unique_id=953432586]
 
@@ -30,6 +31,7 @@ type = "cross"
 
 [node name="PS_2_i" parent="Row2" unique_id=197283349 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
+state = 3
 
 [node name="PS_2_j" parent="Row2" unique_id=300554211 instance=ExtResource("4_cyvoy")]
 position = Vector2(900, 0)
@@ -130,32 +132,32 @@ type = "straight"
 [node name="Row6" type="Node2D" parent="." unique_id=1153725993]
 position = Vector2(0, 400)
 
-[node name="PS_4_a" parent="Row6" unique_id=407344988 instance=ExtResource("4_cyvoy")]
+[node name="PS_6_a" parent="Row6" unique_id=407344988 instance=ExtResource("4_cyvoy")]
 state = 3
 
-[node name="PS_4_b" parent="Row6" unique_id=1642535677 instance=ExtResource("4_cyvoy")]
+[node name="PS_6_b" parent="Row6" unique_id=1642535677 instance=ExtResource("4_cyvoy")]
 position = Vector2(100, 0)
 state = 2
 type = "tshape"
 
-[node name="PS_4_g" parent="Row6" unique_id=1027388920 instance=ExtResource("4_cyvoy")]
+[node name="PS_6_g" parent="Row6" unique_id=1027388920 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
 type = "straight"
 
-[node name="PS_4_i" parent="Row6" unique_id=1849220007 instance=ExtResource("4_cyvoy")]
+[node name="PS_6_i" parent="Row6" unique_id=1849220007 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
 type = "cross"
 
 [node name="Row7" type="Node2D" parent="." unique_id=1888628998]
 position = Vector2(0, 500)
 
-[node name="PS_4_g" parent="Row7" unique_id=1667309997 instance=ExtResource("4_cyvoy")]
+[node name="PS_7_g" parent="Row7" unique_id=1667309997 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
 
-[node name="PS_4_h" parent="Row7" unique_id=907469786 instance=ExtResource("4_cyvoy")]
+[node name="PS_7_h" parent="Row7" unique_id=907469786 instance=ExtResource("4_cyvoy")]
 position = Vector2(700, 0)
 type = "straight"
 
-[node name="PS_4_i" parent="Row7" unique_id=137425222 instance=ExtResource("4_cyvoy")]
+[node name="PS_7_i" parent="Row7" unique_id=137425222 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
 state = 2

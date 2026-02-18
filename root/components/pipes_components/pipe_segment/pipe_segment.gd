@@ -4,6 +4,7 @@ extends Area2D
 class_name PipeSegment
 var is_powered:bool
 var is_rotating:bool
+signal state_updated
 
 @export_range(0,3) var state:int
 @export_enum("straight","tshape","cross","angle") var type:String = "straight"
@@ -54,4 +55,18 @@ func rotate_pipe(deg: float):
 func roation_finished():
 	if state == 0:
 		visuals.rotation = 0
-	is_rotating = false			
+	is_rotating = false	
+	state_updated.emit()		
+
+func get_directions()->Array[int]:
+	match type:
+		"straight":
+			return [(1+state) % 4,(3+state ) % 4]
+		"tshape":
+			return [(0+state ) % 4,(1+state) % 4,(2+state) % 4]
+		"cross":
+			return [0,1,2,3]
+		"angle":
+			return [(1+state) % 4,(2+state) % 4]
+	return []
+	

@@ -1,23 +1,51 @@
 [gd_scene format=3 uid="uid://1dfklbpfdw80"]
 
+[ext_resource type="Script" uid="uid://ilhny2bgbdrc" path="res://root/scenes/levels/level1/puzzles/pipe_level/pipe_level.gd" id="1_ahd56"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_pbueu"]
 [ext_resource type="PackedScene" uid="uid://dxytaxeda5mqu" path="res://root/components/pipes_components/pipes_puzzle/PipesPuzzle.tscn" id="2_ahd56"]
 [ext_resource type="Texture2D" uid="uid://bf7yhk3dykbki" path="res://root/assets/button_light.png" id="3_lxrxd"]
+[ext_resource type="Texture2D" uid="uid://deyo00hi3sunm" path="res://root/assets/button_dark.png" id="5_lxrxd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f61tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lxrxd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lxrxd")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
 
 [node name="PipeLevel" type="Node2D" unique_id=1000876568]
+script = ExtResource("1_ahd56")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_pbueu")]
 bottom_scene = "uid://c3odhd3retu8g"
 
-[node name="PipesPuzzle" parent="." unique_id=731806862 instance=ExtResource("2_ahd56")]
+[node name="PipesPuzzle" parent="." unique_id=731806862 node_paths=PackedStringArray("pipes") instance=ExtResource("2_ahd56")]
+unique_name_in_owner = true
 position = Vector2(400, 226)
+pipes = [null, null, null, NodePath("Row2/PS_2_d"), NodePath("Row2/PS_2_e"), NodePath("Row2/PS_2_f"), NodePath("Row2/PS_2_g"), NodePath("Row2/PS_2_h"), NodePath("Row2/PS_2_i"), NodePath("Row2/PS_2_j"), null, NodePath("Row3/PS_3_b"), NodePath("Row3/PS_3_c"), NodePath("Row3/PS_3_d"), null, null, null, null, NodePath("Row3/PS_3_i"), NodePath("Row3/PS_3_j"), NodePath("Row4/PS_4_a"), NodePath("Row4/PS_4_b"), null, NodePath("Row4/PS_4_d"), NodePath("Row4/PS_4_e"), NodePath("Row4/PS_4_f"), null, null, NodePath("Row4/PS_4_i"), NodePath("Row4/PS_4_j"), NodePath("Row5/PS_5_a"), NodePath("Row5/PS_5_b"), NodePath("Row5/PS_5_c"), NodePath("Row5/PS_5_d"), NodePath("Row5/PS_5_e"), NodePath("Row5/PS_5_f"), NodePath("Row5/PS_5_g"), null, NodePath("Row5/PS_5_i"), null, NodePath("Row6/PS_6_a"), NodePath("Row6/PS_6_b"), null, null, null, null, NodePath("Row6/PS_6_g"), null, NodePath("Row6/PS_6_i"), null, null, null, null, null, null, null, NodePath("Row7/PS_7_g"), NodePath("Row7/PS_7_h"), NodePath("Row7/PS_7_i"), null]
 
-[node name="ButtonLight" type="Sprite2D" parent="." unique_id=1882797746]
-position = Vector2(348.99997, 475.99994)
+[node name="ButtonLeft" type="AnimatedSprite2D" parent="." unique_id=161101849]
+position = Vector2(362, 475.99997)
 scale = Vector2(0.425, 0.425)
-texture = ExtResource("3_lxrxd")
+sprite_frames = SubResource("SpriteFrames_f61tc")
+autoplay = "default"
 
-[node name="ButtonLight2" type="Sprite2D" parent="." unique_id=252211403]
-position = Vector2(1449.0001, 475.99997)
+[node name="ButtonRight" type="AnimatedSprite2D" parent="." unique_id=1845094507]
+unique_name_in_owner = true
+position = Vector2(1440.0001, 475.99997)
 scale = Vector2(0.425, 0.425)
-texture = ExtResource("3_lxrxd")
+sprite_frames = SubResource("SpriteFrames_f61tc")
+animation = &"off"
+autoplay = "off"
