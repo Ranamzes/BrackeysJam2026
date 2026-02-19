@@ -13,8 +13,13 @@ signal state_updated
 @export var tshape_sprite_texture:Texture
 @export var cross_sprite_texture:Texture
 @export var angle_sprite_texture:Texture
+@export var powered_straight_sprite_texture:Texture
+@export var powered_tshape_sprite_texture:Texture
+@export var powered_cross_sprite_texture:Texture
+@export var powered_angle_sprite_texture:Texture
 @onready var visuals: Node2D = %Visuals
 @onready var sprite: Sprite2D = %Sprite2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -67,6 +72,27 @@ func get_directions()->Array[int]:
 		"cross":
 			return [0,1,2,3]
 		"angle":
-			return [(1+state) % 4,(2+state) % 4]
+			return [(0+state) % 4,(3+state) % 4]
 	return []
 	
+func update_power()->void:
+		if is_powered:
+			match type:
+				"straight":
+					sprite.texture = powered_straight_sprite_texture
+				"tshape":
+					sprite.texture = powered_tshape_sprite_texture
+				"cross":
+					sprite.texture = powered_cross_sprite_texture
+				"angle":
+					sprite.texture = powered_angle_sprite_texture
+		else:
+			match type:
+				"straight":
+					sprite.texture = straight_sprite_texture
+				"tshape":
+					sprite.texture = tshape_sprite_texture
+				"cross":
+					sprite.texture = cross_sprite_texture
+				"angle":
+					sprite.texture = angle_sprite_texture

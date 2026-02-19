@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var buttonRight:AnimatedSprite2D = %ButtonRight
+@onready var buttonRight: Sprite2D = %ButtonRight
 @onready var pipesPuzzle:PipesPuzzle = %PipesPuzzle
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,5 +8,4 @@ func _ready() -> void:
 
 
 func on_solved() -> void:
-	buttonRight.play("default")
-
+	buttonRight.visible = true
