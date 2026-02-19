@@ -13,8 +13,8 @@ script = ExtResource("1_ahd56")
 bottom_scene = "uid://c3odhd3retu8g"
 
 [node name="background" type="Sprite2D" parent="." unique_id=427218817]
-position = Vector2(960.25, 539.99994)
-scale = Vector2(0.7498047, 0.7499998)
+position = Vector2(960, 540)
+scale = Vector2(0.9375, 0.9375)
 texture = ExtResource("3_f61tc")
 
 [node name="PipesPuzzle" parent="." unique_id=731806862 node_paths=PackedStringArray("pipes") instance=ExtResource("2_ahd56")]
