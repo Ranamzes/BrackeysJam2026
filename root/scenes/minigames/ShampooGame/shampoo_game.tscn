@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://djylon2s2ib0u"]
+
+[ext_resource type="Script" uid="uid://c44vb1mrv7yp1" path="res://root/scenes/minigames/ShampooGame/shampoo_game.gd" id="1_gy4lt"]
+[ext_resource type="Script" uid="uid://benrxj66i02co" path="res://root/scenes/UI/elements/draggable_object/draggable_object.gd" id="1_ooukc"]
+[ext_resource type="Texture2D" uid="uid://ca8e0tps12jnu" path="res://root/assets/jar_3.png" id="2_ihhgd"]
+[ext_resource type="Texture2D" uid="uid://b2ohutrha0wlh" path="res://root/assets/jar_1.png" id="3_gy4lt"]
+
+[node name="ShampooGame" type="Control" unique_id=758246177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShampooGame" type="HBoxContainer" parent="." unique_id=410945459]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gy4lt")
+metadata/_custom_type_script = "uid://c44vb1mrv7yp1"
+
+[node name="DraggableObject" type="PanelContainer" parent="ShampooGame" unique_id=1493394139]
+layout_mode = 2
+script = ExtResource("1_ooukc")
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject" unique_id=568992208]
+layout_mode = 2
+texture = ExtResource("3_gy4lt")
+
+[node name="DraggableObject2" type="PanelContainer" parent="ShampooGame" unique_id=758366360]
+layout_mode = 2
+script = ExtResource("1_ooukc")
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject2" unique_id=1834019807]
+layout_mode = 2
+texture = ExtResource("2_ihhgd")
