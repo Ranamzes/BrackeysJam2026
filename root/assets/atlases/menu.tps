@@ -151,7 +151,7 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>0.175</double>
+            <double>0.15</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
@@ -254,6 +254,23 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../UI/play_click.png</key>
+            <key type="filename">../UI/play_point.png</key>
+            <key type="filename">../UI/play_rest.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>664,758,1328,1517</rect>
+                <key>scale9Paddings</key>
+                <rect>664,758,1328,1517</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
         </map>
         <key>fileLists</key>
         <map type="SpriteSheetMap">
@@ -272,6 +289,9 @@
                     <filename>../UI/options_point.png</filename>
                     <filename>../UI/options_base_2.png</filename>
                     <filename>../UI/options_rest.png</filename>
+                    <filename>../UI/play_click.png</filename>
+                    <filename>../UI/play_point.png</filename>
+                    <filename>../UI/play_rest.png</filename>
                 </array>
             </struct>
         </map>

@@ -1,4 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://bohdae8f4gami"]
 
+[ext_resource type="FontFile" uid="uid://dkgf4f4k4bgp7" path="res://root/assets/fonts/FreckleFace-Regular.ttf" id="1_font"]
+
 [resource]
-default_font_size = 48
+default_font = ExtResource("1_font")
+default_font_size = 64
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_font")

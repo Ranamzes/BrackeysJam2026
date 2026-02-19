@@ -3,17 +3,62 @@
 		{
 			"image": "menu.png",
 			"size": {
-				"w": 1024,
-				"h": 2048
+				"w": 2048,
+				"h": 1024
 			},
 			"sprites": [
 				{
-					"filename": "options_click",
+					"filename": "play_click",
 					"region": {
 						"x": 3,
 						"y": 3,
-						"w": 446,
-						"h": 404
+						"w": 398,
+						"h": 455
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "play_point",
+					"region": {
+						"x": 3,
+						"y": 462,
+						"w": 398,
+						"h": 455
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "play_rest",
+					"region": {
+						"x": 405,
+						"y": 3,
+						"w": 398,
+						"h": 455
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "options_click",
+					"region": {
+						"x": 405,
+						"y": 462,
+						"w": 383,
+						"h": 347
 					},
 					"margin": {
 						"x": 0,
@@ -25,10 +70,10 @@
 				{
 					"filename": "options_point",
 					"region": {
-						"x": 3,
-						"y": 411,
-						"w": 446,
-						"h": 404
+						"x": 807,
+						"y": 3,
+						"w": 383,
+						"h": 347
 					},
 					"margin": {
 						"x": 0,
@@ -40,10 +85,10 @@
 				{
 					"filename": "options_rest",
 					"region": {
-						"x": 453,
+						"x": 1194,
 						"y": 3,
-						"w": 446,
-						"h": 404
+						"w": 383,
+						"h": 347
 					},
 					"margin": {
 						"x": 0,
@@ -55,25 +100,10 @@
 				{
 					"filename": "credits_point",
 					"region": {
-						"x": 3,
-						"y": 819,
-						"w": 444,
-						"h": 361
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "credits_rest",
-					"region": {
-						"x": 453,
-						"y": 411,
-						"w": 444,
-						"h": 361
+						"x": 1581,
+						"y": 3,
+						"w": 380,
+						"h": 309
 					},
 					"margin": {
 						"x": 0,
@@ -85,10 +115,10 @@
 				{
 					"filename": "credits_click",
 					"region": {
-						"x": 3,
-						"y": 1184,
-						"w": 444,
-						"h": 360
+						"x": 807,
+						"y": 354,
+						"w": 380,
+						"h": 308
 					},
 					"margin": {
 						"x": 0,
@@ -98,27 +128,27 @@
 					}
 				},
 				{
-					"filename": "options_base_2",
+					"filename": "credits_rest",
 					"region": {
-						"x": 3,
-						"y": 1548,
-						"w": 399,
-						"h": 405
+						"x": 1191,
+						"y": 354,
+						"w": 380,
+						"h": 309
 					},
 					"margin": {
-						"x": 10,
+						"x": 0,
 						"y": 0,
-						"w": 19,
-						"h": 9
+						"w": 0,
+						"h": 0
 					}
 				},
 				{
 					"filename": "exit_click",
 					"region": {
-						"x": 453,
-						"y": 776,
-						"w": 433,
-						"h": 367
+						"x": 792,
+						"y": 666,
+						"w": 371,
+						"h": 315
 					},
 					"margin": {
 						"x": 0,
@@ -130,25 +160,10 @@
 				{
 					"filename": "exit_point",
 					"region": {
-						"x": 451,
-						"y": 1147,
-						"w": 433,
-						"h": 367
-					},
-					"margin": {
-						"x": 0,
-						"y": 0,
-						"w": 0,
-						"h": 0
-					}
-				},
-				{
-					"filename": "exit_rest",
-					"region": {
-						"x": 451,
-						"y": 1518,
-						"w": 433,
-						"h": 367
+						"x": 1167,
+						"y": 667,
+						"w": 371,
+						"h": 315
 					},
 					"margin": {
 						"x": 0,
@@ -160,16 +175,46 @@
 				{
 					"filename": "options_base",
 					"region": {
-						"x": 406,
-						"y": 1889,
-						"w": 418,
-						"h": 148
+						"x": 405,
+						"y": 813,
+						"w": 359,
+						"h": 127
 					},
 					"margin": {
 						"x": 0,
 						"y": 0,
 						"w": 0,
 						"h": 0
+					}
+				},
+				{
+					"filename": "exit_rest",
+					"region": {
+						"x": 1581,
+						"y": 316,
+						"w": 371,
+						"h": 315
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "options_base_2",
+					"region": {
+						"x": 1575,
+						"y": 635,
+						"w": 342,
+						"h": 347
+					},
+					"margin": {
+						"x": 9,
+						"y": 0,
+						"w": 17,
+						"h": 8
 					}
 				}
 			]
@@ -178,6 +223,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:819d0ebf334d1dfd32773b217ab52857:aca7f1a0744cb3e27e2e6ff38922721d:96898df3d5f0f86a521ce41fc295dd82$"
+		"smartupdate": "$TexturePacker:SmartUpdate:43fdc6234d826306ab41d7daa35c3b8a:7674c97fd5b5788209fa5a93a433dcdf:96898df3d5f0f86a521ce41fc295dd82$"
 	}
 }
