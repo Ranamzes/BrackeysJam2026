@@ -34,6 +34,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_ooukc")
+id = null
+is_empty = null
 metadata/_custom_type_script = "uid://benrxj66i02co"
 
 [node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject" unique_id=568992208]
@@ -45,6 +47,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_ooukc")
+id = null
 is_empty = true
 metadata/_custom_type_script = "uid://benrxj66i02co"
 
@@ -57,6 +60,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_ooukc")
+id = null
+is_empty = null
 metadata/_custom_type_script = "uid://benrxj66i02co"
 
 [node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject3" unique_id=486643900]
@@ -68,6 +73,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_ooukc")
+id = null
+is_empty = null
 metadata/_custom_type_script = "uid://benrxj66i02co"
 
 [node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject4" unique_id=1181704424]
@@ -79,6 +86,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_ooukc")
+id = null
+is_empty = null
 metadata/_custom_type_script = "uid://benrxj66i02co"
 
 [node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject5" unique_id=635820709]

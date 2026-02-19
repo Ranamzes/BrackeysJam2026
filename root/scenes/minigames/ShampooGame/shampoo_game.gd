@@ -4,14 +4,10 @@ extends HBoxContainer
 var dragging_shampoo : DraggableObject
 var dragging_offset : Vector2
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if dragging_shampoo :
-		dragging_shampoo.shampoo_texture.position = get_global_mouse_position() - dragging_offset
-		
+func check_solved() -> void:
+	var shampoos = get_children()
+	for i in range(shampoos.size() - 1):
+		if shampoos[i].is_empty || shampoos[i].id > shampoos[i+1].id :
+			print("not solved!")
+			return
+	print("solved!")
