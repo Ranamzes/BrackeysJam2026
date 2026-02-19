@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://djylon2s2ib0u"]
+
+[ext_resource type="Script" uid="uid://c44vb1mrv7yp1" path="res://root/scenes/minigames/ShampooGame/shampoo_game.gd" id="1_gy4lt"]
+[ext_resource type="Script" uid="uid://dc8og1sh05l6o" path="res://root/scenes/minigames/ShampooGame/shampoo_scene.gd" id="1_oil3r"]
+[ext_resource type="Script" uid="uid://benrxj66i02co" path="res://root/scenes/UI/elements/draggable_object/draggable_object.gd" id="1_ooukc"]
+[ext_resource type="Texture2D" uid="uid://dbguw1y2c4xsh" path="res://root/assets/atlases/shampoo.sprites/jar_1.tres" id="3_gy4lt"]
+[ext_resource type="Texture2D" uid="uid://gggpfr87njbx" path="res://root/assets/atlases/shampoo.sprites/jar_3.tres" id="4_klib1"]
+[ext_resource type="Texture2D" uid="uid://dp05khmm574vw" path="res://root/assets/atlases/shampoo.sprites/jar_2.tres" id="6_h0y84"]
+[ext_resource type="Texture2D" uid="uid://dg6vrctaaxx6n" path="res://root/assets/atlases/shampoo.sprites/jar_4.tres" id="7_d8b48"]
+[ext_resource type="Texture2D" uid="uid://bmtjo4v675f8e" path="res://root/assets/atlases/shampoo.sprites/jar_5.tres" id="8_jopnm"]
+
+[node name="ShampooScene" type="Control" unique_id=758246177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_oil3r")
+
+[node name="ShampooGame" type="HBoxContainer" parent="." unique_id=410945459]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 322.0
+offset_top = 267.0
+offset_right = 1409.0
+offset_bottom = 780.0
+script = ExtResource("1_gy4lt")
+metadata/_custom_type_script = "uid://c44vb1mrv7yp1"
+
+[node name="DraggableObject" type="PanelContainer" parent="ShampooGame" unique_id=1493394139]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+id = null
+is_empty = null
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject" unique_id=568992208]
+layout_mode = 2
+texture = ExtResource("3_gy4lt")
+
+[node name="DraggableObject2" type="PanelContainer" parent="ShampooGame" unique_id=758366360]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+id = null
+is_empty = true
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject2" unique_id=1834019807]
+layout_mode = 2
+texture = ExtResource("4_klib1")
+
+[node name="DraggableObject3" type="PanelContainer" parent="ShampooGame" unique_id=1928037041]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+id = null
+is_empty = null
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject3" unique_id=486643900]
+layout_mode = 2
+texture = ExtResource("6_h0y84")
+
+[node name="DraggableObject4" type="PanelContainer" parent="ShampooGame" unique_id=629435200]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+id = null
+is_empty = null
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject4" unique_id=1181704424]
+layout_mode = 2
+texture = ExtResource("7_d8b48")
+
+[node name="DraggableObject5" type="PanelContainer" parent="ShampooGame" unique_id=34114217]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+id = null
+is_empty = null
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooGame/DraggableObject5" unique_id=635820709]
+layout_mode = 2
+texture = ExtResource("8_jopnm")

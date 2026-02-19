@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_4nkuw"]
 [ext_resource type="Texture2D" uid="uid://cgayyc5vfokrw" path="res://root/assets/UI/buttons/nav_buttons/nav_down_w.png" id="2_kyoml"]
+[ext_resource type="PackedScene" uid="uid://djylon2s2ib0u" path="res://root/scenes/minigames/ShampooGame/shampoo_game.tscn" id="3_kyoml"]
 
 [node name="Level1Bottom" type="Node2D" unique_id=1612719515]
 
@@ -9,5 +10,7 @@
 top_scene = "uid://c3odhd3retu8g"
 
 [node name="NavDownW" type="Sprite2D" parent="." unique_id=1814588808]
-position = Vector2(993, 527)
+position = Vector2(65, 64)
 texture = ExtResource("2_kyoml")
+
+[node name="ShampooScene" parent="." unique_id=758246177 instance=ExtResource("3_kyoml")]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bnxc503ylyexd"]
+
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://root/Scripts/inventory/item_data.gd" id="1_02vje"]
+[ext_resource type="Texture2D" uid="uid://gggpfr87njbx" path="res://root/assets/atlases/shampoo.sprites/jar_3.tres" id="1_fxv7c"]
+
+[resource]
+script = ExtResource("1_02vje")
+id = "jar_3"
+icon = ExtResource("1_fxv7c")
+metadata/_custom_type_script = "uid://sfjgktjvkx2l"

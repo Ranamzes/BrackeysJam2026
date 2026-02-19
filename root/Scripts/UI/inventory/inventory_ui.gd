@@ -23,6 +23,8 @@ func clear_screen():
 		child.queue_free()
 
 func add_item_on_screen(item_slot: ItemSlot):
+	if !item_slot.item :
+		return
 	var slot_scene = item_slot_packed_scene.instantiate()
 	vbox_container.add_child(slot_scene)
 	slot_scene.update_slot(item_slot_background, item_slot)
