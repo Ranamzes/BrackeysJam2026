@@ -37,6 +37,12 @@ signal pressed
 
 @export var hover_color: Color = Color.RED
 
+@export var disabled: bool = false:
+	set(value):
+		if disabled != value:
+			disabled = value
+			_request_update()
+
 @export_subgroup("Font Overrides")
 @export var custom_font: Font:
 	set(value):
@@ -120,6 +126,7 @@ func _do_update_ui() -> void:
 		if btn.texture_pressed != pressed_texture: btn.texture_pressed = pressed_texture
 		if btn.texture_hover != hover_texture: btn.texture_hover = hover_texture
 		if btn.position != texture_offset: btn.position = texture_offset
+		if btn.disabled != disabled: btn.disabled = disabled
 		if btn.texture_normal and not btn.texture_click_mask:
 			_update_click_mask()
 
@@ -156,7 +163,6 @@ func _update_click_mask() -> void:
 			var bitmap: BitMap = BitMap.new()
 			bitmap.create_from_image_alpha(image, click_mask_threshold)
 			btn.texture_click_mask = bitmap
-
 
 func _on_btn_pressed() -> void:
 	pressed.emit()

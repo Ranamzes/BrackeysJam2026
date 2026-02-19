@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="1_p34k7"]
 [ext_resource type="Script" uid="uid://c42bvqgc1e5p0" path="res://root/scenes/UI/main_menu/main_menu.gd" id="1_wj717"]
+[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_uns31"]
 [ext_resource type="Theme" uid="uid://bohdae8f4gami" path="res://root/resources/themes/ButtonTheme.tres" id="2_uui6l"]
-[ext_resource type="Texture2D" uid="uid://yy7hx0hjyp0r" path="res://root/assets/atlases/menu.sprites/play_rest.tres" id="4_8n45h"]
-[ext_resource type="Texture2D" uid="uid://qlagqb748nxp" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
-[ext_resource type="Texture2D" uid="uid://bpgrm532a1pjy" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
+[ext_resource type="Texture2D" uid="uid://bjwa0syfxp4v4" path="res://root/assets/atlases/menu.sprites/play_rest.tres" id="4_8n45h"]
+[ext_resource type="Texture2D" uid="uid://b3e8v8w6fts05" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
+[ext_resource type="Texture2D" uid="uid://deugcibyy5kcr" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
 [ext_resource type="Texture2D" uid="uid://b623q28xict23" path="res://root/assets/atlases/menu.sprites/options_rest.tres" id="7_0lec3"]
 [ext_resource type="FontVariation" path="res://root/resources/fonts/menu_font.tres" id="7_x40my"]
 [ext_resource type="Texture2D" uid="uid://dgtnn0ua8uijm" path="res://root/assets/atlases/menu.sprites/options_click.tres" id="8_7tcj4"]
@@ -19,6 +20,11 @@
 
 [node name="MainMenu" type="CanvasLayer" unique_id=609203152]
 script = ExtResource("1_wj717")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1052801641]
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("2_uns31")
+centered = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=449318572]
 process_mode = 3
@@ -56,6 +62,7 @@ pressed_texture = ExtResource("5_b5adr")
 text = "Play"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = null
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(0, -160)
@@ -76,6 +83,7 @@ pressed_texture = ExtResource("8_7tcj4")
 text = "Options"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = null
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(0, -180)
@@ -96,6 +104,7 @@ pressed_texture = ExtResource("11_opwv4")
 text = "Credits"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = null
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(-8, -206)
@@ -116,6 +125,7 @@ pressed_texture = ExtResource("14_x40my")
 text = "Exit"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = null
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(-11, -215)

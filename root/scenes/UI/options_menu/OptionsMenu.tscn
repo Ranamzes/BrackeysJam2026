@@ -1,98 +1,207 @@
 [gd_scene format=3 uid="uid://bhflldojgy22b"]
 
 [ext_resource type="Script" uid="uid://ijbd6uoanqwv" path="res://root/scenes/UI/options_menu/options_menu.gd" id="1_pdbmr"]
-[ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="1_snva4"]
+[ext_resource type="Texture2D" uid="uid://b0n5vfivd5tsb" path="res://root/assets/atlases/menu.sprites/options_base_2.tres" id="2_base2"]
+[ext_resource type="Texture2D" uid="uid://gn3xd5c2rhf2" path="res://root/assets/atlases/menu.sprites/options_base.tres" id="3_base_title"]
+[ext_resource type="FontFile" uid="uid://dkgf4f4k4bgp7" path="res://root/assets/fonts/FreckleFace-Regular.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://dehoajydpx4m" path="res://root/assets/atlases/ui_buttons.sprites/sound_1.tres" id="5_sound"]
+[ext_resource type="Texture2D" uid="uid://fv50diylvmsb" path="res://root/assets/atlases/ui_buttons.sprites/music_button_on.tres" id="7_music"]
+[ext_resource type="Texture2D" uid="uid://cnkkbb61qw663" path="res://root/assets/atlases/ui_buttons.sprites/check_1.tres" id="9_check"]
+[ext_resource type="Texture2D" uid="uid://c05ap72p5at1s" path="res://root/assets/atlases/ui_buttons.sprites/check_click.tres" id="10_check_click"]
+[ext_resource type="Texture2D" uid="uid://c24skl0vs2tu3" path="res://root/assets/atlases/ui_buttons.sprites/cross_1.tres" id="11_cross"]
+[ext_resource type="Texture2D" uid="uid://cbcuecuqk3n7f" path="res://root/assets/atlases/ui_buttons.sprites/cross_click.tres" id="12_cross_click"]
+[ext_resource type="PackedScene" uid="uid://cbkhnt2qj8xyo" path="res://root/scenes/UI/elements/custom_slider/CustomSlider.tscn" id="13_c_slider"]
 
-[node name="OptionsMenu" type="CanvasLayer" unique_id=294770797]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1"]
+
+[node name="OptionsMenu" type="CanvasLayer" unique_id=811247126]
 layer = 2
 script = ExtResource("1_pdbmr")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1992931324]
+[node name="MainBackground" type="ColorRect" parent="." unique_id=1664898102]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+color = Color(0.243137, 0.243137, 0.243137, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=779796254]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=123543834]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1375570757]
+[node name="MainVBox" type="VBoxContainer" parent="MarginContainer" unique_id=1551818626]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1701372883]
+[node name="TitleContainer" type="Control" parent="MarginContainer/MainVBox" unique_id=1749174636]
+custom_minimum_size = Vector2(400, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TitleBackground" type="TextureRect" parent="MarginContainer/MainVBox/TitleContainer" unique_id=188719921]
+custom_minimum_size = Vector2(460, 180)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_base_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/TitleContainer" unique_id=2131600540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 72
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MainVBox" unique_id=88310001]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1")
+
+[node name="TextureBackground" type="TextureRect" parent="MarginContainer/MainVBox/PanelContainer" unique_id=2081692131]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_base2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuMargin" type="MarginContainer" parent="MarginContainer/MainVBox/PanelContainer" unique_id=1380077091]
 layout_mode = 2
 theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1053017479]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin" unique_id=1205651796]
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1904919324]
+[node name="MasterContainer" type="HBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer" unique_id=1431886729]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Options"
+theme_override_constants/separation = 15
 
-[node name="MasterContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=750415580]
+[node name="MasterIconButton" type="TextureButton" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MasterContainer" unique_id=925045090]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+texture_normal = ExtResource("5_sound")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MasterContainer" unique_id=1804947491]
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MasterContainer" unique_id=840569756]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MasterContainer/VBox" unique_id=1524151806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56078434, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
 text = "Master Volume"
 
-[node name="MasterSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MasterContainer" unique_id=1668949599]
+[node name="MasterSlider" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MasterContainer/VBox" unique_id=626615052 instance=ExtResource("13_c_slider")]
 unique_name_in_owner = true
 layout_mode = 2
-max_value = 1.0
-step = 0.01
 
-[node name="MusicContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1293315761]
+[node name="MusicContainer" type="HBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer" unique_id=1813047403]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicContainer" unique_id=858333742]
+[node name="MusicIconButton" type="TextureButton" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MusicContainer" unique_id=1830528671]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+texture_normal = ExtResource("7_music")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MusicContainer" unique_id=459657701]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MusicContainer/VBox" unique_id=928324399]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56078434, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
 text = "Music Volume"
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MusicContainer" unique_id=1750880015]
+[node name="MusicSlider" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/MusicContainer/VBox" unique_id=463666329 instance=ExtResource("13_c_slider")]
 unique_name_in_owner = true
 layout_mode = 2
-max_value = 1.0
-step = 0.01
 
-[node name="SFXContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=113377442]
+[node name="SFXContainer" type="HBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer" unique_id=24809176]
 layout_mode = 2
+theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXContainer" unique_id=2065194126]
+[node name="SFXIconButton" type="TextureButton" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/SFXContainer" unique_id=341412204]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+texture_normal = ExtResource("5_sound")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/SFXContainer" unique_id=2132441422]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/SFXContainer/VBox" unique_id=467526914]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56078434, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 24
 text = "SFX Volume"
 
-[node name="SFXSlider" type="HSlider" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SFXContainer" unique_id=140089459]
+[node name="SFXSlider" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/SFXContainer/VBox" unique_id=905884579 instance=ExtResource("13_c_slider")]
 unique_name_in_owner = true
 layout_mode = 2
-max_value = 1.0
-step = 0.01
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1714629550]
+[node name="ActionButtons" type="HBoxContainer" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer" unique_id=644684727]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
+theme_override_constants/separation = 20
 
-[node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1880091726 instance=ExtResource("1_snva4")]
+[node name="ResetButton" type="TextureButton" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/ActionButtons" unique_id=1441546102]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Back"
+texture_normal = ExtResource("11_cross")
+texture_pressed = ExtResource("12_cross_click")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ApplyButton" type="TextureButton" parent="MarginContainer/MainVBox/PanelContainer/MenuMargin/VBoxContainer/ActionButtons" unique_id=1364152899]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("9_check")
+texture_pressed = ExtResource("10_check_click")
+ignore_texture_size = true
+stretch_mode = 5
