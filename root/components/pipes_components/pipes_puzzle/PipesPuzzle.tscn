@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://dxytaxeda5mqu"]
 
 [ext_resource type="Script" uid="uid://cxd7ext4j1k8u" path="res://root/components/pipes_components/pipes_puzzle/pipes_puzzle.gd" id="1_h73tt"]
+[ext_resource type="Texture2D" uid="uid://higqt1bqphnx" path="res://root/assets/line_pinned.png" id="3_uilqo"]
+[ext_resource type="Texture2D" uid="uid://bsk512u6dlfef" path="res://root/assets/line_pinned_fill.png" id="4_5noaa"]
 [ext_resource type="PackedScene" uid="uid://ce2n4ucx13wo0" path="res://root/components/pipes_components/pipe_segment/PipeSegment.tscn" id="4_cyvoy"]
+[ext_resource type="Texture2D" uid="uid://dyhp62mbl6lbc" path="res://root/assets/cross_pinned.png" id="4_f6436"]
+[ext_resource type="Texture2D" uid="uid://b1cyke4i2jgvc" path="res://root/assets/angle_pinned.png" id="4_vj3lr"]
+[ext_resource type="Texture2D" uid="uid://85qayeotmqpa" path="res://root/assets/angle_pinned_fill.png" id="5_63tys"]
+[ext_resource type="Texture2D" uid="uid://dle1am564fwmm" path="res://root/assets/cross_pinned_fill.png" id="8_fiq2i"]
 
 [node name="PipesPuzzle" type="Node2D" unique_id=731806862 node_paths=PackedStringArray("pipes")]
 script = ExtResource("1_h73tt")
@@ -11,87 +17,123 @@ pipes = [null, null, null, NodePath("Row2/PS_2_d"), NodePath("Row2/PS_2_e"), Nod
 
 [node name="PS_2_d" parent="Row2" unique_id=1716969247 instance=ExtResource("4_cyvoy")]
 position = Vector2(300, 0)
+state = 3
+is_rotatable = true
 
 [node name="PS_2_e" parent="Row2" unique_id=1789793916 instance=ExtResource("4_cyvoy")]
 position = Vector2(400, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_2_f" parent="Row2" unique_id=1505921932 instance=ExtResource("4_cyvoy")]
 position = Vector2(500, 0)
 state = 1
 type = "straight"
+is_rotatable = true
 
 [node name="PS_2_g" parent="Row2" unique_id=290706244 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
+state = 0
 type = "cross"
+is_rotatable = true
 
 [node name="PS_2_h" parent="Row2" unique_id=63086411 instance=ExtResource("4_cyvoy")]
 position = Vector2(700, 0)
+state = 0
 type = "cross"
+is_rotatable = true
 
 [node name="PS_2_i" parent="Row2" unique_id=197283349 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
-state = 3
+state = 1
+is_rotatable = true
 
 [node name="PS_2_j" parent="Row2" unique_id=300554211 instance=ExtResource("4_cyvoy")]
 position = Vector2(900, 0)
-state = 1
+state = 0
+is_rotatable = true
 
 [node name="Row3" type="Node2D" parent="." unique_id=965209898]
 position = Vector2(0, 100)
 
 [node name="PS_3_b" parent="Row3" unique_id=813804574 instance=ExtResource("4_cyvoy")]
 position = Vector2(100, 0)
+state = 0
 type = "cross"
+is_rotatable = true
 
 [node name="PS_3_c" parent="Row3" unique_id=1021783459 instance=ExtResource("4_cyvoy")]
 position = Vector2(200, 0)
+state = 0
 type = "straight"
 is_rotatable = false
+straight_sprite_texture = ExtResource("3_uilqo")
+powered_straight_sprite_texture = ExtResource("4_5noaa")
 
 [node name="PS_3_d" parent="Row3" unique_id=889448838 instance=ExtResource("4_cyvoy")]
 position = Vector2(300, 0)
+state = 0
 type = "tshape"
+is_rotatable = true
 
 [node name="PS_3_i" parent="Row3" unique_id=205492510 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_3_j" parent="Row3" unique_id=1390993155 instance=ExtResource("4_cyvoy")]
 position = Vector2(900, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="Row4" type="Node2D" parent="." unique_id=1414909364]
 position = Vector2(0, 200)
 
 [node name="PS_4_a" parent="Row4" unique_id=224544449 instance=ExtResource("4_cyvoy")]
-state = 1
+state = 3
 is_rotatable = false
+angle_sprite_texture = ExtResource("4_vj3lr")
+powered_angle_sprite_texture = ExtResource("5_63tys")
 
 [node name="PS_4_b" parent="Row4" unique_id=455277914 instance=ExtResource("4_cyvoy")]
 position = Vector2(100, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_4_d" parent="Row4" unique_id=1049324803 instance=ExtResource("4_cyvoy")]
 position = Vector2(300, 0)
+state = 0
+is_rotatable = true
 
 [node name="PS_4_e" parent="Row4" unique_id=1075335466 instance=ExtResource("4_cyvoy")]
 position = Vector2(400, 0)
+state = 0
 type = "cross"
 is_rotatable = false
+cross_sprite_texture = ExtResource("4_f6436")
+powered_cross_sprite_texture = ExtResource("8_fiq2i")
 
 [node name="PS_4_f" parent="Row4" unique_id=1455397866 instance=ExtResource("4_cyvoy")]
 position = Vector2(500, 0)
-state = 2
+state = 3
+is_rotatable = true
 
 [node name="PS_4_i" parent="Row4" unique_id=1745637982 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
+state = 0
 type = "tshape"
+is_rotatable = true
 
 [node name="PS_4_j" parent="Row4" unique_id=2059530547 instance=ExtResource("4_cyvoy")]
 position = Vector2(900, 0)
-state = 3
+state = 1
 is_rotatable = false
+angle_sprite_texture = ExtResource("4_vj3lr")
+powered_angle_sprite_texture = ExtResource("5_63tys")
 
 [node name="Row5" type="Node2D" parent="." unique_id=1815672613]
 position = Vector2(0, 300)
@@ -99,65 +141,87 @@ position = Vector2(0, 300)
 [node name="PS_5_a" parent="Row5" unique_id=1353409491 instance=ExtResource("4_cyvoy")]
 state = 2
 type = "straight"
+is_rotatable = true
 
 [node name="PS_5_b" parent="Row5" unique_id=1791180360 instance=ExtResource("4_cyvoy")]
 position = Vector2(100, 0)
 state = 1
 type = "straight"
+is_rotatable = true
 
 [node name="PS_5_c" parent="Row5" unique_id=1106373552 instance=ExtResource("4_cyvoy")]
 position = Vector2(200, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_5_d" parent="Row5" unique_id=894839270 instance=ExtResource("4_cyvoy")]
 position = Vector2(300, 0)
 state = 1
 type = "straight"
+is_rotatable = true
 
 [node name="PS_5_e" parent="Row5" unique_id=1946099786 instance=ExtResource("4_cyvoy")]
 position = Vector2(400, 0)
 state = 1
+is_rotatable = true
 
 [node name="PS_5_f" parent="Row5" unique_id=341346570 instance=ExtResource("4_cyvoy")]
 position = Vector2(500, 0)
-state = 3
+state = 0
+is_rotatable = true
 
 [node name="PS_5_g" parent="Row5" unique_id=945648991 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
+state = 0
+is_rotatable = true
 
 [node name="PS_5_i" parent="Row5" unique_id=478008659 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="Row6" type="Node2D" parent="." unique_id=1153725993]
 position = Vector2(0, 400)
 
 [node name="PS_6_a" parent="Row6" unique_id=407344988 instance=ExtResource("4_cyvoy")]
-state = 3
+state = 2
+is_rotatable = true
 
 [node name="PS_6_b" parent="Row6" unique_id=1642535677 instance=ExtResource("4_cyvoy")]
 position = Vector2(100, 0)
 state = 2
 type = "tshape"
+is_rotatable = true
 
 [node name="PS_6_g" parent="Row6" unique_id=1027388920 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_6_i" parent="Row6" unique_id=1849220007 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
+state = 0
 type = "cross"
+is_rotatable = true
 
 [node name="Row7" type="Node2D" parent="." unique_id=1888628998]
 position = Vector2(0, 500)
 
 [node name="PS_7_g" parent="Row7" unique_id=1667309997 instance=ExtResource("4_cyvoy")]
 position = Vector2(600, 0)
+state = 2
+is_rotatable = true
 
 [node name="PS_7_h" parent="Row7" unique_id=907469786 instance=ExtResource("4_cyvoy")]
 position = Vector2(700, 0)
+state = 0
 type = "straight"
+is_rotatable = true
 
 [node name="PS_7_i" parent="Row7" unique_id=137425222 instance=ExtResource("4_cyvoy")]
 position = Vector2(800, 0)
-state = 2
+state = 0
+is_rotatable = true
