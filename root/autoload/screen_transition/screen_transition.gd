@@ -25,32 +25,46 @@ func transition():
 	animation_player.play_backwards("transition")
 
 func transition_to_scene(new_scene_path: String):
-	animation_player.play("transition")
-	await animation_player.animation_finished
-
-	# Start asynchronous loading
+	# Start loading immediately in parallel with the animation
 	var error = ResourceLoader.load_threaded_request(new_scene_path)
 	if error != OK:
 		printerr("[Error] Failed to start threaded load for: ", new_scene_path)
+		# Fallback: still show animation and then try to change scene normally (or fail)
+		animation_player.play("transition")
+		await animation_player.animation_finished
+		get_tree().change_scene_to_file(new_scene_path)
 		animation_player.play_backwards("transition")
 		return
 
-	# Poll for completion
-	while true:
+	# Start the transition animation
+	animation_player.play("transition")
+
+	# Poll for completion while allowing the animation to run
+	var scene_loaded = false
+	var new_scene_packed: PackedScene = null
+
+	while not scene_loaded:
 		var status = ResourceLoader.load_threaded_get_status(new_scene_path)
 		match status:
 			ResourceLoader.THREAD_LOAD_LOADED:
-				var new_scene = ResourceLoader.load_threaded_get(new_scene_path)
-				get_tree().change_scene_to_packed(new_scene)
-				break
-			ResourceLoader.THREAD_LOAD_FAILED:
+				new_scene_packed = ResourceLoader.load_threaded_get(new_scene_path)
+				scene_loaded = true
+			ResourceLoader.THREAD_LOAD_FAILED, ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 				printerr("[Error] Threaded load failed for: ", new_scene_path)
-				break
-			ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
-				printerr("[Error] Threaded load invalid resource: ", new_scene_path)
-				break
-		# Wait for a frame before checking again
-		await get_tree().process_frame
+				# Fallback if possible or stop
+				animation_player.play_backwards("transition")
+				return
 
+		if not scene_loaded:
+			await get_tree().process_frame
+
+	# Ensure animation has finished "darkening" the screen before switching
+	if animation_player.is_playing() and animation_player.current_animation == "transition":
+		await animation_player.animation_finished
+
+	# Switch the scene
+	get_tree().change_scene_to_packed(new_scene_packed)
+
+	# Emit signal and fade out
 	transition_halfway.emit()
 	animation_player.play_backwards("transition")
