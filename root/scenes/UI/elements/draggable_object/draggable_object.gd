@@ -38,10 +38,15 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	preview.add_child(preview_rect)
 	preview_rect.position = shampoo_texture.global_position - get_global_mouse_position()
 	print(preview_rect.position)
+	preview_rect.tree_exited.connect(reset_shampoo)
 	set_drag_preview(preview)
 	shampoo_texture.modulate = Color.TRANSPARENT
 	shampoo_game.dragging_shampoo = self
 	return self
+	
+func reset_shampoo():
+	shampoo_game.dragging_shampoo.shampoo_texture.modulate = Color.WHITE
+	shampoo_game.dragging_shampoo = null
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
