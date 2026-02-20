@@ -14,6 +14,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -354.0
+offset_top = -140.0
+offset_right = 246.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -22,10 +26,10 @@ script = ExtResource("1_oil3r")
 [node name="ShampooGame" type="HBoxContainer" parent="." unique_id=410945459]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 322.0
-offset_top = 267.0
-offset_right = 1409.0
-offset_bottom = 780.0
+offset_left = 633.0
+offset_top = 432.0
+offset_right = 1720.0
+offset_bottom = 945.0
 script = ExtResource("1_gy4lt")
 metadata/_custom_type_script = "uid://c44vb1mrv7yp1"
 
