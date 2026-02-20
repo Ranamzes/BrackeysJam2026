@@ -1,12 +1,15 @@
 class_name OnScreenObjectState
 extends Area2D
 
-@export var transitions : Array[ObjectStateTransition]
+var transitions : Array[ObjectStateTransition]
 @export var to_set_true: Array[String]
 @export var to_set_false: Array[String]
 
 func _ready() -> void:
 	self.input_event.connect(_on_input_event)
+	for child in get_children() :
+		if child is ObjectStateTransition :
+			transitions.append(child)
 
 func go_to(new_state : OnScreenObjectState) ->  void:
 	for true_flag in to_set_true:
