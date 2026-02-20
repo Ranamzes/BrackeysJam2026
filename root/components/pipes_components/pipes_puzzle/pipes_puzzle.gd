@@ -44,6 +44,7 @@ func check_solution():
 
 
 func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
+	var is_solved:bool = false
 	var current_cell: PipeSegment = pipes[pipe_index]
 	if current_cell == null:
 		return false
@@ -56,6 +57,7 @@ func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
 		var next_index: int
 		var next_row: int
 		var next_column: int
+	
 		match direction:
 			0:
 				next_row = get_row(pipe_index) - 1
@@ -67,7 +69,7 @@ func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
 				next_index = get_raw_index(next_row, next_column)
 				if incoming_index != next_index and pipes[next_index] != null and 2 in pipes[next_index].get_directions():
 					if (check_next_pipe(next_index, pipe_index)):
-						return true
+						is_solved = true
 			1:
 				next_row = get_row(pipe_index)
 				if next_row < 0 or next_row >= height:
@@ -78,7 +80,7 @@ func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
 				next_index = get_raw_index(next_row, next_column)
 				if incoming_index != next_index and pipes[next_index] != null and 3 in pipes[next_index].get_directions():
 					if (check_next_pipe(next_index, pipe_index)):
-						return true
+						is_solved = true
 			2:
 				next_row = get_row(pipe_index) + 1
 
@@ -90,7 +92,7 @@ func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
 				next_index = get_raw_index(next_row, next_column)
 				if incoming_index != next_index and pipes[next_index] != null and 0 in pipes[next_index].get_directions():
 					if (check_next_pipe(next_index, pipe_index)):
-						return true
+						is_solved = true
 			3:
 				next_row = get_row(pipe_index)
 				if next_row < 0 or next_row >= height:
@@ -101,7 +103,7 @@ func check_next_pipe(pipe_index: int, incoming_index: int) -> bool:
 				next_index = get_raw_index(next_row, next_column)
 				if incoming_index != next_index and pipes[next_index] != null and 1 in pipes[next_index].get_directions():
 					if (check_next_pipe(next_index, pipe_index)):
-						return true
+						is_solved = true
 
 
-	return false
+	return is_solved

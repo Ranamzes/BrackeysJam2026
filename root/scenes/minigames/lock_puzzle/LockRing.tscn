@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://joxkl083irv2"]
+
+[ext_resource type="Script" uid="uid://4dg7pis86a3q" path="res://root/scenes/minigames/lock_puzzle/lock_ring.gd" id="1_xeeha"]
+[ext_resource type="Texture2D" uid="uid://cf5233rfhfuqa" path="res://root/assets/lens_handle1.png" id="2_xeeha"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thxyt"]
+radius = 31.0
+height = 92.0
+
+[node name="LockRing" type="Area2D" unique_id=549123136 groups=["lock_segment"]]
+script = ExtResource("1_xeeha")
+texture = ExtResource("2_xeeha")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=693183060]
+unique_name_in_owner = true
+position = Vector2(0, -50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xeeha")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1530190527]
+unique_name_in_owner = true
+position = Vector2(0, -52)
+shape = SubResource("CapsuleShape2D_thxyt")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
