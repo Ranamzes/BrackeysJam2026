@@ -13,4 +13,4 @@ top_scene = "uid://c3odhd3retu8g"
 position = Vector2(65, 64)
 texture = ExtResource("2_kyoml")
 
-[node name="Root" parent="." unique_id=1390219101 instance=ExtResource("3_kyoml")]
+[node name="Shampoos" parent="." unique_id=1390219101 instance=ExtResource("3_kyoml")]

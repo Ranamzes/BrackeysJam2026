@@ -1,5 +1,6 @@
 extends Control
 
+signal solved
 @onready var shampoo_game : ShampooGame = %ShampooGame
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
@@ -8,3 +9,5 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
 	
+func emmit_solved() -> void:
+	solved.emit()
