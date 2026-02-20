@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cwqfw15xxuei4"]
+
+[ext_resource type="Script" uid="uid://bgyd5718wwjnm" path="res://root/scenes/lock_puzzle/lock_puzzle.gd" id="1_20xjv"]
+[ext_resource type="Texture2D" uid="uid://bvit5s3kgmwrx" path="res://root/assets/sectors.png" id="1_dm4ai"]
+[ext_resource type="PackedScene" uid="uid://joxkl083irv2" path="res://root/scenes/lock_puzzle/LockRing.tscn" id="1_pcd32"]
+[ext_resource type="Texture2D" uid="uid://d2x2n1fb2lpki" path="res://root/assets/lens_handle2.png" id="3_v5qlp"]
+[ext_resource type="Texture2D" uid="uid://67ywma6fkmqe" path="res://root/assets/telescop_background.png" id="4_ge5me"]
+[ext_resource type="Texture2D" uid="uid://bmlcwfxwnd4do" path="res://root/assets/lens_handle3.png" id="4_vdsql"]
+
+[node name="LockPuzzle" type="Node2D" unique_id=1376987651 node_paths=PackedStringArray("lock_rings")]
+script = ExtResource("1_20xjv")
+lock_rings = [NodePath("LockRing"), NodePath("LockRing2"), NodePath("LockRing3")]
+
+[node name="TelescopBackground" type="Sprite2D" parent="." unique_id=2050916457]
+position = Vector2(962.99994, 538)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("4_ge5me")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2086480112]
+
+[node name="LockRing" parent="." unique_id=549123136 instance=ExtResource("1_pcd32")]
+position = Vector2(483, 687)
+radius = 300
+offset = -15.0
+correct_segment = 5
+
+[node name="LockRing2" parent="." unique_id=1278426033 instance=ExtResource("1_pcd32")]
+position = Vector2(483, 687)
+radius = 300
+offset = 0.0
+current_segment = 3
+correct_segment = 2
+texture = ExtResource("3_v5qlp")
+
+[node name="LockRing3" parent="." unique_id=896190134 instance=ExtResource("1_pcd32")]
+position = Vector2(483, 687)
+radius = 300
+current_segment = 7
+correct_segment = 2
+texture = ExtResource("4_vdsql")
+
+[node name="ButtonDark" type="Sprite2D" parent="." unique_id=2131663626]
+position = Vector2(482.00003, 688.00006)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_dm4ai")
