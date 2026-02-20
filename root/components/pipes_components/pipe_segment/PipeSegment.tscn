@@ -2,33 +2,31 @@
 
 [ext_resource type="Script" uid="uid://f3y4c3m8sqlw" path="res://root/components/pipes_components/pipe_segment/pipe_segment.gd" id="1_7cv1g"]
 [ext_resource type="Texture2D" uid="uid://cyqo2abl4fs53" path="res://root/assets/t_form.png" id="1_f2ghl"]
-[ext_resource type="Texture2D" uid="uid://dr6u2dnh2ople" path="res://root/assets/line.png" id="2_0xhvd"]
-[ext_resource type="Texture2D" uid="uid://bgb7bpkdnu7v2" path="res://root/assets/cross.png" id="4_8028p"]
-[ext_resource type="Texture2D" uid="uid://dath6qk56p3vw" path="res://root/assets/angle.png" id="5_msoir"]
+[ext_resource type="Texture2D" uid="uid://ctdxta87mjqaq" path="res://root/assets/atlases/pipes.sprites/line.tres" id="2_4mxcw"]
+[ext_resource type="Texture2D" uid="uid://43rjmwyvd4kh" path="res://root/assets/atlases/pipes.sprites/t_form.tres" id="3_4mxcw"]
+[ext_resource type="Texture2D" uid="uid://ddxde0alvxlio" path="res://root/assets/atlases/pipes.sprites/cross.tres" id="4_hyrx6"]
+[ext_resource type="Texture2D" uid="uid://cwwjma17hhx05" path="res://root/assets/atlases/pipes.sprites/angle.tres" id="5_i4exx"]
+[ext_resource type="Texture2D" uid="uid://bd6tlpap4r7ib" path="res://root/assets/atlases/pipes.sprites/line_fill.tres" id="6_23um3"]
 [ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="6_65ptr"]
-[ext_resource type="Texture2D" uid="uid://dpk17utjjmus1" path="res://root/assets/line_fill.png" id="6_7708c"]
-[ext_resource type="Texture2D" uid="uid://o0s7s2k7jhjh" path="res://root/assets/T_form_fill.png" id="7_4mxcw"]
-[ext_resource type="Texture2D" uid="uid://by0vrnic7hqlc" path="res://root/assets/cross_fill.png" id="8_hyrx6"]
+[ext_resource type="Texture2D" uid="uid://0qiyom57y0i8" path="res://root/assets/atlases/pipes.sprites/T_form_fill.tres" id="7_ixbns"]
+[ext_resource type="Texture2D" uid="uid://0t2xi0w6yheg" path="res://root/assets/atlases/pipes.sprites/cross_fill.tres" id="8_3eobk"]
 [ext_resource type="AudioStream" uid="uid://b8b4l1ny5mlpj" path="res://root/assets/UI/audio/creak3.ogg" id="9_7708c"]
-[ext_resource type="Texture2D" uid="uid://dl3wh23stgfq2" path="res://root/assets/angle_fill.png" id="9_i4exx"]
+[ext_resource type="Texture2D" uid="uid://cjvxw8y01hf6t" path="res://root/assets/atlases/pipes.sprites/angle_fill.tres" id="9_x4gv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cv1g"]
 size = Vector2(100, 101)
 
 [node name="PipeSegment" type="Area2D" unique_id=1716969247]
 script = ExtResource("1_7cv1g")
-is_powered = null
-state = null
 type = "angle"
-is_rotatable = null
-straight_sprite_texture = ExtResource("2_0xhvd")
-tshape_sprite_texture = ExtResource("1_f2ghl")
-cross_sprite_texture = ExtResource("4_8028p")
-angle_sprite_texture = ExtResource("5_msoir")
-powered_straight_sprite_texture = ExtResource("6_7708c")
-powered_tshape_sprite_texture = ExtResource("7_4mxcw")
-powered_cross_sprite_texture = ExtResource("8_hyrx6")
-powered_angle_sprite_texture = ExtResource("9_i4exx")
+straight_sprite_texture = ExtResource("2_4mxcw")
+tshape_sprite_texture = ExtResource("3_4mxcw")
+cross_sprite_texture = ExtResource("4_hyrx6")
+angle_sprite_texture = ExtResource("5_i4exx")
+powered_straight_sprite_texture = ExtResource("6_23um3")
+powered_tshape_sprite_texture = ExtResource("7_ixbns")
+powered_cross_sprite_texture = ExtResource("8_3eobk")
+powered_angle_sprite_texture = ExtResource("9_x4gv7")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=377446491]
 unique_name_in_owner = true
@@ -37,7 +35,7 @@ position = Vector2(50, 50)
 [node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1107514053]
 unique_name_in_owner = true
 position = Vector2(4.5746565e-06, 0.5000028)
-scale = Vector2(0.06666666, 0.06733334)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_f2ghl")
 
 [node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("6_65ptr")]

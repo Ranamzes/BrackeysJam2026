@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_pbueu"]
 [ext_resource type="PackedScene" uid="uid://dxytaxeda5mqu" path="res://root/components/pipes_components/pipes_puzzle/PipesPuzzle.tscn" id="2_ahd56"]
 [ext_resource type="Texture2D" uid="uid://c4fhbh57jsc1x" path="res://root/assets/pipe_background.png" id="3_f61tc"]
-[ext_resource type="Texture2D" uid="uid://cnvnstmetkl04" path="res://root/assets/gamecomplete_tubeLight.png" id="5_lxrxd"]
+[ext_resource type="Texture2D" uid="uid://cg3c7s2pleeml" path="res://root/assets/atlases/pipes.sprites/gamecomplete_tubeLight.tres" id="5_lxrxd"]
 
 [node name="PipeLevel" type="Node2D" unique_id=1000876568]
 script = ExtResource("1_ahd56")
@@ -26,6 +26,6 @@ pipes = [null, null, null, NodePath("Row2/PS_2_d"), NodePath("Row2/PS_2_e"), Nod
 [node name="ButtonRight" type="Sprite2D" parent="." unique_id=1160437337]
 unique_name_in_owner = true
 visible = false
-position = Vector2(1631.0001, 491.00003)
-scale = Vector2(0.75, 0.75)
+position = Vector2(1629.9999, 491)
+scale = Vector2(1.35, 1.35)
 texture = ExtResource("5_lxrxd")
