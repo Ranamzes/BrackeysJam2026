@@ -20,6 +20,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func get_row(index: int) -> int:
+	@warning_ignore("integer_division")
 	return index / 10
 
 func get_column(index: int) -> int:
