@@ -6,7 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b8q7x6y504w3" path="res://root/components/dialogue/DialogueTrigger.tscn" id="3_kuou6"]
 [ext_resource type="Resource" uid="uid://droimmss6m2a5" path="res://root/resources/dialogue/test.dialogue" id="4_ob1xk"]
 [ext_resource type="Script" uid="uid://cg83nxuwmycas" path="res://root/components/dialogue/dialogue_variant.gd" id="5_ob1xk"]
-[ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/scenes/examples/example_pickup_object.tscn" id="7_t7bhs"]
+[ext_resource type="Texture2D" uid="uid://csptk2mlj3b88" path="res://root/scenes/characters/player/character_TV.png" id="7_mtdix"]
+[ext_resource type="Texture2D" uid="uid://c8uya4q0vm5te" path="res://root/scenes/levels/level1/cleancore_background.png" id="8_7fhxs"]
+[ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="9_q7x8v"]
+[ext_resource type="Texture2D" uid="uid://bf7yhk3dykbki" path="res://root/assets/button_light.png" id="10_fbnp0"]
+[ext_resource type="Texture2D" uid="uid://deyo00hi3sunm" path="res://root/assets/button_dark.png" id="11_0thvo"]
+[ext_resource type="Texture2D" uid="uid://dib45so8kk5l4" path="res://root/assets/duck.png" id="12_0thvo"]
+[ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/components/pickup_object/pickup_object.tscn" id="13_dp73g"]
+[ext_resource type="Resource" uid="uid://c65otytqxxvy5" path="res://root/assets/items/rubber_duck.tres" id="14_b8lx8"]
 
 [sub_resource type="Resource" id="Resource_gwx3o"]
 script = ExtResource("5_ob1xk")
@@ -16,42 +23,91 @@ conditions = Dictionary[String, bool]({
 })
 metadata/_custom_type_script = "uid://cg83nxuwmycas"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7bhs"]
-size = Vector2(40, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fbnp0"]
+radius = 178.87714
+height = 756.2335
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtdix"]
+size = Vector2(215.75, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dp73g"]
+size = Vector2(239.0729, 233.32468)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dp73g"]
+radius = 159.02617
 
 [node name="Level1Center" type="Node2D" unique_id=595355603]
 script = ExtResource("1_hh81y")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144609579]
-position = Vector2(960, 540)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("7_t7bhs")
+[node name="CleancoreBackground" type="Sprite2D" parent="." unique_id=1372316407]
+position = Vector2(973, 547)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("8_7fhxs")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
-left_scene = "res://root/scenes/minigames/sponge_game/SpongeMinigame.tscn"
 right_scene = "uid://bcyhhrogf6g01"
-top_scene = "uid://1dfklbpfdw80"
-bottom_scene = "uid://doyahxijnapg4"
 
 [node name="ExampleOnscreenObject" parent="." unique_id=1076354259 instance=ExtResource("3_j743v")]
 visible = false
 position = Vector2(566, 453)
 
-[node name="TestRect" type="ColorRect" parent="." unique_id=71121828]
-unique_name_in_owner = true
-offset_left = 970.0
-offset_top = 526.0
-offset_right = 1010.0
-offset_bottom = 566.0
-mouse_filter = 2
+[node name="CharacterTv" type="Sprite2D" parent="." unique_id=1432416579]
+position = Vector2(691, 476)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_mtdix")
 
-[node name="DialogueClickable" parent="TestRect" unique_id=684600899 instance=ExtResource("3_kuou6")]
+[node name="DialogueClickable" parent="CharacterTv" unique_id=684600899 instance=ExtResource("3_kuou6")]
+position = Vector2(372, 66.66669)
+scale = Vector2(1.3333334, 1.3333334)
 dialogue_resource = ExtResource("4_ob1xk")
 variants = Array[ExtResource("5_ob1xk")]([SubResource("Resource_gwx3o")])
 
-[node name="AutoCollisionShape" type="CollisionShape2D" parent="TestRect/DialogueClickable" unique_id=1852738009]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_t7bhs")
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="CharacterTv/DialogueClickable" unique_id=1852738009]
+position = Vector2(-304, -28)
+rotation = -0.30543262
+shape = SubResource("CapsuleShape2D_fbnp0")
 
-[node name="PickupObject" parent="." unique_id=1562232421 instance=ExtResource("7_t7bhs")]
-position = Vector2(760, 558)
+[node name="LevelTransitionArea" parent="." unique_id=311293945 instance=ExtResource("9_q7x8v")]
+position = Vector2(1101, 339)
+scene_path = "uid://cggnymtinp5ci"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionArea" unique_id=2145247520]
+position = Vector2(8, -16)
+shape = SubResource("RectangleShape2D_mtdix")
+
+[node name="TileUnlocked" type="Sprite2D" parent="." unique_id=929694145]
+position = Vector2(1364.498, 960.0278)
+rotation = -0.04039561
+scale = Vector2(0.69503796, 0.33565703)
+skew = -0.050011516
+texture = ExtResource("10_fbnp0")
+
+[node name="PipesTransitionArea" parent="TileUnlocked" unique_id=845415921 instance=ExtResource("9_q7x8v")]
+true_flags = Array[String](["floor_tile_unlocked"])
+scene_path = "uid://1dfklbpfdw80"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileUnlocked/PipesTransitionArea" unique_id=1094344005]
+position = Vector2(-0.5187988, -0.20336914)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_dp73g")
+
+[node name="TileLocked" type="Sprite2D" parent="." unique_id=14124080]
+visible = false
+position = Vector2(1362, 957.9999)
+rotation = -0.027925268
+scale = Vector2(0.7250001, 0.32368964)
+texture = ExtResource("11_0thvo")
+
+[node name="Duck" type="Sprite2D" parent="." unique_id=1454290720]
+unique_name_in_owner = true
+position = Vector2(255.99998, 576.99994)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_0thvo")
+
+[node name="PickupObject" parent="Duck" unique_id=1562232421 instance=ExtResource("13_dp73g")]
+item_data = ExtResource("14_b8lx8")
+true_flags = Array[String](["pipes_solved"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/PickupObject" unique_id=795471893]
+position = Vector2(-18.18175, -18.181541)
+shape = SubResource("CircleShape2D_dp73g")

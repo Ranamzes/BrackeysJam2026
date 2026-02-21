@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dtekm47sioa0k"]
+
+[ext_resource type="Script" uid="uid://c3yxuxfngqubt" path="res://root/Scripts/inventory/pickup_object.gd" id="1_gwjh7"]
+[ext_resource type="Resource" uid="uid://dr14g4tt07bd" path="res://root/assets/items/soap_empty.tres" id="2_602x4"]
+
+[node name="PickupObject" type="Area2D" unique_id=1562232421]
+script = ExtResource("1_gwjh7")
+item_data = ExtResource("2_602x4")
+metadata/_custom_type_script = "uid://c3yxuxfngqubt"

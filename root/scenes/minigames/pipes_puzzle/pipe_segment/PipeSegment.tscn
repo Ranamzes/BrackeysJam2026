@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce2n4ucx13wo0"]
 
-[ext_resource type="Script" uid="uid://f3y4c3m8sqlw" path="res://root/components/pipes_components/pipe_segment/pipe_segment.gd" id="1_7cv1g"]
+[ext_resource type="Script" uid="uid://f3y4c3m8sqlw" path="res://root/scenes/minigames/pipes_puzzle/pipe_segment/pipe_segment.gd" id="1_7cv1g"]
 [ext_resource type="Texture2D" uid="uid://cyqo2abl4fs53" path="res://root/assets/t_form.png" id="1_f2ghl"]
 [ext_resource type="Texture2D" uid="uid://ctdxta87mjqaq" path="res://root/assets/atlases/pipes.sprites/line.tres" id="2_4mxcw"]
 [ext_resource type="Texture2D" uid="uid://43rjmwyvd4kh" path="res://root/assets/atlases/pipes.sprites/t_form.tres" id="3_4mxcw"]

@@ -17,7 +17,6 @@ func set_flag(flag: String, value: bool) -> void:
 
 	# Оповещаем редактор об изменении, чтобы оно отобразилось в Remote Inspector
 	progression_data.emit_changed()
-
 	print("Flag set: %s = %s" % [flag, value])
 
 func get_flag(flag: String) -> bool:

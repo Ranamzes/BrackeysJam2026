@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3xjwx771jtat"]
+
+[ext_resource type="Script" uid="uid://b1m6xm57b2x0v" path="res://root/scenes/minigames/typing_machine/pointer.gd" id="1_51uh7"]
+[ext_resource type="Texture2D" uid="uid://bf7yhk3dykbki" path="res://root/assets/button_light.png" id="2_cv0gw"]
+[ext_resource type="PackedScene" uid="uid://c15lngyudsgb6" path="res://root/components/movement_component/MovementComponent.tscn" id="3_3aw7m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqkrq"]
+radius = 29.017237
+
+[node name="Pointer" type="CharacterBody2D" unique_id=2020171349 node_paths=PackedStringArray("movement_component")]
+script = ExtResource("1_51uh7")
+movement_component = NodePath("MovementComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1944064659]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_cv0gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2051526207]
+shape = SubResource("CircleShape2D_kqkrq")
+
+[node name="MovementComponent" parent="." unique_id=1347281775 instance=ExtResource("3_3aw7m")]
+base_speed = 100
+acceleration = 25.0
