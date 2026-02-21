@@ -16,7 +16,7 @@ func _ready() -> void:
 		# First time: hide door and start the 1.5s delay sequence
 		door.modulate.a = 0
 		door.hide()
-		get_tree().create_timer(1.5).timeout.connect(_on_sequence_start)
+		get_tree().create_timer(1.0).timeout.connect(_on_sequence_start)
 
 
 func _on_sequence_start() -> void:

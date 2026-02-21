@@ -27,7 +27,11 @@ func _ready() -> void:
 		pressed.connect(on_pressed)
 		button_down.connect(_on_button_down)
 		button_up.connect(_on_button_up)
+		mouse_entered.connect(func(): if is_instance_valid(Cursor): Cursor.set_hovering(true))
+		mouse_exited.connect(func(): if is_instance_valid(Cursor): Cursor.set_hovering(false))
+
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
 
 	custom_minimum_size = button_size
 	_update_styling()

@@ -22,7 +22,7 @@ func _ready() -> void:
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
-func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = [], portrait_texture: Texture2D = null) -> void:
+func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = [], portrait_texture: Texture2D = null, portrait_scene: PackedScene = null) -> void:
 	if not is_node_ready():
 		await ready
 
@@ -32,8 +32,19 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	# but let's ensure the label is empty during fade-in.
 	dialogue_label.text = ""
 
-	if portrait_texture:
+	# Clear any previous scene portraits
+	for child in %PortraitMask.get_children():
+		if child != %PortraitSprite:
+			child.queue_free()
+
+	if portrait_scene:
+		var scene_inst = portrait_scene.instantiate()
+		%PortraitMask.add_child(scene_inst)
+		portrait_rect.hide()
+		portrait_container.show()
+	elif portrait_texture:
 		portrait_rect.texture = portrait_texture
+		portrait_rect.show()
 		portrait_container.show()
 	else:
 		portrait_container.hide()
