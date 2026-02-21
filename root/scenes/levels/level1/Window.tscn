@@ -42,6 +42,7 @@ texture = ExtResource("3_robsj")
 scale = Vector2(0.99999994, 0.99999994)
 item_data = ExtResource("7_axp1t")
 true_flags = Array[String](["bottles_solved"])
+visible_false_flag = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toothbrush/PickupObjectToothbrush" unique_id=1903313822]
 position = Vector2(-21.696928, -5.4077024)

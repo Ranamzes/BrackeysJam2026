@@ -8,10 +8,10 @@ state_table = Dictionary[String, bool]({
 "bottles_solved": false,
 "button_on_right_screen_clicked": false,
 "duck_placed": false,
-"floor_tile_unlocked": true,
+"floor_tile_unlocked": false,
 "levers_solved": false,
 "pipes_solved": false,
-"sponges_sequence_aquired": false,
+"rubber_duck_picked_up": false,
 "telescope_solved": false,
 "toothbrush_picked_up": false
 })
