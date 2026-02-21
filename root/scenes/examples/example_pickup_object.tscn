@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dtekm47sioa0k"]
+[gd_scene format=3 uid="uid://bsp3qmvjhbku5"]
 
 [ext_resource type="Script" uid="uid://c3yxuxfngqubt" path="res://root/Scripts/inventory/pickup_object.gd" id="1_gwjh7"]
-[ext_resource type="Resource" uid="uid://bnxc503ylyexd" path="res://root/assets/items/jar_3.tres" id="2_602x4"]
+[ext_resource type="Resource" path="res://root/assets/items/jar_3.tres" id="2_602x4"]
 [ext_resource type="Texture2D" uid="uid://gggpfr87njbx" path="res://root/assets/atlases/shampoo.sprites/jar_3.tres" id="3_602x4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwjh7"]

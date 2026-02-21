@@ -5,7 +5,13 @@
 [resource]
 script = ExtResource("1_bb7n3")
 state_table = Dictionary[String, bool]({
+"bottles_solved": false,
 "button_on_right_screen_clicked": false,
+"duck_placed": false,
+"floor_tile_unlocked": false,
+"levers_solved": false,
 "pipes_solved": false,
-"telescope_solved": false
+"rubber_duck_picked_up": false,
+"telescope_solved": false,
+"toothbrush_picked_up": false
 })

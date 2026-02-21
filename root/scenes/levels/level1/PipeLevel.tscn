@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://1dfklbpfdw80"]
 
-[ext_resource type="Script" uid="uid://ilhny2bgbdrc" path="res://root/scenes/minigames/puzzles/pipe_level/pipe_level.gd" id="1_ahd56"]
+[ext_resource type="Script" uid="uid://ilhny2bgbdrc" path="res://root/scenes/levels/level1/pipe_level.gd" id="1_ahd56"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_pbueu"]
-[ext_resource type="PackedScene" uid="uid://dxytaxeda5mqu" path="res://root/components/pipes_components/pipes_puzzle/PipesPuzzle.tscn" id="2_ahd56"]
+[ext_resource type="PackedScene" uid="uid://dxytaxeda5mqu" path="res://root/scenes/minigames/pipes_puzzle/PipesPuzzle.tscn" id="2_ahd56"]
 [ext_resource type="Texture2D" uid="uid://c4fhbh57jsc1x" path="res://root/assets/pipe_background.png" id="3_f61tc"]
 [ext_resource type="Texture2D" uid="uid://cg3c7s2pleeml" path="res://root/assets/atlases/pipes.sprites/gamecomplete_tubeLight.tres" id="5_lxrxd"]
 

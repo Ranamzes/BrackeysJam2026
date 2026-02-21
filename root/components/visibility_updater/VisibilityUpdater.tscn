@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnoavpmsg0p8h"]
+
+[ext_resource type="Script" uid="uid://b576krvhgdj0i" path="res://root/components/visibility_updater/visibility_updater.gd" id="1_rsijm"]
+
+[node name="VisibilityUpdater" type="Node" unique_id=1413650788]
+script = ExtResource("1_rsijm")

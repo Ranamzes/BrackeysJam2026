@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://cu2dmqyib82q3"]
+
+[ext_resource type="Script" uid="uid://dvnaxuioe1squ" path="res://root/scenes/minigames/levers_cleancore/levers_game_mini.gd" id="1_dlay1"]
+[ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/Scripts/on_screen_object/onscreen_object_state.gd" id="1_u15os"]
+[ext_resource type="Texture2D" uid="uid://bxuv3uvr7k80h" path="res://root/assets/atlases/switchs.sprites/lever_up.tres" id="2_drbb6"]
+[ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/Scripts/on_screen_object/object_state_transition.gd" id="3_a0568"]
+[ext_resource type="Texture2D" uid="uid://b3qu72qdd8rua" path="res://root/assets/atlases/switchs.sprites/lever_down.tres" id="3_v8odj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drbb6"]
+size = Vector2(103, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8odj"]
+size = Vector2(93, 208)
+
+[node name="LeversScene" type="Node2D" unique_id=885976297]
+script = ExtResource("1_dlay1")
+
+[node name="Lever_1" type="Node2D" parent="." unique_id=1613662950]
+position = Vector2(513, 334)
+
+[node name="LeverUp" type="Area2D" parent="Lever_1" unique_id=1485466231]
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_1"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_1/LeverUp" unique_id=1126074107]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_1/LeverUp" unique_id=254059073]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_1/LeverUp" unique_id=1529830372 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_1" unique_id=1422303642]
+visible = false
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_1"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_1/LeverDown" unique_id=1944893160]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_1/LeverDown" unique_id=2124892700]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_1/LeverDown" unique_id=1013410415 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Lever_2" type="Node2D" parent="." unique_id=1808305583]
+position = Vector2(1011, 334)
+
+[node name="LeverUp" type="Area2D" parent="Lever_2" unique_id=248703212]
+visible = false
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_2"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_2/LeverUp" unique_id=141893038]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_2/LeverUp" unique_id=278414347]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_2/LeverUp" unique_id=920978365 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_2" unique_id=1407403287]
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_2"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_2/LeverDown" unique_id=466829]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_2/LeverDown" unique_id=1527114242]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_2/LeverDown" unique_id=2139226415 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Lever_3" type="Node2D" parent="." unique_id=797634893]
+position = Vector2(1506, 331)
+
+[node name="LeverUp" type="Area2D" parent="Lever_3" unique_id=1036425032]
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_3"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_3/LeverUp" unique_id=1686063193]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_3/LeverUp" unique_id=41781866]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_3/LeverUp" unique_id=259860173 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_3" unique_id=918480114]
+visible = false
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_3"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_3/LeverDown" unique_id=1373145992]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_3/LeverDown" unique_id=600269730]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_3/LeverDown" unique_id=2008200264 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Lever_4" type="Node2D" parent="." unique_id=302944699]
+position = Vector2(516, 697)
+
+[node name="LeverUp" type="Area2D" parent="Lever_4" unique_id=1983248866]
+visible = false
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_4"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_4/LeverUp" unique_id=1258026372]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_4/LeverUp" unique_id=480690745]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_4/LeverUp" unique_id=320213883 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_4" unique_id=195911531]
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_4"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_4/LeverDown" unique_id=1198754114]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_4/LeverDown" unique_id=1203983762]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_4/LeverDown" unique_id=366561466 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Lever_5" type="Node2D" parent="." unique_id=2070635126]
+position = Vector2(1014, 676)
+
+[node name="LeverUp" type="Area2D" parent="Lever_5" unique_id=1627982255]
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_5"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_5/LeverUp" unique_id=30588486]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_5/LeverUp" unique_id=450849332]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_5/LeverUp" unique_id=1829043144 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_5" unique_id=2084616298]
+visible = false
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_5"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_5/LeverDown" unique_id=968934728]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_5/LeverDown" unique_id=53350966]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_5/LeverDown" unique_id=414746569 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Lever_6" type="Node2D" parent="." unique_id=1815866309]
+position = Vector2(1512, 674)
+
+[node name="LeverUp" type="Area2D" parent="Lever_6" unique_id=217855178]
+script = ExtResource("1_u15os")
+to_set_true = Array[String](["lever_6"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_6/LeverUp" unique_id=502843118]
+texture = ExtResource("2_drbb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_6/LeverUp" unique_id=2125432689]
+position = Vector2(6.5, -37.5)
+shape = SubResource("RectangleShape2D_drbb6")
+
+[node name="UpToDown" type="Node2D" parent="Lever_6/LeverUp" unique_id=1241415938 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverDown")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="LeverDown" type="Area2D" parent="Lever_6" unique_id=1707131141]
+visible = false
+script = ExtResource("1_u15os")
+to_set_false = Array[String](["lever_6"])
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="Sprite2D" type="Sprite2D" parent="Lever_6/LeverDown" unique_id=942391436]
+position = Vector2(1, 77)
+texture = ExtResource("3_v8odj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever_6/LeverDown" unique_id=1645114806]
+position = Vector2(3.5, 73)
+shape = SubResource("RectangleShape2D_v8odj")
+
+[node name="DownToUp" type="Node2D" parent="Lever_6/LeverDown" unique_id=1149852039 node_paths=PackedStringArray("new_state")]
+script = ExtResource("3_a0568")
+new_state = NodePath("../../LeverUp")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"

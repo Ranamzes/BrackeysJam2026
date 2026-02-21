@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://doyahxijnapg4"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_4nkuw"]
+[ext_resource type="Script" uid="uid://77pcidnpaj0m" path="res://root/scenes/levels/level1/window.gd" id="1_yf4bm"]
+[ext_resource type="Texture2D" uid="uid://8g3tmaol3qrb" path="res://root/assets/shampoo_background.png" id="2_kyoml"]
+[ext_resource type="PackedScene" uid="uid://djylon2s2ib0u" path="res://root/scenes/minigames/ShampooGame/shampoo_game.tscn" id="3_kyoml"]
+[ext_resource type="Texture2D" uid="uid://87chxi1r4gxs" path="res://root/assets/cleancore_inventory_toothbrush.png" id="3_robsj"]
+[ext_resource type="Texture2D" uid="uid://dny4al2g0yn7f" path="res://root/assets/toothbrush_head.png" id="4_17edw"]
+[ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/components/pickup_object/pickup_object.tscn" id="6_ftktx"]
+[ext_resource type="Resource" uid="uid://cdx8cewa1d7jc" path="res://root/assets/items/tooth_brush.tres" id="7_axp1t"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="9_yyvlq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ftktx"]
+radius = 106.158325
+height = 837.6118
+
+[node name="Window" type="Node2D" unique_id=1612719515]
+script = ExtResource("1_yf4bm")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_4nkuw")]
+bottom_scene = "uid://bcyhhrogf6g01"
+
+[node name="ShampooBackground" type="Sprite2D" parent="." unique_id=171740470]
+position = Vector2(961, 542)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("2_kyoml")
+
+[node name="ToothbrushHead" type="Sprite2D" parent="." unique_id=1419367722]
+position = Vector2(891, 699)
+rotation = -0.42411497
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_17edw")
+
+[node name="Toothbrush" type="Sprite2D" parent="." unique_id=1144673505]
+unique_name_in_owner = true
+position = Vector2(755, 709)
+rotation = 1.1466813
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_robsj")
+
+[node name="PickupObjectToothbrush" parent="Toothbrush" unique_id=1562232421 instance=ExtResource("6_ftktx")]
+scale = Vector2(0.99999994, 0.99999994)
+item_data = ExtResource("7_axp1t")
+true_flags = Array[String](["bottles_solved"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toothbrush/PickupObjectToothbrush" unique_id=1903313822]
+position = Vector2(-21.696928, -5.4077024)
+rotation = 0.3822271
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CapsuleShape2D_ftktx")
+
+[node name="ShampooGame" parent="." unique_id=1390219101 instance=ExtResource("3_kyoml")]
+offset_left = 381.0
+offset_top = -349.0
+offset_right = 2273.0
+offset_bottom = 764.0
+
+[node name="StreamPlayerToothbrush" parent="." unique_id=1693318789 instance=ExtResource("9_yyvlq")]

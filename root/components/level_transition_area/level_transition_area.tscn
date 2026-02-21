@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ro07cjxvlmo3"]
+
+[ext_resource type="Script" uid="uid://basl5mimfhdwp" path="res://root/components/level_transition_area/level_transition_area.gd" id="1_k1qnq"]
+
+[node name="LevelTransitionArea" type="Area2D" unique_id=311293945]
+script = ExtResource("1_k1qnq")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

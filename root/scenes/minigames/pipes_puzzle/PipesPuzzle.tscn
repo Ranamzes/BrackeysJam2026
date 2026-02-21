@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dxytaxeda5mqu"]
 
-[ext_resource type="Script" uid="uid://cxd7ext4j1k8u" path="res://root/components/pipes_components/pipes_puzzle/pipes_puzzle.gd" id="1_h73tt"]
+[ext_resource type="Script" uid="uid://cxd7ext4j1k8u" path="res://root/scenes/minigames/pipes_puzzle/pipes_puzzle.gd" id="1_h73tt"]
 [ext_resource type="Texture2D" uid="uid://cmttkfk44pi0u" path="res://root/assets/atlases/pipes.sprites/line_pinned.tres" id="3_1km12"]
-[ext_resource type="PackedScene" uid="uid://ce2n4ucx13wo0" path="res://root/components/pipes_components/pipe_segment/PipeSegment.tscn" id="4_cyvoy"]
+[ext_resource type="PackedScene" uid="uid://ce2n4ucx13wo0" path="res://root/scenes/minigames/pipes_puzzle/pipe_segment/PipeSegment.tscn" id="4_cyvoy"]
 [ext_resource type="Texture2D" uid="uid://bm02a8nyeaqpd" path="res://root/assets/atlases/pipes.sprites/line_pinned_fill.tres" id="4_n8dfo"]
 [ext_resource type="Texture2D" uid="uid://cjvxw8y01hf6t" path="res://root/assets/atlases/pipes.sprites/angle_fill.tres" id="5_ohycu"]
 [ext_resource type="Texture2D" uid="uid://dlf108v2cvdqb" path="res://root/assets/atlases/pipes.sprites/angle_pinned_fill.tres" id="6_qw5mt"]

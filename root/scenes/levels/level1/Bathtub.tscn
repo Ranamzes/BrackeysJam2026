@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://csggopkacp6ep"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_v18t5"]
+[ext_resource type="Texture2D" uid="uid://2ggmi52jdb8g" path="res://root/scenes/levels/level1/cleancore_duck_background.png" id="2_v18t5"]
+[ext_resource type="PackedScene" uid="uid://cy4f0dweobs4k" path="res://root/components/interactable_area/InteractableArea.tscn" id="3_fxol1"]
+[ext_resource type="Resource" uid="uid://c65otytqxxvy5" path="res://root/assets/items/rubber_duck.tres" id="4_vjbqn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjbqn"]
+radius = 728.2038
+
+[node name="Bathtub" type="Node2D" unique_id=163530057]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_v18t5")]
+bottom_scene = "uid://bcyhhrogf6g01"
+
+[node name="CleancoreDuckBackground" type="Sprite2D" parent="." unique_id=2068937197]
+position = Vector2(961.00006, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_v18t5")
+
+[node name="water" type="Node2D" parent="." unique_id=57266432]
+
+[node name="InteractableArea" parent="water" unique_id=1389652653 instance=ExtResource("3_fxol1")]
+required_item = ExtResource("4_vjbqn")
+flag_name = "duck_placed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water/InteractableArea" unique_id=444665347]
+position = Vector2(864.99994, 440.00003)
+rotation = 0.51836276
+skew = 0.51312673
+shape = SubResource("CircleShape2D_vjbqn")

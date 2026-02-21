@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="1_p34k7"]
 [ext_resource type="Script" uid="uid://c42bvqgc1e5p0" path="res://root/scenes/UI/main_menu/main_menu.gd" id="1_wj717"]
-[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_uns31"]
+[ext_resource type="Texture2D" uid="uid://bx7exc3tfx6p2" path="res://root/assets/sponge_background.png" id="2_uns31"]
 [ext_resource type="Theme" uid="uid://bohdae8f4gami" path="res://root/resources/themes/ButtonTheme.tres" id="2_uui6l"]
-[ext_resource type="Texture2D" uid="uid://bjwa0syfxp4v4" path="res://root/assets/atlases/menu.sprites/play_rest.tres" id="4_8n45h"]
-[ext_resource type="Texture2D" uid="uid://b3e8v8w6fts05" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
-[ext_resource type="Texture2D" uid="uid://deugcibyy5kcr" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
+[ext_resource type="Texture2D" uid="uid://dtx6n6p1tovxq" path="res://root/assets/atlases/menu.sprites/play_rest.tres" id="4_8n45h"]
+[ext_resource type="Texture2D" uid="uid://dqy2ksu6qft11" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
+[ext_resource type="Texture2D" uid="uid://b0wvikeoq74c0" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
 [ext_resource type="Texture2D" uid="uid://b623q28xict23" path="res://root/assets/atlases/menu.sprites/options_rest.tres" id="7_0lec3"]
 [ext_resource type="FontVariation" path="res://root/resources/fonts/menu_font.tres" id="7_x40my"]
 [ext_resource type="Texture2D" uid="uid://dgtnn0ua8uijm" path="res://root/assets/atlases/menu.sprites/options_click.tres" id="8_7tcj4"]
@@ -62,11 +62,14 @@ pressed_texture = ExtResource("5_b5adr")
 text = "Play"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = false
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(0, -160)
 text_offset = Vector2(0, 119)
 text_rotation = -4.0
+click_mask_threshold = 0.5
+sound_streams = null
 
 [node name="OptionsButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1043961938 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
@@ -82,11 +85,14 @@ pressed_texture = ExtResource("8_7tcj4")
 text = "Options"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = false
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(0, -180)
 text_offset = Vector2(-25, 98)
 text_rotation = 10.0
+click_mask_threshold = 0.5
+sound_streams = null
 
 [node name="CreditsButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1632093499 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
@@ -102,11 +108,14 @@ pressed_texture = ExtResource("11_opwv4")
 text = "Credits"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = false
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(-8, -206)
 text_offset = Vector2(4, 98)
 text_rotation = -12.0
+click_mask_threshold = 0.5
+sound_streams = null
 
 [node name="QuitButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=108683606 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
@@ -122,8 +131,11 @@ pressed_texture = ExtResource("14_x40my")
 text = "Exit"
 normal_color = Color(0.17, 0.044766665, 0.025499996, 1)
 hover_color = Color(0.56, 0, 0, 1)
+disabled = false
 custom_font = ExtResource("7_x40my")
 font_size = 88
 texture_offset = Vector2(-11, -215)
 text_offset = Vector2(2, 97)
 text_rotation = -3.0
+click_mask_threshold = 0.5
+sound_streams = null

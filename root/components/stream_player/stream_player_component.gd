@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-
+class_name StreamPlayerComponent
 @export var streams: Array[AudioStream]
 @export var min_pitch = .9
 @export var max_pitch = 1.1

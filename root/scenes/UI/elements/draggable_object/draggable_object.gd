@@ -6,6 +6,7 @@ extends PanelContainer
 @export var is_empty : bool = false
 var shampoo_game : ShampooGame 
 var def_position : Vector2
+var clicks_disabled : bool = false
 
 func _ready() -> void:
 	self.gui_input.connect(_on_gui_input)
@@ -29,7 +30,7 @@ func _on_gui_input(event : InputEvent) -> void:
 				shampoo_game.check_solved()
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	if is_empty :
+	if is_empty || clicks_disabled:
 		return null
 	var preview = Control.new()
 	var preview_rect = TextureRect.new()
@@ -47,6 +48,9 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 func reset_shampoo():
 	shampoo_game.dragging_shampoo.shampoo_texture.modulate = Color.WHITE
 	shampoo_game.dragging_shampoo = null
+
+func remove_shampoo():
+	shampoo_texture.modulate = Color.TRANSPARENT	
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
