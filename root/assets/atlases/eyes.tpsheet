@@ -1,0 +1,828 @@
+{
+	"textures": [
+		{
+			"image": "eyes.png",
+			"size": {
+				"w": 1024,
+				"h": 1024
+			},
+			"sprites": [
+				{
+					"filename": "eye/eye_base_1",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 377,
+						"h": 214
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye/eye_lid_up_1",
+					"region": {
+						"x": 384,
+						"y": 3,
+						"w": 396,
+						"h": 183
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye/eye_shadow_1",
+					"region": {
+						"x": 3,
+						"y": 221,
+						"w": 365,
+						"h": 176
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye/eye_iris_1",
+					"region": {
+						"x": 3,
+						"y": 401,
+						"w": 251,
+						"h": 251
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye/eye_lid_down_1",
+					"region": {
+						"x": 384,
+						"y": 190,
+						"w": 377,
+						"h": 85
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_lid_up_9",
+					"region": {
+						"x": 784,
+						"y": 3,
+						"w": 224,
+						"h": 138
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_lid_down_7",
+					"region": {
+						"x": 3,
+						"y": 656,
+						"w": 226,
+						"h": 133
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_base_7",
+					"region": {
+						"x": 3,
+						"y": 793,
+						"w": 213,
+						"h": 136
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_lid_down_3",
+					"region": {
+						"x": 372,
+						"y": 279,
+						"w": 253,
+						"h": 100
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_lid_down_2",
+					"region": {
+						"x": 3,
+						"y": 933,
+						"w": 208,
+						"h": 69
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_lid_up_3",
+					"region": {
+						"x": 372,
+						"y": 383,
+						"w": 251,
+						"h": 91
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_lid_up_2",
+					"region": {
+						"x": 784,
+						"y": 145,
+						"w": 219,
+						"h": 96
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_base_2",
+					"region": {
+						"x": 629,
+						"y": 279,
+						"w": 210,
+						"h": 123
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_lid_up_5",
+					"region": {
+						"x": 843,
+						"y": 245,
+						"w": 178,
+						"h": 74
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_lid_up_7",
+					"region": {
+						"x": 627,
+						"y": 406,
+						"w": 213,
+						"h": 101
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_lid_down_5",
+					"region": {
+						"x": 843,
+						"y": 323,
+						"w": 172,
+						"h": 70
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_lid_up_8",
+					"region": {
+						"x": 844,
+						"y": 397,
+						"w": 173,
+						"h": 136
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_shadow_7",
+					"region": {
+						"x": 258,
+						"y": 478,
+						"w": 210,
+						"h": 123
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_lid_down_9",
+					"region": {
+						"x": 258,
+						"y": 605,
+						"w": 208,
+						"h": 114
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_iris_2",
+					"region": {
+						"x": 472,
+						"y": 478,
+						"w": 129,
+						"h": 129
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_base_3",
+					"region": {
+						"x": 605,
+						"y": 511,
+						"w": 206,
+						"h": 106
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_shadow_3",
+					"region": {
+						"x": 815,
+						"y": 537,
+						"w": 204,
+						"h": 104
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_shadow_9",
+					"region": {
+						"x": 233,
+						"y": 723,
+						"w": 204,
+						"h": 129
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_base_9",
+					"region": {
+						"x": 220,
+						"y": 856,
+						"w": 190,
+						"h": 97
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_lid_up_4",
+					"region": {
+						"x": 215,
+						"y": 957,
+						"w": 129,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_lid_down_6",
+					"region": {
+						"x": 258,
+						"y": 401,
+						"w": 79,
+						"h": 73
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_iris_3",
+					"region": {
+						"x": 470,
+						"y": 611,
+						"w": 94,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_lid_down_8",
+					"region": {
+						"x": 568,
+						"y": 621,
+						"w": 182,
+						"h": 144
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_base_8",
+					"region": {
+						"x": 754,
+						"y": 645,
+						"w": 161,
+						"h": 114
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye/eye_light_1",
+					"region": {
+						"x": 754,
+						"y": 763,
+						"w": 162,
+						"h": 27
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_lid_up_6",
+					"region": {
+						"x": 919,
+						"y": 645,
+						"w": 83,
+						"h": 71
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_lid_down_4",
+					"region": {
+						"x": 441,
+						"y": 723,
+						"w": 123,
+						"h": 60
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_shadow_2",
+					"region": {
+						"x": 568,
+						"y": 769,
+						"w": 174,
+						"h": 60
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_shadow_8",
+					"region": {
+						"x": 746,
+						"y": 794,
+						"w": 158,
+						"h": 112
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_light_9",
+					"region": {
+						"x": 441,
+						"y": 787,
+						"w": 103,
+						"h": 47
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_iris_7",
+					"region": {
+						"x": 548,
+						"y": 833,
+						"w": 153,
+						"h": 153
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_base_5",
+					"region": {
+						"x": 705,
+						"y": 910,
+						"w": 147,
+						"h": 57
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_light_8",
+					"region": {
+						"x": 705,
+						"y": 971,
+						"w": 72,
+						"h": 50
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_base_4",
+					"region": {
+						"x": 919,
+						"y": 720,
+						"w": 100,
+						"h": 38
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_shadow_4",
+					"region": {
+						"x": 920,
+						"y": 762,
+						"w": 97,
+						"h": 35
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye9/eye_iris_9",
+					"region": {
+						"x": 908,
+						"y": 801,
+						"w": 66,
+						"h": 66
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_shadow_5",
+					"region": {
+						"x": 348,
+						"y": 957,
+						"w": 145,
+						"h": 55
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye8/eye_iris_8",
+					"region": {
+						"x": 856,
+						"y": 910,
+						"w": 56,
+						"h": 56
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_light_5",
+					"region": {
+						"x": 441,
+						"y": 838,
+						"w": 89,
+						"h": 22
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye3/eye_light_3",
+					"region": {
+						"x": 414,
+						"y": 864,
+						"w": 116,
+						"h": 21
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_base_6",
+					"region": {
+						"x": 414,
+						"y": 889,
+						"w": 66,
+						"h": 55
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye2/eye_light_2",
+					"region": {
+						"x": 3,
+						"y": 1006,
+						"w": 85,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye7/eye_light_7",
+					"region": {
+						"x": 781,
+						"y": 971,
+						"w": 88,
+						"h": 27
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_light_6",
+					"region": {
+						"x": 765,
+						"y": 245,
+						"w": 39,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_light_4",
+					"region": {
+						"x": 908,
+						"y": 871,
+						"w": 58,
+						"h": 25
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_shadow_6",
+					"region": {
+						"x": 916,
+						"y": 900,
+						"w": 63,
+						"h": 52
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye4/eye_iris_4",
+					"region": {
+						"x": 873,
+						"y": 970,
+						"w": 24,
+						"h": 51
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye5/eye_iris_5",
+					"region": {
+						"x": 484,
+						"y": 889,
+						"w": 40,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "eye6/eye_iris_6",
+					"region": {
+						"x": 1007,
+						"y": 145,
+						"w": 14,
+						"h": 14
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:d81fd6188adfb1fcf7dec49ce31d4681:334d64d47cfdeac6de4bf32a42bd593a:d76daff6d083cbd34c8901b2ef693fc7$"
+	}
+}

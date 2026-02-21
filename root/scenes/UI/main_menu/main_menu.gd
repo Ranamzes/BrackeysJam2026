@@ -9,10 +9,10 @@ func _ready() -> void:
 func on_play_pressed():
 	if not is_inside_tree(): return
 	%PlayButton.disabled = true
-	ScreenTransition.transition()
-	await ScreenTransition.transition_halfway
-	if is_inside_tree():
-		get_tree().change_scene_to_file("res://root/scenes/levels/level1/Level1Center.tscn")
+	var intro_scene = preload("res://root/scenes/levels/intro/Intro.tscn")
+	var intro_instance = intro_scene.instantiate()
+	intro_instance.main_menu_instance = self
+	get_tree().root.add_child(intro_instance)
 
 
 func on_options_pressed():

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvit5s3kgmwrx" path="res://root/assets/sectors.png" id="1_dm4ai"]
 [ext_resource type="PackedScene" uid="uid://joxkl083irv2" path="res://root/scenes/minigames/lock_puzzle/LockRing.tscn" id="1_pcd32"]
 [ext_resource type="Texture2D" uid="uid://d2x2n1fb2lpki" path="res://root/assets/lens_handle2.png" id="3_v5qlp"]
-[ext_resource type="Texture2D" uid="uid://67ywma6fkmqe" path="res://root/assets/telescop_background.png" id="4_ge5me"]
+[ext_resource type="Texture2D" uid="uid://kdxio6lq3t6g" path="res://root/assets/telescop_background.png" id="4_ge5me"]
 [ext_resource type="Texture2D" uid="uid://bmlcwfxwnd4do" path="res://root/assets/lens_handle3.png" id="4_vdsql"]
 
 [node name="LockPuzzle" type="Node2D" unique_id=1376987651 node_paths=PackedStringArray("lock_rings")]

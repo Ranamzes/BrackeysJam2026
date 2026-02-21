@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dtcuyqo6sr636"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_6614m"]
+[ext_resource type="Texture2D" uid="uid://bmybm5640qtte" path="res://root/scenes/levels/mainLevel/startscene_doors.png" id="2_bhu08"]
+
+[node name="MainLevel" type="Node2D" unique_id=21041493]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_6614m")]
+right_scene = "uid://c3odhd3retu8g"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1058383913]
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("2_bhu08")
+centered = false

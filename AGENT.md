@@ -329,6 +329,13 @@ This project follows an **"Interface-First"** philosophy. Before writing complex
 
 ## 7. Tooling and Plugin Guides
 
+### Godot Dialogue Manager
+
+The project uses the **Godot Dialogue Manager** addon for all NPC and cutscene interactions.
+*   **Dialogue Files:** Dialogue logic and text are written in `.dialogue` text resources (e.g., `monster.dialogue`) imported as `DialogueResource`.
+*   **Workflow / Rules:** We follow a headless, stateless approach where the manager provides lines and the game handles UI and state checks.
+*   **Detailed Guide:** You **MUST** reference the internal dialogue workflow document for syntax, BBCode, custom effects, and implementation patterns. See `[dialogue.md](file:///c:/Games/Electus Games/BrackeysJam2026/.agent/workflows/dialogue.md)` or use the `/dialogue` slash command for full instructions.
+
 ### Using G.U.I.D.E. for Input Management
 
 G.U.I.D.E. is an advanced input management system that operates via `GUIDEMappingContext` resources. It allows for the decoupling of game logic from specific keys and buttons.

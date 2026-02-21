@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://root/scenes/levels/intro/monster_eye.gd" id="1_eye_base"]
+
+[node name="MonsterEye" type="Node2D"]
+script = ExtResource("1_eye_base")
+
+[node name="Mask" type="Polygon2D" parent="."]
+clip_children = 1
+polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+
+[node name="Base" type="Sprite2D" parent="Mask"]
+
+[node name="Iris" type="Sprite2D" parent="Mask"]
+
+[node name="Shadow" type="Sprite2D" parent="Mask"]
+
+[node name="Light" type="Sprite2D" parent="Mask"]
+
+[node name="UpperLid" type="Sprite2D" parent="."]
+
+[node name="LowerLid" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
