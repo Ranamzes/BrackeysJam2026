@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var darkness_rect: TextureRect = $DarknessRect
-@onready var smoke_particles: CPUParticles2D = $SmokeParticles
+@onready var smoke_particles_container: Node2D = $SmokeParticles
 @onready var eyes_container: Control = $EyesContainer
 @onready var dialogue_label: RichTextLabel = $DialogueLabel
 
@@ -22,7 +22,8 @@ func _ready() -> void:
 	darkness_rect.modulate = Color(1, 1, 1, 0)
 	darkness_rect.scale = Vector2(0.1, 0.1)
 
-	smoke_particles.emitting = true
+	_start_all_smoke(smoke_particles_container)
+
 	dialogue_label.text = ""
 
 	for eye in eyes_container.get_children():
@@ -30,10 +31,16 @@ func _ready() -> void:
 		eyes.append(eye)
 	start_sequence()
 
+func _start_all_smoke(node: Node):
+	for child in node.get_children():
+		if child is CPUParticles2D:
+			child.emitting = true
+		_start_all_smoke(child)
+
 func start_sequence():
 	# 1. Expand darkness and fade in
 	var tween = create_tween().set_parallel(true)
-	tween.tween_property(darkness_rect, "scale", Vector2(2.5, 2.5), 1.3).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(darkness_rect, "scale", Vector2(2.1, 2.1), 1.3).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(darkness_rect, "modulate", Color(1, 1, 1, 1), 0.3)
 
 	await tween.finished
@@ -68,6 +75,12 @@ func start_next_dialogue_line():
 		waiting_for_input = false
 		current_line_idx += 1
 
+		# Trigger 'angry' state on the final line
+		if current_line_idx == 5:
+			for eye in eyes:
+				if eye.has_method("look_at_player"):
+					eye.look_at_player()
+
 		# Open a fixed number of eyes per line according to our plan
 		var eyes_to_open = 0
 		if current_line_idx < eyes_per_line.size():
@@ -81,15 +94,22 @@ func start_next_dialogue_line():
 				cumulative_delay += randf_range(0.8, 1.3)
 				get_tree().create_timer(cumulative_delay).timeout.connect(show_next_eye)
 	else:
-		# End sequence, wait for final click
-		sequence_finished = true
-		waiting_for_input = true
-		dialogue_label.text = ""
+		# No more lines, trigger transition immediately
+		_trigger_transition()
 
-		# Make all eyes look at the player
-		for eye in eyes:
-			if eye.has_method("look_at_player"):
-				eye.look_at_player()
+func _trigger_transition() -> void:
+	if sequence_finished: return # Prevent double trigger
+	sequence_finished = true
+	set_process_input(false)
+
+	dialogue_label.text = ""
+
+	# Next level transition
+	ProgressionManager.set_flag("intro", true)
+	ScreenTransition.transition_to_scene("res://main_level.tscn")
+	# Wait for screen to darken before removing the canvas layer
+	await ScreenTransition.transition_halfway
+	queue_free()
 
 func _on_typing_finished() -> void:
 	waiting_for_input = true
@@ -98,17 +118,8 @@ func _input(event: InputEvent) -> void:
 	# Progress dialogue on left mouse click or any potential 'interact' action if defined
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if waiting_for_input:
-			if sequence_finished:
-				# Next level transition
-				ProgressionManager.set_flag("intro", true)
-				set_process_input(false)
-				ScreenTransition.transition_to_scene("res://main_level.tscn")
-				# Wait for screen to darken before removing the canvas layer
-				await ScreenTransition.transition_halfway
-				queue_free()
-			else:
-				# Go to next line
-				start_next_dialogue_line()
+			# Go to next line (which will trigger transition if it's the end)
+			start_next_dialogue_line()
 		elif not waiting_for_input and dialogue_label != null and dialogue_label.dialogue_line != null:
 			# Skip typing and show full line immediately
 			dialogue_label.skip_typing()

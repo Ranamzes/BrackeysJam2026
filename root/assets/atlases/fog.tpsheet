@@ -1,0 +1,63 @@
+{
+	"textures": [
+		{
+			"image": "fog.png",
+			"size": {
+				"w": 1024,
+				"h": 256
+			},
+			"sprites": [
+				{
+					"filename": "fog1",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 283,
+						"h": 250
+					},
+					"margin": {
+						"x": 12,
+						"y": 0,
+						"w": 12,
+						"h": 0
+					}
+				},
+				{
+					"filename": "fog2",
+					"region": {
+						"x": 290,
+						"y": 3,
+						"w": 340,
+						"h": 249
+					},
+					"margin": {
+						"x": 0,
+						"y": 4,
+						"w": 0,
+						"h": 22
+					}
+				},
+				{
+					"filename": "fog3",
+					"region": {
+						"x": 634,
+						"y": 3,
+						"w": 264,
+						"h": 234
+					},
+					"margin": {
+						"x": 0,
+						"y": 2,
+						"w": 0,
+						"h": 6
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:347aea3332344ef6e76aab605a7e3751:2000cf404f10480310823502ebcead5a:9e0515e5535d71dfc6dca2f55fac07e0$"
+	}
+}

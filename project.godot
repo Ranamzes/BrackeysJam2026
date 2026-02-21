@@ -89,6 +89,7 @@ hour=3
 minute=0
 has_custom_data=true
 link_to_jam_page="https://ranamzes.itch.io/testdev"
+end_date_utc_unix=1771758000
 
 [layer_names]
 

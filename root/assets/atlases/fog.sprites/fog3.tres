@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://cpbcwt4i4ice"]
+
+[ext_resource type="Texture2D" uid="uid://cj5omxner54hf" path="res://root/assets/atlases/fog.png" id="1_mmf6l"]
+
+[resource]
+atlas = ExtResource("1_mmf6l")
+region = Rect2(634, 3, 264, 234)
+margin = Rect2(0, 2, 0, 6)
