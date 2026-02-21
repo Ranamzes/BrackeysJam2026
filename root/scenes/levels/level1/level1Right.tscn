@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://l7bgek2il2yu" path="res://root/scenes/levels/level1/level_1_right.gd" id="1_2hgiq"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_2hgiq"]
 [ext_resource type="Texture2D" uid="uid://ohprny2xl1o2" path="res://root/scenes/levels/level1/cleancore_background_2.1.png" id="2_jrfdj"]
-[ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="4_v4bo5"]
 [ext_resource type="Texture2D" uid="uid://dqpde6eqeuvr8" path="res://root/scenes/levels/level1/cleancore_window.png" id="6_46pwm"]
 [ext_resource type="Texture2D" uid="uid://t5da0kxihqai" path="res://root/scenes/levels/level1/cleancore_bathtubs.png" id="7_nsl4c"]
 [ext_resource type="Texture2D" uid="uid://c3xldf4702dhn" path="res://root/scenes/levels/level1/cleancore_jars2.png" id="8_nsl4c"]
 [ext_resource type="Texture2D" uid="uid://2ymq1j1s3uur" path="res://root/scenes/levels/level1/cleancore_jars.png" id="9_nved4"]
+[ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="10_sdhyp"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="11_gri7d"]
+[ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="11_kdm4n"]
 [ext_resource type="Texture2D" uid="uid://b8ms1dsboq112" path="res://root/scenes/levels/level1/cleancore_levers_panel.png" id="11_sdhyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdhyp"]
@@ -31,23 +32,6 @@ texture = ExtResource("2_jrfdj")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_2hgiq")]
 left_scene = "res://root/scenes/levels/level1/Level1Center.tscn"
-
-[node name="TestButton" parent="." unique_id=1880091726 instance=ExtResource("4_v4bo5")]
-unique_name_in_owner = true
-offset_left = 762.0
-offset_top = 883.0
-offset_right = 1022.0
-offset_bottom = 997.0
-text = "Click me"
-normal_color = Color(1, 1, 1, 1)
-hover_color = Color(1, 0, 0, 1)
-disabled = false
-font_size = 64
-texture_offset = Vector2(0, 0)
-text_offset = Vector2(0, 0)
-text_rotation = 0.0
-click_mask_threshold = 0.5
-sound_streams = null
 
 [node name="CleancoreWindow" type="Sprite2D" parent="." unique_id=121022334]
 position = Vector2(1397, 308)
@@ -87,6 +71,7 @@ shape = SubResource("RectangleShape2D_sdhyp")
 [node name="LeversTransitionArea" parent="." unique_id=1733694010 instance=ExtResource("11_gri7d")]
 position = Vector2(598, 481)
 true_flags = Array[String](["duck_placed"])
+scene_path = "uid://dh2d65h3v50dk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeversTransitionArea" unique_id=1490196893]
 position = Vector2(206, 23)
@@ -100,3 +85,11 @@ scene_path = "uid://csggopkacp6ep"
 position = Vector2(8, 19)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sdhyp")
+
+[node name="LeversLid" type="Sprite2D" parent="." unique_id=253470795]
+position = Vector2(804, 515.5)
+scale = Vector2(1.734375, 1.3515625)
+texture = ExtResource("10_sdhyp")
+
+[node name="VisibilityUpdater" parent="LeversLid" unique_id=1413650788 instance=ExtResource("11_kdm4n")]
+flags = Array[String](["duck_placed"])
