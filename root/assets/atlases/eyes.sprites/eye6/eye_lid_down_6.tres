@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://dqw5x8wrc7ilq"]
+
+[ext_resource type="Texture2D" uid="uid://do685a81yr2hu" path="res://root/assets/atlases/eyes.png" id="1_c0ful"]
+
+[resource]
+atlas = ExtResource("1_c0ful")
+region = Rect2(258, 401, 79, 73)

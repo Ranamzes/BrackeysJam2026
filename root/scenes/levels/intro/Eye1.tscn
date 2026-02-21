@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bbqvqj751gqwc"]
+
+[ext_resource type="PackedScene" path="res://root/scenes/levels/intro/MonsterEye.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://tm4gwbdwxdfc" path="res://root/assets/atlases/eyes.sprites/eye/eye_base_1.tres" id="2_base_tex"]
+[ext_resource type="Texture2D" uid="uid://84qi84af7442" path="res://root/assets/atlases/eyes.sprites/eye/eye_iris_1.tres" id="3_iris_tex"]
+[ext_resource type="Texture2D" uid="uid://ccrp3a6ltgya3" path="res://root/assets/atlases/eyes.sprites/eye/eye_shadow_1.tres" id="4_shadow_tex"]
+[ext_resource type="Texture2D" uid="uid://cdijp2vk8fy6l" path="res://root/assets/atlases/eyes.sprites/eye/eye_light_1.tres" id="5_light_tex"]
+[ext_resource type="Texture2D" uid="uid://g46ute72l3s1" path="res://root/assets/atlases/eyes.sprites/eye/eye_lid_up_1.tres" id="6_up_tex"]
+[ext_resource type="Texture2D" uid="uid://bvbgfd8akqi76" path="res://root/assets/atlases/eyes.sprites/eye/eye_lid_down_1.tres" id="7_down_tex"]
+[ext_resource type="AnimationLibrary" uid="uid://c5epuvcbr4v7d" path="res://root/resources/animation/eye.res" id="8_6sntg"]
+
+[node name="Eye1" unique_id=1792580621 instance=ExtResource("1_base")]
+position = Vector2(0, 1)
+base_texture = ExtResource("2_base_tex")
+iris_texture = ExtResource("3_iris_tex")
+shadow_texture = ExtResource("4_shadow_tex")
+light_texture = ExtResource("5_light_tex")
+upper_lid_texture = ExtResource("6_up_tex")
+lower_lid_texture = ExtResource("7_down_tex")
+blink_min = 6.0
+blink_max = 12.0
+move_radius_x = 73.0
+move_radius_y = 37.0
+move_rotation = -11.0
+iris_center_offset = Vector2(9, -20)
+
+[node name="Mask" parent="." index="0"]
+polygon = PackedVector2Array(-178, 45, -70, -42, 5, -47, 159, 11, 122, 11, 48, -17, -40, -24, -110, 7)
+
+[node name="Base" parent="Mask" index="0"]
+texture = ExtResource("2_base_tex")
+
+[node name="Iris" parent="Mask" index="1"]
+position = Vector2(-20.15, 11.115)
+texture = ExtResource("3_iris_tex")
+
+[node name="Shadow" parent="Mask" index="2"]
+texture = ExtResource("4_shadow_tex")
+
+[node name="Light" parent="Mask" index="3"]
+texture = ExtResource("5_light_tex")
+
+[node name="UpperLid" parent="." index="1"]
+position = Vector2(-6, 17)
+texture = ExtResource("6_up_tex")
+
+[node name="LowerLid" parent="." index="2"]
+position = Vector2(12, 52)
+texture = ExtResource("7_down_tex")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries/ = ExtResource("8_6sntg")

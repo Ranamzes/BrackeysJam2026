@@ -24,17 +24,17 @@ var current_date: Dictionary
 func _ready() -> void:
 	var editor_theme = EditorInterface.get_editor_theme()
 	var accent_color = editor_theme.get_color("accent_color", "Editor")
-	
-	human_date.add_theme_color_override("font_color",accent_color)
-	
+
+	human_date.add_theme_color_override("font_color", accent_color)
+
 	current_date = Time.get_datetime_dict_from_system()
-	
+
 	if !title_label.pressed.is_connected(_enter_edit_mode):
-		title_label.pressed.connect(_enter_edit_mode,CONNECT_DEFERRED)
-	
+		title_label.pressed.connect(_enter_edit_mode, CONNECT_DEFERRED)
+
 	if not confirmed.is_connected(_on_confirmed):
 		confirmed.connect(_on_confirmed)
-	
+
 	# Connect signals only if they are not already connected.
 	if not day.value_changed.is_connected(_on_date_value_changed):
 		day.value_changed.connect(_on_date_value_changed)
@@ -57,33 +57,38 @@ func _on_confirmed() -> void:
 	get_parent().minute = minute.value
 	get_parent().jam_title = gamejam_title.text
 	get_parent().jam_page_url = jam_link.text
-	
+
 	_save_settings()
 	countdown_label.tooltip_text = get_formatted_end_date()
-	
+
 	get_parent().start_countdown()
 
 ## Saves the current settings to the project's settings.
+## The end date is stored as a UTC Unix timestamp for timezone-safe operation.
 func _save_settings() -> void:
 	var p = get_parent()
+	# Convert local input to UTC Unix timestamp.
+	var input_dict := {
+		"year": int(year.value), "month": int(month.value), "day": int(day.value),
+		"hour": int(hour.value), "minute": int(minute.value), "second": 0
+	}
+	var utc_unix: int = int(Time.get_unix_time_from_datetime_dict(input_dict)) - p._get_utc_offset()
+	p.jam_date_unix = utc_unix
+
+	ProjectSettings.set_setting(p.SETTING_UTC_UNIX, utc_unix)
 	ProjectSettings.set_setting(p.SETTING_TITLE, gamejam_title.text)
-	ProjectSettings.set_setting(p.SETTING_YEAR, int(year.value))
-	ProjectSettings.set_setting(p.SETTING_MONTH, int(month.value))
-	ProjectSettings.set_setting(p.SETTING_DAY, int(day.value))
-	ProjectSettings.set_setting(p.SETTING_HOUR, int(hour.value))
-	ProjectSettings.set_setting(p.SETTING_MINUTE, int(minute.value))
 	ProjectSettings.set_setting(p.SETTING_HAS_DATA, true)
 	ProjectSettings.set_setting(p.SETTING_URL, jam_link.text.strip_edges())
-	
+
 	link_box.visible = jam_link.text.strip_edges() != ""
 	ProjectSettings.save()
 
 ## Populates the dialog's fields with the current countdown settings.
 func _update_values() -> void:
 	current_date = Time.get_datetime_dict_from_system()
-	
-	year.value = get_parent().year 
-	month.value = get_parent().month 
+
+	year.value = get_parent().year
+	month.value = get_parent().month
 	day.value = get_parent().day
 	hour.value = get_parent().hour
 	minute.value = get_parent().minute
@@ -101,17 +106,17 @@ func _enter_edit_mode() -> void:
 ## Updates the minimum values of the date/time SpinBoxes based on the current system time.
 func _update_date_constraints() -> void:
 	year.min_value = current_date.year
-	
+
 	if int(year.value) == current_date.year:
 		month.min_value = current_date.month
 	else:
 		month.min_value = 1
-	
+
 	if int(year.value) == current_date.year and int(month.value) == current_date.month:
 		day.min_value = current_date.day
 	else:
 		day.min_value = 1
-	
+
 	if int(year.value) == current_date.year and int(month.value) == current_date.month and int(day.value) == current_date.day:
 		hour.min_value = current_date.hour
 		if int(hour.value) == current_date.hour:
@@ -123,10 +128,10 @@ func _update_date_constraints() -> void:
 		minute.min_value = 0
 
 ## Returns the end date formatted as a string (DD/MM/YY HH:MM).
-func get_formatted_end_date() -> String :
+func get_formatted_end_date() -> String:
 	return "%02d/%02d/%02d %02d:%02d" % [
 		int(day.value),
-		int(month.value), 
+		int(month.value),
 		int(year.value) % 100,
 		int(hour.value),
 		int(minute.value)

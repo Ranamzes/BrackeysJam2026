@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://ci1wqmkhpw628"]
+
+[ext_resource type="Script" uid="uid://bx2oey1msqmry" path="res://root/scenes/levels/intro/intro.gd" id="1_intro"]
+[ext_resource type="Texture2D" uid="uid://c3slc4lg6cjae" path="res://root/scenes/levels/mainLevel/darkness.png" id="2_darkness"]
+[ext_resource type="PackedScene" uid="uid://bbqvqj751gqwc" path="res://root/scenes/levels/intro/Eye1.tscn" id="3_eye1"]
+[ext_resource type="PackedScene" uid="uid://3e0fxbcalg7" path="res://root/scenes/levels/intro/Eye2.tscn" id="4_eye2"]
+[ext_resource type="PackedScene" uid="uid://bv0o4cxvqay0e" path="res://root/scenes/levels/intro/Eye3.tscn" id="5_eye3"]
+[ext_resource type="PackedScene" uid="uid://irr4sc5e0wbg" path="res://root/scenes/levels/intro/Eye4.tscn" id="6_eye4"]
+[ext_resource type="PackedScene" uid="uid://csfi2kbog7pyn" path="res://root/scenes/levels/intro/Eye5.tscn" id="7_eye5"]
+[ext_resource type="PackedScene" uid="uid://ciqpbnvwviuqi" path="res://root/scenes/levels/intro/Eye6.tscn" id="8_eye6"]
+[ext_resource type="PackedScene" uid="uid://d4gswj0fabhda" path="res://root/scenes/levels/intro/Eye7.tscn" id="9_eye7"]
+[ext_resource type="PackedScene" uid="uid://b4u8fl2dsi8hn" path="res://root/scenes/levels/intro/Eye8.tscn" id="10_eye8"]
+[ext_resource type="PackedScene" uid="uid://d08e2xlywiik" path="res://root/scenes/levels/intro/Eye9.tscn" id="11_eye9"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="12_dl"]
+[ext_resource type="Script" uid="uid://cglinjsaijv5j" path="res://root/resources/effects/nervous_effect.gd" id="13_nervous"]
+[ext_resource type="Script" uid="uid://b8e7f0oic26y" path="res://root/resources/effects/woo_effect.gd" id="14_woo"]
+[ext_resource type="Script" uid="uid://blswamk76gei2" path="res://root/resources/effects/red_sparkle_effect.gd" id="15_redsparkle"]
+[ext_resource type="Script" uid="uid://bwsc7udc4i460" path="res://root/resources/effects/embers_effect.gd" id="16_embers"]
+[ext_resource type="FontVariation" path="res://root/resources/fonts/text_font.tres" id="17_font"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_nervous"]
+script = ExtResource("13_nervous")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_woo"]
+script = ExtResource("14_woo")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_redsparkle"]
+script = ExtResource("15_redsparkle")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_embers"]
+script = ExtResource("16_embers")
+
+[node name="Intro" type="CanvasLayer" unique_id=100020033]
+layer = 10
+script = ExtResource("1_intro")
+
+[node name="DarknessRect" type="TextureRect" parent="." unique_id=1855174232]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_darkness")
+expand_mode = 1
+
+[node name="SmokeParticles" type="CPUParticles2D" parent="." unique_id=1939341393]
+position = Vector2(960, 540)
+emitting = false
+amount = 200
+lifetime = 3.0
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+scale_amount_min = 10.0
+scale_amount_max = 30.0
+color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="EyesContainer" type="Control" parent="." unique_id=18644592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eye1" parent="EyesContainer" unique_id=595914792 instance=ExtResource("3_eye1")]
+position = Vector2(976.0001, 241.00002)
+scale = Vector2(1.3, 1.3)
+light_follow_strength = null
+
+[node name="Eye8" parent="EyesContainer" unique_id=1302309554 instance=ExtResource("10_eye8")]
+position = Vector2(1029, 442)
+scale = Vector2(1.2, 1.2)
+light_follow_strength = null
+
+[node name="Eye3" parent="EyesContainer" unique_id=42279324 instance=ExtResource("5_eye3")]
+position = Vector2(510, 414)
+scale = Vector2(1.3, 1.3)
+light_follow_strength = null
+
+[node name="Eye9" parent="EyesContainer" unique_id=1158977856 instance=ExtResource("11_eye9")]
+position = Vector2(1444, 361)
+scale = Vector2(1.2, 1.2)
+light_follow_strength = null
+
+[node name="Eye5" parent="EyesContainer" unique_id=1000607540 instance=ExtResource("7_eye5")]
+position = Vector2(1377, 592)
+scale = Vector2(1.3, 1.3)
+light_follow_strength = null
+
+[node name="Eye7" parent="EyesContainer" unique_id=147108837 instance=ExtResource("9_eye7")]
+position = Vector2(647, 626)
+scale = Vector2(1.2, 1.2)
+light_follow_strength = null
+
+[node name="Eye4" parent="EyesContainer" unique_id=526053471 instance=ExtResource("6_eye4")]
+position = Vector2(1154, 577)
+scale = Vector2(1.1, 1.1)
+light_follow_strength = null
+
+[node name="Eye6" parent="EyesContainer" unique_id=705949848 instance=ExtResource("8_eye6")]
+position = Vector2(820, 462)
+scale = Vector2(1.2, 1.2)
+light_follow_strength = null
+
+[node name="Eye2" parent="EyesContainer" unique_id=459229290 instance=ExtResource("4_eye2")]
+position = Vector2(963, 713)
+scale = Vector2(1.2, 1.2)
+light_follow_strength = null
+
+[node name="DialogueLabel" type="RichTextLabel" parent="." unique_id=1222976576]
+custom_minimum_size = Vector2(1400, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -208.0
+offset_right = 700.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("17_font")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+custom_effects = [SubResource("RichTextEffect_nervous"), SubResource("RichTextEffect_woo"), SubResource("RichTextEffect_redsparkle"), SubResource("RichTextEffect_embers")]
+script = ExtResource("12_dl")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")

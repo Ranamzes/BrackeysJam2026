@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d4gswj0fabhda"]
+
+[ext_resource type="PackedScene" path="res://root/scenes/levels/intro/MonsterEye.tscn" id="1_base"]
+[ext_resource type="Texture2D" uid="uid://eelhnmf4svf" path="res://root/assets/atlases/eyes.sprites/eye7/eye_base_7.tres" id="2_base_tex"]
+[ext_resource type="Texture2D" uid="uid://b48kqi6sakhy" path="res://root/assets/atlases/eyes.sprites/eye7/eye_iris_7.tres" id="3_iris_tex"]
+[ext_resource type="Texture2D" uid="uid://bj6ytqdhxj8ea" path="res://root/assets/atlases/eyes.sprites/eye7/eye_shadow_7.tres" id="4_shadow_tex"]
+[ext_resource type="Texture2D" uid="uid://cw6hxfgjsb8o" path="res://root/assets/atlases/eyes.sprites/eye7/eye_light_7.tres" id="5_light_tex"]
+[ext_resource type="Texture2D" uid="uid://dftc3j7trf66v" path="res://root/assets/atlases/eyes.sprites/eye7/eye_lid_up_7.tres" id="6_up_tex"]
+[ext_resource type="Texture2D" uid="uid://c7p4mv2laf7cl" path="res://root/assets/atlases/eyes.sprites/eye7/eye_lid_down_7.tres" id="7_down_tex"]
+[ext_resource type="AnimationLibrary" uid="uid://bevc17b3j36st" path="res://root/resources/animation/eye7.res" id="8_xh738"]
+
+[node name="Eye7" unique_id=1327527815 instance=ExtResource("1_base")]
+base_texture = ExtResource("2_base_tex")
+iris_texture = ExtResource("3_iris_tex")
+shadow_texture = ExtResource("4_shadow_tex")
+light_texture = ExtResource("5_light_tex")
+upper_lid_texture = ExtResource("6_up_tex")
+lower_lid_texture = ExtResource("7_down_tex")
+
+[node name="Mask" parent="." index="0"]
+polygon = PackedVector2Array(-65, 4, -27, -10, 6, -9, 82, 1, 69, 9, 19, 8, -19, 12, -110, 7)
+
+[node name="Base" parent="Mask" index="0"]
+texture = ExtResource("2_base_tex")
+
+[node name="Iris" parent="Mask" index="1"]
+position = Vector2(-20.15, 11.115)
+texture = ExtResource("3_iris_tex")
+
+[node name="Shadow" parent="Mask" index="2"]
+texture = ExtResource("4_shadow_tex")
+
+[node name="Light" parent="Mask" index="3"]
+texture = ExtResource("5_light_tex")
+
+[node name="UpperLid" parent="." index="1"]
+position = Vector2(2, 15)
+texture = ExtResource("6_up_tex")
+
+[node name="LowerLid" parent="." index="2"]
+position = Vector2(12, 52)
+texture = ExtResource("7_down_tex")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries/ = ExtResource("8_xh738")
