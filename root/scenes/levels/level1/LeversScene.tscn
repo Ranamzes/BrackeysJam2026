@@ -15,4 +15,12 @@ scale = Vector2(0.94, 0.94)
 texture = ExtResource("2_o57g1")
 
 [node name="LeversScene" parent="." unique_id=885976297 instance=ExtResource("3_fqlm5")]
-position = Vector2(-43, -166)
+position = Vector2(-117, -84)
+levers_check_state = Dictionary[String, bool]({
+"lever_1": false,
+"lever_2": false,
+"lever_3": false,
+"lever_4": false,
+"lever_5": false,
+"lever_6": false
+})

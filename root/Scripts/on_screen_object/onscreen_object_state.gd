@@ -10,12 +10,11 @@ func _ready() -> void:
 	for child in get_children() :
 		if child is ObjectStateTransition :
 			transitions.append(child)
+	if self.visible :
+		set_flags()
 
 func go_to(new_state : OnScreenObjectState) ->  void:
-	for true_flag in to_set_true:
-		ProgressionManager.set_flag(true_flag, true)
-	for false_flag in to_set_false:
-		ProgressionManager.set_flag(false_flag, false)
+	set_flags()
 	self.visible = false
 	new_state.visible = true
 
@@ -26,3 +25,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			var new_state = transition.go_to_new_state()
 			if new_state:
 				return
+
+func set_flags() ->  void:
+	for true_flag in to_set_true:
+		ProgressionManager.set_flag(true_flag, true)
+	for false_flag in to_set_false:
+		ProgressionManager.set_flag(false_flag, false)
+	

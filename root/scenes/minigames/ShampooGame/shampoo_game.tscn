@@ -51,17 +51,6 @@ unique_name_in_owner = true
 streams = Array[AudioStream]([ExtResource("4_ide7s")])
 randomize_pitch = false
 
-[node name="DraggableObject" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=1493394139]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-script = ExtResource("1_ooukc")
-metadata/_custom_type_script = "uid://benrxj66i02co"
-
-[node name="TextureRect" type="TextureRect" parent="ShampooScene/ShampooGame/DraggableObject" unique_id=568992208]
-layout_mode = 2
-texture = ExtResource("3_gy4lt")
-
 [node name="DraggableObject2" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=758366360 groups=["quest_solution"]]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -86,17 +75,6 @@ metadata/_custom_type_script = "uid://benrxj66i02co"
 layout_mode = 2
 texture = ExtResource("6_h0y84")
 
-[node name="DraggableObject4" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=629435200]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-script = ExtResource("1_ooukc")
-metadata/_custom_type_script = "uid://benrxj66i02co"
-
-[node name="TextureRect" type="TextureRect" parent="ShampooScene/ShampooGame/DraggableObject4" unique_id=1181704424]
-layout_mode = 2
-texture = ExtResource("7_d8b48")
-
 [node name="DraggableObject5" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=34114217]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -107,3 +85,25 @@ metadata/_custom_type_script = "uid://benrxj66i02co"
 [node name="TextureRect" type="TextureRect" parent="ShampooScene/ShampooGame/DraggableObject5" unique_id=635820709]
 layout_mode = 2
 texture = ExtResource("8_jopnm")
+
+[node name="DraggableObject" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=1493394139]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooScene/ShampooGame/DraggableObject" unique_id=568992208]
+layout_mode = 2
+texture = ExtResource("3_gy4lt")
+
+[node name="DraggableObject4" type="PanelContainer" parent="ShampooScene/ShampooGame" unique_id=629435200]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_ooukc")
+metadata/_custom_type_script = "uid://benrxj66i02co"
+
+[node name="TextureRect" type="TextureRect" parent="ShampooScene/ShampooGame/DraggableObject4" unique_id=1181704424]
+layout_mode = 2
+texture = ExtResource("7_d8b48")
