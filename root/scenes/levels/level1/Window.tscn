@@ -50,9 +50,9 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CapsuleShape2D_ftktx")
 
 [node name="ShampooGame" parent="." unique_id=1390219101 instance=ExtResource("3_kyoml")]
-offset_left = 34.0
-offset_top = -15.0
-offset_right = 1926.0
-offset_bottom = 1098.0
+offset_left = 381.0
+offset_top = -349.0
+offset_right = 2273.0
+offset_bottom = 764.0
 
 [node name="StreamPlayerToothbrush" parent="." unique_id=1693318789 instance=ExtResource("9_yyvlq")]

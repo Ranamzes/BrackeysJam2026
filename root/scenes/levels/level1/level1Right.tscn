@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://bcyhhrogf6g01"]
 
-[ext_resource type="Script" uid="uid://l7bgek2il2yu" path="res://root/scenes/levels/level1/level_1_right.gd" id="1_2hgiq"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_2hgiq"]
 [ext_resource type="Texture2D" uid="uid://ohprny2xl1o2" path="res://root/scenes/levels/level1/cleancore_background_2.1.png" id="2_jrfdj"]
 [ext_resource type="Texture2D" uid="uid://dqpde6eqeuvr8" path="res://root/scenes/levels/level1/cleancore_window.png" id="6_46pwm"]
 [ext_resource type="Texture2D" uid="uid://t5da0kxihqai" path="res://root/scenes/levels/level1/cleancore_bathtubs.png" id="7_nsl4c"]
-[ext_resource type="Texture2D" uid="uid://c3xldf4702dhn" path="res://root/scenes/levels/level1/cleancore_jars2.png" id="8_nsl4c"]
-[ext_resource type="Texture2D" uid="uid://2ymq1j1s3uur" path="res://root/scenes/levels/level1/cleancore_jars.png" id="9_nved4"]
 [ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="10_sdhyp"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="11_gri7d"]
 [ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="11_kdm4n"]
 [ext_resource type="Texture2D" uid="uid://b8ms1dsboq112" path="res://root/scenes/levels/level1/cleancore_levers_panel.png" id="11_sdhyp"]
+[ext_resource type="PackedScene" uid="uid://djylon2s2ib0u" path="res://root/scenes/minigames/ShampooGame/shampoo_game.tscn" id="12_gri7d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdhyp"]
 size = Vector2(340, 487)
@@ -23,7 +21,6 @@ radius = 130.0
 height = 704.0
 
 [node name="Level1Right" type="Node2D" unique_id=503568121]
-script = ExtResource("1_2hgiq")
 
 [node name="CleancoreBackground2_1" type="Sprite2D" parent="." unique_id=132175106]
 position = Vector2(960.5, 539.5)
@@ -47,19 +44,6 @@ texture = ExtResource("7_nsl4c")
 position = Vector2(804.00006, 500)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("11_sdhyp")
-
-[node name="JarsSolved" type="Sprite2D" parent="." unique_id=1104553673]
-unique_name_in_owner = true
-visible = false
-position = Vector2(1393, 441)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_nsl4c")
-
-[node name="Jars" type="Sprite2D" parent="." unique_id=1059585207]
-unique_name_in_owner = true
-position = Vector2(1393, 441)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_nved4")
 
 [node name="WindowTransitionArea2" parent="." unique_id=311293945 instance=ExtResource("11_gri7d")]
 scene_path = "uid://doyahxijnapg4"
@@ -93,3 +77,11 @@ texture = ExtResource("10_sdhyp")
 
 [node name="VisibilityUpdater" parent="LeversLid" unique_id=1413650788 instance=ExtResource("11_kdm4n")]
 flags = Array[String](["duck_placed"])
+
+[node name="BoxContainer" parent="." unique_id=1380861430 instance=ExtResource("12_gri7d")]
+offset_left = 1282.0
+offset_top = 384.00003
+offset_right = 2369.0
+offset_bottom = 897.0
+scale = Vector2(0.205, 0.205)
+disable_clicks = true
