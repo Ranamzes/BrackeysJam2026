@@ -3,8 +3,7 @@ extends Area2D
 
 @export var item_data : ItemData
 @export var true_flags : Array[String]
-##Is item visible if any of the required flags are false. If true Item visible but not interactable
-@export var visible_false_flag:bool = false
+@export var hide_object:bool = false
 ##При подборе предмета проиграет анимацию с имени pickup
 @export var anim_player : AnimationPlayer
 
@@ -23,7 +22,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		pickup()
 
 func pickup() ->  bool:
-	
 	if !check_flags():
 		return false
 	GlobalData.player_inventory.add_item(item_data)
@@ -45,13 +43,13 @@ func queue_free_parent():
 	get_parent().queue_free()
 
 func update_state():
-		if !visible_false_flag:
-			var parent = get_parent()
-			if parent is Node2D:
-				if check_flags():
-					parent.visible=true
-				else:
-					parent.visible = false	
+	if !hide_object:
+		var parent = get_parent()
+		if parent is Node2D:
+			if check_flags():
+				parent.visible=true
+			else:
+				parent.visible = false	
 
 func check_flags()->bool:
 	for flag in true_flags:

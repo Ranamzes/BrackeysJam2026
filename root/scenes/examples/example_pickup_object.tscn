@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bsp3qmvjhbku5"]
+
+[ext_resource type="Script" uid="uid://c3yxuxfngqubt" path="res://root/Scripts/inventory/pickup_object.gd" id="1_gwjh7"]
+[ext_resource type="Resource" path="res://root/assets/items/jar_3.tres" id="2_602x4"]
+[ext_resource type="Texture2D" uid="uid://gggpfr87njbx" path="res://root/assets/atlases/shampoo.sprites/jar_3.tres" id="3_602x4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwjh7"]
+size = Vector2(113, 177)
+
+[node name="PickupObject" type="Area2D" unique_id=1562232421]
+script = ExtResource("1_gwjh7")
+item_data = ExtResource("2_602x4")
+metadata/_custom_type_script = "uid://c3yxuxfngqubt"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1622695026]
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("3_602x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1627362168]
+position = Vector2(-2.5, -2.5)
+shape = SubResource("RectangleShape2D_gwjh7")
