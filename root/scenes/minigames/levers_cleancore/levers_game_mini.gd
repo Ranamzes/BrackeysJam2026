@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	ProgressionManager.progression_data.changed.connect(_on_changed)
-	
+
 func _on_changed(flag_name : String, flag_value : bool) -> void:
 	if levers_check_state.has(flag_name) :
 		print(flag_name)

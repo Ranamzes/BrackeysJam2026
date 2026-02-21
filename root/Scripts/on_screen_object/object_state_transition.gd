@@ -10,6 +10,8 @@ var old_state : OnScreenObjectState
 @export var connected_transitions : Array[ObjectStateTransition]
 @export var force_connected_transitions : bool = false
 
+signal transition(transition : ObjectStateTransition)
+
 func _ready() -> void:
 	old_state = get_parent()
 
@@ -29,4 +31,5 @@ func  go_to_new_state(force : bool = false) -> OnScreenObjectState:
 	old_state.go_to(new_state)
 	for transition in connected_transitions :
 		transition.go_to_new_state(force_connected_transitions)
+	transition.emit(self)
 	return new_state
