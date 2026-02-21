@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="5_eqmdw"]
 [ext_resource type="Resource" uid="uid://lh4redxn8564" path="res://root/resources/dialogue/monster.dialogue" id="6_monster_dialogue"]
 [ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="7_monster_portrait"]
+[ext_resource type="PackedScene" uid="uid://c8n8qj4w8n8n8" path="res://root/scenes/UI/Dialogue/Portraits/MonsterEyesPortrait.tscn" id="8_portrait_scene"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmdw"]
 size = Vector2(322, 856)
@@ -15,6 +16,7 @@ size = Vector2(322, 856)
 script = ExtResource("1_script")
 dialogue_resource = ExtResource("6_monster_dialogue")
 portrait_texture = ExtResource("7_monster_portrait")
+portrait_scene = ExtResource("8_portrait_scene")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_6614m")]
 right_scene = "uid://c3odhd3retu8g"
