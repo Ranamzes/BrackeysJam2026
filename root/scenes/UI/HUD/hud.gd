@@ -4,24 +4,38 @@ extends CanvasLayer
 @export_file("*.tscn") var right_scene: String
 @export_file("*.tscn") var top_scene: String
 @export_file("*.tscn") var bottom_scene: String
+
+@export var left_flag: String = ""
+@export var right_flag: String = ""
+@export var top_flag: String = ""
+@export var bottom_flag: String = ""
+
 @onready var left_button: NavButton = %NavButtonLeft
 @onready var right_button: NavButton = %NavButtonRight
 @onready var top_button: NavButton = %NavButtonTop
 @onready var bottom_button: NavButton = %NavButtonBottom
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if left_scene != "":
-		left_button.visible = true
-		left_button.pressed.connect(on_nav_button_pressed.bind("left"))
-	if right_scene != "":
-		right_button.visible = true
-		right_button.pressed.connect(on_nav_button_pressed.bind("right"))
-	if top_scene != "":
-		top_button.visible = true
-		top_button.pressed.connect(on_nav_button_pressed.bind("top"))
-	if bottom_scene != "":
-		bottom_button.visible = true
-		bottom_button.pressed.connect(on_nav_button_pressed.bind("bottom"))
+	_setup_nav_button(left_button, left_scene, left_flag, "left")
+	_setup_nav_button(right_button, right_scene, right_flag, "right")
+	_setup_nav_button(top_button, top_scene, top_flag, "top")
+	_setup_nav_button(bottom_button, bottom_scene, bottom_flag, "bottom")
+
+
+func _setup_nav_button(button: NavButton, scene_path: String, flag: String, direction: String) -> void:
+	if scene_path == "":
+		button.visible = false
+		return
+
+	var should_be_visible = true
+	if flag != "":
+		should_be_visible = ProgressionManager.get_flag(flag)
+
+	button.visible = should_be_visible
+	if should_be_visible:
+		if not button.pressed.is_connected(on_nav_button_pressed):
+			button.pressed.connect(on_nav_button_pressed.bind(direction))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

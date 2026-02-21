@@ -3,6 +3,12 @@ extends Node
 ## Manages software mouse cursors and their states to fix Web build refresh issues.
 class_name MouseCursorService
 
+var _is_hovering_forced: bool = false
+
+func set_hovering(value: bool) -> void:
+	_is_hovering_forced = value
+
+
 @export var cursor_scale: float = 0.5
 
 # Preload resources
@@ -71,7 +77,8 @@ func _setup_software_cursor() -> void:
 func _update_cursor_texture() -> void:
 	var shape = Input.get_current_cursor_shape()
 	var in_dialogue_area = _is_mouse_over_dialogue_texture()
-	var is_hovering = _is_mouse_over_interactive() or in_dialogue_area or shape == Input.CURSOR_POINTING_HAND
+	var is_hovering = _is_mouse_over_interactive() or in_dialogue_area or shape == Input.CURSOR_POINTING_HAND or _is_hovering_forced
+
 
 	# Logic:
 	# - Default (No Hover): Closed eye (cursor_click)

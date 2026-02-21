@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcyhhrogf6g01"]
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_2hgiq"]
-[ext_resource type="Texture2D" uid="uid://ohprny2xl1o2" path="res://root/scenes/levels/level1/cleancore_background_2.1.png" id="2_jrfdj"]
+[ext_resource type="Texture2D" uid="uid://d1ejt063lb77p" path="res://root/scenes/levels/level1/cleancore_background_2.1.png" id="2_jrfdj"]
 [ext_resource type="Texture2D" uid="uid://dqpde6eqeuvr8" path="res://root/scenes/levels/level1/cleancore_window.png" id="6_46pwm"]
 [ext_resource type="Texture2D" uid="uid://t5da0kxihqai" path="res://root/scenes/levels/level1/cleancore_bathtubs.png" id="7_nsl4c"]
 [ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="10_sdhyp"]

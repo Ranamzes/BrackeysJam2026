@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djylon2s2ib0u"]
 
 [ext_resource type="Script" uid="uid://c44vb1mrv7yp1" path="res://root/scenes/minigames/ShampooGame/shampoo_game.gd" id="1_gy4lt"]
-[ext_resource type="Script" uid="uid://dhkir03tamdu2" path="res://root/scenes/minigames/ShampooGame/shampoos_scene.gd" id="1_ide7s"]
+[ext_resource type="Script" path="res://root/scenes/minigames/ShampooGame/shampoos_scene.gd" id="1_ide7s"]
 [ext_resource type="Script" uid="uid://benrxj66i02co" path="res://root/scenes/UI/elements/draggable_object/draggable_object.gd" id="1_ooukc"]
 [ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="3_dsiqd"]
 [ext_resource type="Texture2D" uid="uid://dbguw1y2c4xsh" path="res://root/assets/atlases/shampoo.sprites/jar_1.tres" id="3_gy4lt"]
