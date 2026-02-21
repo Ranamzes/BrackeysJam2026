@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doyahxijnapg4"]
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_4nkuw"]
-[ext_resource type="Script" path="res://root/scenes/levels/level1/window.gd" id="1_yf4bm"]
+[ext_resource type="Script" uid="uid://77pcidnpaj0m" path="res://root/scenes/levels/level1/window.gd" id="1_yf4bm"]
 [ext_resource type="Texture2D" uid="uid://8g3tmaol3qrb" path="res://root/assets/shampoo_background.png" id="2_kyoml"]
 [ext_resource type="PackedScene" uid="uid://djylon2s2ib0u" path="res://root/scenes/minigames/ShampooGame/shampoo_game.tscn" id="3_kyoml"]
 [ext_resource type="Texture2D" uid="uid://87chxi1r4gxs" path="res://root/assets/cleancore_inventory_toothbrush.png" id="3_robsj"]
@@ -42,7 +42,6 @@ texture = ExtResource("3_robsj")
 scale = Vector2(0.99999994, 0.99999994)
 item_data = ExtResource("7_axp1t")
 true_flags = Array[String](["bottles_solved"])
-visible_false_flag = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toothbrush/PickupObjectToothbrush" unique_id=1903313822]
 position = Vector2(-21.696928, -5.4077024)

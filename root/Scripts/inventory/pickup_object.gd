@@ -43,7 +43,7 @@ func queue_free_parent():
 	get_parent().queue_free()
 
 func update_state():
-	if !hide_object:
+	if hide_object:
 		var parent = get_parent()
 		if parent is Node2D:
 			if check_flags():
