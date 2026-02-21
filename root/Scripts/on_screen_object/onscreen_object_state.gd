@@ -31,4 +31,11 @@ func set_flags() ->  void:
 		ProgressionManager.set_flag(true_flag, true)
 	for false_flag in to_set_false:
 		ProgressionManager.set_flag(false_flag, false)
+		
+func do_transition(transition_name) -> bool:
+	for transition in transitions :
+		if transition.name == transition_name :
+			transition.go_to_new_state(true)
+			return true
+	return false
 	

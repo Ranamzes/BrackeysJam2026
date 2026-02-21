@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dvnaxuioe1squ" path="res://root/scenes/minigames/levers_cleancore/levers_game_mini.gd" id="1_dlay1"]
 [ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/Scripts/on_screen_object/onscreen_object_state.gd" id="1_u15os"]
 [ext_resource type="Texture2D" uid="uid://bxuv3uvr7k80h" path="res://root/assets/atlases/switchs.sprites/lever_up.tres" id="2_drbb6"]
-[ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/Scripts/on_screen_object/object_with_states.gd" id="2_ykac2"]
 [ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/Scripts/on_screen_object/object_state_transition.gd" id="3_a0568"]
 [ext_resource type="Texture2D" uid="uid://b3qu72qdd8rua" path="res://root/assets/atlases/switchs.sprites/lever_down.tres" id="3_v8odj"]
 
@@ -18,10 +17,6 @@ script = ExtResource("1_dlay1")
 
 [node name="Lever_1" type="Node2D" parent="." unique_id=1613662950]
 position = Vector2(513, 334)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_1" unique_id=1485466231]
 script = ExtResource("1_u15os")
@@ -61,10 +56,6 @@ metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_2" type="Node2D" parent="." unique_id=1808305583]
 position = Vector2(1011, 334)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_2" unique_id=248703212]
 visible = false
@@ -104,10 +95,6 @@ metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_3" type="Node2D" parent="." unique_id=797634893]
 position = Vector2(1506, 331)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_3" unique_id=1036425032]
 script = ExtResource("1_u15os")
@@ -147,10 +134,6 @@ metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_4" type="Node2D" parent="." unique_id=302944699]
 position = Vector2(516, 697)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_4" unique_id=1983248866]
 visible = false
@@ -190,10 +173,6 @@ metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_5" type="Node2D" parent="." unique_id=2070635126]
 position = Vector2(1014, 676)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_5" unique_id=1627982255]
 script = ExtResource("1_u15os")
@@ -233,10 +212,6 @@ metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_6" type="Node2D" parent="." unique_id=1815866309]
 position = Vector2(1512, 674)
-script = ExtResource("2_ykac2")
-write_states = true
-restore_states = true
-do_transition_on_restore = true
 
 [node name="LeverUp" type="Area2D" parent="Lever_6" unique_id=217855178]
 script = ExtResource("1_u15os")

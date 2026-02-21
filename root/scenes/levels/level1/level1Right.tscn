@@ -80,7 +80,7 @@ flags = Array[String](["duck_placed"])
 
 [node name="BoxContainer" parent="." unique_id=1380861430 instance=ExtResource("12_gri7d")]
 offset_left = 1282.0
-offset_top = 384.00003
+offset_top = 384.0
 offset_right = 2369.0
 offset_bottom = 897.0
 scale = Vector2(0.205, 0.205)
