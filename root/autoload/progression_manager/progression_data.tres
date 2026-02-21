@@ -11,6 +11,8 @@ state_table = Dictionary[String, bool]({
 "floor_tile_unlocked": false,
 "levers_solved": false,
 "pipes_solved": false,
+"puzzle_colors_solved": false,
+"puzzle_pieces_solved": false,
 "rubber_duck_picked_up": false,
 "telescope_solved": false,
 "toothbrush_picked_up": false

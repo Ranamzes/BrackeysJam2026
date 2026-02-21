@@ -12,6 +12,7 @@
 [ext_resource type="Shape2D" uid="uid://duc2ranwcy84i" path="res://root/scenes/minigames/puzzle_dreamcore/puzzle_slot_circle_shape_2d.tres" id="8_t80mc"]
 [ext_resource type="Texture2D" uid="uid://cws18ui5ct2y5" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part4.png" id="9_okw37"]
 [ext_resource type="Texture2D" uid="uid://dl1p023bfqhav" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part5.png" id="10_t80mc"]
+[ext_resource type="Script" uid="uid://b75y0tqle5wys" path="res://root/scripts/puzzle/puzzle_piece_disabler.gd" id="11_v8061"]
 
 [node name="PuzzleManager" type="Node2D" unique_id=1853569289]
 script = ExtResource("1_tq57j")
@@ -28,6 +29,9 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 1
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_1" unique_id=69532228]
@@ -59,6 +63,9 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 2
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_2" unique_id=984605755]
@@ -84,12 +91,24 @@ metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
 shape = ExtResource("8_t80mc")
 
 [node name="PuzzlePiece_3" type="Area2D" parent="." unique_id=1233152015]
-position = Vector2(734, 422)
+position = Vector2(1407, 709)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 3
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
+
+[node name="PuzzlePieceDisabler" type="Area2D" parent="PuzzlePiece_3" unique_id=868070435]
+position = Vector2(-680, -289)
+script = ExtResource("11_v8061")
+metadata/_custom_type_script = "uid://b75y0tqle5wys"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_3/PuzzlePieceDisabler" unique_id=1475422951]
+position = Vector2(508, 382)
+polygon = PackedVector2Array(-1300, 266, 721, 281, 691, -368, 367, -467, 284, -398, -98, -295, -119, -216, -799, -6, -814, 48, -1307, 131)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_3" unique_id=1863921193]
 polygon = PackedVector2Array(-118, 174, 145, 100, 111, 10, 80, 52, -36, -183, -135, -157, -55, -107, -137, -27, -68, -11)
@@ -119,6 +138,9 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 4
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_4" unique_id=1454488060]
@@ -149,6 +171,9 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 5
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_5" unique_id=790274677]

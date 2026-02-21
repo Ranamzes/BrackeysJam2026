@@ -11,5 +11,5 @@ var holding_piece : PuzzlePiece
 func _ready() -> void:
 	self.add_to_group(slots_group_name, true)
 
-func shift_piece() -> void :
-	holding_piece.position = shape.global_position
+func install_puzzle(puzzle : PuzzlePiece) -> void :
+	puzzle.global_position = self.global_position
