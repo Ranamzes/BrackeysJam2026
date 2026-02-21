@@ -34,7 +34,7 @@ func _on_success() -> void:
 	if success_sound:
 		success_sound.play()
 	current_index = 0
-	ProgressionManager.set_flag("sponge_completed", true)
+	ProgressionManager.set_flag("sponges_solved", true)
 	sequence_completed.emit()
 	print("Sponge sequence completed!")
 
