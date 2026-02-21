@@ -7,6 +7,7 @@ signal finished
 @onready var panel: Panel = $DialogueControl/DialoguePanel
 @onready var portrait_rect: TextureRect = %PortraitSprite
 @onready var portrait_container: Control = %PortraitContainer
+@onready var portrait_mask: TextureRect = %PortraitMask
 @onready var responses_menu: HBoxContainer = %ResponsesMenu
 
 
