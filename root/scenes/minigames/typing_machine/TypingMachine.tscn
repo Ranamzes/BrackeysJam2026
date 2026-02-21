@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dxn77c8dmmsnw"]
+
+[ext_resource type="Script" uid="uid://dnlrkf4v1q4pr" path="res://root/scenes/minigames/typing_machine/typing_machine.gd" id="1_ky7w0"]
+[ext_resource type="PackedScene" uid="uid://b3xjwx771jtat" path="res://root/scenes/minigames/typing_machine/Pointer.tscn" id="2_ii186"]
+
+[node name="TypingMachine" type="Node2D" unique_id=1204961289]
+script = ExtResource("1_ky7w0")
+
+[node name="Pointer" parent="." unique_id=2020171349 instance=ExtResource("2_ii186")]
+position = Vector2(694, 444)
+speed_multiplier = 35.0

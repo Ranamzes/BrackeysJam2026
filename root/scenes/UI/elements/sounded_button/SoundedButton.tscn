@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://guvm58yj3ul4"]
+[gd_scene format=3 uid="uid://guvm58yj3ul4"]
 
 [ext_resource type="Script" uid="uid://dj8nrnkh813lt" path="res://root/scenes/UI/elements/sounded_button/sounded_button.gd" id="1_cbcsm"]
 [ext_resource type="Texture2D" uid="uid://dwehuqawaihaj" path="res://root/assets/UI/buttons/button_placeholder.png" id="2_pvw6g"]
 [ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="3_qat4j"]
 [ext_resource type="AudioStream" uid="uid://h8ooq3l7i3hx" path="res://root/assets/UI/audio/click5.ogg" id="4_61wic"]
 
-[node name="SoundedButton" type="Control"]
+[node name="SoundedButton" type="Control" unique_id=16372259]
 custom_minimum_size = Vector2(120, 54)
 layout_mode = 3
 anchors_preset = 0
@@ -14,8 +14,17 @@ offset_bottom = 54.0
 size_flags_horizontal = 3
 mouse_filter = 1
 script = ExtResource("1_cbcsm")
+text = null
+normal_color = null
+hover_color = null
+disabled = null
+font_size = null
+texture_offset = null
+text_offset = null
+text_rotation = null
+click_mask_threshold = null
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=980025215]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +35,7 @@ texture_normal = ExtResource("2_pvw6g")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextContainer" type="Control" parent="."]
+[node name="TextContainer" type="Control" parent="." unique_id=362544660]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="TextContainer"]
+[node name="Label" type="Label" parent="TextContainer" unique_id=1833350802]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,6 +63,7 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StreamPlayerComponent" parent="." instance=ExtResource("3_qat4j")]
+[node name="StreamPlayerComponent" parent="." unique_id=818482509 instance=ExtResource("3_qat4j")]
+unique_name_in_owner = true
 bus = &"sfx"
 streams = Array[AudioStream]([ExtResource("4_61wic")])

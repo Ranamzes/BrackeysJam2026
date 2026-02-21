@@ -47,6 +47,9 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 func reset_shampoo():
 	shampoo_game.dragging_shampoo.shampoo_texture.modulate = Color.WHITE
 	shampoo_game.dragging_shampoo = null
+
+func remove_shampoo():
+	shampoo_texture.modulate = Color.TRANSPARENT	
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true

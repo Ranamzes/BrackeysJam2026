@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dh2d65h3v50dk"]
+
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_fwvws"]
+[ext_resource type="Texture2D" uid="uid://dsvlo0wu47ay8" path="res://root/assets/levers_background.png" id="2_o57g1"]
+[ext_resource type="PackedScene" uid="uid://cu2dmqyib82q3" path="res://root/scenes/minigames/levers_cleancore/levers_scene.tscn" id="3_fqlm5"]
+
+[node name="LeversScene" type="Node2D" unique_id=1790017103]
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_fwvws")]
+bottom_scene = "uid://bcyhhrogf6g01"
+
+[node name="LeversBackground" type="Sprite2D" parent="." unique_id=65930139]
+position = Vector2(964, 540)
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("2_o57g1")
+
+[node name="LeversScene" parent="." unique_id=885976297 instance=ExtResource("3_fqlm5")]
+position = Vector2(-43, -166)

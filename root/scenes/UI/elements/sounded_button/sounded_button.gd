@@ -77,6 +77,9 @@ signal pressed
 @export_group("Click Mask")
 @export_range(0, 1.0) var click_mask_threshold: float = 0.5
 
+@export_group("sound")
+@export var sound_streams:Array[AudioStream]
+@onready var stream_player_component: StreamPlayerComponent = %StreamPlayerComponent
 var _needs_update := false
 
 func _ready() -> void:
@@ -96,7 +99,8 @@ func _ready() -> void:
 			btn.mouse_exited.connect(_on_mouse_exited)
 
 	_do_update_ui()
-
+	if(sound_streams!=null and sound_streams.size()>0):
+		stream_player_component.streams = sound_streams
 
 func _process(_delta: float) -> void:
 	if _needs_update:
