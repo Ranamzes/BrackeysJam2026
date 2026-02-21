@@ -282,6 +282,7 @@ offset_bottom = 366.0
 mouse_filter = 2
 
 [node name="PortraitMask" type="TextureRect" parent="DialogueControl/DialoguePanel/PortraitContainer" unique_id=1738855808]
+unique_name_in_owner = true
 clip_children = 2
 layout_mode = 0
 offset_right = 366.0
