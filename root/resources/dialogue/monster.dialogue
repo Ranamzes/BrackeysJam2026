@@ -1,8 +1,20 @@
 ~ start
-Monster: [center]Did I ever tell you what the true meaning of [nervous]hunger[/nervous] is?
-Monster: [center]It's devouring everything around you...[br]over and over again...
-Monster: [center]...expecting that this time... it will finally [woo]stop[/woo].
-Monster: [center]That. Is. [red_sparkle]Hunger[/red_sparkle].
-Monster: [center]I hope you'll return soon... with something [woo]tasty[/woo] for me.
-Monster: [center][embers]Otherwise... you might find yourself on the menu.[/embers]
+Monster: [center]Did I ever tell you what the true meaning of [nervous]hunger[/nervous] is?[/center]
+Monster: [center]It's devouring everything around you...[br]over and over again...[/center]
+Monster: [center]...expecting that this time... it will finally [woo]stop[/woo].[/center]
+Monster: [center]That. Is. [red_sparkle]Hunger[/red_sparkle].[/center]
+Monster: [center]I hope you'll return soon... with something [woo]tasty[/woo] for me.[/center]
+Monster: [center][embers]Otherwise... you might find yourself on the menu.[/embers][/center]
 => END
+
+~ open_door
+Monster: [center]I've been a bit busy here, making myself at home...[/center]
+Monster: [center]I've rearranged your "house" a little. It was so... dull before.[/center]
+do reveal_door()
+Monster: [center]I've opened portals to my private domains—parallel worlds where I keep my treats to savor them.[/center]
+Monster: [center]Go on, step through.[/center]
+Monster: [center][embers]And remember... bring me the most [red_sparkle]satisfying[/red_sparkle] thing you can find in this world![/embers][/center]
+
+
+=> END
+

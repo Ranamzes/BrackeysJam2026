@@ -5,12 +5,32 @@ extends Area2D
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 
+## Optional portrait texture to show in the Dialogue UI.
+@export var portrait_texture: Texture2D
+
 ## Optional list of conditional dialogue paths. The first one that meets its conditions will be used.
 @export var variants: Array[DialogueVariant] = []
 
+
 @export_group("Interaction Settings")
-## If enabled, clicks on transparent pixels will be ignored.
-@export var pixel_perfect: bool = false
+## If enabled, clicks on transparent pixels will be ignored using a generated collision polygon.
+@export var pixel_perfect: bool = true:
+	set(value):
+		pixel_perfect = value
+		if auto_setup: _perform_auto_setup()
+
+## Padding (in pixels) added to the texture outline for easier clicking.
+@export var collision_padding: float = 24.0:
+	set(value):
+		collision_padding = value
+		if auto_setup: _perform_auto_setup()
+
+## Higher values reduce the number of polygon vertices (good for performance).
+@export var simplification_factor: float = 1.0:
+	set(value):
+		simplification_factor = value
+		if auto_setup: _perform_auto_setup()
+
 ## If enabled and no CollisionShape2D exists, it will be created based on parent Sprite/Texture size.
 @export var auto_setup: bool = true:
 	set(value):
@@ -24,25 +44,41 @@ func _ready() -> void:
 	if auto_setup:
 		_perform_auto_setup()
 
+
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if Engine.is_editor_hint(): return # Don't trigger in editor
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("DialogueTrigger: [", name, "] Event received. Input pickable: ", input_pickable)
+		print("DialogueTrigger: [", name, "] CLICK DETECTED. Pixel perfect: ", pixel_perfect)
 
+		# If pixel_perfect is on but no polygon was generated (fallback), check manually
 		if pixel_perfect:
-			var local_pos = get_local_mouse_position()
-			if not _check_pixel_opaque(local_pos):
-				print("DialogueTrigger: [", name, "] Click ignored (pixel is transparent at ", local_pos, ")")
-				return
+			var has_poly = false
+			for child in get_children():
+				if child is CollisionPolygon2D:
+					has_poly = true
+					break
 
-		print("DialogueTrigger: [", name, "] Triggering dialogue logic...")
+			if not has_poly:
+				var local_pos = get_local_mouse_position()
+				if not _check_pixel_opaque(local_pos):
+					print("DialogueTrigger: [", name, "] CLICK IGNORED (Manual pixel check failed at ", local_pos, ")")
+					return
+				else:
+					print("DialogueTrigger: [", name, "] CLICK ACCEPTED (Manual pixel check passed)")
+			else:
+				print("DialogueTrigger: [", name, "] CLICK ACCEPTED (Via Polygon)")
+
+		print("DialogueTrigger: [", name, "] Triggering dialogue start...")
 		start_dialogue()
 
 func _perform_auto_setup() -> void:
+	print("DialogueTrigger: [", name, "] Performing auto-setup...")
 	# 1. Handle mouse filter for Control parents
 	var parent = get_parent()
-	if not parent: return
+	if not parent:
+		print("DialogueTrigger: [", name, "] No parent found for auto-setup.")
+		return
 
 	if parent is Control and parent.mouse_filter != Control.MOUSE_FILTER_IGNORE:
 		parent.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -50,8 +86,8 @@ func _perform_auto_setup() -> void:
 
 	# 2. Check if we already have a collision child
 	for child in get_children():
-		if child is CollisionShape2D or child is CollisionPolygon2D:
-			return
+		if child.name.begins_with("AutoCollision"):
+			child.free()
 
 	var size := Vector2.ZERO
 
@@ -68,25 +104,80 @@ func _perform_auto_setup() -> void:
 		size = parent.size
 
 	if size != Vector2.ZERO:
-		var shape_node = CollisionShape2D.new()
-		shape_node.name = "AutoCollisionShape"
-		var rect_shape = RectangleShape2D.new()
-		rect_shape.size = size
-		shape_node.shape = rect_shape
-
-		# Center it if parent is Sprite2D (usually centered)
-		if parent is Sprite2D and parent.centered:
-			shape_node.position = Vector2.ZERO
+		if pixel_perfect:
+			_setup_pixel_perfect_collision(parent)
 		else:
-			shape_node.position = size / 2.0
+			_setup_rect_collision(parent, size)
 
-		add_child(shape_node)
+func _setup_rect_collision(parent: Node, size: Vector2) -> void:
+	var shape_node = CollisionShape2D.new()
+	shape_node.name = "AutoCollisionShape"
+	var rect_shape = RectangleShape2D.new()
+	rect_shape.size = size
+	shape_node.shape = rect_shape
 
-		# In editor, make it visible and persistent
+	# Center it if parent is Sprite2D (usually centered)
+	if parent is Sprite2D and parent.centered:
+		shape_node.position = Vector2.ZERO
+	else:
+		shape_node.position = size / 2.0
+
+	add_child(shape_node)
+
+	# In editor, make it visible and persistent
+	if Engine.is_editor_hint():
+		shape_node.owner = get_tree().edited_scene_root
+
+	print("DialogueTrigger: Auto-created rect collision for ", parent.name)
+
+func _setup_pixel_perfect_collision(parent: Node) -> void:
+	var texture: Texture2D = null
+	if parent is Sprite2D: texture = parent.texture
+	elif parent is AnimatedSprite2D and parent.sprite_frames:
+		texture = parent.sprite_frames.get_frame_texture(parent.animation, parent.frame)
+	elif parent is TextureRect: texture = parent.texture
+
+	if not texture:
+		print("DialogueTrigger: No texture found for pixel-perfect setup on ", parent.name)
+		return
+
+	var image = texture.get_image()
+	if not image: return
+
+	var bitmap = BitMap.new()
+	bitmap.create_from_image_alpha(image)
+
+	var polygons = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, texture.get_size()))
+
+	for poly in polygons:
+		# 1. Apply padding
+		if collision_padding > 0:
+			var offset_polys = Geometry2D.offset_polygon(poly, collision_padding)
+			if offset_polys.size() > 0:
+				poly = offset_polys[0] # Take the main expanded shape
+
+		# 2. Simplify for Web performance (Disabled due to parser error: simplify_polyline not found)
+		# Simplification removed to ensure compatibility across versions.
+
+		var poly_node = CollisionPolygon2D.new()
+		poly_node.name = "AutoCollisionPolygon"
+
+		# Offset to match sprite centering
+		var offset = Vector2.ZERO
+		if parent is Sprite2D and parent.centered:
+			offset = - texture.get_size() / 2.0
+
+		var offset_poly = PackedVector2Array()
+		for p in poly:
+			offset_poly.append(p + offset)
+
+		poly_node.polygon = offset_poly
+		add_child(poly_node)
+
 		if Engine.is_editor_hint():
-			shape_node.owner = get_tree().edited_scene_root
+			poly_node.owner = get_tree().edited_scene_root
 
-		print("DialogueTrigger: Auto-created collision shape for ", parent.name)
+	print("DialogueTrigger: Auto-created pixel-perfect collision for ", parent.name, " (Polygons: ", polygons.size(), ")")
 
 func _check_pixel_opaque(click_pos: Vector2) -> bool:
 	var parent = get_parent()
@@ -120,11 +211,13 @@ func _check_pixel_opaque(click_pos: Vector2) -> bool:
 	return alpha > 0.1
 
 
-func start_dialogue() -> void:
+func start_dialogue(extra_game_states: Array = []) -> void:
 	if dialogue_resource:
 		# Use '_get_start_title()' which can be overridden by scripts extending this class
 		var title = _get_start_title()
-		DialogueService.start_dialogue(dialogue_resource, title)
+		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture)
+
+
 	else:
 		var msg = "DialogueTrigger [%s]: No dialogue resource assigned." % name
 		push_warning(msg)

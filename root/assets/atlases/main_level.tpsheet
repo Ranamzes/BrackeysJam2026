@@ -1,0 +1,63 @@
+{
+	"textures": [
+		{
+			"image": "main_level.png",
+			"size": {
+				"w": 512,
+				"h": 2048
+			},
+			"sprites": [
+				{
+					"filename": "startscene_flower",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 422,
+						"h": 939
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "startscene_chair_part",
+					"region": {
+						"x": 3,
+						"y": 946,
+						"w": 330,
+						"h": 261
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "open_door",
+					"region": {
+						"x": 3,
+						"y": 1211,
+						"w": 298,
+						"h": 832
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:ecf6f831e9666eadee75f94ab39de2ce:1d74c4b2f678883009ff19c26e3580d5:6507a72c5695ec7f760c52d2dbbca175$"
+	}
+}

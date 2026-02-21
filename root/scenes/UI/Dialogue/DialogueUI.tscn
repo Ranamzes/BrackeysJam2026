@@ -4,8 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://emwy4k0ednqm" path="res://root/assets/UI/text_bubble.png" id="2_7bbpj"]
 [ext_resource type="Texture2D" uid="uid://b1x2xphft5ejh" path="res://root/assets/UI/circle_portrait.png" id="3_m1it2"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="4_dl_label"]
+[ext_resource type="FontVariation" path="res://root/resources/fonts/text_font.tres" id="5_font"]
+[ext_resource type="Script" uid="uid://cglinjsaijv5j" path="res://root/resources/effects/nervous_effect.gd" id="6_nervous"]
+[ext_resource type="Script" uid="uid://b8e7f0oic26y" path="res://root/resources/effects/woo_effect.gd" id="7_woo"]
+[ext_resource type="Script" uid="uid://blswamk76gei2" path="res://root/resources/effects/red_sparkle_effect.gd" id="8_redsparkle"]
+[ext_resource type="Script" uid="uid://bwsc7udc4i460" path="res://root/resources/effects/embers_effect.gd" id="9_embers"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1it2"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_nervous"]
+script = ExtResource("6_nervous")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_woo"]
+script = ExtResource("7_woo")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_redsparkle"]
+script = ExtResource("8_redsparkle")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_embers"]
+script = ExtResource("9_embers")
 
 [sub_resource type="Animation" id="Animation_reset"]
 resource_name = "RESET"
@@ -48,7 +65,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DialogueControl/DialoguePanel/Portrait:position:y")
+tracks/3/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -59,7 +76,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueControl/DialoguePanel/Portrait:position:x")
+tracks/4/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -132,7 +149,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_open"]
 resource_name = "open"
-length = 0.7
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -148,7 +165,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueControl/DialoguePanel/Portrait:position:x")
+tracks/1/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -159,13 +176,13 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("DialogueControl/DialoguePanel/Portrait:position:y")
+tracks/2/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/PortraitSprite:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0, 0, 0, 0.06666667, 0, 0, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0, 0.4)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(373, 0, 0, 0.06666667, 0, 0, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0.4, 0.79999995)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -246,22 +263,42 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_m1it2")
 
 [node name="Background" type="TextureRect" parent="DialogueControl/DialoguePanel" unique_id=677410395]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1925.0
 offset_top = -2.0
-offset_right = 2941.0085
+offset_right = 2941.0059
 offset_bottom = 364.0
 mouse_filter = 2
 texture = ExtResource("2_7bbpj")
 
-[node name="Portrait" type="TextureRect" parent="DialogueControl/DialoguePanel" unique_id=1054545979]
-layout_mode = 0
+[node name="PortraitContainer" type="Control" parent="DialogueControl/DialoguePanel" unique_id=1054545979]
+unique_name_in_owner = true
+clip_contents = true
+anchors_preset = 0
 offset_left = -373.0
-offset_right = -6.996765
+offset_right = -7.000061
+offset_bottom = 366.0
+mouse_filter = 2
+
+[node name="PortraitMask" type="TextureRect" parent="DialogueControl/DialoguePanel/PortraitContainer" unique_id=1738855808]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 0
+offset_right = 366.0
 offset_bottom = 366.0
 texture = ExtResource("3_m1it2")
 
+[node name="PortraitSprite" type="TextureRect" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask" unique_id=68479449]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 366.0
+offset_bottom = 366.0
+expand_mode = 1
+stretch_mode = 5
+
 [node name="DialogueLabel" type="RichTextLabel" parent="DialogueControl/DialoguePanel" unique_id=248503107]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,11 +310,15 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 28
+theme_override_fonts/normal_font = ExtResource("5_font")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+custom_effects = [SubResource("RichTextEffect_nervous"), SubResource("RichTextEffect_woo"), SubResource("RichTextEffect_redsparkle"), SubResource("RichTextEffect_embers")]
 script = ExtResource("4_dl_label")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
 [node name="ResponsesMenu" type="HBoxContainer" parent="DialogueControl/DialoguePanel" unique_id=1426582085]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

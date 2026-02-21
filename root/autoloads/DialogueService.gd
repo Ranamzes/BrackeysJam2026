@@ -8,7 +8,7 @@ const DIALOGUE_SCENE = preload("res://root/scenes/UI/Dialogue/DialogueUI.tscn")
 
 var is_dialogue_active: bool = false
 
-func start_dialogue(resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+func start_dialogue(resource: DialogueResource, title: String, extra_game_states: Array = [], portrait_texture: Texture2D = null, portrait_scene: PackedScene = null) -> void:
 	print("DialogueService: start_dialogue called with title: ", title)
 
 	if is_dialogue_active:
@@ -31,7 +31,8 @@ func start_dialogue(resource: DialogueResource, title: String, extra_game_states
 		await current_dialogue_ui.ready
 
 	print("DialogueService: Calling UI.start()...")
-	current_dialogue_ui.start(resource, title, extra_game_states)
+	current_dialogue_ui.start(resource, title, extra_game_states, portrait_texture, portrait_scene)
+
 
 func _on_dialogue_finished() -> void:
 	is_dialogue_active = false
