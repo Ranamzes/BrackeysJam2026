@@ -14,7 +14,7 @@ func _ready() -> void:
 		set_flags()
 
 func go_to(new_state : OnScreenObjectState) ->  void:
-	set_flags()
+	new_state.set_flags()
 	self.visible = false
 	new_state.visible = true
 
