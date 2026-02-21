@@ -15,11 +15,13 @@ background_selected_modulate_color = Color(0.5839219, 0.58392197, 0.5839219, 0.9
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=864585309]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="BackgroundTexture" type="TextureRect" parent="CenterContainer" unique_id=1835142883]
 unique_name_in_owner = true
 clip_contents = true
-custom_minimum_size = Vector2(136, 136)
+custom_minimum_size = Vector2(136, 128)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -28,10 +30,9 @@ stretch_mode = 4
 
 [node name="ItemTexture" type="TextureRect" parent="CenterContainer" unique_id=37004770]
 unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(112, 112)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
