@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c8uya4q0vm5te" path="res://root/scenes/levels/level1/cleancore_background.png" id="8_7fhxs"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="9_q7x8v"]
 [ext_resource type="Texture2D" uid="uid://qtwxl5j0gurx" path="res://root/scenes/levels/level1/plitka.png" id="10_g0f7h"]
-[ext_resource type="Texture2D" uid="uid://dib45so8kk5l4" path="res://root/assets/duck.png" id="12_0thvo"]
 [ext_resource type="PackedScene" uid="uid://cy4f0dweobs4k" path="res://root/components/interactable_area/InteractableArea.tscn" id="12_a0k7e"]
 [ext_resource type="Texture2D" uid="uid://cnc4cifqp6no1" path="res://root/scenes/levels/level1/plitka1.png" id="12_g0f7h"]
 [ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/components/pickup_object/pickup_object.tscn" id="13_dp73g"]
@@ -19,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="15_8hyj7"]
 [ext_resource type="Texture2D" uid="uid://choc480uitjvn" path="res://root/scenes/levels/level1/pena.png" id="15_xtgbp"]
 [ext_resource type="Resource" uid="uid://dr14g4tt07bd" path="res://root/assets/items/soap_empty.tres" id="16_8hyj7"]
+[ext_resource type="Texture2D" uid="uid://ccbqluq1phffh" path="res://root/scenes/levels/level1/pena9.png" id="17_opa3f"]
+[ext_resource type="Texture2D" uid="uid://cp1n2hn07k172" path="res://root/scenes/levels/level1/bathroom_DUCK.png" id="18_opa3f"]
 
 [sub_resource type="Resource" id="Resource_gwx3o"]
 script = ExtResource("5_ob1xk")
@@ -37,8 +38,9 @@ size = Vector2(333.96338, 161.26318)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtgbp"]
 size = Vector2(328.00494, 123.03049)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dp73g"]
-radius = 159.02617
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x0a1"]
+radius = 119.39404
+height = 367.80176
 
 [node name="Level1Center" type="Node2D" unique_id=595355603]
 script = ExtResource("1_hh81y")
@@ -121,28 +123,42 @@ shape = SubResource("RectangleShape2D_xtgbp")
 [node name="VisibilityUpdater" parent="TileLocked" unique_id=1957446930 instance=ExtResource("15_8hyj7")]
 flags = Array[String](["floor_tile_unlocked"])
 
-[node name="Pena" type="Sprite2D" parent="." unique_id=1257308614]
-position = Vector2(318.50003, 807.94116)
-scale = Vector2(0.7217676, 0.57521766)
-texture = ExtResource("15_xtgbp")
+[node name="pena" type="Node2D" parent="." unique_id=1712721493]
+position = Vector2(0, -6.1035156e-05)
+scale = Vector2(1, 1.0000001)
 
-[node name="VisibilityUpdater" parent="Pena" unique_id=263025642 instance=ExtResource("15_8hyj7")]
-flags = Array[String](["pipes_solved"])
-should_be_visible_if_flags_true = true
-
-[node name="InteractableArea" parent="Pena" unique_id=463221873 instance=ExtResource("12_a0k7e")]
+[node name="InteractableArea" parent="pena" unique_id=463221873 instance=ExtResource("12_a0k7e")]
+position = Vector2(318.50003, 807.94104)
+scale = Vector2(0.7217676, 0.5752176)
 required_item = ExtResource("16_8hyj7")
 flag_name = "soap_full_picked_up"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pena/InteractableArea" unique_id=987301118]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="pena/InteractableArea" unique_id=987301118]
+scale = Vector2(1, 1.0000001)
 polygon = PackedVector2Array(33.944397, -347.5923, 119.844604, -354.54614, 208.51581, 203.50354, 288.87408, 205.24194, 308.27094, 226.10364, 290.25958, 257.39612, 150.32538, 293.90405, -17.318634, 297.3811, -140.62704, 288.68872, -194.66104, 307.8119, -227.91275, 356.48914, -273.63385, 346.05823, -281.94678, 290.42712, -305.50006, 208.719, -287.4887, 186.11877, -312.4275, 154.8263, -294.41614, 116.579956, -255.6225, 109.62598, -241.76762, 156.56482, -190.50458, 144.39551, -143.39801, 139.18005, -83.82205, 144.39551, -65.8107, 196.54968)
+
+[node name="VisibilityUpdater" parent="pena" unique_id=263025642 instance=ExtResource("15_8hyj7")]
+flags = Array[String](["pipes_solved"])
+should_be_visible_if_flags_true = true
+
+[node name="Pena" type="Sprite2D" parent="pena" unique_id=1257308614]
+position = Vector2(318.50003, 807.94104)
+scale = Vector2(0.7217676, 0.5752176)
+texture = ExtResource("15_xtgbp")
+
+[node name="Pena2" type="Sprite2D" parent="pena" unique_id=13798574]
+position = Vector2(378.99994, 582)
+rotation = 0.19198622
+scale = Vector2(0.6108489, 0.5682774)
+texture = ExtResource("17_opa3f")
 
 [node name="Duck" type="Sprite2D" parent="." unique_id=1454290720]
 unique_name_in_owner = true
-visible = false
-position = Vector2(327, 578)
+position = Vector2(300.00003, 575)
+rotation = 0.2443461
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("12_0thvo")
+texture = ExtResource("18_opa3f")
+flip_h = true
 
 [node name="PickupObject" parent="Duck" unique_id=1562232421 instance=ExtResource("13_dp73g")]
 item_data = ExtResource("14_b8lx8")
@@ -150,5 +166,6 @@ true_flags = Array[String](["pipes_solved"])
 hide_object = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Duck/PickupObject" unique_id=795471893]
-position = Vector2(-31.818113, -36.363358)
-shape = SubResource("CircleShape2D_dp73g")
+position = Vector2(-11.020327, -6.62157)
+rotation = 1.8570303
+shape = SubResource("CapsuleShape2D_8x0a1")
