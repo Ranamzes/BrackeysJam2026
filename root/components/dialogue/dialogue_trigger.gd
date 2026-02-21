@@ -5,8 +5,12 @@ extends Area2D
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 
+## Optional portrait texture to show in the Dialogue UI.
+@export var portrait_texture: Texture2D
+
 ## Optional list of conditional dialogue paths. The first one that meets its conditions will be used.
 @export var variants: Array[DialogueVariant] = []
+
 
 @export_group("Interaction Settings")
 ## If enabled, clicks on transparent pixels will be ignored.
@@ -23,6 +27,7 @@ func _ready() -> void:
 
 	if auto_setup:
 		_perform_auto_setup()
+
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if Engine.is_editor_hint(): return # Don't trigger in editor
@@ -120,11 +125,13 @@ func _check_pixel_opaque(click_pos: Vector2) -> bool:
 	return alpha > 0.1
 
 
-func start_dialogue() -> void:
+func start_dialogue(extra_game_states: Array = []) -> void:
 	if dialogue_resource:
 		# Use '_get_start_title()' which can be overridden by scripts extending this class
 		var title = _get_start_title()
-		DialogueService.start_dialogue(dialogue_resource, title)
+		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture)
+
+
 	else:
 		var msg = "DialogueTrigger [%s]: No dialogue resource assigned." % name
 		push_warning(msg)

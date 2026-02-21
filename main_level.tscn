@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://dtcuyqo6sr636"]
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_6614m"]
+[ext_resource type="Script" uid="uid://c22be5am3gq6x" path="res://root/scenes/levels/mainLevel/main_level.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bmybm5640qtte" path="res://root/scenes/levels/mainLevel/startscene_doors.png" id="2_bhu08"]
+[ext_resource type="Texture2D" uid="uid://0us8kkklssoq" path="res://root/assets/atlases/main_level.sprites/open_door.tres" id="3_door"]
+[ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="5_eqmdw"]
+[ext_resource type="Resource" uid="uid://lh4redxn8564" path="res://root/resources/dialogue/monster.dialogue" id="6_monster_dialogue"]
+[ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="7_monster_portrait"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmdw"]
+size = Vector2(322, 856)
 
 [node name="MainLevel" type="Node2D" unique_id=21041493]
+script = ExtResource("1_script")
+dialogue_resource = ExtResource("6_monster_dialogue")
+portrait_texture = ExtResource("7_monster_portrait")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_6614m")]
 right_scene = "uid://c3odhd3retu8g"
@@ -12,3 +23,14 @@ right_scene = "uid://c3odhd3retu8g"
 scale = Vector2(0.9375, 0.9375)
 texture = ExtResource("2_bhu08")
 centered = false
+
+[node name="Door" type="Sprite2D" parent="." unique_id=65432101]
+position = Vector2(423.00003, 552)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_door")
+
+[node name="LevelTransitionArea" parent="Door" unique_id=311293945 instance=ExtResource("5_eqmdw")]
+scene_path = "uid://c3odhd3retu8g"
+
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="Door/LevelTransitionArea" unique_id=1893841335]
+shape = SubResource("RectangleShape2D_eqmdw")

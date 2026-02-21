@@ -3,10 +3,12 @@ extends CanvasLayer
 
 signal finished
 
-@onready var dialogue_label: RichTextLabel = $DialogueControl/DialoguePanel/DialogueLabel
+@onready var dialogue_label: RichTextLabel = %DialogueLabel
 @onready var panel: Panel = $DialogueControl/DialoguePanel
-@onready var portrait_rect: TextureRect = $DialogueControl/DialoguePanel/Portrait
-@onready var responses_menu: HBoxContainer = $DialogueControl/DialoguePanel/ResponsesMenu
+@onready var portrait_rect: TextureRect = %PortraitSprite
+@onready var portrait_container: Control = %PortraitContainer
+@onready var responses_menu: HBoxContainer = %ResponsesMenu
+
 
 var resource: DialogueResource
 var temporary_game_states: Array = []
@@ -20,7 +22,7 @@ func _ready() -> void:
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
-func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
+func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = [], portrait_texture: Texture2D = null) -> void:
 	if not is_node_ready():
 		await ready
 
@@ -29,7 +31,13 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	# Since it's a fresh instance, we don't need heavy resets,
 	# but let's ensure the label is empty during fade-in.
 	dialogue_label.text = ""
-	portrait_rect.hide()
+
+	if portrait_texture:
+		portrait_rect.texture = portrait_texture
+		portrait_container.show()
+	else:
+		portrait_container.hide()
+
 
 	resource = dialogue_resource
 	temporary_game_states = extra_game_states
@@ -44,12 +52,6 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 		_close_and_finish()
 		return
 
-	# Set portrait visibility based on the first line
-	if line.character != "":
-		portrait_rect.show()
-	else:
-		portrait_rect.hide()
-
 	show()
 
 	# 2. Play "open" animation
@@ -60,6 +62,7 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 			anim_name = await anim_player.animation_finished
 	else:
 		panel.modulate.a = 1.0
+
 
 	while line != null:
 		_display_line(line)
@@ -81,14 +84,20 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 
 func _display_line(line) -> void:
 	if line.character != "":
-		portrait_rect.show()
+		portrait_container.show()
 	else:
-		portrait_rect.hide()
+		portrait_container.hide()
+
+
+	# Decouple alignment from the dialogue resource:
+	# Keep left-alignment for gameplay UI even if resource has [center]
+	line.text = line.text.replace("[center]", "").replace("[/center]", "")
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = line
 	dialogue_label.show()
 	dialogue_label.type_out()
+
 
 func _close_and_finish() -> void:
 	if anim_player.has_animation("close"):

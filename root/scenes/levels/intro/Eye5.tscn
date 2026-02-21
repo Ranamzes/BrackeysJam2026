@@ -95,10 +95,10 @@ tracks/7/path = NodePath("LowerLid:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(0, -7)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -107,10 +107,10 @@ tracks/8/path = NodePath("Mask/Iris:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6sntg"]
@@ -353,7 +353,6 @@ polygon = PackedVector2Array(-65, 4, -21, -10, 6, -9, 69, -8, 57, 2, 19, 8, -19,
 texture = ExtResource("2_base_tex")
 
 [node name="Iris" parent="Mask" index="1"]
-position = Vector2(-1, 1)
 texture = ExtResource("3_iris_tex")
 
 [node name="Shadow" parent="Mask" index="2"]

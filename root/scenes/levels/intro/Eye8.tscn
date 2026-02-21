@@ -95,10 +95,10 @@ tracks/7/path = NodePath("Mask/Iris:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_6sntg"]
@@ -344,7 +344,6 @@ position = Vector2(0, -2)
 texture = ExtResource("2_base_tex")
 
 [node name="Iris" parent="Mask" index="1"]
-position = Vector2(9, 0)
 texture = ExtResource("3_iris_tex")
 
 [node name="Shadow" parent="Mask" index="2"]
