@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cp1n2hn07k172" path="res://root/scenes/levels/level1/bathroom_DUCK.png" id="18_opa3f"]
 [ext_resource type="Texture2D" uid="uid://caf0spg78daoi" path="res://root/scenes/characters/player/flower_TV.png" id="22_q786u"]
 [ext_resource type="Resource" uid="uid://w8fja5qbsk7u" path="res://root/assets/items/flower.tres" id="23_y7k33"]
+[ext_resource type="Resource" uid="uid://dbddqowmsdgni" path="res://root/assets/items/soap_stars.tres" id="24_soap_stars"]
 [ext_resource type="Texture2D" uid="uid://bab1hayyodb83" path="res://root/assets/atlases/foam.sprites/pena1.tres" id="foam1"]
 [ext_resource type="Texture2D" uid="uid://dsh0mqq1s7lvl" path="res://root/assets/atlases/foam.sprites/pena2.tres" id="foam2"]
 [ext_resource type="Texture2D" uid="uid://dwajixcgc0a2i" path="res://root/assets/atlases/foam.sprites/pena3.tres" id="foam3"]
@@ -91,6 +92,8 @@ conditions = Dictionary[String, bool]({
 "flower_picked_up": false,
 "soap_stars_picked_up": true
 })
+required_item = ExtResource("24_soap_stars")
+consume_item = true
 
 [sub_resource type="Resource" id="Resource_waiting_for_stars_variant"]
 script = ExtResource("1_vars")

@@ -120,7 +120,7 @@ func _update_item_icon() -> void:
 	if not _item_icon_sprite: return
 
 	var selected: ItemSlotUI = GlobalData.selected_slot
-	if _eye_is_open and selected and selected.inventory_slot and selected.inventory_slot.item:
+	if is_instance_valid(selected) and _eye_is_open and selected.inventory_slot and selected.inventory_slot.item:
 		_item_icon_sprite.texture = selected.inventory_slot.item.icon
 		_item_icon_sprite.visible = true
 	else:
