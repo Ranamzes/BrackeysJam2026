@@ -12,7 +12,7 @@ state_table = Dictionary[String, bool]({
 "frame_placed": false,
 "level_1_visited": false,
 "levers_solved": false,
-"paper_inserted": false,
+"paper_inserted": true,
 "pipes_solved": false,
 "puzzle_colors_solved": false,
 "puzzle_pieces_solved": false,
@@ -22,6 +22,7 @@ state_table = Dictionary[String, bool]({
 "soap_stars_picked_up": false,
 "sponges_solved": false,
 "telescope_solved": false,
+"text_paper_picked_up": false,
 "toothbrush_picked_up": false,
-"typing_solved": true
+"typing_solved": false
 })

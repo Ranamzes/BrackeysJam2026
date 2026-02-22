@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5751d427tfbr" path="res://root/scenes/levels/level2/dreamcore_balls_decor.png" id="5_8wc6k"]
 [ext_resource type="PackedScene" uid="uid://b8q7x6y504w3" path="res://root/components/dialogue/DialogueTrigger.tscn" id="6_bfrqa"]
 [ext_resource type="Texture2D" uid="uid://cg0hl08vh3kud" path="res://root/scenes/characters/player/starhead_mouth2.png" id="6_hbm65"]
-[ext_resource type="Resource" uid="uid://d2tk57qd8m42x" path="res://root/resources/dialogue/starhead.dialogue" id="7_7e2il"]
+[ext_resource type="Resource" uid="uid://c373amhpm2bp7" path="res://root/resources/dialogue/starhead.dialogue" id="7_7e2il"]
 [ext_resource type="Texture2D" uid="uid://bhe25h5250h0m" path="res://root/scenes/levels/level2/dreamcoreTip_ForTelescoope.png" id="7_xlaos"]
 [ext_resource type="Texture2D" uid="uid://bbjo27us1g7tl" path="res://root/scenes/levels/level2/dreamcore_paint.png" id="8_jrxik"]
 [ext_resource type="PackedScene" uid="uid://xqrbdbbwuu8p" path="res://root/scenes/UI/Dialogue/Portraits/StarheadPortrait.tscn" id="8_nf4dr"]
@@ -206,7 +206,7 @@ scale = Vector2(0.7397665, 1.030303)
 texture = ExtResource("13_7e2il")
 
 [node name="LevelTransitionArea" parent="DreamcoreStarTelescoope1" unique_id=942894821 instance=ExtResource("11_xeji4")]
-scene_path = "uid://oboxs48dhvld"
+scene_path = "uid://c0ir6de8v316g"
 
 [node name="AutoCollisionShape" type="CollisionShape2D" parent="DreamcoreStarTelescoope1/LevelTransitionArea" unique_id=1647312536]
 shape = SubResource("RectangleShape2D_7e2il")
