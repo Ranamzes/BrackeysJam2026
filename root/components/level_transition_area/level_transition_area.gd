@@ -4,6 +4,7 @@ class_name LevelTransitionArea
 
 @export var true_flags: Array[String]
 @export_file("*.tscn") var scene_path: String
+@export var disable_flag : String
 
 @export_group("Interaction Settings")
 ## If enabled and no CollisionShape2D exists, it will be created based on parent Sprite/Texture size + 12px.
@@ -24,7 +25,8 @@ func _ready() -> void:
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if Engine.is_editor_hint(): return
-
+	if disable_flag && ProgressionManager.get_flag(disable_flag) :
+		return
 	if event is InputEventMouseButton:
 		if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT && event.pressed:
 			for flag in true_flags:
