@@ -1,11 +1,15 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+LadyTV: [center][shake rate=20.0 level=10]NO! NO NO NO! I can't... I can't [nervous]live[/nervous] without her![/shake][/center]
+LadyTV: [center]She was the only one who... who [gold_sparkle]satisfied[/gold_sparkle] my lonely soul just by being there...[/center]
+LadyTV: [center]Everything is so... [woo]hollow[/woo] now... the world has lost its color...[/center]
+LadyTV: [center][br][pulse freq=5.0 color=#ffffff44]Oh! Oh my goodness! A [red_sparkle]NEW[/red_sparkle] face![/pulse][/center]
+LadyTV: [center]I haven't seen someone so... [woo]vibrant[/woo] in forever! You! [br]You're going to be my new [red_sparkle]BEST FRIEND[/red_sparkle]![/center]
+LadyTV: [center]Don't be shy, come closer! We are going to spend [shake rate=10.0 level=2]EVERY SECOND[/shake] together! I just know it![/center]
+LadyTV: [center]Do you like glitter? I [shake rate=10.0 level=2]ADORE[/shake] shampoos with [gold_sparkle]glitter[/gold_sparkle]! They make my world feel... [woo]magical[/woo].[/center]
+LadyTV: [center][shake rate=40.0 level=15][color=red]WAIT! My care bottles... they are NOT in ascending order! WHO DARED TO MAKE SUCH A MESS?![/color][/shake][/center]
+LadyTV: [center][shake rate=25.0 level=8][color=red]YOU! IT WAS YOU! YOU BROKE THE ORDER! YOU MADE THIS HELLISH MESS![/color][/shake][/center]
+LadyTV: [center]Don't you [nervous]dare[/nervous] come near me until every single bottle is perfectly sorted by height![/center]
+LadyTV: [center]Go. Fix your mistake. You're just a [woo]disappointment[/woo] like all the others.[/center]
+do ProgressionManager.set_flag("level_1_visited", true)
+do ProgressionManager.set_flag("quest_bottles_started", true)
 => END

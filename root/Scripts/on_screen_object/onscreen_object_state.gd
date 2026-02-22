@@ -20,7 +20,7 @@ func go_to(new_state: OnScreenObjectState) -> void:
 	new_state.visible = true
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 		for transition in transitions:
 			var new_state = transition.go_to_new_state()

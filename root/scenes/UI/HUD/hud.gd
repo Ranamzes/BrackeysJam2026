@@ -17,6 +17,10 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_navigation()
+
+
+func update_navigation() -> void:
 	_setup_nav_button(left_button, left_scene, left_flag, "left")
 	_setup_nav_button(right_button, right_scene, right_flag, "right")
 	_setup_nav_button(top_button, top_scene, top_flag, "top")

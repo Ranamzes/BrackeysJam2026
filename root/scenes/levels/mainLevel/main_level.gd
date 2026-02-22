@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var door: Sprite2D = $Door
+@onready var door: Sprite2D = $BackgroundContainer/Door
 
 @export_group("Dialogue Settings")
 @export var dialogue_resource: DialogueResource
@@ -9,6 +9,11 @@ extends Node2D
 @export var portrait_scene: PackedScene
 
 func _ready() -> void:
+	var hud = $Hud
+	if ProgressionManager.get_flag("level_1_visited"):
+		hud.right_scene = "uid://dtxkforlylqrn"
+	hud.update_navigation()
+
 	if ProgressionManager.get_flag("door_1_opened"):
 		# Door already was revealed, show it immediately and skip sequence
 		door.modulate.a = 1.0

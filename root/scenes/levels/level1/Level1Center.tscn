@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cdq1sr3tj5tvk" path="res://root/resources/dialogue/ladyTV.dialogue" id="4_lady_dialogue"]
 [ext_resource type="Texture2D" uid="uid://csptk2mlj3b88" path="res://root/scenes/characters/player/character_TV.png" id="7_mtdix"]
 [ext_resource type="Texture2D" uid="uid://c8uya4q0vm5te" path="res://root/scenes/levels/level1/cleancore_background.png" id="8_7fhxs"]
+[ext_resource type="Texture2D" uid="uid://bmkom4fr5wpk2" path="res://root/scenes/characters/player/eye_open_TV.png" id="9_opa3f"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="9_q7x8v"]
 [ext_resource type="Texture2D" uid="uid://qtwxl5j0gurx" path="res://root/scenes/levels/level1/plitka.png" id="10_g0f7h"]
 [ext_resource type="Texture2D" uid="uid://dib45so8kk5l4" path="res://root/assets/duck.png" id="12_0thvo"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="15_8hyj7"]
 [ext_resource type="Texture2D" uid="uid://choc480uitjvn" path="res://root/scenes/levels/level1/pena.png" id="15_xtgbp"]
 [ext_resource type="Resource" uid="uid://dr14g4tt07bd" path="res://root/assets/items/soap_empty.tres" id="16_8hyj7"]
+[ext_resource type="PackedScene" uid="uid://exetwt7ejddp" path="res://root/scenes/UI/Dialogue/Portraits/LadyTVPortrait.tscn" id="17_portrait"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtdix"]
 size = Vector2(215.75, 188)
@@ -41,6 +43,7 @@ texture = ExtResource("8_7fhxs")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
 right_scene = "uid://bcyhhrogf6g01"
+bottom_scene = "uid://dtcuyqo6sr636"
 
 [node name="ExampleOnscreenObject" parent="." unique_id=1076354259 instance=ExtResource("3_j743v")]
 visible = false
@@ -53,9 +56,15 @@ texture = ExtResource("7_mtdix")
 
 [node name="DialogueClickable" parent="CharacterTv" unique_id=1303679683 instance=ExtResource("3_kuou6")]
 dialogue_resource = ExtResource("4_lady_dialogue")
+portrait_scene = ExtResource("17_portrait")
 
-[node name="AutoCollisionPolygon" type="CollisionPolygon2D" parent="CharacterTv/DialogueClickable" unique_id=1876181989]
+[node name="AutoCollisionPolygon" type="CollisionPolygon2D" parent="CharacterTv/DialogueClickable" unique_id=391305362]
 polygon = PackedVector2Array(-232.01224, -449.03793, -248, -434.7282, -248, -425.31985, -255.79787, -397.67288, -258.25745, -395.58368, -278.28906, -273.3908, -281.60092, -269.86548, -280, -244.25076, -280, -241.54259, -280.94968, -237.11076, -286.2772, -230.1357, -281, -210.78596, -281, -207.32826, -277.49527, -198.667, -257.5045, -178.00987, -258.65097, -176.29018, -267, -167.94113, -267, -146.24838, -264.71017, -139.10309, -264.65555, -139.02664, -265.06787, -138.03711, -266, -133.37646, -266, -120.639984, -262.93292, -112.47714, -258, -106.83951, -258, -104.24838, -255.71017, -97.10309, -250.84895, -90.29736, -249.6887, -81.01544, -249.50131, -80.85004, -247, -22.485931, -247, 22.26239, -245.25832, 28.550415, -244, 30.647614, -244, 31.58844, -240.07368, 39.562225, -241.13391, 42.2128, -242, 46.710052, -242, 50.511627, -242.63847, 51.60614, -247.85121, 55.879578, -249.7681, 65.46402, -252.05858, 67.555725, -254.95068, 99.36896, -255, 100.45593, -255, 104.03375, -254.8222, 106.09369, -251, 128.07141, -251, 132.63025, -249.86069, 137.76581, -244, 150.3244, -244, 151.36005, -240.93292, 159.52289, -235.24382, 166.02472, -233.10715, 171.00171, -213.30898, 189.80994, -210.3698, 194.80511, -201.16309, 199.91998, -197.12042, 204.8512, -177.0823, 208.85883, -173.94113, 212, -153.15375, 212, -150.5868, 214.24341, -105.52132, 208.15344, -72.636536, 212.66705, -111.47795, 282.08575, -114.04245, 283.75238, -129.92188, 319.48108, -132.98244, 321.81165, -141.38443, 352.26892, -147.82388, 361.46252, -137, 391.2282, -137, 393.57306, -133.63661, 402.07837, -118.9189, 417.77722, -115.27515, 423.91528, -104.36539, 429.8661, -101.510056, 433.70374, -81.68361, 439.65167, -79.06937, 442.62903, -56.953537, 445.51367, -55.766144, 446.84033, -36.99031, 448.92657, -35.66411, 449, -8.487854, 449, -5.4875183, 448.62042, 31.167664, 439.19476, 91.64188, 441, 97.37802, 441, 101.613495, 442.69415, 105.870575, 447.26617, 119.709625, 448.2547, 122.38641, 450.73346, 170.92175, 447, 177.7944, 447, 183.23373, 445.71594, 202.66562, 436, 203.5852, 436, 212.1098, 432.61932, 228.76913, 416.93994, 235.4172, 412.83124, 245.72452, 392.2166, 246.38007, 391.56104, 251.91528, 388.27515, 258.21448, 376.72668, 265, 369.9411, 265, 351.12482, 269.69427, 344.98615, 275.52118, 340.7157, 281.83813, 320.71204, 287.50208, 314.026, 284, 293.01373, 284, 288.24817, 283.4912, 284.78162, 272, 246.47754, 272, 243.89435, 271.26666, 239.74738, 249, 178.75604, 249, 177.14655, 247.66187, 171.5987, 207, 92.21124, 207, 92.01666, 204.42642, 84.4772, 189.1048, 64.6492, 185.20938, 56.596954, 161.22171, 37.60672, 155.44202, 30.401672, 136.92429, 26.286621, 135.95313, 26.179993, 82.12991, -0.31759644, 80.09158, -3.1782532, 32.246063, -19.706696, 33, -21.789154, 33, -35.099426, 32.79895, -37.289093, 26.75064, -69.94992, 25.197327, -123.53992, 27.280182, -125.16614, 30.390076, -137.60583, 34.46167, -141.87592, 33.386932, -164.4458, 33.717896, -164.77676, 42.868744, -171.67926, 44.650787, -177.91647, 46.35019, -179.25117, 88.65701, -352.70923, 89, -355.5629, 89, -369.08575, 79.2142, -381.96033, 25.932953, -396.76068, 24.506561, -398.5467, -147.10138, -437.4578, -149.23386, -439.84033)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterTv" unique_id=1042733501]
+position = Vector2(-30.666748, -288.00003)
+scale = Vector2(1.2988722, 1.2988722)
+texture = ExtResource("9_opa3f")
 
 [node name="LevelTransitionArea" parent="." unique_id=311293945 instance=ExtResource("9_q7x8v")]
 position = Vector2(1101, 339)

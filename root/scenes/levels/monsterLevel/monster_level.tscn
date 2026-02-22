@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dtxkforlylqrn"]
+
+[ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="1_5gerl"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_8qeum"]
+
+[node name="MonsterLevel" type="Node2D" unique_id=1245818047]
+
+[node name="MonsterBackground" type="Sprite2D" parent="." unique_id=874683536]
+position = Vector2(973, 547)
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("1_5gerl")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_8qeum")]
+left_scene = "uid://dtcuyqo6sr636"
