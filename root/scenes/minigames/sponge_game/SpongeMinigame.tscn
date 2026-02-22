@@ -2,11 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_k185b"]
 [ext_resource type="Script" uid="uid://i614mmmowlpc" path="res://root/scenes/minigames/sponge_game/sponge_minigame_manager.gd" id="1_manager"]
-[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bx7exc3tfx6p2" path="res://root/assets/sponge_background.png" id="2_bg"]
 [ext_resource type="PackedScene" uid="uid://dvfl0xdvxfc1m" path="res://root/scenes/minigames/sponge_game/SpongeComponent.tscn" id="3_sponge_scene"]
 [ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="5_0md0p"]
 [ext_resource type="Texture2D" uid="uid://cuhdchqv4hycl" path="res://root/assets/atlases/sponges.sprites/sponge_green.tres" id="6_76uhp"]
+[ext_resource type="AudioStream" uid="uid://bi3jd7hr4rxbd" path="res://root/assets/sounds/sponge_haha01.wav" id="7_no4al"]
 [ext_resource type="Texture2D" uid="uid://c2w14f72ciq1g" path="res://root/scenes/levels/level1/cleancore_jelly_star.png" id="7_star"]
+[ext_resource type="AudioStream" uid="uid://4fu526akvf5s" path="res://root/assets/sounds/sponge_haha02.wav" id="8_5fl3x"]
+[ext_resource type="AudioStream" uid="uid://d1uoyubh0ulhn" path="res://root/assets/sounds/sponge_haha03.wav" id="9_kv6em"]
+[ext_resource type="AudioStream" uid="uid://r1e2ff66sj3t" path="res://root/assets/sounds/sponge02_haha01.wav" id="10_hmjs8"]
+[ext_resource type="AudioStream" uid="uid://be7uwrlurf5sl" path="res://root/assets/sounds/sponge02_haha02.wav" id="11_bxsem"]
+[ext_resource type="AudioStream" uid="uid://g3scblg25s3i" path="res://root/assets/sounds/sponge02_haha03.wav" id="12_jht3e"]
 
 [sub_resource type="Curve2D" id="Curve2D_0dsg8"]
 _data = {
@@ -61,6 +67,7 @@ offset_right = 1549.0
 offset_bottom = 938.0
 pivot_offset = Vector2(300, 136)
 texture_normal = ExtResource("6_76uhp")
+sound = Array[AudioStream]([ExtResource("7_no4al"), ExtResource("8_5fl3x"), ExtResource("9_kv6em")])
 id = &"green"
 normal_texture = ExtResource("6_76uhp")
 
@@ -76,5 +83,6 @@ offset_top = 327.0
 offset_right = 981.38513
 offset_bottom = 943.0
 pivot_offset = Vector2(311.61487, 125)
+sound = Array[AudioStream]([ExtResource("10_hmjs8"), ExtResource("11_bxsem"), ExtResource("12_jht3e")])
 id = &"red"
 normal_texture = ExtResource("5_0md0p")
