@@ -26,7 +26,7 @@ texture = ExtResource("4_ge5me")
 
 [node name="LockRing" parent="." unique_id=549123136 instance=ExtResource("1_pcd32")]
 position = Vector2(483, 687)
-offset = -20.0
+offset = -30.0
 number_of_segments = 4
 current_segment = 2
 texture = ExtResource("4_bt833")
@@ -35,7 +35,7 @@ texture = ExtResource("4_bt833")
 position = Vector2(483, 687)
 offset = 0.0
 number_of_segments = 4
-current_segment = 3
+current_segment = 2
 correct_segment = 2
 texture = ExtResource("5_6vej2")
 
