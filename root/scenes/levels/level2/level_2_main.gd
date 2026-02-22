@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	if(ProgressionManager.get_flag("puzzle_colors_solved")):
 		tele1.queue_free()
-
+	AudioService.play_music(preload("res://root/assets/music/dream.mp3"), &"Music",1.0,-10)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
