@@ -10,10 +10,11 @@ extends Node2D
 
 func _ready() -> void:
 	var hud = $Hud
+	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music",1.0,-10)
 	if ProgressionManager.get_flag("level_1_visited"):
 		hud.right_scene = "uid://dtxkforlylqrn"
 	hud.update_navigation()
-
+	
 	if ProgressionManager.get_flag("door_1_opened"):
 		# Door already was revealed, show it immediately and skip sequence
 		door.modulate.a = 1.0
