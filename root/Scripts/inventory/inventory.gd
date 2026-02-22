@@ -11,6 +11,7 @@ func add_item(new_item : ItemData):
 	item_slots.append(slot)
 	print("adding item")
 	print(item_slots)
+	ProgressionManager.set_flag(new_item.id + "_picked_up", true)
 	InventoryUpdated.emit()
 	
 func remove_item(item_to_remove : ItemData):

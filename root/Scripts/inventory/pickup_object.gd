@@ -25,7 +25,7 @@ func pickup() -> bool:
 	if !check_flags():
 		return false
 	GlobalData.player_inventory.add_item(item_data)
-	ProgressionManager.set_flag(item_data.id + "_picked_up", true)
+
 	_on_mouse_exited()
 	if anim_player:
 		anim_player.play("pickup")
