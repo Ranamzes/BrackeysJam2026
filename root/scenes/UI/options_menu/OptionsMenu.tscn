@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhflldojgy22b"]
 
 [ext_resource type="Script" uid="uid://ijbd6uoanqwv" path="res://root/scenes/UI/options_menu/options_menu.gd" id="1_pdbmr"]
+[ext_resource type="Texture2D" uid="uid://c2kts2bcgxota" path="res://root/scenes/UI/main_menu/circus_table_background.png" id="2_8nl36"]
 [ext_resource type="Texture2D" uid="uid://b0n5vfivd5tsb" path="res://root/assets/atlases/menu.sprites/options_base_2.tres" id="2_base2"]
 [ext_resource type="Texture2D" uid="uid://gn3xd5c2rhf2" path="res://root/assets/atlases/menu.sprites/options_base.tres" id="3_base_title"]
 [ext_resource type="FontFile" uid="uid://dkgf4f4k4bgp7" path="res://root/assets/fonts/FreckleFace-Regular.ttf" id="4_font"]
@@ -18,19 +19,27 @@
 layer = 2
 script = ExtResource("1_pdbmr")
 
-[node name="MainBackground" type="ColorRect" parent="." unique_id=1664898102]
+[node name="Background" type="Sprite2D" parent="." unique_id=328225609]
+scale = Vector2(0.75277776, 0.7527778)
+texture = ExtResource("2_8nl36")
+centered = false
+
+[node name="MainBackground" type="PanelContainer" parent="." unique_id=2139778390]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.243137, 0.243137, 0.243137, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=123543834]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -3.0
+offset_right = -576.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -81,6 +90,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1")
 
 [node name="TextureBackground" type="TextureRect" parent="MarginContainer/MainVBox/PanelContainer" unique_id=2081692131]
