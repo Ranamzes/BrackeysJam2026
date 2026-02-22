@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://4ok03ovnkmd5"]
+
+[ext_resource type="Script" uid="uid://dlnxenolw3ik2" path="res://root/scenes/levels/level2/screen.gd" id="1_xgysg"]
+[ext_resource type="Texture2D" uid="uid://bapfotmsfkig3" path="res://root/scenes/levels/level2/dreamcore_TVscreen_1.png" id="2_hkk36"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="3_a1mij"]
+[ext_resource type="AudioStream" uid="uid://dlddwg8hkoe2l" path="res://root/scenes/levels/level2/14_retro_comp05.wav" id="4_hnlj6"]
+[ext_resource type="AudioStream" uid="uid://bqppsehk6elap" path="res://root/scenes/levels/level2/15_lags02.wav" id="5_f012j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bfiy"]
+size = Vector2(471, 397)
+
+[node name="Screen" type="Area2D" unique_id=752871405]
+script = ExtResource("1_xgysg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1356869056]
+position = Vector2(226, 189)
+texture = ExtResource("2_hkk36")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186649060]
+position = Vector2(225.5, 188.5)
+shape = SubResource("RectangleShape2D_2bfiy")
+
+[node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("3_a1mij")]
+streams = Array[AudioStream]([ExtResource("4_hnlj6")])
+
+[node name="StreamPlayerComponent2" parent="." unique_id=1313302483 instance=ExtResource("3_a1mij")]
+streams = Array[AudioStream]([ExtResource("5_f012j")])
