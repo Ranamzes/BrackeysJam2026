@@ -8,6 +8,7 @@ signal finished
 @onready var portrait_rect: TextureRect = %PortraitSprite
 @onready var portrait_container: Control = %PortraitContainer
 @onready var portrait_mask: TextureRect = %PortraitMask
+@onready var portrait_content: Control = %PortraitContent
 @onready var responses_menu: HBoxContainer = %ResponsesMenu
 
 
@@ -34,13 +35,13 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	dialogue_label.text = ""
 
 	# Clear any previous scene portraits
-	for child in %PortraitMask.get_children():
-		if child != %PortraitSprite:
+	for child in portrait_content.get_children():
+		if child != portrait_rect:
 			child.queue_free()
 
 	if portrait_scene:
 		var scene_inst = portrait_scene.instantiate()
-		%PortraitMask.add_child(scene_inst)
+		portrait_content.add_child(scene_inst)
 		portrait_rect.hide()
 		portrait_container.show()
 	elif portrait_texture:

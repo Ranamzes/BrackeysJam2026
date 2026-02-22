@@ -5,8 +5,11 @@ extends Area2D
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 
-## Optional portrait texture to show in the Dialogue UI.
 @export var portrait_texture: Texture2D
+
+## Optional portrait scene (PackedScene) to show in the Dialogue UI.
+## Takes precedence over portrait_texture if assigned.
+@export var portrait_scene: PackedScene
 
 ## Optional list of conditional dialogue paths. The first one that meets its conditions will be used.
 @export var variants: Array[DialogueVariant] = []
@@ -215,7 +218,7 @@ func start_dialogue(extra_game_states: Array = []) -> void:
 	if dialogue_resource:
 		# Use '_get_start_title()' which can be overridden by scripts extending this class
 		var title = _get_start_title()
-		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture)
+		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture, portrait_scene)
 
 
 	else:

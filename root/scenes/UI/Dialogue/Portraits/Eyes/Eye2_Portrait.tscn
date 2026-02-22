@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8n8qj4w8n8p2"]
+
+[ext_resource type="PackedScene" uid="uid://3e0fxbcalg7" path="res://root/scenes/levels/intro/Eye2.tscn" id="1_base"]
+
+[node name="Eye2_Portrait" instance=ExtResource("1_base")]
+
+[node name="Mask" parent="." index="0"]
+clip_children = 2
+self_modulate = Color(1, 1, 1, 0)

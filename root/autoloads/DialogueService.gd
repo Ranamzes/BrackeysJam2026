@@ -23,6 +23,7 @@ func start_dialogue(resource: DialogueResource, title: String, extra_game_states
 
 	print("DialogueService: Instantiating fresh DialogueUI...")
 	current_dialogue_ui = DIALOGUE_SCENE.instantiate()
+	current_dialogue_ui.layer = 11
 	get_tree().root.add_child(current_dialogue_ui)
 	current_dialogue_ui.finished.connect(_on_dialogue_finished)
 

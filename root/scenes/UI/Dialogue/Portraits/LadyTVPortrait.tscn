@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://exetwt7ejddp"]
+
+[ext_resource type="Script" uid="uid://dcqy2hdwg4b6s" path="res://root/scenes/UI/Dialogue/Portraits/lady_tv_portrait.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://cq3u6ndqlpybg" path="res://root/resources/shaders/feathered_oval.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://csptk2mlj3b88" path="res://root/scenes/characters/player/character_TV.png" id="2_body"]
+[ext_resource type="Texture2D" uid="uid://bmkom4fr5wpk2" path="res://root/scenes/characters/player/eye_open_TV.png" id="3_n6t7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mask"]
+shader = ExtResource("1_shader")
+shader_parameter/color = Color(0.1, 0.08, 0.12, 1)
+shader_parameter/feather = 0.3
+shader_parameter/inner_radius = 0.4
+
+[node name="LadyTVPortrait" type="Control" unique_id=1278114696]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 366.0
+offset_bottom = 366.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1091886916]
+material = SubResource("ShaderMaterial_mask")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -530.0
+offset_top = -479.0
+offset_right = -530.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+color = Color(0.12, 0.1, 0.15, 1)
+
+[node name="Body" type="TextureRect" parent="." unique_id=1232672464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = 10.999998
+offset_right = 406.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.78, 0.78)
+pivot_offset = Vector2(490, 180)
+texture = ExtResource("2_body")
+stretch_mode = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Body" unique_id=1813842454]
+position = Vector2(447.6923, 172.30768)
+scale = Vector2(1.2988722, 1.2988722)
+texture = ExtResource("3_n6t7d")

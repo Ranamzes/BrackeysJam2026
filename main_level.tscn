@@ -7,30 +7,55 @@
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="5_eqmdw"]
 [ext_resource type="Resource" uid="uid://lh4redxn8564" path="res://root/resources/dialogue/monster.dialogue" id="6_monster_dialogue"]
 [ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="7_monster_portrait"]
+[ext_resource type="PackedScene" uid="uid://c8n8qj4w8n8n8" path="res://root/scenes/UI/Dialogue/Portraits/MonsterEyesPortrait.tscn" id="8_portrait_scene"]
+[ext_resource type="Texture2D" uid="uid://buksvi63rf5gu" path="res://root/assets/atlases/main_level.sprites/startscene_flower.tres" id="9_flower"]
+[ext_resource type="Texture2D" uid="uid://bsom56442fnjf" path="res://root/assets/atlases/main_level.sprites/startscene_chair_part.tres" id="10_chair"]
+[ext_resource type="Script" uid="uid://8drag4hggeh4" path="res://root/components/mouse_parallax/mouse_parallax.gd" id="11_parallax"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmdw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oeaww"]
 size = Vector2(322, 856)
 
 [node name="MainLevel" type="Node2D" unique_id=21041493]
 script = ExtResource("1_script")
 dialogue_resource = ExtResource("6_monster_dialogue")
 portrait_texture = ExtResource("7_monster_portrait")
+portrait_scene = ExtResource("8_portrait_scene")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_6614m")]
-right_scene = "uid://c3odhd3retu8g"
+layer = 10
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1058383913]
-scale = Vector2(0.9375, 0.9375)
+[node name="BackgroundContainer" type="Node2D" parent="." unique_id=987654330]
+script = ExtResource("11_parallax")
+parallax_intensity = Vector2(4, 2)
+
+[node name="Background" type="Sprite2D" parent="BackgroundContainer" unique_id=1058383913]
+scale = Vector2(0.95, 0.95)
 texture = ExtResource("2_bhu08")
 centered = false
 
-[node name="Door" type="Sprite2D" parent="." unique_id=65432101]
-position = Vector2(423.00003, 552)
-scale = Vector2(0.9, 0.9)
+[node name="Door" type="Sprite2D" parent="BackgroundContainer" unique_id=65432101]
+visible = false
+position = Vector2(429.00003, 560)
+scale = Vector2(0.92, 0.92)
 texture = ExtResource("3_door")
 
-[node name="LevelTransitionArea" parent="Door" unique_id=311293945 instance=ExtResource("5_eqmdw")]
+[node name="LevelTransitionArea" parent="BackgroundContainer/Door" unique_id=311293945 instance=ExtResource("5_eqmdw")]
 scene_path = "uid://c3odhd3retu8g"
 
-[node name="AutoCollisionShape" type="CollisionShape2D" parent="Door/LevelTransitionArea" unique_id=1893841335]
-shape = SubResource("RectangleShape2D_eqmdw")
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="BackgroundContainer/Door/LevelTransitionArea" unique_id=18372514]
+shape = SubResource("RectangleShape2D_oeaww")
+
+[node name="ForegroundParallax" type="CanvasLayer" parent="." unique_id=987654320]
+
+[node name="Flower" type="Sprite2D" parent="ForegroundParallax" unique_id=987654321]
+position = Vector2(152, 542.00006)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("9_flower")
+script = ExtResource("11_parallax")
+parallax_intensity = Vector2(15, 7.5)
+
+[node name="ChairPart" type="Sprite2D" parent="ForegroundParallax" unique_id=987654322]
+position = Vector2(1750, 946)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("10_chair")
+script = ExtResource("11_parallax")
