@@ -263,8 +263,6 @@ func start_dialogue(extra_game_states: Array = []) -> void:
 			if GlobalData.selected_slot and GlobalData.selected_slot.inventory_slot.item.id == chosen_variant.required_item.id:
 				print("DialogueTrigger: Consuming item ", chosen_variant.required_item.id)
 				GlobalData.player_inventory.remove_item(GlobalData.selected_slot.inventory_slot.item)
-				# Deselect slot after consumption
-				GlobalData.selected_slot.change_selected_state()
 
 		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture, portrait_scene)
 
