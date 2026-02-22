@@ -2,15 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_k185b"]
 [ext_resource type="Script" uid="uid://i614mmmowlpc" path="res://root/scenes/minigames/sponge_game/sponge_minigame_manager.gd" id="1_manager"]
-[ext_resource type="Texture2D" uid="uid://bx7exc3tfx6p2" path="res://root/assets/sponge_background.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_bg"]
 [ext_resource type="PackedScene" uid="uid://dvfl0xdvxfc1m" path="res://root/scenes/minigames/sponge_game/SpongeComponent.tscn" id="3_sponge_scene"]
 [ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="5_0md0p"]
 [ext_resource type="Texture2D" uid="uid://cuhdchqv4hycl" path="res://root/assets/atlases/sponges.sprites/sponge_green.tres" id="6_76uhp"]
+[ext_resource type="Texture2D" uid="uid://c2w14f72ciq1g" path="res://root/scenes/levels/level1/cleancore_jelly_star.png" id="7_star"]
+
+[sub_resource type="Curve2D" id="Curve2D_0dsg8"]
+_data = {
+"points": PackedVector2Array(-232.41028, 486.35895, 232.41028, -486.35895, 459, 817, -274.56418, 407.89734, 274.56418, -407.89734, 1839, 80)
+}
+point_count = 2
 
 [node name="SpongeMinigame" type="Node2D" unique_id=2126055972]
 
+[node name="FlyingPath" type="Path2D" parent="." unique_id=314159266]
+curve = SubResource("Curve2D_0dsg8")
+
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_k185b")]
-bottom_scene = "uid://c3odhd3retu8g"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1798040954]
 scale = Vector2(0.9375, 0.9375)
@@ -26,19 +35,26 @@ script = ExtResource("1_manager")
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="MinigameManager" unique_id=244685845]
 
-[node name="Sponges" type="Node2D" parent="." unique_id=1937187658]
+[node name="ParticlesLayer" type="CanvasLayer" parent="." unique_id=314159267]
+layer = 2
+
+[node name="Sponges" type="Node2D" parent="ParticlesLayer" unique_id=1937187658]
 position = Vector2(-115, 92)
 
-[node name="SpongeRed" parent="Sponges" unique_id=2124786994 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
-offset_left = 333.38513
-offset_top = 327.0
-offset_right = 981.38513
-offset_bottom = 943.0
-pivot_offset = Vector2(311.61487, 125)
-id = &"red"
-normal_texture = ExtResource("5_0md0p")
+[node name="StarParticles" type="CPUParticles2D" parent="ParticlesLayer/Sponges" unique_id=314159265]
+position = Vector2(663, 660)
+emitting = false
+amount = 20
+texture = ExtResource("7_star")
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 64.93
+spread = 8.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.04
+scale_amount_max = 0.08
 
-[node name="SpongeGreen" parent="Sponges" unique_id=602853998 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
+[node name="SpongeGreen" parent="ParticlesLayer/Sponges" unique_id=602853998 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
 offset_left = 901.0
 offset_top = 321.0
 offset_right = 1549.0
@@ -47,3 +63,18 @@ pivot_offset = Vector2(300, 136)
 texture_normal = ExtResource("6_76uhp")
 id = &"green"
 normal_texture = ExtResource("6_76uhp")
+
+[node name="SpongeSurface" type="CanvasLayer" parent="." unique_id=314159268]
+layer = 3
+
+[node name="SpongesButtons" type="Node2D" parent="SpongeSurface" unique_id=1937187659]
+position = Vector2(-115, 92)
+
+[node name="SpongeRed" parent="SpongeSurface/SpongesButtons" unique_id=2124786994 groups=["sponges"] instance=ExtResource("3_sponge_scene")]
+offset_left = 333.38513
+offset_top = 327.0
+offset_right = 981.38513
+offset_bottom = 943.0
+pivot_offset = Vector2(311.61487, 125)
+id = &"red"
+normal_texture = ExtResource("5_0md0p")

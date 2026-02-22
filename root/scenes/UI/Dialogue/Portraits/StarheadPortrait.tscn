@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://xqrbdbbwuu8p"]
+
+[ext_resource type="Script" uid="uid://b1n86xhpobyx3" path="res://root/scenes/UI/Dialogue/Portraits/starhead_portrait.gd" id="1_script"]
+[ext_resource type="Shader" uid="uid://cq3u6ndqlpybg" path="res://root/resources/shaders/feathered_oval.gdshader" id="2_shader"]
+[ext_resource type="Texture2D" uid="uid://dc2f2hinrje7g" path="res://root/scenes/characters/player/starhead_base.png" id="3_body"]
+[ext_resource type="Texture2D" uid="uid://bbsicehobyr8g" path="res://root/scenes/characters/player/starhead_mouth1.png" id="4_m1"]
+[ext_resource type="Texture2D" uid="uid://cg0hl08vh3kud" path="res://root/scenes/characters/player/starhead_mouth2.png" id="5_m2"]
+[ext_resource type="Texture2D" uid="uid://ue4e22qr6rh2" path="res://root/scenes/characters/player/starhead_mouth3.png" id="6_m3"]
+[ext_resource type="Texture2D" uid="uid://bqlpawya3k0tr" path="res://root/scenes/characters/player/starhead_mouth4.png" id="7_m4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mask"]
+shader = ExtResource("2_shader")
+shader_parameter/color = Color(0.1, 0.08, 0.12, 1)
+shader_parameter/feather = 0.3
+shader_parameter/inner_radius = 0.4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mouth"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_m3")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_m4")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="StarheadPortrait" type="Control" unique_id=1515574668]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 366.0
+offset_bottom = 366.0
+mouse_filter = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1807308516]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_mask")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -530.0
+offset_top = -479.0
+offset_right = -530.0
+offset_bottom = -479.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+color = Color(0.12, 0.1, 0.15, 1)
+
+[node name="Body" type="TextureRect" parent="." unique_id=258877818]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -490.0
+offset_top = -58.0
+offset_right = 448.0
+offset_bottom = 934.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.78, 0.78)
+pivot_offset = Vector2(490, 180)
+texture = ExtResource("3_body")
+stretch_mode = 5
+
+[node name="Mouth" type="AnimatedSprite2D" parent="Body" unique_id=2040288570]
+unique_name_in_owner = true
+position = Vector2(751.53845, 270.3846)
+sprite_frames = SubResource("SpriteFrames_mouth")
+autoplay = "idle"

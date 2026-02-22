@@ -11,7 +11,8 @@ var def_position : Vector2
 var clicks_disabled : bool = false
 
 func _ready() -> void:
-	self.gui_input.connect(_on_gui_input)
+	if not gui_input.is_connected(_on_gui_input):
+		self.gui_input.connect(_on_gui_input)
 	shampoo_game = get_parent()
 	self_modulate = Color.TRANSPARENT
 	if !shampoo_texture:
