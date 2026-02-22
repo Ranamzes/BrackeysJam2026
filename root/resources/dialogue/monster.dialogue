@@ -40,4 +40,18 @@ Monster: [center]Твое промедление пахнет страхом... 
 Monster: [center]Где мое подношение? Принеси мне нечто [nervous]огромное[/nervous], иначе я перестану ждать и просто [nervous]поглощу[/nervous] тебя![/center]
 Monster: [center]Моему желудку все равно, кто станет следующей жертвой![/center]
 => END
+~ quest_4
+Monster: [center]Этот голод... он [glitch]сводит меня с ума[/glitch]! Я чувствую его присутствие...[/center]
+Monster: [center]Ты принес? Чего же ты ждешь, маленький раб? [nervous]ДАВАЙ СЮДА![/nervous][/center]
+Monster: [center]Мое терпение истончается быстрее, чем твоя надежда на спасение![/center]
+=> END
 
+~ end_game
+Monster: [center]О-о-о... Да... Какое блаженство...[/center]
+Monster: [center]Это действительно самое [nervous]огромное[/nervous] и прекрасное, что я ел за всю бесконечность своего существования.[/center]
+Monster: [center]Этот вкус... он бесконечен, как и эго, его породившее. Каждая крупица материи наполнена [gold_sparkle]триумфом[/gold_sparkle].[/center]
+Monster: [center][i]*Тяжелый, удовлетворенный вздох, переходящий в сонное сопение*[/i][/center]
+Monster: [center]Ахх... величие клонит в сон... Не мешай... Дай мне... [woo]поспать[/woo].[/center]
+Monster: [center]Но далеко не отходи, мой маленький раб. Скоро я проснусь... и захочу позавтракать...[/center]
+do ScreenTransition.transition_to_scene("res://root/scenes/UI/credits/Credits.tscn")
+=> END

@@ -1,0 +1,38 @@
+~ start
+Starhead: [center]О, наконец-то! Мой верный поклонник явился, чтобы искупаться в лучах моей [nervous]грандиозности[/nervous]![/center]
+Starhead: [center]Ты сделал единственный верный выбор в своей жалкой жизни — поклоняться мне.[/center]
+Starhead: [center]Ведь ничто, Слышишь? Ничто во всей этой скучной вселенной не сравнится с моим [nervous]огромным[/nervous] величием.[/center]
+Starhead: [center]Иди-ка, мой фанат, посмотри, почему не работает мой телескоп.[/center]
+Starhead: [center]Я запускал проекцию инструкции по сборке... Но я слишком велик, чтобы этим заниматься.[/center]
+do ProgressionManager.set_flag("level_2_visited", true)
+=> END
+
+~ waiting_telescope
+Starhead: [center]Ты все еще здесь? И мой телескоп до сих пор мертв?[/center]
+Starhead: [center]Я начинаю сомневаться, достоин ли ты вообще находиться в моем [nervous]огромном[/nervous] присутствии.[/center]
+Starhead: [center]Даже мой гениальный разум подсказывает, что тебе стоит обратить внимание на каналы проектора... Шевелись![/center]
+=> END
+
+~ after_telescope
+Starhead: [center]Хм, телескоп ожил. Очередное доказательство того, что под моим руководством даже бездарность может быть полезной.[/center]
+Starhead: [center]Что дальше? Вроде я видел где-то дальнейшую инструкцию сборки возле зеркала моей бесконечно глубокой души.[/center]
+Starhead: [center]Иди и найди её, мой маленький помощник.[/center]
+=> END
+
+~ after_puzzle
+Starhead: [center]Внимание! Меня посетило неожиданное вдохновение! Мой разум рождает шедевр![/center]
+Starhead: [center]Срочно! Найди бумагу и пиши под мою диктовку! Каждое мое слово — на вес самородка![/center]
+=> END
+
+~ trade_item
+Starhead: [center]Давай сюда! Это... это моё лучшее творение! Оно достойно лучшей награды для моего поклонника.[/center]
+Starhead: [center]Вот, возьми это — скромное олицетворение моего [nervous]огромного[/nervous] внутреннего мира.[/center]
+do GlobalData.player_inventory.remove_item(preload("res://root/assets/items/paper_text.tres"))
+do GlobalData.player_inventory.add_item(preload("res://root/assets/items/planet.tres"))
+do ProgressionManager.set_flag("planet_picked_up", true)
+=> END
+
+~ post_trade
+Starhead: [center]Боже, как это гениально... Я даже сам от себя в восторге![/center]
+Starhead: [center]Каждая буква, каждый мазок... Само совершенство![/center]
+=> END
