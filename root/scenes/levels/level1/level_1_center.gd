@@ -5,7 +5,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ProgressionManager.set_flag("level_1_visited", true)
-	ProgressionManager.progression_data.changed.connect(flags_changed)
 
 func flags_changed(flag_name : String, flag_value : bool) -> void:	
 	match flag_name:
