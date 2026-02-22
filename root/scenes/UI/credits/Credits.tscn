@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://bym6eh1unp2hc"]
+
+[ext_resource type="Script" path="res://root/scenes/UI/credits/credits.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://bohdae8f4gami" path="res://root/resources/themes/ButtonTheme.tres" id="2_theme"]
+[ext_resource type="FontVariation" path="res://root/resources/fonts/menu_font.tres" id="3_font"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="CreditsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 120
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Space" type="Control" parent="CreditsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Team" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 48
+text = "A Game by Electus Games"
+horizontal_alignment = 1
+
+[node name="Names" type="Label" parent="CreditsContainer"]
+layout_mode = 2
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 40
+text = "Ranamzes - Game Design & Programming
+Artist Name - Art & Visuals
+Music Name - Audio & SFX"
+horizontal_alignment = 1
+
+[node name="Space2" type="Control" parent="CreditsContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CreditsContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_theme")
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="CreditsContainer/BackButton" to="." method="_on_back_button_pressed"]

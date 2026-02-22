@@ -31,6 +31,21 @@ conditions = {
 "planet_quest": true
 }
 
+[sub_resource type="Resource" id="Resource_q4"]
+script = ExtResource("4_var")
+start_title = "quest_4"
+conditions = {
+"planet_delivered": false,
+"planet_picked_up": true
+}
+
+[sub_resource type="Resource" id="Resource_end"]
+script = ExtResource("4_var")
+start_title = "end_game"
+conditions = {
+"planet_delivered": true
+}
+
 [node name="MonsterLevel" type="Node2D" unique_id=1245818047]
 
 [node name="MonsterBackground" type="Sprite2D" parent="." unique_id=874683536]
@@ -42,7 +57,7 @@ texture = ExtResource("1_5gerl")
 script = ExtResource("3_trig")
 dialogue_resource = ExtResource("2_dlg")
 portrait_scene = ExtResource("5_port")
-variants = Array[ExtResource("4_var")]([SubResource("Resource_q1"), SubResource("Resource_q2"), SubResource("Resource_q3")])
+variants = Array[ExtResource("4_var")]([SubResource("Resource_q1"), SubResource("Resource_q2"), SubResource("Resource_q3"), SubResource("Resource_q4"), SubResource("Resource_end")])
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("6_hud")]
 left_scene = "uid://dtcuyqo6sr636"

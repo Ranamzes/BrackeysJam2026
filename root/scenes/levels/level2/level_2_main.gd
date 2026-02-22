@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var tele1: Sprite2D = $DreamcoreStarTelescoope1
-@onready var hud: HUD = $Hud
+@onready var hud: CanvasLayer = $Hud
 
 const STARHEAD_DIALOGUE = preload("res://root/resources/dialogue/starhead.dialogue")
 const STARHEAD_PORTRAIT = preload("res://root/scenes/UI/Dialogue/Portraits/StarheadPortrait.tscn")
