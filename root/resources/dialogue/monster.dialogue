@@ -10,14 +10,18 @@ Monster: [center][embers]Otherwise... you might find yourself on the menu.[/embe
 ~ open_door
 Monster: [center]I've been a bit busy here, making myself at home...[/center]
 Monster: [center]I've rearranged your "[glitch]house[/glitch]" a little. It was so... dull before.[/center]
-do reveal_door()
+do reveal_door("Door")
 Monster: [center]I've opened [glitch]portals[/glitch] to my private domains—parallel worlds where I keep my treats to savor them.[/center]
-
 Monster: [center]Go on, step through.[/center]
 Monster: [center]And remember... bring me the most [gold_sparkle]satisfying[/gold_sparkle] thing you can find in this world![/center]
-
-
 => END
+
+~ flower_delivery
+Monster: [center]You've brought something... I can [nervous]sense[/nervous] it.[/center]
+Monster: [center]Well, what are you waiting for? Hand it over![/center]
+Monster: [center]My hunger won't quiet itself, little slave. [woo]Give it here![/woo][/center]
+do ProgressionManager.set_flag("flower_delivered", true)
+=> quest_2
 
 ~ quest_1
 Monster: [center]Your tidal pulse... Have you brought what will [nervous]satiate[/nervous] my eternal hunger?[/center]
@@ -29,7 +33,14 @@ Monster: [center]I need to [nervous]consume[/nervous], and soon... or my stomach
 Monster: [center]Ooooh... what divine [nervous]fulfillment[/nervous]...[/center]
 Monster: [center]The sweet taste of patience with a bitter aftertaste of toxic friendship. You've exceeded expectations, my slave.[/center]
 Monster: [center][i]*A terrifying groan of a hungry womb*[/i][/center]
+do ProgressionManager.set_flag("quest_2_arrived", true)
+do ScreenTransition.transition_to_scene("uid://dk1v0j23ftkqu")
+=> END
+
+~ quest_2b
 Monster: [center]Ahhh... but my hunger is only just gathering speed! It devours me from within![/center]
+Monster: [center]This is my most [gold_sparkle]precious[/gold_sparkle] realm... where I cultivate the very thing that might finally [nervous]silence[/nervous] my hunger.[/center]
+do reveal_door("Door2")
 Monster: [center]Quickly... bring me something [nervous]enormous[/nervous].[/center]
 Monster: [center]Something so colossal it can fill my void and tame this thirst to [nervous]consume[/nervous]![/center]
 do ProgressionManager.set_flag("planet_quest", true)

@@ -103,6 +103,11 @@ func play_music(stream: AudioStream, bus: StringName, fade_duration: float = 1.0
 		return
 
 	var new_player = AudioStreamPlayer.new()
+	# Включаем loop для поддерживаемых форматов (OGG, MP3)
+	if stream is AudioStreamMP3:
+		stream.loop = true
+	elif stream is AudioStreamOggVorbis:
+		stream.loop = true
 	new_player.stream = stream
 	new_player.bus = bus
 	new_player.volume_db = -80.0 # Начинаем с тишины для фейда

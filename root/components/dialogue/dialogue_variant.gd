@@ -18,8 +18,14 @@ func are_conditions_met() -> bool:
 	# 1. Check flags
 	for flag in conditions:
 		var required_value = conditions[flag]
-		if ProgressionManager.get_flag(flag) != required_value:
-			return false
+		var current_value = ProgressionManager.get_flag(flag)
+		if current_value != required_value:
+			# If the flag requires false but doesn't exist yet, register it as false and allow
+			if required_value == false and not ProgressionManager.progression_data.state_table.has(flag):
+				print("DialogueVariant: Flag '%s' not found, registering as false and activating dialogue." % flag)
+				ProgressionManager.set_flag(flag, false)
+			else:
+				return false
 
 	# 2. Check item requirement
 	if required_item:

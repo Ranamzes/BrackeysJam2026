@@ -247,6 +247,21 @@ func _check_pixel_opaque(click_pos: Vector2) -> bool:
 
 
 func start_dialogue(extra_game_states: Array = []) -> void:
+	# If we have a selected item, check if ANY variant reacts to it
+	if GlobalData.selected_slot != null:
+		var selected_item = GlobalData.selected_slot.inventory_slot.item
+		var has_item_trigger = false
+		for variant in variants:
+			if variant.required_item and variant.required_item.id == selected_item.id:
+				has_item_trigger = true
+				break
+
+		# If the NPC doesn't care about this item, deselect it and abort dialogue
+		if not has_item_trigger:
+			print("DialogueTrigger: [", name, "] No trigger for item ", selected_item.id, ", deselecting.")
+			GlobalData.selected_slot.change_selected_state()
+			return
+
 	if dialogue_resource:
 		# Find the variant that will be used to check for item consumption
 		var chosen_variant: DialogueVariant = null

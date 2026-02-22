@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_6614m"]
 [ext_resource type="Script" uid="uid://c22be5am3gq6x" path="res://root/scenes/levels/mainLevel/main_level.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://b0c3a3bylbekw" path="res://root/scenes/levels/mainLevel/startscene_doors.png" id="2_bhu08"]
+[ext_resource type="Texture2D" uid="uid://bmybm5640qtte" path="res://root/scenes/levels/mainLevel/startscene_doors.png" id="2_bhu08"]
 [ext_resource type="Texture2D" uid="uid://0us8kkklssoq" path="res://root/assets/atlases/main_level.sprites/open_door.tres" id="3_door"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="5_eqmdw"]
-[ext_resource type="Resource" uid="uid://d2w8ykk7wwsvu" path="res://root/resources/dialogue/monster.dialogue" id="6_monster_dialogue"]
+[ext_resource type="Resource" uid="uid://lh4redxn8564" path="res://root/resources/dialogue/monster.dialogue" id="6_monster_dialogue"]
 [ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="7_monster_portrait"]
 [ext_resource type="PackedScene" uid="uid://c8n8qj4w8n8n8" path="res://root/scenes/UI/Dialogue/Portraits/MonsterEyesPortrait.tscn" id="8_portrait_scene"]
 [ext_resource type="Texture2D" uid="uid://buksvi63rf5gu" path="res://root/assets/atlases/main_level.sprites/startscene_flower.tres" id="9_flower"]
@@ -45,6 +45,20 @@ texture = ExtResource("3_door")
 scene_path = "uid://c3odhd3retu8g"
 
 [node name="AutoCollisionShape" type="CollisionShape2D" parent="BackgroundContainer/Door/LevelTransitionArea" unique_id=18372514]
+shape = SubResource("RectangleShape2D_oeaww")
+
+[node name="Door2" type="Sprite2D" parent="BackgroundContainer" unique_id=369042854]
+visible = false
+modulate = Color(1, 1, 1, 0.59607846)
+position = Vector2(919, 560)
+scale = Vector2(0.916, 0.916)
+texture = ExtResource("3_door")
+metadata/_edit_group_ = true
+
+[node name="LevelTransitionArea" parent="BackgroundContainer/Door2" unique_id=124145047 instance=ExtResource("5_eqmdw")]
+scene_path = "uid://kl6lepn4skoq"
+
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="BackgroundContainer/Door2/LevelTransitionArea" unique_id=1050635864]
 shape = SubResource("RectangleShape2D_oeaww")
 
 [node name="ForegroundParallax" type="CanvasLayer" parent="." unique_id=987654320]

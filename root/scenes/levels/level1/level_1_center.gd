@@ -1,11 +1,13 @@
 extends Node2D
 
+var _loop_tweens: Array[Tween] = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Navigation is now handled by flags in the HUD component
 	# Check if level was already visited
-	AudioService.play_music(preload("res://root/assets/music/clean.mp3"), &"Music",1.0,-10)
+	AudioService.play_music(preload("res://root/assets/music/clean.mp3"), &"Music", 1.0, -10)
 	if not ProgressionManager.get_flag("level_1_visited"):
 		# Wait one second then trigger dialogue
 		get_tree().create_timer(1.0).timeout.connect(_on_entry_timeout)
@@ -133,25 +135,27 @@ func _animate_duck_surface() -> void:
 	duck_tween.tween_callback(func(): ProgressionManager.set_flag("duck_surfaced", true))
 	_start_duck_idle(duck, rest_pos, rest_rot, 2.0)
 
+func _exit_tree() -> void:
+	for t in _loop_tweens:
+		if is_instance_valid(t):
+			t.kill()
+	_loop_tweens.clear()
+
 func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void:
 	var rest_x := child.position.x
 	var sway_amp := 6.0 + fmod(float(i), 3.0) * 3.0
 	var sway_dur := 1.8 + fmod(float(i), 4.0) * 0.3
 	var sway_dir := 1.0 if i % 2 == 0 else -1.0
 
-	# Kill existing tweens on this object property to prevent overlap/leaks
-	var existing_tweens = get_tree().get_processed_tweens().filter(func(t): return t.is_valid() and t.is_running())
-	for t in existing_tweens:
-		# There's no direct way to check what an anonymous tween is targeting easily without a reference,
-		# simpler to just ensure we don't start it multiple times or use a dictionary to track.
-		pass
-
 	var actual_start = func():
+		if not is_instance_valid(child):
+			return
 		var loop_tween = create_tween().set_loops()
 		loop_tween.tween_property(child, "position:x", rest_x + sway_amp * sway_dir, sway_dur) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		loop_tween.tween_property(child, "position:x", rest_x - sway_amp * sway_dir, sway_dur) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_loop_tweens.append(loop_tween)
 
 	if start_delay > 0:
 		get_tree().create_timer(start_delay).timeout.connect(actual_start)
@@ -160,17 +164,21 @@ func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void
 
 func _start_duck_idle(duck: Sprite2D, rest_pos: Vector2, rest_rot: float, start_delay: float = 0.0) -> void:
 	var actual_start = func():
+		if not is_instance_valid(duck):
+			return
 		var bob_tween = create_tween().set_loops()
 		bob_tween.tween_property(duck, "position:y", rest_pos.y - 4.0, 1.2) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		bob_tween.tween_property(duck, "position:y", rest_pos.y, 1.2) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_loop_tweens.append(bob_tween)
 
 		var rot_tween = create_tween().set_loops()
 		rot_tween.tween_property(duck, "rotation", rest_rot + 0.08, 1.5) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		rot_tween.tween_property(duck, "rotation", rest_rot - 0.08, 1.5) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		_loop_tweens.append(rot_tween)
 
 	if start_delay > 0:
 		get_tree().create_timer(start_delay).timeout.connect(actual_start)

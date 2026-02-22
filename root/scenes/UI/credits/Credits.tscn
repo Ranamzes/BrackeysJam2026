@@ -53,16 +53,21 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("2_theme")
 theme_override_font_sizes/font_size = 48
-text = "A Game by Electus Games"
+text = "A Game by \n Wake up Jamurai!"
 horizontal_alignment = 1
 
 [node name="Names" type="Label" parent="CreditsContainer"]
 layout_mode = 2
 theme = ExtResource("2_theme")
-theme_override_font_sizes/font_size = 40
-text = "Ranamzes - Game Design & Programming
-Artist Name - Art & Visuals
-Music Name - Audio & SFX"
+theme_override_font_sizes/font_size = 32
+text = "Ranamzes - Programmer & Screenwriter
+Baldroster - Programmer
+Filosofiya - Artist
+Nick Rootslove - Programmer
+Kira - Artist
+TheGirs0n - Game Design
+n0n4me_me - SFX Designer
+Trumpetguy1.0 - Music Production"
 horizontal_alignment = 1
 
 [node name="Space2" type="Control" parent="CreditsContainer"]
