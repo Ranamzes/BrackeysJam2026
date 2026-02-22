@@ -1,15 +1,30 @@
 [gd_scene format=3 uid="uid://6mjf62se8n1o"]
 
 [ext_resource type="Texture2D" uid="uid://pkyaeujabjr8" path="res://root/scenes/levels/level2/dreamcore_background2.png" id="1_3wyge"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_nyx8i"]
+[ext_resource type="Script" uid="uid://bwlg6ojx26jv2" path="res://root/scenes/levels/level2/level_2_right.gd" id="1_wm24u"]
 [ext_resource type="Texture2D" uid="uid://dg3i2s56ih8ng" path="res://root/scenes/levels/level2/dreamcore_typewriter2.png" id="2_nyx8i"]
 [ext_resource type="Texture2D" uid="uid://djrtf2e8naiou" path="res://root/scenes/levels/level2/dreamcore_typewriter_paper.png" id="3_yrak2"]
 [ext_resource type="Texture2D" uid="uid://b2e0gyv8l5cnw" path="res://root/scenes/levels/level2/dreamcore_typewriter1.png" id="4_07pgy"]
+[ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="5_yrak2"]
+[ext_resource type="PackedScene" uid="uid://cy4f0dweobs4k" path="res://root/components/interactable_area/InteractableArea.tscn" id="7_ptpkh"]
+[ext_resource type="Resource" uid="uid://cxneb2rv3iwbi" path="res://root/assets/items/paper.tres" id="8_xdkpv"]
+[ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="9_xdkpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm24u"]
+size = Vector2(462.6667, 358.66666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq017"]
+size = Vector2(367, 391)
 
 [node name="Level2Right" type="Node2D" unique_id=638280351]
+script = ExtResource("1_wm24u")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_nyx8i")]
+left_scene = "uid://kl6lepn4skoq"
 
 [node name="DreamcoreBackground2" type="Sprite2D" parent="." unique_id=151784178]
-position = Vector2(960.00006, 540)
-scale = Vector2(0.75, 0.75)
+position = Vector2(972, 552)
 texture = ExtResource("1_3wyge")
 
 [node name="DreamcoreTypewriter2" type="Sprite2D" parent="." unique_id=1799150232]
@@ -22,7 +37,27 @@ position = Vector2(532, 497)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_yrak2")
 
+[node name="VisibilityUpdater" parent="DreamcoreTypewriterPaper" unique_id=1413650788 instance=ExtResource("5_yrak2")]
+flags = Array[String](["paper_inserted"])
+should_be_visible_if_flags_true = true
+
 [node name="DreamcoreTypewriter1" type="Sprite2D" parent="." unique_id=1912082466]
 position = Vector2(554, 669)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_07pgy")
+
+[node name="InteractableArea" parent="DreamcoreTypewriter1" unique_id=1389652653 instance=ExtResource("7_ptpkh")]
+required_item = ExtResource("8_xdkpv")
+flag_name = "paper_inserted"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DreamcoreTypewriter1/InteractableArea" unique_id=1422498354]
+position = Vector2(8.666687, -42)
+shape = SubResource("RectangleShape2D_wm24u")
+
+[node name="LevelTransitionArea" parent="." unique_id=311293945 instance=ExtResource("9_xdkpv")]
+true_flags = Array[String](["paper_inserted"])
+scene_path = "uid://dxn77c8dmmsnw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionArea" unique_id=1787650244]
+position = Vector2(551.5, 575.5)
+shape = SubResource("RectangleShape2D_oq017")

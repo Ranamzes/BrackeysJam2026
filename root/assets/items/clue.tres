@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://r3o1xu7xf2t8"]
+
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://root/scripts/inventory/item_data.gd" id="1_4302k"]
+[ext_resource type="Texture2D" uid="uid://f2whqslg1glv" path="res://root/assets/photo_and_puzzlePart_on.png" id="1_tg7nc"]
+
+[resource]
+script = ExtResource("1_4302k")
+id = "clue"
+icon = ExtResource("1_tg7nc")
+metadata/_custom_type_script = "uid://sfjgktjvkx2l"

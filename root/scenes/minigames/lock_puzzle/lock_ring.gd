@@ -2,7 +2,7 @@ extends Area2D
 
 class_name LockRing
 signal state_changed
-@export var radius:int = 50
+@export var radius:int = 0
 @export var offset:float = 15.0
 @export var number_of_segments: int = 8
 @export var current_segment: int = 0
@@ -49,7 +49,7 @@ func _input(event:InputEvent)->void:
 			
 			if not event.pressed and is_rotating:
 				is_rotating = false
-				current_segment = round((rotation_degrees-offset) / angle_per_segment)
+				current_segment = round((rotation_degrees) / angle_per_segment)
 				current_segment = current_segment % 360 % number_of_segments
 				if current_segment<0:
 					current_segment = number_of_segments+current_segment

@@ -3,7 +3,7 @@ extends Area2D
 
 @export var puzzle_id : int
 @export var is_enabled : bool = true
-@export var colors : Array[Color] = [Color.WHITE, Color.CYAN, Color.MAGENTA, Color.YELLOW]
+@export var colors : Array[Color] = [Color.RED, Color.GREEN, Color.BLUE, Color.WHITE]
 @export var required_color_idx : int
 var current_color : Color = Color.WHITE
 var current_color_idx : int = 0
