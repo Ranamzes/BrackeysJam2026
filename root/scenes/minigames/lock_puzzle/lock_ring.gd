@@ -22,7 +22,11 @@ func _ready() -> void:
 	collision.position.y = -radius
 	sprite.position.y = -radius
 	angle_per_segment = 360.0/number_of_segments
-	rotation = angle_per_segment*current_segment+deg_to_rad(offset)
+	current_segment = round((rotation_degrees) / angle_per_segment)
+	current_segment = current_segment % 360 % number_of_segments
+	if current_segment<0:
+		current_segment = number_of_segments+current_segment
+	rotation_degrees = current_segment * angle_per_segment + offset
 	is_solved = current_segment==correct_segment
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
