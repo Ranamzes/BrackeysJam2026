@@ -5,6 +5,7 @@ extends Node2D
 func _ready() -> void:
 	# Navigation is now handled by flags in the HUD component
 	# Check if level was already visited
+	AudioService.play_music(preload("res://root/assets/music/clean.mp3"), &"Music",1.0,-10)
 	if not ProgressionManager.get_flag("level_1_visited"):
 		# Wait one second then trigger dialogue
 		get_tree().create_timer(1.0).timeout.connect(_on_entry_timeout)
