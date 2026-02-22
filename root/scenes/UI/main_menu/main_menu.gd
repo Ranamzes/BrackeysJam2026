@@ -6,7 +6,7 @@ func _ready() -> void:
 	%OptionsButton.pressed.connect(on_options_pressed)
 	%CreditsButton.pressed.connect(on_credits_pressed)
 	%QuitButton.pressed.connect(on_quit_pressed)
-	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music",1.0,-10)
+	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music", 1.0, -10)
 
 func on_play_pressed():
 	if not is_inside_tree(): return
@@ -30,7 +30,7 @@ func on_options_closed(options_instance: Node):
 
 
 func on_credits_pressed():
-	ScreenTransition.transition_to_scene("res://root/scenes/UI/credits/Credits.tscn")
+	ScreenTransition.transition_to_scene("uid://d7n7fj2vp3kd")
 
 
 func on_quit_pressed():
