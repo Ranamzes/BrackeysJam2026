@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://3sekrluhulkj"]
+[gd_scene format=3 uid="uid://bc773vl1l3ltw"]
 
 [ext_resource type="PackedScene" uid="uid://guvm58yj3ul4" path="res://root/scenes/UI/elements/sounded_button/SoundedButton.tscn" id="1_p34k7"]
 [ext_resource type="Script" uid="uid://c42bvqgc1e5p0" path="res://root/scenes/UI/main_menu/main_menu.gd" id="1_wj717"]
 [ext_resource type="Texture2D" uid="uid://c2kts2bcgxota" path="res://root/scenes/UI/main_menu/circus_table_background.png" id="2_uns31"]
 [ext_resource type="Theme" uid="uid://bohdae8f4gami" path="res://root/resources/themes/ButtonTheme.tres" id="2_uui6l"]
 [ext_resource type="Texture2D" path="res://root/assets/atlases/menu.sprites/play_rest.tres" id="4_8n45h"]
-[ext_resource type="Texture2D" uid="uid://dbogu5v8u38o" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
-[ext_resource type="Texture2D" uid="uid://da24ivn2um5rs" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
+[ext_resource type="Texture2D" uid="uid://dqy2ksu6qft11" path="res://root/assets/atlases/menu.sprites/play_click.tres" id="5_b5adr"]
+[ext_resource type="Texture2D" uid="uid://b0wvikeoq74c0" path="res://root/assets/atlases/menu.sprites/play_point.tres" id="6_xwlmk"]
 [ext_resource type="Texture2D" uid="uid://b623q28xict23" path="res://root/assets/atlases/menu.sprites/options_rest.tres" id="7_0lec3"]
 [ext_resource type="FontVariation" path="res://root/resources/fonts/menu_font.tres" id="7_x40my"]
 [ext_resource type="Texture2D" uid="uid://dgtnn0ua8uijm" path="res://root/assets/atlases/menu.sprites/options_click.tres" id="8_7tcj4"]
@@ -21,33 +21,23 @@
 [node name="MainMenu" type="CanvasLayer" unique_id=609203152]
 script = ExtResource("1_wj717")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1052801641]
-scale = Vector2(0.75277776, 0.7527778)
-texture = ExtResource("2_uns31")
-centered = false
-
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=449318572]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=892687142]
 process_mode = 3
-offset_right = 1920.0
-offset_bottom = 1220.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=892687142]
-process_mode = 3
-layout_mode = 2
+offset_left = -560.0
+offset_top = 17.0
+offset_right = 1360.0
+offset_bottom = 1270.0
 theme = ExtResource("2_uui6l")
-theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=484720998]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=484720998]
 process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = -150
 
-[node name="PlayButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1880091726 instance=ExtResource("1_p34k7")]
+[node name="PlayButton" parent="MarginContainer/VBoxContainer" unique_id=1880091726 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
 z_index = 4
 z_as_relative = false
@@ -70,7 +60,7 @@ text_offset = Vector2(0, 119)
 text_rotation = -4.0
 click_mask_threshold = 0.5
 
-[node name="OptionsButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1043961938 instance=ExtResource("1_p34k7")]
+[node name="OptionsButton" parent="MarginContainer/VBoxContainer" unique_id=1043961938 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
 z_index = 3
 z_as_relative = false
@@ -92,7 +82,7 @@ text_offset = Vector2(-25, 98)
 text_rotation = 10.0
 click_mask_threshold = 0.5
 
-[node name="CreditsButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1632093499 instance=ExtResource("1_p34k7")]
+[node name="CreditsButton" parent="MarginContainer/VBoxContainer" unique_id=1632093499 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
 z_index = 2
 z_as_relative = false
@@ -114,7 +104,7 @@ text_offset = Vector2(4, 98)
 text_rotation = -12.0
 click_mask_threshold = 0.5
 
-[node name="QuitButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=108683606 instance=ExtResource("1_p34k7")]
+[node name="QuitButton" parent="MarginContainer/VBoxContainer" unique_id=108683606 instance=ExtResource("1_p34k7")]
 unique_name_in_owner = true
 z_index = 1
 z_as_relative = false
@@ -135,3 +125,19 @@ texture_offset = Vector2(-11, -215)
 text_offset = Vector2(2, 97)
 text_rotation = -3.0
 click_mask_threshold = 0.5
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1052801641]
+scale = Vector2(0.75277776, 0.7527778)
+texture = ExtResource("2_uns31")
+centered = false
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=449318572]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+mouse_filter = 2
