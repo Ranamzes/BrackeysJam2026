@@ -19,6 +19,7 @@ var waiting_for_input = false
 var sequence_finished = false
 
 func _ready() -> void:
+	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music",1.0,-10)
 	darkness_rect.modulate = Color(1, 1, 1, 0)
 	darkness_rect.scale = Vector2(0.1, 0.1)
 

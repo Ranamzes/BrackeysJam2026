@@ -23,6 +23,7 @@ func _auto_trigger_dialogue() -> void:
 		hud.update_navigation()
 	, CONNECT_ONE_SHOT)
 
+	AudioService.play_music(preload("res://root/assets/music/dream.mp3"), &"Music",1.0,-10)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

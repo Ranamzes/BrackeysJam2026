@@ -163,6 +163,7 @@ texture = ExtResource("9_rqw2x")
 
 [node name="LevelTransitionArea" parent="DreamcoreTelescope" unique_id=311293945 instance=ExtResource("11_xeji4")]
 scene_path = "uid://cwqfw15xxuei4"
+disable_flag = null
 
 [node name="AutoCollisionShape" type="CollisionShape2D" parent="DreamcoreTelescope/LevelTransitionArea" unique_id=37746881]
 position = Vector2(-83.75, -91.83331)
@@ -207,6 +208,7 @@ texture = ExtResource("13_7e2il")
 [node name="LevelTransitionArea2" parent="DreamcoreStarTelescoope1" unique_id=1369672490 instance=ExtResource("11_xeji4")]
 true_flags = Array[String](["telescope_solved"])
 scene_path = "uid://bym6eh1unp2hc"
+disable_flag = null
 
 [node name="AutoCollisionShape" type="CollisionShape2D" parent="DreamcoreStarTelescoope1/LevelTransitionArea2" unique_id=1141883775]
 shape = SubResource("RectangleShape2D_rqw2x")

@@ -2,6 +2,7 @@ extends Node
 
 signal flag_changed
 @export var progression_data: ProgressionData
+@export var sounds : Dictionary[String, AudioStream]
 
 func _ready() -> void:
 	# Дублируем ресурс при старте, чтобы изменения в памяти
@@ -19,6 +20,8 @@ func set_flag(flag: String, value: bool = true) -> void:
 	# Оповещаем редактор об изменении, чтобы оно отобразилось в Remote Inspector
 	progression_data.flag_changed.emit(flag, value)
 	progression_data.emit_changed()
+	if sounds.has(flag) && value :
+		AudioService.play_sound(sounds[flag], &"SFX")
 	print("Flag set: %s = %s" % [flag, value])
 
 func get_flag(flag: String) -> bool:

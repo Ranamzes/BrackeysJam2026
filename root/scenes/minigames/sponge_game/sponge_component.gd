@@ -4,6 +4,8 @@ extends TextureButton
 
 signal sponge_clicked(id: StringName)
 
+@export var sounds : Array[AudioStream]
+
 @export_group("Data")
 @export var id: StringName
 @export var normal_texture: Texture2D:
@@ -65,6 +67,8 @@ func _update_visuals() -> void:
 
 func _on_pressed() -> void:
 	sponge_clicked.emit(id)
+	if ! sounds.is_empty() :
+		AudioService.play_sound(sounds, &"SFX")
 
 	# Calculate physics based on click position
 	var mouse_pos = get_local_mouse_position()

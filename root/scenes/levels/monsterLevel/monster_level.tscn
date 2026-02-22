@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dtxkforlylqrn"]
 
 [ext_resource type="Texture2D" uid="uid://y27qy4uhqhgh" path="res://root/assets/stratscene_monster.png" id="1_5gerl"]
-[ext_resource type="DialogueResource" path="res://root/resources/dialogue/monster.dialogue" id="2_dlg"]
+[ext_resource type="Script" uid="uid://nlopjvke33y2" path="res://root/scenes/levels/monsterLevel/monster_level.gd" id="1_m5ecu"]
+[ext_resource type="Resource" uid="uid://d2w8ykk7wwsvu" path="res://root/resources/dialogue/monster.dialogue" id="2_dlg"]
 [ext_resource type="Script" uid="uid://cymr23f7rg1tr" path="res://root/components/dialogue/dialogue_trigger.gd" id="3_trig"]
 [ext_resource type="Script" uid="uid://cg83nxuwmycas" path="res://root/components/dialogue/dialogue_variant.gd" id="4_var"]
 [ext_resource type="PackedScene" uid="uid://c8n8qj4w8n8n8" path="res://root/scenes/UI/Dialogue/Portraits/MonsterEyesPortrait.tscn" id="5_port"]
@@ -10,26 +11,26 @@
 [sub_resource type="Resource" id="Resource_q1"]
 script = ExtResource("4_var")
 start_title = "quest_1"
-conditions = {
+conditions = Dictionary[String, bool]({
 "flower_delivered": false,
 "level_1_visited": true
-}
+})
 
 [sub_resource type="Resource" id="Resource_q2"]
 script = ExtResource("4_var")
 start_title = "quest_2"
-conditions = {
+conditions = Dictionary[String, bool]({
 "flower_delivered": true,
 "planet_quest": false
-}
+})
 
 [sub_resource type="Resource" id="Resource_q3"]
 script = ExtResource("4_var")
 start_title = "quest_3"
-conditions = {
+conditions = Dictionary[String, bool]({
 "planet_delivered": false,
 "planet_quest": true
-}
+})
 
 [sub_resource type="Resource" id="Resource_q4"]
 script = ExtResource("4_var")
@@ -47,6 +48,7 @@ conditions = {
 }
 
 [node name="MonsterLevel" type="Node2D" unique_id=1245818047]
+script = ExtResource("1_m5ecu")
 
 [node name="MonsterBackground" type="Sprite2D" parent="." unique_id=874683536]
 position = Vector2(973, 547)
@@ -58,6 +60,9 @@ script = ExtResource("3_trig")
 dialogue_resource = ExtResource("2_dlg")
 portrait_scene = ExtResource("5_port")
 variants = Array[ExtResource("4_var")]([SubResource("Resource_q1"), SubResource("Resource_q2"), SubResource("Resource_q3"), SubResource("Resource_q4"), SubResource("Resource_end")])
+
+[node name="AutoCollisionPolygon" type="CollisionPolygon2D" parent="MonsterBackground/DialogueTrigger" unique_id=183992433]
+polygon = PackedVector2Array(-1033.9412, -600, -1048, -585.9411, -1048, 585.94116, -1033.9412, 600, 1033.9412, 600, 1048, 585.94116, 1048, -585.9411, 1033.9412, -600)
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("6_hud")]
 left_scene = "uid://dtcuyqo6sr636"
