@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_kue1t")
 id = "test1"
-display_name = "Тестовый итем 1"
-description = "Итем для тестирования, че не понятно?"
+display_name = "Test Item 1"
+description = "Item for testing, what's not clear?"
 icon = ExtResource("1_njru8")
 metadata/_custom_type_script = "uid://sfjgktjvkx2l"

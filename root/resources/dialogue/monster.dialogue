@@ -20,38 +20,39 @@ Monster: [center]And remember... bring me the most [gold_sparkle]satisfying[/gol
 => END
 
 ~ quest_1
-Monster: [center]Твой приливно-отливный пульс... Ты принес то, что [nervous]утолит[/nervous] мой вечный голод?[/center]
-Monster: [center]Нет? Тогда почему ты все еще здесь, маленький раб? Хочешь стать частью моей вечности прямо сейчас?[/center]
-Monster: [center]Мне нужно [nervous]поглощать[/nervous], и как можно скорее... иначе мой желудок закричит твоим голосом.[/center]
+Monster: [center]Your tidal pulse... Have you brought what will [nervous]satiate[/nervous] my eternal hunger?[/center]
+Monster: [center]No? Then why are you still here, little slave? Do you want to become part of my eternity right now?[/center]
+Monster: [center]I need to [nervous]consume[/nervous], and soon... or my stomach will cry out with your voice.[/center]
 => END
 
 ~ quest_2
-Monster: [center]О-о-о... какое божественное [nervous]насыщение[/nervous]...[/center]
-Monster: [center]Сладковатый привкус терпения с едким послевкусием токсичной дружбы. Ты превзошел ожидания, мой раб.[/center]
-Monster: [center][i]*Ужасающий стон голодного чрева*[/i][/center]
-Monster: [center]Ахх... но мой голод лишь берет разбег! Он пожирает меня изнутри![/center]
-Monster: [center]Срочно... принеси мне нечто [nervous]огромное[/nervous].[/center]
-Monster: [center]Нечто столь колоссальное, что сможет заполнить мою пустоту и укротить эту жажду [nervous]поглощать[/nervous]![/center]
+Monster: [center]Ooooh... what divine [nervous]fulfillment[/nervous]...[/center]
+Monster: [center]The sweet taste of patience with a bitter aftertaste of toxic friendship. You've exceeded expectations, my slave.[/center]
+Monster: [center][i]*A terrifying groan of a hungry womb*[/i][/center]
+Monster: [center]Ahhh... but my hunger is only just gathering speed! It devours me from within![/center]
+Monster: [center]Quickly... bring me something [nervous]enormous[/nervous].[/center]
+Monster: [center]Something so colossal it can fill my void and tame this thirst to [nervous]consume[/nervous]![/center]
 do ProgressionManager.set_flag("planet_quest", true)
 => END
 
 ~ quest_3
-Monster: [center]Твое промедление пахнет страхом... и очень [nervous]аппетитно[/nervous].[/center]
-Monster: [center]Где мое подношение? Принеси мне нечто [nervous]огромное[/nervous], иначе я перестану ждать и просто [nervous]поглощу[/nervous] тебя![/center]
-Monster: [center]Моему желудку все равно, кто станет следующей жертвой![/center]
+Monster: [center]Your delay smells of fear... and it's very [nervous]appetizing[/nervous].[/center]
+Monster: [center]Where is my offering? Bring me something [nervous]enormous[/nervous], or I'll stop waiting and simply [nervous]consume[/nervous] you![/center]
+Monster: [center]My stomach doesn't care who becomes the next victim![/center]
 => END
+
 ~ quest_4
-Monster: [center]Этот голод... он [glitch]сводит меня с ума[/glitch]! Я чувствую его присутствие...[/center]
-Monster: [center]Ты принес? Чего же ты ждешь, маленький раб? [nervous]ДАВАЙ СЮДА![/nervous][/center]
-Monster: [center]Мое терпение истончается быстрее, чем твоя надежда на спасение![/center]
+Monster: [center]This hunger... it's [glitch]driving me mad[/glitch]! I can feel its presence...[/center]
+Monster: [center]Did you bring it? What are you waiting for, little slave? [nervous]GIVE IT HERE![/nervous][/center]
+Monster: [center]My patience is wearing thinner than your hope for salvation![/center]
 => END
 
 ~ end_game
-Monster: [center]О-о-о... Да... Какое блаженство...[/center]
-Monster: [center]Это действительно самое [nervous]огромное[/nervous] и прекрасное, что я ел за всю бесконечность своего существования.[/center]
-Monster: [center]Этот вкус... он бесконечен, как и эго, его породившее. Каждая крупица материи наполнена [gold_sparkle]триумфом[/gold_sparkle].[/center]
-Monster: [center][i]*Тяжелый, удовлетворенный вздох, переходящий в сонное сопение*[/i][/center]
-Monster: [center]Ахх... величие клонит в сон... Не мешай... Дай мне... [woo]поспать[/woo].[/center]
-Monster: [center]Но далеко не отходи, мой маленький раб. Скоро я проснусь... и захочу позавтракать...[/center]
+Monster: [center]Ooooh... Yes... What bliss...[/center]
+Monster: [center]This is truly the most [nervous]enormous[/nervous] and beautiful thing I've eaten in all the infinity of my existence.[/center]
+Monster: [center]This taste... it's infinite, like the ego that gave birth to it. Every atom of matter is filled with [gold_sparkle]triumph[/gold_sparkle].[/center]
+Monster: [center][i]*A heavy, satisfied sigh, turning into a sleepy snore*[/i][/center]
+Monster: [center]Ahhh... greatness makes me sleepy... Don't disturb... Let me... [woo]sleep[/woo].[/center]
+Monster: [center]But don't go far, my little slave. Soon I'll wake up... and I'll want some breakfast...[/center]
 do ScreenTransition.transition_to_scene("res://root/scenes/UI/credits/Credits.tscn")
 => END
