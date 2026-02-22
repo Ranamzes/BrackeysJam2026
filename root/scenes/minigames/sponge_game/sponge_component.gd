@@ -28,6 +28,8 @@ func _ready() -> void:
 
 	if not Engine.is_editor_hint():
 		pressed.connect(_on_pressed)
+		mouse_entered.connect(func(): Cursor.set_hovering(true))
+		mouse_exited.connect(func(): Cursor.set_hovering(false))
 		set_physics_process(false) # Start idle
 
 func _physics_process(delta: float) -> void:

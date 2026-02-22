@@ -89,3 +89,29 @@ LadyTV: [center][pulse freq=5.0 color=#ffaaff]When you'd press it... [shake rate
 LadyTV: [center][shake rate=6.0 level=2][color=#aaaaff]I would give [/color][gold_sparkle]everything[/gold_sparkle][color=#aaaaff] I have... just to feel that [/color][woo]sparkle[/woo][color=#aaaaff] one more time...[/color][/shake][/center]
 LadyTV: [center]...[nervous]Everything.[/nervous][/center]
 => END
+
+~ stars_found
+LadyTV: [center][pulse freq=6.0 color=#ffffaa][shake rate=30.0 level=10][gold_sparkle]YES![/gold_sparkle] [red_sparkle]YES! YES! YES![/red_sparkle][/shake][/pulse][/center]
+LadyTV: [center][shake rate=15.0 level=5]It's him! The [gold_sparkle]one and only[/gold_sparkle]! The [woo]sparkle star[/woo] shampoo![/shake][/center]
+LadyTV: [center][pulse freq=4.0 color=#ffffff88]Oh, look at them... they're so [nervous]perfect[/nervous]... the most valuable thing my friend left behind...[/pulse][/center]
+LadyTV: [center][shake rate=40.0 level=15][color=red]GIVE IT TO ME! NOW! DON'T YOU DARE HOLD IT BACK FROM ME![/color][/shake][/center]
+LadyTV: [center][br]...[/center]
+LadyTV: [center][pulse freq=3.0 color=#ffccff][woo]Oh? What's that look for?[/woo] You want [nervous]compensation[/nervous]?[/pulse][/center]
+LadyTV: [center][shake rate=10.0 level=2]You want... her [color=red]head[/color]? My [woo]dear best friend's[/woo] head?[/shake][/center]
+LadyTV: [center][shake rate=20.0 level=8][color=red]FINE! TAKE IT![/color] I didn't even [nervous]like[/nervous] her that much anyway! She was always so... [woo]quiet[/woo].[/center]
+LadyTV: [center][shake rate=30.0 level=12][color=red]JUST GIVE ME MY STARS![/color][/shake][/center]
+do ProgressionManager.set_flag("give_me_stars", true)
+=> END
+
+~ waiting_for_stars
+LadyTV: [center][shake rate=40.0 level=15][color=red]WHERE ARE THEY?![/color][/shake][/center]
+LadyTV: [center][shake rate=30.0 level=10][color=red]GIVE THEM TO ME![/color] My precious... [gold_sparkle]sparkle stars[/gold_sparkle]![/shake][/center]
+LadyTV: [center][shake rate=20.0 level=8][color=red]I CAN'T WAIT ANY LONGER![/color] [nervous]I'M REACHING MY LIMIT![/nervous][/shake][/center]
+=> END
+
+~ stars_given
+LadyTV: [center][woo]Ugh...[/woo] what now?[/center]
+LadyTV: [center]I have my stars. The foam is [gold_sparkle]sparkling[/gold_sparkle]. I am [woo]satisfied[/woo].[/center]
+LadyTV: [center][shake rate=10.0 level=2]You're starting to [nervous]bore[/nervous] me, "friend".[/shake][/center]
+LadyTV: [center][shake rate=15.0 level=5][color=red]DON'T DISTURB ME![/color] Go away! You're [woo]useless[/woo] to me now.[/shake][/center]
+=> END
