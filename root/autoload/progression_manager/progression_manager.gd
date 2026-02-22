@@ -17,7 +17,7 @@ func set_flag(flag: String, value: bool = true) -> void:
 	progression_data.state_table[flag] = value
 
 	# Оповещаем редактор об изменении, чтобы оно отобразилось в Remote Inspector
-	flag_changed.emit(flag, value)
+	progression_data.flag_changed.emit(flag, value)
 	progression_data.emit_changed()
 	print("Flag set: %s = %s" % [flag, value])
 

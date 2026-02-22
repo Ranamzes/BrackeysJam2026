@@ -4,7 +4,7 @@ extends Node2D
 @export var solved_flag_name : String = "levers_solved"
 
 func _ready() -> void:
-	ProgressionManager.flag_changed.connect(_on_changed)
+	ProgressionManager.progression_data.flag_changed.connect(_on_changed)
 	
 
 func _on_changed(flag_name : String, flag_value : bool) -> void:

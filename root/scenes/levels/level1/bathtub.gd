@@ -7,7 +7,7 @@ func _ready() -> void:
 		anim_player.play("solution")
 	else:
 		anim_player.play("RESET")	
-	ProgressionManager.progression_data.changed.connect(flags_changed)
+	ProgressionManager.progression_data.flag_changed.connect(flags_changed)
 
 func flags_changed(flag_name : String, flag_value : bool) -> void:
 	if flag_name ==	"duck_placed" and flag_value:
