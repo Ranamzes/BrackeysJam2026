@@ -18,6 +18,11 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_navigation()
+	ProgressionManager.progression_data.flag_changed.connect(_on_flag_changed)
+
+
+func _on_flag_changed(_name: String, _value: bool) -> void:
+	update_navigation()
 
 
 func update_navigation() -> void:

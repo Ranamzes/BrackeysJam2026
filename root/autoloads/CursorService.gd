@@ -10,6 +10,10 @@ func set_hovering(value: bool) -> void:
 
 
 @export var cursor_scale: float = 0.5
+## Offset (in pixels, relative to cursor top-left) to position the item icon at the pupil center
+@export var item_icon_offset: Vector2 = Vector2(35, 50)
+## Scale applied to the item icon so it fits inside the eye pupil
+@export var item_icon_scale: float = 0.058
 
 # Preload resources
 const CURSOR_NORMAL_RES = preload("res://root/assets/atlases/ui_buttons.sprites/cursor.tres")
@@ -26,7 +30,11 @@ var _pointer_click: ImageTexture
 # Software cursor nodes
 var _canvas_layer: CanvasLayer
 var _sprite: Sprite2D
+var _item_icon_sprite: Sprite2D
 var _is_pressed: bool = false
+
+## Tracks whether the eye is currently open (cursor_normal texture is shown)
+var _eye_is_open: bool = false
 
 
 func _ready() -> void:
@@ -51,10 +59,15 @@ func _process(_delta: float) -> void:
 	if not _sprite: return
 
 	# Follow mouse position in viewport space
-	_sprite.global_position = get_viewport().get_mouse_position()
+	var mouse_pos = get_viewport().get_mouse_position()
+	_sprite.global_position = mouse_pos
 
 	# Update texture based on shape and state
 	_update_cursor_texture()
+
+	# Position item icon at pupil center
+	if _item_icon_sprite:
+		_item_icon_sprite.global_position = mouse_pos + item_icon_offset
 
 
 ## Creates a top-level CanvasLayer and Sprite2D for the cursor.
@@ -68,6 +81,14 @@ func _setup_software_cursor() -> void:
 	_sprite.name = &"SoftwareCursor"
 	_sprite.centered = false # Our cursors are top-left aligned in frames
 	_canvas_layer.add_child(_sprite)
+
+	# Item icon sprite — shown inside the pupil when eye is open
+	_item_icon_sprite = Sprite2D.new()
+	_item_icon_sprite.name = &"ItemIconCursor"
+	_item_icon_sprite.centered = true
+	_item_icon_sprite.visible = false
+	_item_icon_sprite.scale = Vector2.ONE * item_icon_scale
+	_canvas_layer.add_child(_item_icon_sprite)
 
 	# Initial texture (Closed eye by default)
 	_sprite.texture = _cursor_click
@@ -86,8 +107,24 @@ func _update_cursor_texture() -> void:
 	# - Pressing while hovering: Closed eye (cursor_click)
 	if is_hovering:
 		_sprite.texture = _cursor_click if _is_pressed else _cursor_normal
+		_eye_is_open = not _is_pressed
 	else:
 		_sprite.texture = _cursor_click
+		_eye_is_open = false
+
+	# Show item icon inside the pupil when eye is open and an item is selected
+	_update_item_icon()
+
+
+func _update_item_icon() -> void:
+	if not _item_icon_sprite: return
+
+	var selected: ItemSlotUI = GlobalData.selected_slot
+	if _eye_is_open and selected and selected.inventory_slot and selected.inventory_slot.item:
+		_item_icon_sprite.texture = selected.inventory_slot.item.icon
+		_item_icon_sprite.visible = true
+	else:
+		_item_icon_sprite.visible = false
 
 
 ## Checks if the mouse is currently over a pickable physics object.

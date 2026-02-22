@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://w8fja5qbsk7u"]
+
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://root/scripts/inventory/item_data.gd" id="1_pf3bo"]
+[ext_resource type="Texture2D" uid="uid://cccd314ssvtip" path="res://root/assets/UI/chamomile_on.png" id="1_v2exs"]
+
+[resource]
+script = ExtResource("1_pf3bo")
+id = "flower"
+icon = ExtResource("1_v2exs")
+metadata/_custom_type_script = "uid://sfjgktjvkx2l"

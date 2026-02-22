@@ -233,19 +233,41 @@ func open_eye() -> void:
 
 func look_at_player() -> void:
 	disable_tracking()
-	var iris_target = iris_sprite.position if iris_sprite else original_iris_pos
+	var iris_target = original_iris_pos + iris_center_offset
 	var duration = 1.0
+
+	var anim_name = ""
 	if anim_player.has_animation("angry"):
-		var anim = anim_player.get_animation("angry")
+		anim_name = "angry"
+	elif anim_player.has_animation("look_at_player"):
+		anim_name = "look_at_player"
+
+	if anim_name != "":
+		var anim = anim_player.get_animation(anim_name)
 		duration = anim.length
+
+		# Find the target position from the last key of the iris position tracks
 		for i in range(anim.get_track_count()):
 			var path = str(anim.track_get_path(i))
 			if "Iris" in path and "position" in path:
+				# Extract value from the last key
+				var key_count = anim.track_get_key_count(i)
+				if key_count > 0:
+					var last_val = anim.track_get_key_value(i, key_count - 1)
+					if last_val is Vector2:
+						iris_target = last_val
+					elif anim.track_get_type(i) == Animation.TYPE_BEZIER:
+						# For bezier tracks, we might need to reconstruct the Vector2 from x and y tracks
+						if ":x" in path:
+							iris_target.x = last_val
+						elif ":y" in path:
+							iris_target.y = last_val
+
+				# Disable the track so our tween can handle it smoothly
 				anim.track_set_enabled(i, false)
-		anim_player.play("angry")
-	elif anim_player.has_animation("look_at_player"):
-		duration = anim_player.get_animation("look_at_player").length
-		anim_player.play("look_at_player")
+
+		anim_player.play(anim_name)
+
 	if iris_sprite:
 		var tween = create_tween()
 		tween.tween_property(iris_sprite, "position", iris_target, duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
