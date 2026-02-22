@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ce2n4ucx13wo0"]
 
 [ext_resource type="Script" uid="uid://f3y4c3m8sqlw" path="res://root/scenes/minigames/pipes_puzzle/pipe_segment/pipe_segment.gd" id="1_7cv1g"]
-[ext_resource type="Texture2D" uid="uid://cyqo2abl4fs53" path="res://root/assets/t_form.png" id="1_f2ghl"]
 [ext_resource type="Texture2D" uid="uid://ctdxta87mjqaq" path="res://root/assets/atlases/pipes.sprites/line.tres" id="2_4mxcw"]
 [ext_resource type="Texture2D" uid="uid://43rjmwyvd4kh" path="res://root/assets/atlases/pipes.sprites/t_form.tres" id="3_4mxcw"]
 [ext_resource type="Texture2D" uid="uid://ddxde0alvxlio" path="res://root/assets/atlases/pipes.sprites/cross.tres" id="4_hyrx6"]
@@ -37,7 +36,6 @@ position = Vector2(50, 50)
 unique_name_in_owner = true
 position = Vector2(4.5746565e-06, 0.5000028)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_f2ghl")
 
 [node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("6_65ptr")]
 streams = Array[AudioStream]([ExtResource("12_3ii6a"), ExtResource("13_tisv4")])
