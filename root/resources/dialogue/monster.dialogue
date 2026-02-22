@@ -19,3 +19,25 @@ Monster: [center]And remember... bring me the most [gold_sparkle]satisfying[/gol
 
 => END
 
+~ quest_1
+Monster: [center]Твой приливно-отливный пульс... Ты принес то, что [nervous]утолит[/nervous] мой вечный голод?[/center]
+Monster: [center]Нет? Тогда почему ты все еще здесь, маленький раб? Хочешь стать частью моей вечности прямо сейчас?[/center]
+Monster: [center]Мне нужно [nervous]поглощать[/nervous], и как можно скорее... иначе мой желудок закричит твоим голосом.[/center]
+=> END
+
+~ quest_2
+Monster: [center]О-о-о... какое божественное [nervous]насыщение[/nervous]...[/center]
+Monster: [center]Сладковатый привкус терпения с едким послевкусием токсичной дружбы. Ты превзошел ожидания, мой раб.[/center]
+Monster: [center][i]*Ужасающий стон голодного чрева*[/i][/center]
+Monster: [center]Ахх... но мой голод лишь берет разбег! Он пожирает меня изнутри![/center]
+Monster: [center]Срочно... принеси мне нечто [nervous]огромное[/nervous].[/center]
+Monster: [center]Нечто столь колоссальное, что сможет заполнить мою пустоту и укротить эту жажду [nervous]поглощать[/nervous]![/center]
+do ProgressionManager.set_flag("planet_quest", true)
+=> END
+
+~ quest_3
+Monster: [center]Твое промедление пахнет страхом... и очень [nervous]аппетитно[/nervous].[/center]
+Monster: [center]Где мое подношение? Принеси мне нечто [nervous]огромное[/nervous], иначе я перестану ждать и просто [nervous]поглощу[/nervous] тебя![/center]
+Monster: [center]Моему желудку все равно, кто станет следующей жертвой![/center]
+=> END
+

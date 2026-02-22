@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/scripts/on_screen_object/object_with_states.gd" id="2_ykac2"]
 [ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/scripts/on_screen_object/object_state_transition.gd" id="3_a0568"]
 [ext_resource type="Texture2D" uid="uid://b3qu72qdd8rua" path="res://root/assets/atlases/switchs.sprites/lever_down.tres" id="3_v8odj"]
+[ext_resource type="Script" uid="uid://4yx7h3a0g4ya" path="res://root/scripts/on_screen_object/transition_effects.gd" id="7_jqtcq"]
+[ext_resource type="AudioStream" uid="uid://be55g6sili41x" path="res://root/scenes/minigames/typing_machine/06_lever.mp3" id="8_yxx86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drbb6"]
 size = Vector2(103, 205)
@@ -36,9 +38,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_1/LeverUp" unique_id=1529830372 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_1/LeverUp" unique_id=1529830372 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_1" unique_id=1422303642]
@@ -54,9 +57,10 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_1/LeverDown" unique_id=1013410415 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_1/LeverDown" unique_id=1013410415 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_2" type="Node2D" parent="." unique_id=1808305583]
@@ -79,9 +83,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_2/LeverUp" unique_id=920978365 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_2/LeverUp" unique_id=920978365 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_2" unique_id=1407403287]
@@ -97,9 +102,10 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_2/LeverDown" unique_id=2139226415 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_2/LeverDown" unique_id=2139226415 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_3" type="Node2D" parent="." unique_id=797634893]
@@ -122,9 +128,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_3/LeverUp" unique_id=259860173 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_3/LeverUp" unique_id=259860173 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_3" unique_id=918480114]
@@ -140,9 +147,10 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_3/LeverDown" unique_id=2008200264 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_3/LeverDown" unique_id=2008200264 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_4" type="Node2D" parent="." unique_id=302944699]
@@ -165,9 +173,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_4/LeverUp" unique_id=320213883 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_4/LeverUp" unique_id=320213883 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_4" unique_id=195911531]
@@ -183,9 +192,10 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_4/LeverDown" unique_id=366561466 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_4/LeverDown" unique_id=366561466 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_5" type="Node2D" parent="." unique_id=2070635126]
@@ -208,9 +218,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_5/LeverUp" unique_id=1829043144 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_5/LeverUp" unique_id=1829043144 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_5" unique_id=2084616298]
@@ -226,9 +237,10 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_5/LeverDown" unique_id=414746569 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_5/LeverDown" unique_id=414746569 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="Lever_6" type="Node2D" parent="." unique_id=1815866309]
@@ -251,9 +263,10 @@ texture = ExtResource("2_drbb6")
 position = Vector2(6.5, -37.5)
 shape = SubResource("RectangleShape2D_drbb6")
 
-[node name="UpToDown" type="Node2D" parent="Lever_6/LeverUp" unique_id=1241415938 node_paths=PackedStringArray("new_state")]
+[node name="UpToDown" type="Node2D" parent="Lever_6/LeverUp" unique_id=1241415938 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverDown")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
 
 [node name="LeverDown" type="Area2D" parent="Lever_6" unique_id=1707131141]
@@ -269,7 +282,13 @@ texture = ExtResource("3_v8odj")
 position = Vector2(3.5, 73)
 shape = SubResource("RectangleShape2D_v8odj")
 
-[node name="DownToUp" type="Node2D" parent="Lever_6/LeverDown" unique_id=1149852039 node_paths=PackedStringArray("new_state")]
+[node name="DownToUp" type="Node2D" parent="Lever_6/LeverDown" unique_id=1149852039 node_paths=PackedStringArray("new_state", "transition_effects")]
 script = ExtResource("3_a0568")
 new_state = NodePath("../../LeverUp")
+transition_effects = NodePath("../../../TransitionEffects")
 metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="TransitionEffects" type="Node" parent="." unique_id=2011640330]
+script = ExtResource("7_jqtcq")
+sounds = Array[AudioStream]([ExtResource("8_yxx86")])
+metadata/_custom_type_script = "uid://4yx7h3a0g4ya"
