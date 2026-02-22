@@ -1,12 +1,14 @@
 class_name DraggableObject
 extends PanelContainer
 
-@export var shampoo_texture: TextureRect
-@export var id: String
-@export var is_empty: bool = false
-var shampoo_game: ShampooGame
-var def_position: Vector2
-var clicks_disabled: bool = false
+@export var shampoo_texture : TextureRect
+@export var id : String
+@export var is_empty : bool = false
+@export var audios : Array[AudioStream]
+
+var shampoo_game : ShampooGame 
+var def_position : Vector2
+var clicks_disabled : bool = false
 
 func _ready() -> void:
 	self.gui_input.connect(_on_gui_input)
@@ -65,4 +67,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		shampoo_game.dragging_shampoo.shampoo_texture.modulate = Color.WHITE
 	else:
 		shampoo_texture.modulate = Color.WHITE
+	if ! audios.is_empty() :
+		AudioService.play_sound(audios, &"SFX", [-12, -8], [0.5, 1.2])
 	shampoo_game.check_solved()

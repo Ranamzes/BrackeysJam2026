@@ -18,6 +18,8 @@ var dragging_offset : Vector2
 
 func _ready() -> void :
 	self.input_event.connect(_on_input_event)
+	self.mouse_entered.connect(drop)
+	self.mouse_exited.connect(drop)
 	var parent = get_parent()
 	if parent is PuzzleManager : 
 		puzzle_manager = parent
@@ -55,13 +57,16 @@ func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> vo
 			unoccupy()
 			dragging_offset = global_position - get_global_mouse_position()
 		else :
-			is_dragging = false
-			z_index = 0
-			if try_occupy() :
-				puzzle_manager.check_solved()
+			drop()
 	elif event is InputEventMouseMotion && is_dragging :
 		position = get_global_mouse_position() + dragging_offset
-		
+
+func drop() -> void :
+	is_dragging = false
+	z_index = 0
+	if try_occupy() :
+		puzzle_manager.check_solved()
+
 func unoccupy() -> void :
 	if occupied_slot :
 		occupied_slot.holding_piece = null
