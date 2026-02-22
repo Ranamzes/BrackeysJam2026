@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	for lock_ring in lock_rings:
 		lock_ring.state_changed.connect(on_ring_state_changed)	
-	print("test")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,4 +21,4 @@ func on_ring_state_changed()->void:
 		for lock_ring in lock_rings:
 			lock_ring.is_rotatable = false
 		ProgressionManager.set_flag("telescope_solved",true)
-		print("solved")
+		

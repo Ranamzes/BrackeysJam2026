@@ -130,7 +130,7 @@ metadata/_edit_lock_ = true
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
 right_scene = "uid://bcyhhrogf6g01"
-bottom_scene = "uid://dtcuyqo6sr636"
+bottom_scene = "uid://dcuqmytsaw3xa"
 right_flag = "quest_bottles_started"
 bottom_flag = "quest_bottles_started"
 
@@ -231,6 +231,7 @@ texture = ExtResource("9_opa3f")
 [node name="LevelTransitionArea" parent="." unique_id=311293945 instance=ExtResource("9_q7x8v")]
 position = Vector2(1101, 339)
 scene_path = "uid://cggnymtinp5ci"
+disable_flag = "pipes_solved"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionArea" unique_id=2145247520]
 position = Vector2(8, -16)
