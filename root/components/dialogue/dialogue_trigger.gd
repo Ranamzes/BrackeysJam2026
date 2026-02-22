@@ -235,8 +235,9 @@ func _get_configuration_warnings() -> PackedStringArray:
 # Virtual method: Override this in attached scripts to add conditional logic
 # e.g. return "start_quest_2" if has_flag("quest_1_complete")
 func _get_start_title() -> String:
-	# 1. Check variants in order
-	for variant in variants:
+	# 1. Check variants in order (from newest/highest priority to oldest)
+	for i in range(variants.size() - 1, -1, -1):
+		var variant = variants[i]
 		if variant.are_conditions_met():
 			return variant.start_title
 
