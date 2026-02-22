@@ -67,7 +67,7 @@ offset_right = 1549.0
 offset_bottom = 938.0
 pivot_offset = Vector2(300, 136)
 texture_normal = ExtResource("6_76uhp")
-sound = Array[AudioStream]([ExtResource("7_no4al"), ExtResource("8_5fl3x"), ExtResource("9_kv6em")])
+sounds = Array[AudioStream]([ExtResource("10_hmjs8"), ExtResource("11_bxsem"), ExtResource("12_jht3e")])
 id = &"green"
 normal_texture = ExtResource("6_76uhp")
 
@@ -83,6 +83,6 @@ offset_top = 327.0
 offset_right = 981.38513
 offset_bottom = 943.0
 pivot_offset = Vector2(311.61487, 125)
-sound = Array[AudioStream]([ExtResource("10_hmjs8"), ExtResource("11_bxsem"), ExtResource("12_jht3e")])
+sounds = Array[AudioStream]([ExtResource("7_no4al"), ExtResource("8_5fl3x"), ExtResource("9_kv6em")])
 id = &"red"
 normal_texture = ExtResource("5_0md0p")
