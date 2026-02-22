@@ -2,7 +2,33 @@
 
 [ext_resource type="Script" uid="uid://btuujer4ejmr" path="res://root/autoload/progression_manager/progression_manager.gd" id="1_rgotn"]
 [ext_resource type="Resource" uid="uid://cooa3w065nuk7" path="res://root/autoload/progression_manager/progression_data.tres" id="2_rgotn"]
+[ext_resource type="AudioStream" uid="uid://bdthvc6rvtnd5" path="res://root/assets/sounds/31_broke02.wav" id="3_2n8pu"]
+[ext_resource type="AudioStream" uid="uid://rjoqdiwv5317" path="res://root/assets/sounds/18_metal_grinding.wav" id="4_gbgyk"]
+[ext_resource type="AudioStream" uid="uid://bch5abgr3wv8r" path="res://root/assets/sounds/04_shower+bubble.wav" id="5_vx8lg"]
+[ext_resource type="AudioStream" uid="uid://c21ml2aen0q4x" path="res://root/assets/sounds/08_steam.wav" id="6_qv4hv"]
+[ext_resource type="AudioStream" uid="uid://vm2wdwwk6h4q" path="res://root/assets/sounds/33_slide.wav" id="7_5sy5q"]
+[ext_resource type="AudioStream" uid="uid://bwkixd8mj0jeu" path="res://root/assets/sounds/07_squek.wav" id="8_vx8lg"]
+[ext_resource type="AudioStream" uid="uid://d4fbgs5hyw85y" path="res://root/assets/sounds/04_bubble.wav" id="9_qv4hv"]
+[ext_resource type="AudioStream" uid="uid://fkocvxtyfltm" path="res://root/assets/sounds/13_paper_sound03.wav" id="10_qv4hv"]
+[ext_resource type="AudioStream" uid="uid://46tlwoidamex" path="res://root/assets/sounds/24_paper_on_metal.wav" id="11_5sy5q"]
+[ext_resource type="AudioStream" uid="uid://5p86oa23j51e" path="res://root/assets/sounds/16_chewed_paper (2).wav" id="12_rb0qr"]
+[ext_resource type="AudioStream" uid="uid://l7vig85fkvsd" path="res://root/assets/sounds/23_paper_wing.wav" id="13_g5fv8"]
+[ext_resource type="AudioStream" uid="uid://be7uwrlurf5sl" path="res://root/assets/sounds/sponge02_haha02.wav" id="14_es8nr"]
 
 [node name="ProgressionManager" type="Node" unique_id=497393570]
 script = ExtResource("1_rgotn")
 progression_data = ExtResource("2_rgotn")
+sounds = Dictionary[String, AudioStream]({
+"clue_picked_up": ExtResource("10_qv4hv"),
+"duck_picked_up": ExtResource("8_vx8lg"),
+"duck_placed": ExtResource("7_5sy5q"),
+"floor_tile_unlocked": ExtResource("4_gbgyk"),
+"flower_picked_up": ExtResource("14_es8nr"),
+"levers_solved": ExtResource("6_qv4hv"),
+"paper_inserted": ExtResource("11_5sy5q"),
+"paper_picked_up": ExtResource("12_rb0qr"),
+"paper_text_picked_up": ExtResource("13_g5fv8"),
+"pipes_solved": ExtResource("5_vx8lg"),
+"soap_stars_picked_up": ExtResource("9_qv4hv"),
+"toothbrush_picked_up": ExtResource("3_2n8pu")
+})
