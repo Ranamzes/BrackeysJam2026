@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://fgeb4dmj4uwc"]
+
+[ext_resource type="Texture2D" uid="uid://b8qppgunbo8dc" path="res://root/assets/leaf_inscription_on.png" id="1_irxgy"]
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://root/scripts/inventory/item_data.gd" id="1_un6dm"]
+
+[resource]
+script = ExtResource("1_un6dm")
+id = "paper_text"
+icon = ExtResource("1_irxgy")
+metadata/_custom_type_script = "uid://sfjgktjvkx2l"

@@ -1,25 +1,57 @@
 [gd_scene format=3 uid="uid://kl6lepn4skoq"]
 
 [ext_resource type="Texture2D" uid="uid://btwh74frh32uw" path="res://root/scenes/levels/level2/dreamcore_background1.png" id="1_qxcyt"]
+[ext_resource type="Script" uid="uid://bg7cyweyffwjc" path="res://root/scenes/levels/level2/level_2_main.gd" id="1_xlaos"]
 [ext_resource type="Texture2D" uid="uid://dc2f2hinrje7g" path="res://root/scenes/characters/player/starhead_base.png" id="2_5cdhr"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_rqw2x"]
 [ext_resource type="Texture2D" uid="uid://cx0nwnvsul87" path="res://root/scenes/levels/level2/dreamcore_TV_decor.png" id="3_xeji4"]
+[ext_resource type="PackedScene" uid="uid://4ok03ovnkmd5" path="res://root/scenes/levels/level2/Screen.tscn" id="4_5cdhr"]
 [ext_resource type="Texture2D" uid="uid://d04halvapkr3q" path="res://root/scenes/levels/level2/dreamcore_TV.png" id="4_83gg3"]
 [ext_resource type="Texture2D" uid="uid://c5751d427tfbr" path="res://root/scenes/levels/level2/dreamcore_balls_decor.png" id="5_8wc6k"]
 [ext_resource type="Texture2D" uid="uid://cg0hl08vh3kud" path="res://root/scenes/characters/player/starhead_mouth2.png" id="6_hbm65"]
 [ext_resource type="Texture2D" uid="uid://bhe25h5250h0m" path="res://root/scenes/levels/level2/dreamcoreTip_ForTelescoope.png" id="7_xlaos"]
 [ext_resource type="Texture2D" uid="uid://bbjo27us1g7tl" path="res://root/scenes/levels/level2/dreamcore_paint.png" id="8_jrxik"]
+[ext_resource type="PackedScene" uid="uid://dtekm47sioa0k" path="res://root/components/pickup_object/pickup_object.tscn" id="9_hbm65"]
 [ext_resource type="Texture2D" uid="uid://blgke0ump64lx" path="res://root/scenes/levels/level2/dreamcore_telescope.png" id="9_rqw2x"]
 [ext_resource type="Texture2D" uid="uid://c3832xf8j6tyw" path="res://root/scenes/levels/level2/dreamcore_StarTelescoope_1.png" id="10_abo7q"]
+[ext_resource type="Resource" uid="uid://r3o1xu7xf2t8" path="res://root/assets/items/clue.tres" id="10_xlaos"]
 [ext_resource type="Texture2D" uid="uid://dndokf0fixny1" path="res://root/scenes/levels/level2/dreamcore_StarTelescoope_2.png" id="11_4d5lo"]
-[ext_resource type="Texture2D" uid="uid://b2l0m3qstd2he" path="res://root/scenes/levels/level2/dreamcore_StarTelescoope_3.png" id="12_bfrqa"]
+[ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="11_xeji4"]
 [ext_resource type="Texture2D" uid="uid://bays1mx721sps" path="res://root/scenes/levels/level2/dreamcore_telescoope_fixationUP.png" id="13_7e2il"]
+[ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="14_jrxik"]
+[ext_resource type="Resource" uid="uid://cxneb2rv3iwbi" path="res://root/assets/items/paper.tres" id="21_abo7q"]
+[ext_resource type="Texture2D" uid="uid://brxm2d5wuie4q" path="res://root/assets/heand.png" id="21_rqw2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeji4"]
+size = Vector2(578.66675, 484)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wc6k"]
+size = Vector2(83.44461, 96.5504)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83gg3"]
+size = Vector2(471.5, 834.3334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlaos"]
+size = Vector2(260, 661.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqw2x"]
+size = Vector2(268, 571)
 
 [node name="Level2Main" type="Node2D" unique_id=613122123]
+script = ExtResource("1_xlaos")
+
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_rqw2x")]
+right_scene = "uid://6mjf62se8n1o"
+bottom_scene = "uid://dtxkforlylqrn"
 
 [node name="DreamcoreBackground1" type="Sprite2D" parent="." unique_id=1184287942]
-position = Vector2(960, 540)
-scale = Vector2(0.75, 0.75)
+position = Vector2(973, 549)
 texture = ExtResource("1_qxcyt")
+
+[node name="Heand" type="Sprite2D" parent="." unique_id=762987283]
+position = Vector2(716, 388)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("21_rqw2x")
 
 [node name="StarheadBase" type="Sprite2D" parent="." unique_id=652427364]
 position = Vector2(442.00003, 421)
@@ -30,6 +62,14 @@ texture = ExtResource("2_5cdhr")
 position = Vector2(245, 606)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_xeji4")
+
+[node name="Screen" parent="." unique_id=752871405 instance=ExtResource("4_5cdhr")]
+position = Vector2(284, 538)
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Screen" unique_id=648317544]
+position = Vector2(257.3333, 204.00002)
+shape = SubResource("RectangleShape2D_xeji4")
 
 [node name="DreamcoreTv" type="Sprite2D" parent="." unique_id=181038888]
 position = Vector2(392, 684)
@@ -46,9 +86,18 @@ position = Vector2(519, 124)
 texture = ExtResource("6_hbm65")
 
 [node name="DreamcoreTipForTelescoope" type="Sprite2D" parent="." unique_id=860576373]
-visible = false
 position = Vector2(944, 225)
 texture = ExtResource("7_xlaos")
+
+[node name="PickupObject2" parent="DreamcoreTipForTelescoope" unique_id=1562232421 instance=ExtResource("9_hbm65")]
+item_data = ExtResource("10_xlaos")
+true_flags = Array[String](["telescope_solved"])
+hide_object = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DreamcoreTipForTelescoope/PickupObject2" unique_id=723405548]
+position = Vector2(-17.289246, -9.416214)
+rotation = 0.6335545
+shape = SubResource("RectangleShape2D_8wc6k")
 
 [node name="DreamcorePaint" type="Sprite2D" parent="." unique_id=986620961]
 position = Vector2(1128, 297)
@@ -56,30 +105,56 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_jrxik")
 
 [node name="DreamcoreTelescope" type="Sprite2D" parent="." unique_id=1191351802]
-position = Vector2(1364, 705)
+position = Vector2(1311, 711)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("9_rqw2x")
 
-[node name="DreamcoreStarTelescoope1" type="Sprite2D" parent="." unique_id=1872028982]
-visible = false
-position = Vector2(1505, 430.00003)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("10_abo7q")
+[node name="LevelTransitionArea" parent="DreamcoreTelescope" unique_id=311293945 instance=ExtResource("11_xeji4")]
+scene_path = "uid://cwqfw15xxuei4"
+
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="DreamcoreTelescope/LevelTransitionArea" unique_id=37746881]
+position = Vector2(-83.75, -91.83331)
+shape = SubResource("RectangleShape2D_83gg3")
+
+[node name="VisibilityUpdater" parent="DreamcoreTelescope" unique_id=1413650788 instance=ExtResource("14_jrxik")]
+flags = Array[String](["telescope_solved"])
 
 [node name="DreamcoreStarTelescoope2" type="Sprite2D" parent="." unique_id=679078769]
-visible = false
-position = Vector2(1504, 406.00003)
+position = Vector2(1529, 413)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("11_4d5lo")
 
-[node name="DreamcoreStarTelescoope3" type="Sprite2D" parent="." unique_id=1432519840]
-visible = false
-position = Vector2(1505.0001, 413)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("12_bfrqa")
-
-[node name="DreamcoreTelescoopeFixationUp" type="Sprite2D" parent="." unique_id=1880594074]
-visible = false
-position = Vector2(1504, 608)
-scale = Vector2(0.5548248, 0.77272725)
+[node name="DreamcoreTelescoopeFixationUp" type="Sprite2D" parent="DreamcoreStarTelescoope2" unique_id=724276693]
+position = Vector2(-2.666586, 288.00003)
+scale = Vector2(0.74, 1.03)
 texture = ExtResource("13_7e2il")
+
+[node name="PickupObject" parent="DreamcoreStarTelescoope2" unique_id=1003406236 instance=ExtResource("9_hbm65")]
+item_data = ExtResource("21_abo7q")
+true_flags = Array[String](["puzzle_colors_solved"])
+hide_object = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DreamcoreStarTelescoope2/PickupObject" unique_id=1758866117]
+position = Vector2(-2, 5.333313)
+shape = SubResource("RectangleShape2D_xlaos")
+
+[node name="DreamcoreStarTelescoope1" type="Sprite2D" parent="." unique_id=1872028982]
+position = Vector2(1529, 450)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_abo7q")
+
+[node name="VisibilityUpdater" parent="DreamcoreStarTelescoope1" unique_id=972943961 instance=ExtResource("14_jrxik")]
+flags = Array[String](["telescope_solved"])
+should_be_visible_if_flags_true = true
+
+[node name="DreamcoreTelescoopeFixationUp" type="Sprite2D" parent="DreamcoreStarTelescoope1" unique_id=1880594074]
+position = Vector2(-2.666748, 240)
+scale = Vector2(0.7397665, 1.030303)
+texture = ExtResource("13_7e2il")
+
+[node name="LevelTransitionArea2" parent="DreamcoreStarTelescoope1" unique_id=1369672490 instance=ExtResource("11_xeji4")]
+true_flags = Array[String](["telescope_solved"])
+scene_path = "uid://bym6eh1unp2hc"
+
+[node name="AutoCollisionShape" type="CollisionShape2D" parent="DreamcoreStarTelescoope1/LevelTransitionArea2" unique_id=1141883775]
+shape = SubResource("RectangleShape2D_rqw2x")

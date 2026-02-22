@@ -7,6 +7,7 @@ extends Node2D
 @onready var fail_audio: StreamPlayerComponent = $FailAudio
 @onready var end_audio: StreamPlayerComponent = $EndAudio
 @export var letters: Array[Sprite2D]
+@export var item:ItemData
 var current_level = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +41,9 @@ func on_timeout():
 		$GameZone.visible = false
 		end_audio.play_random()
 		ProgressionManager.set_flag("typing_solved",true)
-
+		GlobalData.player_inventory.add_item(item)
+		for letter in letters:
+			letter.visible = false
 func key_down():
 	var keys = get_tree().get_nodes_in_group("keys")
 	var rand = RandomNumberGenerator.new()
