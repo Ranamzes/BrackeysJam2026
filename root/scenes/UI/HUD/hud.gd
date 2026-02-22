@@ -1,3 +1,4 @@
+class_name HUD
 extends CanvasLayer
 
 @export_file("*.tscn") var left_scene: String

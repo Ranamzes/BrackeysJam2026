@@ -42,3 +42,4 @@ build/
 
 # Stray build artifacts
 pako_inflate.min.js
+temp_build_env/

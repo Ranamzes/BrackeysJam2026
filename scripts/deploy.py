@@ -10,7 +10,7 @@ import stat
 
 # --- CONFIGURATION ---
 ITCH_USER = "ranamzes"
-ITCH_GAME = "testdev" # Your itch.io game slug
+ITCH_GAME = "taste-of-elsewhere" # Your itch.io game slug
 EXPORT_PRESET = "Web"
 EXPORT_DIR = "build/web"
 EXPORT_FILE = "index.html"
