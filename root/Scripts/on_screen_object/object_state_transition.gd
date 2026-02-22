@@ -10,6 +10,8 @@ var old_state: OnScreenObjectState
 @export var connected_transitions: Array[ObjectStateTransition]
 @export var force_connected_transitions: bool = false
 
+@export var transition_effects : TransitionEffects
+
 signal transition(transition: ObjectStateTransition)
 
 func _ready() -> void:
@@ -29,6 +31,8 @@ func go_to_new_state(force: bool = false) -> OnScreenObjectState:
 			if ProgressionManager.get_flag(flag_false):
 				return null
 	old_state.go_to(new_state)
+	if transition_effects :
+		transition_effects.play_sound()
 	for t in connected_transitions:
 		t.go_to_new_state(force_connected_transitions)
 	transition.emit(self)
