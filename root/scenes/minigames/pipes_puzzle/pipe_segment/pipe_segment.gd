@@ -20,6 +20,7 @@ signal state_updated
 @onready var visuals: Node2D = %Visuals
 @onready var sprite: Sprite2D = %Sprite2D
 
+var rotation_queue: Array[int] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,27 +40,43 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not is_rotating and is_rotatable:
-			state = (state + 1) % 4
-			rotate_pipe(90 * state)
+		if event.pressed and is_rotatable:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				rotation_queue.append(1)
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
+				rotation_queue.append(-1)
+
+			if not is_rotating:
+				_process_next_rotation()
 
 
-func rotate_pipe(deg: float):
+func _process_next_rotation():
+	if rotation_queue.is_empty():
+		return
+
+	var dir = rotation_queue.pop_front()
+	state = (state + dir + 4) % 4
+
+	var move_deg = dir * 90
+	var target_deg = rad_to_deg(visuals.rotation) + move_deg
+
 	$StreamPlayerComponent.play_random()
-	if (deg == 0):
-		deg = 360
 	var tween = create_tween()
 	is_rotating = true
-	tween.tween_property($Visuals, "rotation", deg_to_rad(deg), 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
-	tween.tween_callback(roation_finished)
+	tween.tween_property(visuals, "rotation", deg_to_rad(target_deg), 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_callback(rotation_step_finished)
 
-func roation_finished():
-	if state == 0:
-		visuals.rotation = 0
+func rotation_step_finished():
 	is_rotating = false
+	# Cleanup rotation variable and sync with state
+	visuals.rotation = fmod(visuals.rotation, TAU)
+	if visuals.rotation < 0: visuals.rotation += TAU
+	visuals.rotation = deg_to_rad(90 * state)
+
 	state_updated.emit()
+	_process_next_rotation()
 
 func get_directions() -> Array[int]:
 	match type:

@@ -25,10 +25,39 @@ func _ready() -> void:
 	if star_particles:
 		star_particles.emitting = false
 
-	# Connect to all sponges in the scene that are in the "sponges" group
-	for child in get_tree().get_nodes_in_group(&"sponges"):
-		if child.has_signal(&"sponge_clicked"):
-			child.connect(&"sponge_clicked", _on_sponge_clicked)
+func _process(_delta: float) -> void:
+	var hovering = false
+	var mouse_pos = get_viewport().get_mouse_position()
+
+	# Reverse order to check top-most sponges first
+	var sponges = get_tree().get_nodes_in_group(&"sponges")
+	sponges.reverse()
+
+	for child in sponges:
+		if child is SpongeComponent:
+			var local_pos = child.make_input_local(InputEventMouseMotion.new()).position
+			# make_input_local needs an event to get the position, or we can just convert manually
+			local_pos = child.to_local(mouse_pos)
+			if child.get_rect().has_point(local_pos):
+				hovering = true
+				break
+
+	Cursor.set_hovering(hovering)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var sponges = get_tree().get_nodes_in_group(&"sponges")
+		# Sponges in SpongeSurface (layer 3) should be checked first
+		sponges.reverse()
+
+		for child in sponges:
+			if child is SpongeComponent:
+				var local_pos = child.to_local(event.position)
+				if child.get_rect().has_point(local_pos):
+					child.handle_click(local_pos)
+					_on_sponge_clicked(child.id)
+					get_viewport().set_input_as_handled()
+					break
 
 func _on_sponge_clicked(sponge_id: StringName) -> void:
 	if not ProgressionManager.get_flag("levers_solved"):
@@ -54,6 +83,9 @@ func _on_sponge_clicked(sponge_id: StringName) -> void:
 func _on_success() -> void:
 	if success_sound:
 		success_sound.play()
+
+	AudioService.play_sound("res://root/assets/sounds/sponges_wow.wav", &"SFX")
+
 	current_index = 0
 	ProgressionManager.set_flag("sponges_solved", true)
 	sequence_completed.emit()

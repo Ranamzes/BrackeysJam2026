@@ -3,8 +3,8 @@ extends Node
 
 static var player_inventory: Inventory
 static var selected_slot: ItemSlotUI
-static var jars : Array[String] = ["jar_3", "jar_1", "jar_5", "jar_2", "jar_4"]
-static var on_screen_objects_transitions : Dictionary[String, TransitionData]
+static var jars: Array[String] = ["jar_3", "jar_1", "jar_5", "jar_2", "jar_4"]
+static var on_screen_objects_transitions: Dictionary[String, TransitionData]
 
 
 func _ready() -> void:

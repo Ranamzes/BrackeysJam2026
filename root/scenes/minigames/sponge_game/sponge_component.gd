@@ -4,7 +4,7 @@ extends TextureButton
 
 signal sponge_clicked(id: StringName)
 
-@export var sounds : Array[AudioStream]
+@export var sounds: Array[AudioStream]
 
 @export_group("Data")
 @export var id: StringName
@@ -29,49 +29,16 @@ func _ready() -> void:
 	_update_visuals()
 
 	if not Engine.is_editor_hint():
-		pressed.connect(_on_pressed)
-		mouse_entered.connect(func(): Cursor.set_hovering(true))
-		mouse_exited.connect(func(): Cursor.set_hovering(false))
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		set_physics_process(false) # Start idle
 
-func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
-
-	# Spring force back to zero
-	var accel = - rotation * spring_stiffness
-	_angular_velocity += accel * delta
-
-	# Optimized damping (linear approximation for small delta)
-	# Original: _angular_velocity *= pow(damping, delta * 60.0)
-	# Linear version:
-	_angular_velocity *= (1.0 - (1.0 - damping) * delta * 60.0)
-
-	rotation += _angular_velocity * delta
-
-	# Limit the swing angle
-	if abs(rotation) >= max_swing_angle:
-		rotation = clamp(rotation, -max_swing_angle, max_swing_angle)
-		_angular_velocity = 0.0
-
-	# Sleep mechanism: stop processing if movement is negligible
-	if abs(rotation) < 0.01 and abs(_angular_velocity) < 0.02:
-		rotation = 0.0
-		_angular_velocity = 0.0
-		_is_idle = true
-		set_physics_process(false)
-
-func _update_visuals() -> void:
-	if normal_texture:
-		texture_normal = normal_texture
-
-func _on_pressed() -> void:
+func handle_click(local_mouse_pos: Vector2) -> void:
 	sponge_clicked.emit(id)
-	if ! sounds.is_empty() :
+	if !sounds.is_empty():
 		AudioService.play_sound(sounds, &"SFX")
 
 	# Calculate physics based on click position
-	var mouse_pos = get_local_mouse_position()
+	var mouse_pos = local_mouse_pos
 
 	# Direction: clicking left of pivot pushes it right, clicking right pushes it left
 	# Note: pivot_offset is in local coordinates
@@ -92,30 +59,52 @@ func _on_pressed() -> void:
 
 	_play_dynamic_squish(leverage)
 
+func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+
+	# Spring force back to zero
+	var accel = - rotation * spring_stiffness
+	_angular_velocity += accel * delta
+
+	# Optimized damping (linear approximation for small delta)
+	_angular_velocity *= (1.0 - (1.0 - damping) * delta * 60.0)
+
+	rotation += _angular_velocity * delta
+
+	# Limit the swing angle
+	if abs(rotation) >= max_swing_angle:
+		rotation = clamp(rotation, -max_swing_angle, max_swing_angle)
+		_angular_velocity = 0.0
+
+	# Sleep mechanism: stop processing if movement is negligible
+	if abs(rotation) < 0.01 and abs(_angular_velocity) < 0.02:
+		rotation = 0.0
+		_angular_velocity = 0.0
+		_is_idle = true
+		set_physics_process(false)
+
+func _update_visuals() -> void:
+	if normal_texture:
+		texture_normal = normal_texture
+
 func _play_dynamic_squish(intensity: float) -> void:
-	# intensity is 0.2 to 1.5.
-	# We'll make it more aggressive.
 	var max_leverage := 1.5
-	var max_squish_factor := 0.45 # Much stronger squish
+	var max_squish_factor := 0.45
 
 	var current_squish = (intensity / max_leverage) * max_squish_factor
 	var target_scale_x = 1.0 - current_squish
-	var target_scale_y = 1.0 + (current_squish * 0.5) # Stretch Y a bit to preserve volume feel
+	var target_scale_y = 1.0 + (current_squish * 0.5)
 
-	# Procedural squish animation using Tween
 	var tween = create_tween()
-
-	# Squish in (Parallel)
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale:x", target_scale_x, 0.07)
 	tween.tween_property(self, "scale:y", target_scale_y, 0.07)
 
-	# Bounce back (Chained + Parallel)
 	tween.set_parallel(false)
 	tween.tween_interval(0.0)
 	tween.set_parallel(true)
-	# Use TRANS_BACK for a softer, more controlled spring-back than ELASTIC
 	tween.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale:x", 1.0, 0.25)
 	tween.tween_property(self, "scale:y", 1.0, 0.25)

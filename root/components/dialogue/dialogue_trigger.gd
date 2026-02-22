@@ -248,8 +248,24 @@ func _check_pixel_opaque(click_pos: Vector2) -> bool:
 
 func start_dialogue(extra_game_states: Array = []) -> void:
 	if dialogue_resource:
-		# Use '_get_start_title()' which can be overridden by scripts extending this class
+		# Find the variant that will be used to check for item consumption
+		var chosen_variant: DialogueVariant = null
+		for i in range(variants.size() - 1, -1, -1):
+			var v = variants[i]
+			if v.are_conditions_met():
+				chosen_variant = v
+				break
+
 		var title = _get_start_title()
+
+		# Handle item consumption if variant requires it
+		if chosen_variant and chosen_variant.consume_item and chosen_variant.required_item:
+			if GlobalData.selected_slot and GlobalData.selected_slot.inventory_slot.item.id == chosen_variant.required_item.id:
+				print("DialogueTrigger: Consuming item ", chosen_variant.required_item.id)
+				GlobalData.player_inventory.remove_item(GlobalData.selected_slot.inventory_slot.item)
+				# Deselect slot after consumption
+				GlobalData.selected_slot.change_selected_state()
+
 		DialogueService.start_dialogue(dialogue_resource, title, extra_game_states, portrait_texture, portrait_scene)
 
 

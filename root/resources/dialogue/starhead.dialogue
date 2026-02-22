@@ -27,8 +27,8 @@ Starhead: [center]Urgent! Find paper and write under my dictation! Every word of
 ~ trade_item
 Starhead: [center]Give it here! This... this is my greatest creation! It is worthy of the best reward for my fan.[/center]
 Starhead: [center]Here, take this — a humble personification of my [nervous]enormous[/nervous] inner world.[/center]
-do GlobalData.player_inventory.remove_item(preload("res://root/assets/items/paper_text.tres"))
-do GlobalData.player_inventory.add_item(preload("res://root/assets/items/planet.tres"))
+do Global.player_inventory.remove_item_by_path("res://root/assets/items/paper_text.tres")
+do Global.player_inventory.add_item_by_path("res://root/assets/items/planet.tres")
 do ProgressionManager.set_flag("planet_picked_up", true)
 => END
 

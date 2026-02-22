@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="6_65ptr"]
 [ext_resource type="Texture2D" uid="uid://0qiyom57y0i8" path="res://root/assets/atlases/pipes.sprites/T_form_fill.tres" id="7_ixbns"]
 [ext_resource type="Texture2D" uid="uid://0t2xi0w6yheg" path="res://root/assets/atlases/pipes.sprites/cross_fill.tres" id="8_3eobk"]
-[ext_resource type="AudioStream" uid="uid://b8b4l1ny5mlpj" path="res://root/assets/UI/audio/creak3.ogg" id="9_7708c"]
 [ext_resource type="Texture2D" uid="uid://cjvxw8y01hf6t" path="res://root/assets/atlases/pipes.sprites/angle_fill.tres" id="9_x4gv7"]
+[ext_resource type="AudioStream" uid="uid://rjoqdiwv5317" path="res://root/assets/sounds/18_metal_grinding.wav" id="12_3ii6a"]
+[ext_resource type="AudioStream" uid="uid://cmfqd51khdbtf" path="res://root/assets/sounds/18_metal_grinding2.wav" id="13_tisv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cv1g"]
 size = Vector2(100, 101)
@@ -39,7 +40,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_f2ghl")
 
 [node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("6_65ptr")]
-streams = Array[AudioStream]([ExtResource("9_7708c")])
+streams = Array[AudioStream]([ExtResource("12_3ii6a"), ExtResource("13_tisv4")])
 min_pitch = 0.85
 max_pitch = 1.2
 
