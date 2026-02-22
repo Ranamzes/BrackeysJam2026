@@ -5,6 +5,7 @@ func _ready() -> void:
 	%PlayButton.pressed.connect(on_play_pressed)
 	%OptionsButton.pressed.connect(on_options_pressed)
 	%QuitButton.pressed.connect(on_quit_pressed)
+	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music",1.0,-10)
 
 func on_play_pressed():
 	if not is_inside_tree(): return
