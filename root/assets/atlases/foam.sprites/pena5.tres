@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://ro6x6ou8t60"]
+
+[ext_resource type="Texture2D" uid="uid://bt244ibs521pm" path="res://root/assets/atlases/foam.png" id="1_wtigp"]
+
+[resource]
+atlas = ExtResource("1_wtigp")
+region = Rect2(79, 884, 66, 87)

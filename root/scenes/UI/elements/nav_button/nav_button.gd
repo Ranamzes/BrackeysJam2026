@@ -37,7 +37,11 @@ func _ready() -> void:
 	_update_styling()
 
 	item_rect_changed.connect(_update_styling)
-	visibility_changed.connect(_update_styling)
+	visibility_changed.connect(
+		func():
+			_frames_to_update = 10
+			set_process(true)
+	)
 
 
 func _process(_delta: float) -> void:
