@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ejt063lb77p" path="res://root/scenes/levels/level1/cleancore_background_2.1.png" id="2_jrfdj"]
 [ext_resource type="Texture2D" uid="uid://dqpde6eqeuvr8" path="res://root/scenes/levels/level1/cleancore_window.png" id="6_46pwm"]
 [ext_resource type="Texture2D" uid="uid://t5da0kxihqai" path="res://root/scenes/levels/level1/cleancore_bathtubs.png" id="7_nsl4c"]
-[ext_resource type="Texture2D" uid="uid://b74r0a0qoxnru" path="res://icon.svg" id="10_sdhyp"]
+[ext_resource type="Texture2D" uid="uid://bdex80tv1sx1i" path="res://root/scenes/levels/level1/cleancore_levers_panel_close.png" id="7_nved4"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="11_gri7d"]
 [ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="11_kdm4n"]
 [ext_resource type="Texture2D" uid="uid://b8ms1dsboq112" path="res://root/scenes/levels/level1/cleancore_levers_panel.png" id="11_sdhyp"]
@@ -71,9 +71,9 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_sdhyp")
 
 [node name="LeversLid" type="Sprite2D" parent="." unique_id=253470795]
-position = Vector2(804, 515.5)
-scale = Vector2(1.734375, 1.3515625)
-texture = ExtResource("10_sdhyp")
+position = Vector2(804.00006, 500)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_nved4")
 
 [node name="VisibilityUpdater" parent="LeversLid" unique_id=1413650788 instance=ExtResource("11_kdm4n")]
 flags = Array[String](["duck_placed"])
@@ -84,4 +84,6 @@ offset_top = 384.0
 offset_right = 2369.0
 offset_bottom = 897.0
 scale = Vector2(0.205, 0.205)
+mouse_filter = 2
 disable_clicks = true
+disable_mouse_intercept = true
