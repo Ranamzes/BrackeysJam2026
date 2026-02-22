@@ -7,7 +7,7 @@ script = ExtResource("1_bb7n3")
 state_table = Dictionary[String, bool]({
 "bottles_solved": false,
 "button_on_right_screen_clicked": false,
-"duck_placed": false,
+"duck_placed": true,
 "floor_tile_unlocked": false,
 "levers_solved": false,
 "pipes_solved": false,
