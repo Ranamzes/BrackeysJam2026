@@ -44,7 +44,6 @@ theme_override_constants/margin_bottom = 64
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=484720998]
 process_mode = 3
 layout_mode = 2
-size_flags_horizontal = 1
 theme_override_constants/separation = -150
 
 [node name="PlayButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1880091726 instance=ExtResource("1_p34k7")]

@@ -54,5 +54,5 @@ Monster: [center]This taste... it's infinite, like the ego that gave birth to it
 Monster: [center][i]*A heavy, satisfied sigh, turning into a sleepy snore*[/i][/center]
 Monster: [center]Ahhh... greatness makes me sleepy... Don't disturb... Let me... [woo]sleep[/woo].[/center]
 Monster: [center]But don't go far, my little slave. Soon I'll wake up... and I'll want some breakfast...[/center]
-do ScreenTransition.transition_to_scene("uid://d7n7fj2vp3kd")
+do ScreenTransition.transition_to_scene("uid://cre2026finalend")
 => END

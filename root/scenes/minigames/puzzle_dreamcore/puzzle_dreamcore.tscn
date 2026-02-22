@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bym6eh1unp2hc"]
+[gd_scene format=3 uid="uid://puz2026dreamcor"]
 
 [ext_resource type="Script" uid="uid://c2ueff0ryjmq7" path="res://root/scripts/puzzle/puzzle_manager.gd" id="1_tq57j"]
 [ext_resource type="Script" uid="uid://222wwvgfnx85" path="res://root/scripts/puzzle/puzzle_piece.gd" id="2_3ey02"]

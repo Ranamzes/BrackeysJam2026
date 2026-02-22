@@ -30,7 +30,7 @@ func on_options_closed(options_instance: Node):
 
 
 func on_credits_pressed():
-	ScreenTransition.transition_to_scene("uid://d7n7fj2vp3kd")
+	ScreenTransition.transition_to_scene("uid://cre2026finalend")
 
 
 func on_quit_pressed():
