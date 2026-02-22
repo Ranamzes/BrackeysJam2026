@@ -23,6 +23,8 @@ portrait_scene = ExtResource("8_portrait_scene")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_6614m")]
 layer = 10
+right_scene = "uid://dtxkforlylqrn"
+right_flag = "level_1_visited"
 
 [node name="BackgroundContainer" type="Node2D" parent="." unique_id=987654330]
 script = ExtResource("11_parallax")
