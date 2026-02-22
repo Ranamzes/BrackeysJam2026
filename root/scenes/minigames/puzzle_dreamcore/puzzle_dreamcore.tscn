@@ -2,33 +2,51 @@
 
 [ext_resource type="Script" uid="uid://c2ueff0ryjmq7" path="res://root/scripts/puzzle/puzzle_manager.gd" id="1_tq57j"]
 [ext_resource type="Script" uid="uid://222wwvgfnx85" path="res://root/scripts/puzzle/puzzle_piece.gd" id="2_3ey02"]
-[ext_resource type="Texture2D" uid="uid://4edr46sqxfd0" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_background.png" id="2_w326s"]
-[ext_resource type="Texture2D" uid="uid://c8s1occw4ywe6" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part1.png" id="3_cor64"]
+[ext_resource type="Texture2D" uid="uid://dwu1wj03vbn4t" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_background.png" id="2_w326s"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_xcl7d"]
+[ext_resource type="Texture2D" uid="uid://ccejaairuw37" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part1.png" id="3_cor64"]
 [ext_resource type="Script" uid="uid://btg6nelv73qe4" path="res://root/scripts/puzzle/snap_point.gd" id="4_i0whn"]
 [ext_resource type="Script" uid="uid://m4xnyu5b3t1r" path="res://root/scripts/puzzle/puzzle_piece_slot.gd" id="4_l1767"]
+[ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="5_t0vem"]
 [ext_resource type="Shape2D" uid="uid://c54mbrvf6j7vf" path="res://root/scenes/minigames/puzzle_dreamcore/snap_point_circle_shape_2d.tres" id="6_okw37"]
-[ext_resource type="Texture2D" uid="uid://dbmjclfo4lhd2" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part2.png" id="7_y31st"]
-[ext_resource type="Texture2D" uid="uid://buepogm5rhtr4" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part3.png" id="8_l8e1f"]
+[ext_resource type="Texture2D" uid="uid://g2jqj2khpqha" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part2.png" id="7_y31st"]
+[ext_resource type="Texture2D" uid="uid://ccqhu1nvdb5i5" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part3.png" id="8_l8e1f"]
 [ext_resource type="Shape2D" uid="uid://duc2ranwcy84i" path="res://root/scenes/minigames/puzzle_dreamcore/puzzle_slot_circle_shape_2d.tres" id="8_t80mc"]
-[ext_resource type="Texture2D" uid="uid://biun6frvjcmq2" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part4.png" id="9_okw37"]
-[ext_resource type="Texture2D" uid="uid://c47evt610sf6e" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part5.png" id="10_t80mc"]
+[ext_resource type="Texture2D" uid="uid://cws18ui5ct2y5" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part4.png" id="9_okw37"]
+[ext_resource type="Texture2D" uid="uid://dl1p023bfqhav" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_part5.png" id="10_t80mc"]
 [ext_resource type="Script" uid="uid://b75y0tqle5wys" path="res://root/scripts/puzzle/puzzle_piece_disabler.gd" id="11_v8061"]
+[ext_resource type="Resource" uid="uid://r3o1xu7xf2t8" path="res://root/assets/items/clue.tres" id="14_4ru74"]
+[ext_resource type="Texture2D" uid="uid://drnkiko83qht3" path="res://root/scenes/minigames/puzzle_dreamcore/pazzle_photo.png" id="15_xf38v"]
 
 [node name="PuzzleManager" type="Node2D" unique_id=1853569289]
 script = ExtResource("1_tq57j")
 metadata/_custom_type_script = "uid://c2ueff0ryjmq7"
 
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_xcl7d")]
+bottom_scene = "uid://kl6lepn4skoq"
+
 [node name="Background" type="Sprite2D" parent="." unique_id=1618036473]
-position = Vector2(1240, 696)
+position = Vector2(988.16, 555.83997)
 scale = Vector2(0.965, 0.965)
 texture = ExtResource("2_w326s")
 
+[node name="PazzlePhoto" type="Sprite2D" parent="." unique_id=800775949]
+position = Vector2(1659, 339)
+texture = ExtResource("15_xf38v")
+
+[node name="VisibilityUpdater" parent="PazzlePhoto" unique_id=1413650788 instance=ExtResource("5_t0vem")]
+flags = Array[String](["frame_placed"])
+should_be_visible_if_flags_true = true
+
 [node name="PuzzlePiece_1" type="Area2D" parent="." unique_id=567577503]
-position = Vector2(568, 518)
+position = Vector2(812, 638)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 1
+is_enabled = null
+colors = null
+required_color_idx = 1
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_1" unique_id=69532228]
@@ -46,7 +64,7 @@ metadata/_custom_type_script = "uid://btg6nelv73qe4"
 shape = ExtResource("6_okw37")
 
 [node name="PuzzlePieceSlot_1" type="Area2D" parent="." unique_id=659701237]
-position = Vector2(568, 518)
+position = Vector2(429.16003, 428.83997)
 script = ExtResource("4_l1767")
 slot_id = 1
 metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
@@ -55,11 +73,14 @@ metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
 shape = ExtResource("8_t80mc")
 
 [node name="PuzzlePiece_2" type="Area2D" parent="." unique_id=568542394]
-position = Vector2(533, 391)
+position = Vector2(464, 842)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 2
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_2" unique_id=984605755]
@@ -76,7 +97,7 @@ metadata/_custom_type_script = "uid://btg6nelv73qe4"
 shape = ExtResource("6_okw37")
 
 [node name="PuzzlePieceSlot_2" type="Area2D" parent="." unique_id=498235613]
-position = Vector2(533, 391)
+position = Vector2(394.16003, 301.83997)
 script = ExtResource("4_l1767")
 slot_id = 2
 metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
@@ -85,16 +106,21 @@ metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
 shape = ExtResource("8_t80mc")
 
 [node name="PuzzlePiece_3" type="Area2D" parent="." unique_id=1233152015]
-position = Vector2(1407, 709)
+position = Vector2(1444, 745)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 3
+is_enabled = null
+colors = null
+required_color_idx = null
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="PuzzlePieceDisabler" type="Area2D" parent="PuzzlePiece_3" unique_id=868070435]
 position = Vector2(-680, -289)
 script = ExtResource("11_v8061")
+required_item = ExtResource("14_4ru74")
+required_item_id = "clue"
 metadata/_custom_type_script = "uid://b75y0tqle5wys"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_3/PuzzlePieceDisabler" unique_id=1475422951]
@@ -115,7 +141,7 @@ metadata/_custom_type_script = "uid://btg6nelv73qe4"
 shape = ExtResource("6_okw37")
 
 [node name="PuzzlePieceSlot_3" type="Area2D" parent="." unique_id=1959343451]
-position = Vector2(734, 422)
+position = Vector2(595.16003, 332.83997)
 script = ExtResource("4_l1767")
 slot_id = 3
 metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
@@ -124,11 +150,14 @@ metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
 shape = ExtResource("8_t80mc")
 
 [node name="PuzzlePiece_4" type="Area2D" parent="." unique_id=173887101]
-position = Vector2(818, 313)
+position = Vector2(1019, 691)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 4
+is_enabled = null
+colors = null
+required_color_idx = 2
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_4" unique_id=1454488060]
@@ -145,7 +174,7 @@ metadata/_custom_type_script = "uid://btg6nelv73qe4"
 shape = ExtResource("6_okw37")
 
 [node name="PuzzlePieceSlot_4" type="Area2D" parent="." unique_id=164539285]
-position = Vector2(818, 313)
+position = Vector2(679.16003, 223.83997)
 script = ExtResource("4_l1767")
 slot_id = 4
 metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
@@ -154,11 +183,14 @@ metadata/_custom_type_script = "uid://m4xnyu5b3t1r"
 shape = ExtResource("8_t80mc")
 
 [node name="PuzzlePiece_5" type="Area2D" parent="." unique_id=102839900]
-position = Vector2(887, 408)
+position = Vector2(920, 864)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_3ey02")
 puzzle_id = 5
+is_enabled = null
+colors = null
+required_color_idx = 1
 metadata/_custom_type_script = "uid://222wwvgfnx85"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PuzzlePiece_5" unique_id=790274677]
@@ -175,7 +207,7 @@ metadata/_custom_type_script = "uid://btg6nelv73qe4"
 shape = ExtResource("6_okw37")
 
 [node name="PuzzlePieceSlot_5" type="Area2D" parent="." unique_id=943192526]
-position = Vector2(887, 408)
+position = Vector2(748.16003, 318.83997)
 script = ExtResource("4_l1767")
 slot_id = 5
 metadata/_custom_type_script = "uid://m4xnyu5b3t1r"

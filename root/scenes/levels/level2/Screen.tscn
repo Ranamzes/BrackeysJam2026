@@ -3,25 +3,28 @@
 [ext_resource type="Script" uid="uid://dlnxenolw3ik2" path="res://root/scenes/levels/level2/screen.gd" id="1_xgysg"]
 [ext_resource type="Texture2D" uid="uid://bapfotmsfkig3" path="res://root/scenes/levels/level2/dreamcore_TVscreen_1.png" id="2_hkk36"]
 [ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="3_a1mij"]
+[ext_resource type="Texture2D" uid="uid://quw8ha84fcni" path="res://root/scenes/levels/level2/dreamcore_TVscreen_3.png" id="3_f012j"]
+[ext_resource type="Texture2D" uid="uid://bt8hgnnl3i5ee" path="res://root/scenes/levels/level2/dreamcore_TVscreen_4.png" id="4_2bfiy"]
 [ext_resource type="AudioStream" uid="uid://dlddwg8hkoe2l" path="res://root/scenes/levels/level2/14_retro_comp05.wav" id="4_hnlj6"]
+[ext_resource type="Texture2D" uid="uid://djwacmkmpp15p" path="res://root/scenes/levels/level2/dreamcore_TVscreen_5.png" id="5_1l5d8"]
 [ext_resource type="AudioStream" uid="uid://bqppsehk6elap" path="res://root/scenes/levels/level2/15_lags02.wav" id="5_f012j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bfiy"]
-size = Vector2(471, 397)
+[ext_resource type="Texture2D" uid="uid://dncrxbhbxinip" path="res://root/scenes/levels/level2/dreamcore_TVscreen_2.png" id="6_x6tby"]
 
 [node name="Screen" type="Area2D" unique_id=752871405]
 script = ExtResource("1_xgysg")
+textures_array = Array[Texture2D]([ExtResource("2_hkk36"), ExtResource("4_2bfiy"), ExtResource("3_f012j"), ExtResource("5_1l5d8"), ExtResource("6_x6tby")])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1356869056]
 position = Vector2(226, 189)
 texture = ExtResource("2_hkk36")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186649060]
-position = Vector2(225.5, 188.5)
-shape = SubResource("RectangleShape2D_2bfiy")
 
 [node name="StreamPlayerComponent" parent="." unique_id=1693318789 instance=ExtResource("3_a1mij")]
 streams = Array[AudioStream]([ExtResource("4_hnlj6")])
 
 [node name="StreamPlayerComponent2" parent="." unique_id=1313302483 instance=ExtResource("3_a1mij")]
 streams = Array[AudioStream]([ExtResource("5_f012j")])
+
+[node name="Timer" type="Timer" parent="." unique_id=1701894384]
+one_shot = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

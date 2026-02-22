@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxn77c8dmmsnw"]
 
 [ext_resource type="Script" uid="uid://dnlrkf4v1q4pr" path="res://root/scenes/minigames/typing_machine/typing_machine.gd" id="1_ky7w0"]
+[ext_resource type="Resource" uid="uid://fgeb4dmj4uwc" path="res://root/assets/items/paper_text.tres" id="2_d2tni"]
 [ext_resource type="PackedScene" uid="uid://b3xjwx771jtat" path="res://root/scenes/minigames/typing_machine/Pointer.tscn" id="2_ii186"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_mxir1"]
 [ext_resource type="Texture2D" uid="uid://um7lpc5ure0m" path="res://root/scenes/minigames/typing_machine/podlozhka.png" id="3_62is7"]
@@ -16,11 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://joo0vhgxbyk2" path="res://root/scenes/minigames/typing_machine/17_typewriter01(short).wav" id="14_at3mn"]
 [ext_resource type="AudioStream" uid="uid://be55g6sili41x" path="res://root/scenes/minigames/typing_machine/06_lever.mp3" id="15_at3mn"]
 [ext_resource type="AudioStream" uid="uid://dy4cfowm12rmc" path="res://root/scenes/minigames/typing_machine/16_chewed_paper.wav" id="15_xts1d"]
-[ext_resource type="Texture2D" uid="uid://bpe85t36uwdmh" path="res://root/scenes/minigames/typing_machine/letter_D.png" id="17_xts1d"]
-[ext_resource type="Texture2D" uid="uid://7yps8fm75h5q" path="res://root/scenes/minigames/typing_machine/letter_R.png" id="18_fy2s8"]
-[ext_resource type="Texture2D" uid="uid://dahiv7tn1oe0o" path="res://root/scenes/minigames/typing_machine/letter_E.png" id="19_d2tni"]
-[ext_resource type="Texture2D" uid="uid://j4pmad67xbmq" path="res://root/scenes/minigames/typing_machine/letter_A.png" id="20_mgu1g"]
-[ext_resource type="Texture2D" uid="uid://dx8q0pdhht5pa" path="res://root/scenes/minigames/typing_machine/letter_M.png" id="21_kojyi"]
+[ext_resource type="Texture2D" uid="uid://d4hsim6iii600" path="res://root/scenes/minigames/typing_machine/D.png" id="17_fy2s8"]
+[ext_resource type="Texture2D" uid="uid://d3qhxld8km3vy" path="res://root/scenes/minigames/typing_machine/R.png" id="18_d2tni"]
+[ext_resource type="Texture2D" uid="uid://cyyksagikd8d6" path="res://root/scenes/minigames/typing_machine/E.png" id="19_fy2s8"]
+[ext_resource type="Texture2D" uid="uid://clyxvng23y6j2" path="res://root/scenes/minigames/typing_machine/A.png" id="20_d2tni"]
+[ext_resource type="Texture2D" uid="uid://b4t2q6dox17ju" path="res://root/scenes/minigames/typing_machine/M.png" id="21_mgu1g"]
 
 [sub_resource type="Gradient" id="Gradient_62is7"]
 interpolation_mode = 2
@@ -34,9 +35,10 @@ size = Vector2(340.3125, 131)
 [node name="TypingMachine" type="Node2D" unique_id=1204961289 node_paths=PackedStringArray("letters")]
 script = ExtResource("1_ky7w0")
 letters = [NodePath("LetterD"), NodePath("LetterR"), NodePath("LetterE"), NodePath("LetterA"), NodePath("LetterM")]
+item = ExtResource("2_d2tni")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_mxir1")]
-bottom_scene = "uid://kl6lepn4skoq"
+bottom_scene = "uid://6mjf62se8n1o"
 bottom_flag = "typing_solved"
 
 [node name="TypewriterBackground" type="Sprite2D" parent="." unique_id=166640896]
@@ -121,29 +123,24 @@ streams = Array[AudioStream]([ExtResource("15_xts1d")])
 [node name="LetterD" type="Sprite2D" parent="." unique_id=1499476095]
 visible = false
 position = Vector2(739, 121.99999)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("17_xts1d")
+texture = ExtResource("17_fy2s8")
 
 [node name="LetterR" type="Sprite2D" parent="." unique_id=1225385010]
 visible = false
-position = Vector2(803, 123)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("18_fy2s8")
+position = Vector2(785, 120)
+texture = ExtResource("18_d2tni")
 
 [node name="LetterE" type="Sprite2D" parent="." unique_id=14905013]
 visible = false
-position = Vector2(864, 122)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("19_d2tni")
+position = Vector2(826, 121)
+texture = ExtResource("19_fy2s8")
 
 [node name="LetterA" type="Sprite2D" parent="." unique_id=684218799]
 visible = false
-position = Vector2(921, 124)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("20_mgu1g")
+position = Vector2(868, 121)
+texture = ExtResource("20_d2tni")
 
 [node name="LetterM" type="Sprite2D" parent="." unique_id=1204496541]
 visible = false
-position = Vector2(975, 123)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("21_kojyi")
+position = Vector2(907, 122)
+texture = ExtResource("21_mgu1g")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bk7s3c53y32iy"]
+
+[ext_resource type="Texture2D" uid="uid://8ygo77f8oid4" path="res://root/assets/planet_on.png" id="1_35ipj"]
+[ext_resource type="Script" uid="uid://sfjgktjvkx2l" path="res://root/scripts/inventory/item_data.gd" id="1_v5qgu"]
+
+[resource]
+script = ExtResource("1_v5qgu")
+id = "planet"
+icon = ExtResource("1_35ipj")
+metadata/_custom_type_script = "uid://sfjgktjvkx2l"

@@ -2,6 +2,7 @@ class_name PuzzlePieceDisabler
 extends Area2D
 
 var puzzle_piece : PuzzlePiece 
+@export var required_item : ItemData
 @export var required_item_id : String
 @export var required_flags : Array[String]
 
@@ -17,3 +18,5 @@ func _on_input_event(viewport : Node, event : InputEvent, shape_idx : int) -> vo
 			if !required_item_id || (GlobalData.selected_slot && GlobalData.selected_slot.inventory_slot.item.id == required_item_id) :
 				if ProgressionManager.check_flags(required_flags) :
 					puzzle_piece.enable()
+					GlobalData.player_inventory.remove_item(required_item)
+					ProgressionManager.set_flag("frame_placed",true)

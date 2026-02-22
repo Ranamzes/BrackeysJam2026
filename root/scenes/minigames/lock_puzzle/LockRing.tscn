@@ -2,24 +2,33 @@
 
 [ext_resource type="Script" uid="uid://4dg7pis86a3q" path="res://root/scenes/minigames/lock_puzzle/lock_ring.gd" id="1_xeeha"]
 [ext_resource type="Texture2D" uid="uid://cf5233rfhfuqa" path="res://root/assets/lens_handle1.png" id="2_xeeha"]
+[ext_resource type="Texture2D" uid="uid://b87jf8mkyq77m" path="res://root/scenes/minigames/lock_puzzle/linza_1.png" id="3_oi8yj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thxyt"]
-radius = 31.0
-height = 92.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi8yj"]
+radius = 273.6494
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bw5t0"]
+radius = 39.0
+height = 132.0
 
 [node name="LockRing" type="Area2D" unique_id=549123136 groups=["lock_segment"]]
 script = ExtResource("1_xeeha")
 texture = ExtResource("2_xeeha")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=606636320]
+visible = false
+shape = SubResource("CircleShape2D_oi8yj")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=693183060]
 unique_name_in_owner = true
-position = Vector2(0, -50)
+position = Vector2(46, 2.026558e-06)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xeeha")
+texture = ExtResource("3_oi8yj")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1530190527]
 unique_name_in_owner = true
-position = Vector2(0, -52)
-shape = SubResource("CapsuleShape2D_thxyt")
+position = Vector2(315, 9.000014)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_bw5t0")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
