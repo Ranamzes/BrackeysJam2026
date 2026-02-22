@@ -1,0 +1,8 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://caoug0sno5e5c"]
+
+[ext_resource type="Texture2D" uid="uid://cko0xqypt6xvg" path="res://root/assets/atlases/steam.png" id="1_4yitu"]
+
+[resource]
+atlas = ExtResource("1_4yitu")
+region = Rect2(3, 348, 175, 155)
+margin = Rect2(0, 5, 4, 7)

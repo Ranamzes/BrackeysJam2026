@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bco88hjpney5g"]
 
 [ext_resource type="Script" uid="uid://dth45vfmolv1m" path="res://root/scenes/minigames/eyes_minigame/eyes_minigame.gd" id="1_qi1ji"]
-[ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/scripts/on_screen_object/object_with_states.gd" id="2_nwepg"]
+[ext_resource type="Script" path="res://root/scripts/on_screen_object/object_with_states.gd" id="2_nwepg"]
 [ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/scripts/on_screen_object/onscreen_object_state.gd" id="3_154ch"]
 [ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/scripts/on_screen_object/object_state_transition.gd" id="4_tujwg"]
 [ext_resource type="Texture2D" uid="uid://bn62u6pyilblb" path="res://root/scenes/levels/level3/eye_on_a_wall1.png" id="5_lv0ls"]

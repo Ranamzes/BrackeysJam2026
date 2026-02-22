@@ -221,6 +221,7 @@ This guarantees that all generated code is **100% valid for Godot 4.6.1** and ba
         return
     ```
 *   **Deferred Calls:** Use `call_deferred()` for node operations that happen within physics callbacks or when changing scenes to avoid instability.
+*   **Nested Masking:** `CanvasGroup` and `clip_children` conflict in Godot 4. To nest masks (e.g., clipped eyes inside a clipped portrait), wrap the child content in a `SubViewport` to isolate the rendering passes.
 
 ---
 

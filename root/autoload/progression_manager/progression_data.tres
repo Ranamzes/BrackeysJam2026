@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProgressionData" format=3 uid="uid://cooa3w065nuk7"]
 
-[ext_resource type="Script" path="res://root/autoload/progression_manager/progression_data.gd" id="1_bb7n3"]
+[ext_resource type="Script" uid="uid://bb7n36hnftdpn" path="res://root/autoload/progression_manager/progression_data.gd" id="1_bb7n3"]
 
 [resource]
 script = ExtResource("1_bb7n3")
@@ -9,14 +9,17 @@ state_table = Dictionary[String, bool]({
 "button_on_right_screen_clicked": false,
 "duck_placed": false,
 "floor_tile_unlocked": false,
+"level_1_visited": false,
 "levers_solved": false,
 "pipes_solved": false,
 "puzzle_colors_solved": false,
 "puzzle_pieces_solved": false,
 "rubber_duck_picked_up": false,
+"shampoo_gived": false,
 "soap_full_picked_up": false,
 "soap_stars_picked_up": false,
 "sponges_solved": false,
 "telescope_solved": false,
-"toothbrush_picked_up": false
+"toothbrush_picked_up": false,
+"typing_solved": false
 })

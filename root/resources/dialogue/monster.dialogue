@@ -9,11 +9,12 @@ Monster: [center][embers]Otherwise... you might find yourself on the menu.[/embe
 
 ~ open_door
 Monster: [center]I've been a bit busy here, making myself at home...[/center]
-Monster: [center]I've rearranged your "house" a little. It was so... dull before.[/center]
+Monster: [center]I've rearranged your "[glitch]house[/glitch]" a little. It was so... dull before.[/center]
 do reveal_door()
-Monster: [center]I've opened portals to my private domains—parallel worlds where I keep my treats to savor them.[/center]
+Monster: [center]I've opened [glitch]portals[/glitch] to my private domains—parallel worlds where I keep my treats to savor them.[/center]
+
 Monster: [center]Go on, step through.[/center]
-Monster: [center][embers]And remember... bring me the most [red_sparkle]satisfying[/red_sparkle] thing you can find in this world![/embers][/center]
+Monster: [center]And remember... bring me the most [gold_sparkle]satisfying[/gold_sparkle] thing you can find in this world![/center]
 
 
 => END

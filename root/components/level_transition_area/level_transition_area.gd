@@ -22,7 +22,7 @@ func _ready() -> void:
 		_perform_auto_setup()
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if Engine.is_editor_hint(): return
 
 	if event is InputEventMouseButton:

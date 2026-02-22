@@ -1,0 +1,168 @@
+{
+	"textures": [
+		{
+			"image": "foam.png",
+			"size": {
+				"w": 256,
+				"h": 1024
+			},
+			"sprites": [
+				{
+					"filename": "shower_active",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 250,
+						"h": 542
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena9",
+					"region": {
+						"x": 3,
+						"y": 549,
+						"w": 138,
+						"h": 102
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena8",
+					"region": {
+						"x": 145,
+						"y": 549,
+						"w": 104,
+						"h": 101
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena2",
+					"region": {
+						"x": 145,
+						"y": 654,
+						"w": 89,
+						"h": 100
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena4",
+					"region": {
+						"x": 3,
+						"y": 655,
+						"w": 126,
+						"h": 118
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena6",
+					"region": {
+						"x": 133,
+						"y": 758,
+						"w": 87,
+						"h": 88
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena7",
+					"region": {
+						"x": 3,
+						"y": 777,
+						"w": 80,
+						"h": 103
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena1",
+					"region": {
+						"x": 87,
+						"y": 777,
+						"w": 34,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena3",
+					"region": {
+						"x": 3,
+						"y": 884,
+						"w": 72,
+						"h": 87
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "pena5",
+					"region": {
+						"x": 79,
+						"y": 884,
+						"w": 66,
+						"h": 87
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:715b8cb51a928f5851cb687730c47121:22764e951c165aa5a8b598c10deb6f6a:a695b01674e11bee80eea2caecc9e16a$"
+	}
+}

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://6mjf62se8n1o"]
+
+[ext_resource type="Texture2D" uid="uid://pkyaeujabjr8" path="res://root/scenes/levels/level2/dreamcore_background2.png" id="1_3wyge"]
+[ext_resource type="Texture2D" uid="uid://dg3i2s56ih8ng" path="res://root/scenes/levels/level2/dreamcore_typewriter2.png" id="2_nyx8i"]
+[ext_resource type="Texture2D" uid="uid://djrtf2e8naiou" path="res://root/scenes/levels/level2/dreamcore_typewriter_paper.png" id="3_yrak2"]
+[ext_resource type="Texture2D" uid="uid://b2e0gyv8l5cnw" path="res://root/scenes/levels/level2/dreamcore_typewriter1.png" id="4_07pgy"]
+
+[node name="Level2Right" type="Node2D" unique_id=638280351]
+
+[node name="DreamcoreBackground2" type="Sprite2D" parent="." unique_id=151784178]
+position = Vector2(960.00006, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_3wyge")
+
+[node name="DreamcoreTypewriter2" type="Sprite2D" parent="." unique_id=1799150232]
+position = Vector2(538, 533.99994)
+scale = Vector2(0.68938124, 0.6397059)
+texture = ExtResource("2_nyx8i")
+
+[node name="DreamcoreTypewriterPaper" type="Sprite2D" parent="." unique_id=510515705]
+position = Vector2(532, 497)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_yrak2")
+
+[node name="DreamcoreTypewriter1" type="Sprite2D" parent="." unique_id=1912082466]
+position = Vector2(554, 669)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_07pgy")

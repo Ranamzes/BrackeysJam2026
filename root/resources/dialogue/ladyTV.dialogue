@@ -1,11 +1,91 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+LadyTV: [center][shake rate=20.0 level=10]NO! NO NO NO! I can't... I can't [nervous]live[/nervous] without her![/shake][/center]
+LadyTV: [center]She was the only one who... who [gold_sparkle]satisfied[/gold_sparkle] my lonely soul just by being there...[/center]
+LadyTV: [center]Everything is so... [woo]hollow[/woo] now... the world has lost its color...[/center]
+LadyTV: [center][br][pulse freq=5.0 color=#ffffff44]Oh! Oh my goodness! A [red_sparkle]NEW[/red_sparkle] face![/pulse][/center]
+LadyTV: [center]I haven't seen someone so... [br][woo]vibrant[/woo] in forever! You! [br]You're going to be my new [red_sparkle]BEST FRIEND[/red_sparkle]![/center]
+LadyTV: [center]Don't be shy, come closer! We are going to spend [shake rate=10.0 level=2]EVERY SECOND[/shake] together! I just know it![/center]
+LadyTV: [center]Do you like glitter? I [shake rate=10.0 level=2]ADORE[/shake] shampoos with [gold_sparkle]glitter[/gold_sparkle]! They make my world feel... [woo]magical[/woo].[/center]
+LadyTV: [center][shake rate=40.0 level=15][color=red]WAIT! My care bottles... they are NOT in ascending order! WHO DARED TO MAKE SUCH A MESS?![/color][/shake][/center]
+LadyTV: [center][shake rate=25.0 level=8][color=red]YOU! IT WAS YOU! YOU BROKE THE ORDER! YOU MADE THIS HELLISH MESS![/color][/shake][/center]
+LadyTV: [center]Don't you [nervous]dare[/nervous] come near me until every single bottle is perfectly sorted by height![/center]
+LadyTV: [center]Go. Fix your mistake. You're just a [woo]disappointment[/woo] like all the others.[/center]
+do ProgressionManager.set_flag("level_1_visited", true)
+do ProgressionManager.set_flag("quest_bottles_started", true)
+=> END
+
+~ waiting
+LadyTV: [center][pulse freq=5.0 color=#ffffff44][gold_sparkle]DEAREST BEST FRIEND![/gold_sparkle] You've returned to my embrace![/pulse][/center]
+LadyTV: [center]Tell me, tell me... is the world [shake rate=10.0 level=2]PERFECT[/shake] again? Is the order restored?[/center]
+LadyTV: [center][shake rate=40.0 level=15][color=red]STILL A MESS?![/color][/shake][/center]
+LadyTV: [center][shake rate=20.0 level=10]My skin is [nervous]crawling[/nervous] just thinking about those bottles standing in such... [woo]vulgar[/woo] chaos![/shake][/center]
+LadyTV: [center]I told you: [shake rate=15.0 level=5]ASCENDING ORDER![/shake] Small to big! Like a beautiful staircase to heaven![/center]
+LadyTV: [center][shake rate=30.0 level=10][color=red]DO NOT[/color][/shake] let me see your face again until my shampoos are [gold_sparkle]satisfied[/gold_sparkle]! [/center]
+=> END
+
+~ solved_bottles
+LadyTV: [center][shake rate=15.0 level=5][gold_sparkle]PERFECT![/gold_sparkle] ASCENDING! BEAUTIFUL![/shake][/center]
+LadyTV: [center][shake rate=20.0 level=10]But... [color=red]STILL NO FOAM![/color] My precious bubbles... missing for a whole hour![/shake][/center]
+LadyTV: [center][br]I bet you don't even care. Leaving me to [woo]wither away[/woo] in this dry filth...[/center]
+LadyTV: [center][br]Oh, sorry! It's just... the [shake rate=10.0 level=2]tangled[/shake] pipes. My friend always [gold_sparkle]satisfied[/gold_sparkle] my whims... she'd fix them instantly.[/center]
+LadyTV: [center]But she's gone. [br]Yet... I have a [shake rate=10.0 level=5][red_sparkle]NEW FRIEND[/red_sparkle][/shake] now, don't I?[/center]
+LadyTV: [center][br]Go on, try to reach the pipes here in the floor. But the lid is [shake rate=10.0 level=2]STUCK![/shake][/center]
+LadyTV: [center]What could you use to [shake rate=20.0 level=10]PRY[/shake] the lid open? Surely you're clever enough? I'd hate to be [woo]disappointed[/woo] again...[/center]
+do ProgressionManager.set_flag("quest_pipes_started", true)
+=> END
+
+~ waiting_pipes
+LadyTV: [center][nervous]Still nothing?[/nervous] Still NO foam?[/center]
+LadyTV: [center]You know... my friend... even [woo]dead[/woo]... she would have fixed those pipes by now.[/center]
+LadyTV: [center][shake rate=15.0 level=5][color=red]JUST. FIX. THE. PIPES.[/color][/shake][/center]
+=> END
+
+~ pipes_solved
+LadyTV: [center][pulse freq=6.0 color=#aaffff][shake rate=20.0 level=8]OH!! OH MY— WATER! [gold_sparkle]WATER![/gold_sparkle] IT'S FLOWING! IT'S ACTUALLY [red_sparkle]FLOWING!![/red_sparkle][/shake][/pulse][/center]
+LadyTV: [center][shake rate=15.0 level=5]And the [gold_sparkle]foam[/gold_sparkle]... look at the [gold_sparkle]bubbles[/gold_sparkle]... [color=#aaffff]so many little bubbles...[/color][/shake][/center]
+LadyTV: [center][pulse freq=4.0 color=#ffffff88]They're going [woo]pop pop pop[/woo]... I could cry. I really could. [gold_sparkle]Beautiful.[/gold_sparkle][/pulse][/center]
+LadyTV: [center]Wait... [nervous]wait wait wait...[/nervous][/center]
+LadyTV: [center][shake rate=8.0 level=3]There's a... is that a [color=#ffe87c]DUCKIE[/color] in there?[/shake][/center]
+LadyTV: [center][pulse freq=5.0 color=#ffe87c]A [shake rate=10.0 level=4]RUBBER DUCK![/shake] Floating in [gold_sparkle]my[/gold_sparkle] foam! How did you even— when did—[/pulse][/center]
+LadyTV: [center][woo]Oh, you poor little thing...[/woo] All alone in there.[/center]
+LadyTV: [center][color=#aaffff]She wants to be[/color] with her [gold_sparkle]friends[/gold_sparkle], doesn't she... the other duckies...[/center]
+LadyTV: [center]...[woo]friends.[/woo][/center]
+LadyTV: [center][nervous]Friends...[/nervous][/center]
+LadyTV: [center][shake rate=5.0 level=2][color=#aaaaff]She... she reminds me of... of my[/color] [woo]best friend[/woo]...[/shake][/center]
+LadyTV: [center][shake rate=3.0 level=1][color=#aaaaff]She always made sure I was [nervous]never alone[/nervous]... and now...[/color][/shake][/center]
+LadyTV: [center][pulse freq=2.0 color=#7799ff][shake rate=6.0 level=3][color=#aaaaff]...and now she's [woo]gone[/woo]... and I just... I miss her so much...[/color][/shake][/pulse][/center]
+LadyTV: [center][shake rate=30.0 level=12][color=red]WHY ARE YOU JUST STANDING THERE?![/color][/shake][/center]
+LadyTV: [center][shake rate=40.0 level=15][color=red]MOVE!! GET OUT OF MY SIGHT![/color][/shake][/center]
+LadyTV: [center][shake rate=25.0 level=10][color=red]TAKE THE DUCK! [/color][gold_sparkle]TAKE HER![/gold_sparkle][color=red] AND BRING HER TO THE OTHER DUCKS![/color][/shake][/center]
+LadyTV: [center][shake rate=20.0 level=8][color=red]RIGHT NOW! IMMEDIATELY! [/color][nervous]Don't make her wait any longer![/nervous][/shake][/center]
+do ProgressionManager.set_flag("duck_picker", true)
+=> END
+
+~ duck_placed
+LadyTV: [center][shake rate=40.0 level=15][color=red]WHAT?! WHAT DO YOU WANT?![/color][/shake][/center]
+LadyTV: [center][shake rate=30.0 level=10][color=red]Can you NOT see that I am [/color][gold_sparkle]BUSY?![/gold_sparkle][/shake][/center]
+LadyTV: [center][shake rate=20.0 level=8][color=red]I finally have my [/color][gold_sparkle]foam[/gold_sparkle][color=red], my [/color][gold_sparkle]bubbles[/gold_sparkle][color=red], my beautiful [/color][gold_sparkle]moment[/gold_sparkle][color=red] — and YOU barge in here like a [/color][nervous]lost puppy?![/nervous][/shake][/center]
+LadyTV: [center]...[/center]
+LadyTV: [center][pulse freq=5.0 color=#ffccff]Oh...[/pulse][/center]
+LadyTV: [center][pulse freq=4.0 color=#ffccff][woo]Oh, sweetie...[/woo] you look so [nervous]confused[/nervous]...[/pulse][/center]
+LadyTV: [center][pulse freq=3.0 color=#ffccff]You're stuck, aren't you? You have [shake rate=8.0 level=2]no idea[/shake] what to do next.[/pulse][/center]
+LadyTV: [center][gold_sparkle]My creator[/gold_sparkle] — brilliant man, [woo]absolutely unhinged[/woo] — he always said...[/center]
+LadyTV: [center][shake rate=6.0 level=2]"When you hit a wall, [gold_sparkle]talk to the duck.[/gold_sparkle]"[/shake][/center]
+LadyTV: [center]The [color=#ffe87c]rubber duck[/color]. You place it in front of you. You [woo]explain your problem[/woo] to it. Out loud. Like it can [nervous]hear you[/nervous].[/center]
+LadyTV: [center][pulse freq=4.0 color=#ffe87c]And somehow... [shake rate=10.0 level=3]somehow[/shake]... the answer just [gold_sparkle]comes[/gold_sparkle].[/pulse][/center]
+LadyTV: [center][woo]The duck knows.[/woo] The duck [gold_sparkle]always[/gold_sparkle] knows.[/center]
+LadyTV: [center][shake rate=20.0 level=8][color=red]NOW GET OUT OF HERE[/color][/shake] and go [gold_sparkle]figure it out![/gold_sparkle][/center]
+=> END
+
+~ levers_solved
+LadyTV: [center][pulse freq=4.0 color=#ffffff88]You noticed it too, didn't you? The [gold_sparkle]colours[/gold_sparkle] on the wall...[/pulse][/center]
+LadyTV: [center][woo]Strange little patterns.[/woo] Like someone was trying to [nervous]say something[/nervous]...[/center]
+LadyTV: [center]My friend used to [gold_sparkle]hide[/gold_sparkle] her things everywhere. Little [woo]secrets[/woo] tucked into every corner.[/center]
+LadyTV: [center]And she [shake rate=8.0 level=2]adored[/shake] her [color=#aaffff]washcloths[/color]... her little [woo]sponges[/woo]... she'd collect them like [gold_sparkle]treasures[/gold_sparkle].[/center]
+LadyTV: [center][nervous]She'd play with them for hours.[/nervous] Arranging them, [woo]singing[/woo] to them... I thought it was [shake rate=5.0 level=1]ridiculous[/shake] then.[/center]
+LadyTV: [center][pulse freq=3.0 color=#aaaaff][shake rate=4.0 level=1]I'd give anything to see it again...[/shake][/pulse][/center]
+LadyTV: [center]She had this [gold_sparkle]shampoo[/gold_sparkle]... with little [red_sparkle]stars[/red_sparkle] inside. A [woo]glitter blister[/woo], she called it.[/center]
+LadyTV: [center][pulse freq=5.0 color=#ffaaff]When you'd press it... [shake rate=10.0 level=3][gold_sparkle]STARS[/gold_sparkle] would burst out![/shake] Everywhere! All over the foam![/pulse][/center]
+LadyTV: [center][shake rate=6.0 level=2][color=#aaaaff]I would give [/color][gold_sparkle]everything[/gold_sparkle][color=#aaaaff] I have... just to feel that [/color][woo]sparkle[/woo][color=#aaaaff] one more time...[/color][/shake][/center]
+LadyTV: [center]...[nervous]Everything.[/nervous][/center]
 => END

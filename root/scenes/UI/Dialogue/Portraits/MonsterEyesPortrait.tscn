@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8n8qj4w8n8n8"]
+[gd_scene format=3 uid="uid://c8n8qj4w8n8n8"]
 
-[ext_resource type="Script" path="res://root/scenes/UI/Dialogue/Portraits/monster_eyes_portrait.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://c3slc4lg6cjae" path="res://root/scenes/levels/mainLevel/darkness.png" id="2_darkness"]
-[ext_resource type="PackedScene" uid="uid://ciqpbnvwviuqi" path="res://root/scenes/levels/intro/Eye6.tscn" id="3_eye6"]
-[ext_resource type="PackedScene" uid="uid://bv0o4cxvqay0e" path="res://root/scenes/levels/intro/Eye3.tscn" id="4_eye3"]
-[ext_resource type="PackedScene" uid="uid://csfi2kbog7pyn" path="res://root/scenes/levels/intro/Eye5.tscn" id="5_eye5"]
+[ext_resource type="Script" uid="uid://fn311wt53ilk" path="res://root/scenes/UI/Dialogue/Portraits/monster_eyes_portrait.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://3e0fxbcalg7" path="res://root/scenes/levels/intro/Eye2.tscn" id="2_eye2"]
+[ext_resource type="PackedScene" uid="uid://bv0o4cxvqay0e" path="res://root/scenes/levels/intro/Eye3.tscn" id="3_eye3"]
+[ext_resource type="PackedScene" uid="uid://csfi2kbog7pyn" path="res://root/scenes/levels/intro/Eye5.tscn" id="4_eye5"]
+[ext_resource type="PackedScene" uid="uid://ciqpbnvwviuqi" path="res://root/scenes/levels/intro/Eye6.tscn" id="5_eye6"]
+[ext_resource type="PackedScene" uid="uid://d4gswj0fabhda" path="res://root/scenes/levels/intro/Eye7.tscn" id="6_eye7"]
+[ext_resource type="PackedScene" uid="uid://d08e2xlywiik" path="res://root/scenes/levels/intro/Eye9.tscn" id="7_eye9"]
 
-[node name="MonsterEyesPortrait" type="Control"]
+[node name="MonsterEyesPortrait" type="Control" unique_id=1992053952]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 366.0
@@ -14,24 +16,35 @@ offset_bottom = 366.0
 mouse_filter = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=911034509]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_darkness")
-expand_mode = 1
+color = Color(0, 0, 0, 1)
 
-[node name="Eye6" parent="." instance=ExtResource("2_eye6")]
-position = Vector2(183, 120)
+[node name="Eye6" parent="." unique_id=493800637 instance=ExtResource("5_eye6")]
+position = Vector2(267, 133)
 scale = Vector2(0.8, 0.8)
 
-[node name="Eye3" parent="." instance=ExtResource("3_eye3")]
-position = Vector2(100, 220)
+[node name="Eye3" parent="." unique_id=759785936 instance=ExtResource("3_eye3")]
+position = Vector2(151, 275)
+scale = Vector2(0.6, 0.6)
+
+[node name="Eye5" parent="." unique_id=1138343703 instance=ExtResource("4_eye5")]
+position = Vector2(71, 161)
+scale = Vector2(0.6, 0.6)
+
+[node name="Eye2" parent="." unique_id=1370156667 instance=ExtResource("2_eye2")]
+position = Vector2(163.00002, 82)
 scale = Vector2(0.7, 0.7)
 
-[node name="Eye5" parent="." instance=ExtResource("4_eye5")]
-position = Vector2(266, 220)
-scale = Vector2(0.7, 0.7)
+[node name="Eye7" parent="." unique_id=1827290969 instance=ExtResource("6_eye7")]
+position = Vector2(178, 199)
+scale = Vector2(0.5, 0.5)
+
+[node name="Eye9" parent="." unique_id=1587265279 instance=ExtResource("7_eye9")]
+position = Vector2(287, 237)
+scale = Vector2(0.5, 0.5)

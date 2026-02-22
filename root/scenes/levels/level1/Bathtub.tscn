@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfpgr4yfv6yfc" path="res://root/scenes/levels/level1/bathtub.gd" id="1_2yxbk"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_v18t5"]
-[ext_resource type="Texture2D" uid="uid://2ggmi52jdb8g" path="res://root/scenes/levels/level1/cleancore_duck_background.png" id="2_v18t5"]
+[ext_resource type="Texture2D" uid="uid://dq3jp58ge35dg" path="res://root/scenes/levels/level1/cleancore_duck_background.png" id="2_v18t5"]
 [ext_resource type="PackedScene" uid="uid://cy4f0dweobs4k" path="res://root/components/interactable_area/InteractableArea.tscn" id="3_fxol1"]
 [ext_resource type="Resource" uid="uid://c65otytqxxvy5" path="res://root/assets/items/rubber_duck.tres" id="4_vjbqn"]
 [ext_resource type="Texture2D" uid="uid://cgeylom1v5ekl" path="res://root/scenes/levels/level1/green_duck_body.png" id="5_5ciuq"]
@@ -112,7 +112,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1.62),
 "update": 0,
-"values": [-0.21991149, -2.1519909677090086]
+"values": [-0.21991149, -2.151990967709009]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -160,7 +160,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1.62),
 "update": 0,
-"values": [-0.87441, -0.024434609527920217]
+"values": [-0.87441, -0.02443460952792021]
 }
 
 [sub_resource type="Animation" id="Animation_2yxbk"]
@@ -188,7 +188,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1.62),
 "update": 0,
-"values": [-2.1519909677090086]
+"values": [-2.151990967709009]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -236,7 +236,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1.62),
 "update": 0,
-"values": [-0.024434609527920217]
+"values": [-0.02443460952792021]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2yxbk"]
@@ -260,8 +260,8 @@ libraries/ = SubResource("AnimationLibrary_2yxbk")
 bottom_scene = "uid://bcyhhrogf6g01"
 
 [node name="CleancoreDuckBackground" type="Sprite2D" parent="." unique_id=2068937197]
-position = Vector2(961.00006, 540)
-scale = Vector2(0.75, 0.75)
+position = Vector2(961, 539.99994)
+scale = Vector2(0.93749994, 0.93749994)
 texture = ExtResource("2_v18t5")
 
 [node name="water" type="Node2D" parent="." unique_id=57266432]

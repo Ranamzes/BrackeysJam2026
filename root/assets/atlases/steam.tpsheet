@@ -1,0 +1,63 @@
+{
+	"textures": [
+		{
+			"image": "steam.png",
+			"size": {
+				"w": 256,
+				"h": 512
+			},
+			"sprites": [
+				{
+					"filename": "par2",
+					"region": {
+						"x": 3,
+						"y": 3,
+						"w": 230,
+						"h": 168
+					},
+					"margin": {
+						"x": 0,
+						"y": 3,
+						"w": 0,
+						"h": 15
+					}
+				},
+				{
+					"filename": "par1",
+					"region": {
+						"x": 3,
+						"y": 175,
+						"w": 182,
+						"h": 169
+					},
+					"margin": {
+						"x": 8,
+						"y": 0,
+						"w": 17,
+						"h": 0
+					}
+				},
+				{
+					"filename": "par3",
+					"region": {
+						"x": 3,
+						"y": 348,
+						"w": 175,
+						"h": 155
+					},
+					"margin": {
+						"x": 0,
+						"y": 5,
+						"w": 4,
+						"h": 7
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:83da820404ae0e80fa6dccb09e5d9859:0978eb426329354e725215caf97d1c35:cde8bc98d78be0679e2c79cac620f504$"
+	}
+}

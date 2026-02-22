@@ -2,10 +2,148 @@
 
 [ext_resource type="Script" uid="uid://dnlrkf4v1q4pr" path="res://root/scenes/minigames/typing_machine/typing_machine.gd" id="1_ky7w0"]
 [ext_resource type="PackedScene" uid="uid://b3xjwx771jtat" path="res://root/scenes/minigames/typing_machine/Pointer.tscn" id="2_ii186"]
+[ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="2_mxir1"]
+[ext_resource type="Texture2D" uid="uid://um7lpc5ure0m" path="res://root/scenes/minigames/typing_machine/podlozhka.png" id="3_62is7"]
+[ext_resource type="Texture2D" uid="uid://bmbca1hlq00mu" path="res://root/scenes/minigames/typing_machine/typewriter_background.png" id="3_ii186"]
+[ext_resource type="Texture2D" uid="uid://28lmda57jmjv" path="res://root/scenes/minigames/typing_machine/key1.png" id="6_ff1pv"]
+[ext_resource type="Texture2D" uid="uid://cgg84t8tevml7" path="res://root/scenes/minigames/typing_machine/key2.png" id="7_c8ay6"]
+[ext_resource type="Texture2D" uid="uid://ca26pioy6axgc" path="res://root/scenes/minigames/typing_machine/key3.png" id="8_crprk"]
+[ext_resource type="Texture2D" uid="uid://baw2c22ghbbj0" path="res://root/scenes/minigames/typing_machine/key4.png" id="9_0rlnd"]
+[ext_resource type="Texture2D" uid="uid://blcj0smh3777k" path="res://root/scenes/minigames/typing_machine/key5.png" id="10_at3mn"]
+[ext_resource type="Texture2D" uid="uid://cpnd8t73rfo6i" path="res://root/scenes/minigames/typing_machine/key6.png" id="11_xts1d"]
+[ext_resource type="Texture2D" uid="uid://dmid5pdhmg0am" path="res://root/scenes/minigames/typing_machine/key7.png" id="12_g7rqg"]
+[ext_resource type="PackedScene" uid="uid://c44cmomnyb35f" path="res://root/components/stream_player/StreamPlayerComponent.tscn" id="13_0rlnd"]
+[ext_resource type="AudioStream" uid="uid://joo0vhgxbyk2" path="res://root/scenes/minigames/typing_machine/17_typewriter01(short).wav" id="14_at3mn"]
+[ext_resource type="AudioStream" uid="uid://be55g6sili41x" path="res://root/scenes/minigames/typing_machine/06_lever.mp3" id="15_at3mn"]
+[ext_resource type="AudioStream" uid="uid://dy4cfowm12rmc" path="res://root/scenes/minigames/typing_machine/16_chewed_paper.wav" id="15_xts1d"]
+[ext_resource type="Texture2D" uid="uid://bpe85t36uwdmh" path="res://root/scenes/minigames/typing_machine/letter_D.png" id="17_xts1d"]
+[ext_resource type="Texture2D" uid="uid://7yps8fm75h5q" path="res://root/scenes/minigames/typing_machine/letter_R.png" id="18_fy2s8"]
+[ext_resource type="Texture2D" uid="uid://dahiv7tn1oe0o" path="res://root/scenes/minigames/typing_machine/letter_E.png" id="19_d2tni"]
+[ext_resource type="Texture2D" uid="uid://j4pmad67xbmq" path="res://root/scenes/minigames/typing_machine/letter_A.png" id="20_mgu1g"]
+[ext_resource type="Texture2D" uid="uid://dx8q0pdhht5pa" path="res://root/scenes/minigames/typing_machine/letter_M.png" id="21_kojyi"]
 
-[node name="TypingMachine" type="Node2D" unique_id=1204961289]
+[sub_resource type="Gradient" id="Gradient_62is7"]
+interpolation_mode = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mxir1"]
+gradient = SubResource("Gradient_62is7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62is7"]
+size = Vector2(340.3125, 131)
+
+[node name="TypingMachine" type="Node2D" unique_id=1204961289 node_paths=PackedStringArray("letters")]
 script = ExtResource("1_ky7w0")
+letters = [NodePath("LetterD"), NodePath("LetterR"), NodePath("LetterE"), NodePath("LetterA"), NodePath("LetterM")]
 
-[node name="Pointer" parent="." unique_id=2020171349 instance=ExtResource("2_ii186")]
-position = Vector2(694, 444)
-speed_multiplier = 35.0
+[node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("2_mxir1")]
+bottom_scene = "uid://kl6lepn4skoq"
+bottom_flag = "typing_solved"
+
+[node name="TypewriterBackground" type="Sprite2D" parent="." unique_id=166640896]
+position = Vector2(960, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_ii186")
+
+[node name="GameZone" type="Node2D" parent="." unique_id=1651157009]
+
+[node name="Podlozhka" type="Sprite2D" parent="GameZone" unique_id=1869202979]
+position = Vector2(172, 540)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_62is7")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameZone" unique_id=1242728725]
+position = Vector2(142, 539)
+scale = Vector2(1.5761719, 55.499985)
+texture = SubResource("GradientTexture1D_mxir1")
+
+[node name="Pointer" parent="GameZone" unique_id=2020171349 instance=ExtResource("2_ii186")]
+unique_name_in_owner = true
+position = Vector2(174, 539)
+path_size = 900
+
+[node name="TriggerZone" type="Area2D" parent="GameZone" unique_id=110327802]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameZone/TriggerZone" unique_id=581225391]
+position = Vector2(172.84375, 539.5)
+shape = SubResource("RectangleShape2D_62is7")
+
+[node name="Timer" type="Timer" parent="." unique_id=1647204884]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Key1" type="Sprite2D" parent="." unique_id=787888704 groups=["keys"]]
+position = Vector2(666, 740)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_ff1pv")
+
+[node name="Key2" type="Sprite2D" parent="." unique_id=112920472 groups=["keys"]]
+position = Vector2(732, 686)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_c8ay6")
+
+[node name="Key3" type="Sprite2D" parent="." unique_id=1723253490 groups=["keys"]]
+position = Vector2(801.00006, 680)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_crprk")
+
+[node name="Key4" type="Sprite2D" parent="." unique_id=432351067 groups=["keys"]]
+position = Vector2(871.00006, 684)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_0rlnd")
+
+[node name="Key5" type="Sprite2D" parent="." unique_id=536165976 groups=["keys"]]
+position = Vector2(811, 742)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_at3mn")
+
+[node name="Key6" type="Sprite2D" parent="." unique_id=1034060444 groups=["keys"]]
+position = Vector2(1021.00006, 736)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("11_xts1d")
+
+[node name="Key7" type="Sprite2D" parent="." unique_id=1589845177 groups=["keys"]]
+position = Vector2(1210, 683)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("12_g7rqg")
+
+[node name="SuccessAudio" parent="." unique_id=1693318789 instance=ExtResource("13_0rlnd")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("14_at3mn")])
+
+[node name="EndAudio" parent="." unique_id=240735099 instance=ExtResource("13_0rlnd")]
+streams = Array[AudioStream]([ExtResource("15_at3mn")])
+
+[node name="FailAudio" parent="." unique_id=1144700527 instance=ExtResource("13_0rlnd")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("15_xts1d")])
+
+[node name="LetterD" type="Sprite2D" parent="." unique_id=1499476095]
+visible = false
+position = Vector2(739, 121.99999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_xts1d")
+
+[node name="LetterR" type="Sprite2D" parent="." unique_id=1225385010]
+visible = false
+position = Vector2(803, 123)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("18_fy2s8")
+
+[node name="LetterE" type="Sprite2D" parent="." unique_id=14905013]
+visible = false
+position = Vector2(864, 122)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_d2tni")
+
+[node name="LetterA" type="Sprite2D" parent="." unique_id=684218799]
+visible = false
+position = Vector2(921, 124)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_mgu1g")
+
+[node name="LetterM" type="Sprite2D" parent="." unique_id=1204496541]
+visible = false
+position = Vector2(975, 123)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("21_kojyi")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvnaxuioe1squ" path="res://root/scenes/minigames/levers_cleancore/levers_game_mini.gd" id="1_dlay1"]
 [ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/scripts/on_screen_object/onscreen_object_state.gd" id="1_u15os"]
 [ext_resource type="Texture2D" uid="uid://bxuv3uvr7k80h" path="res://root/assets/atlases/switchs.sprites/lever_up.tres" id="2_drbb6"]
-[ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/Scripts/on_screen_object/object_with_states.gd" id="2_ykac2"]
+[ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/scripts/on_screen_object/object_with_states.gd" id="2_ykac2"]
 [ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/scripts/on_screen_object/object_state_transition.gd" id="3_a0568"]
 [ext_resource type="Texture2D" uid="uid://b3qu72qdd8rua" path="res://root/assets/atlases/switchs.sprites/lever_down.tres" id="3_v8odj"]
 

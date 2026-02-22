@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bdex80tv1sx1i" path="res://root/scenes/levels/level1/cleancore_levers_panel_close.png" id="7_nved4"]
 [ext_resource type="PackedScene" uid="uid://ro07cjxvlmo3" path="res://root/components/level_transition_area/level_transition_area.tscn" id="11_gri7d"]
 [ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="11_kdm4n"]
+[ext_resource type="Texture2D" uid="uid://lutukrys1m4f" path="res://root/scenes/levels/level1/par2.png" id="11_oq25w"]
 [ext_resource type="Texture2D" uid="uid://b8ms1dsboq112" path="res://root/scenes/levels/level1/cleancore_levers_panel.png" id="11_sdhyp"]
 [ext_resource type="PackedScene" uid="uid://djylon2s2ib0u" path="res://root/scenes/minigames/ShampooGame/shampoo_game.tscn" id="12_gri7d"]
+[ext_resource type="Script" uid="uid://ccksk6ta11s1a" path="res://root/scenes/levels/level1/steam_vent.gd" id="sv_script"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdhyp"]
 size = Vector2(340, 487)
@@ -19,6 +21,14 @@ size = Vector2(258, 225)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdhyp"]
 radius = 130.0
 height = 704.0
+
+[sub_resource type="Curve" id="Curve_sy46o"]
+_data = [Vector2(0.011831149, 0.15224862), 0.0, 0.0, 0, 0, Vector2(0.16100812, 0.89166665), 2.261344, 2.261344, 0, 0, Vector2(0.9943415, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_steam"]
+offsets = PackedFloat32Array(0, 0.26186654, 0.5338665, 1)
+colors = PackedColorArray(0.9152294, 0.966422, 1, 0.41489473, 0.88, 0.94, 1, 0.5254902, 0.92, 0.97, 1, 0.35, 0.92, 0.97, 1, 0)
 
 [node name="Level1Right" type="Node2D" unique_id=503568121]
 
@@ -87,3 +97,82 @@ scale = Vector2(0.205, 0.205)
 mouse_filter = 2
 disable_clicks = true
 disable_mouse_intercept = true
+
+[node name="SteamVents" type="Node2D" parent="." unique_id=220011001]
+
+[node name="SharedSteamMask" type="Polygon2D" parent="SteamVents" unique_id=220011003]
+clip_children = 1
+position = Vector2(-17, -6)
+polygon = PackedVector2Array(960, 802, 1610, 802, 1604, 530, 956, 501)
+uv = PackedVector2Array(1079, 801, 1097, 787, 1099, 782, 1106, 787, 1110, 782, 1118.2699, 787.6538, 1123, 784, 1130.874, 788.3254, 1134, 784, 1142.4697, 788.94324, 1147, 783, 1157.1886, 789.7275, 1161, 784, 1170, 788, 1173, 786, 1181.4966, 788.7665, 1184, 786, 1193.3464, 789.5565, 1197, 786, 1203.8331, 790.2556, 1208, 783, 1218.5319, 791.23553, 1220, 783, 1231.2732, 792.085, 1231, 783, 1241, 793, 1242, 784, 1255, 792, 1257, 787, 1265, 792, 1268, 787, 1278, 792, 1281, 786, 1290, 789, 1294, 784, 1302, 787, 1350, 800, 1345, 562, 1049, 586)
+script = ExtResource("sv_script")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SteamVents/SharedSteamMask" unique_id=220011004]
+position = Vector2(1317, 777)
+amount = 26
+texture = ExtResource("11_oq25w")
+lifetime = 5.46
+randomness = 1.0
+fixed_fps = 60
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(51, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 35.0
+angular_velocity_min = -8.0
+angular_velocity_max = 8.0
+scale_amount_min = 0.3
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_sy46o")
+color = Color(0.9, 0.95, 1, 1)
+color_ramp = SubResource("Gradient_steam")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="SteamVents/SharedSteamMask" unique_id=789361964]
+position = Vector2(1465, 777)
+amount = 26
+texture = ExtResource("11_oq25w")
+lifetime = 5.46
+randomness = 1.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(51, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 35.0
+angular_velocity_min = -8.0
+angular_velocity_max = 8.0
+scale_amount_min = 0.3
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_sy46o")
+color = Color(0.9, 0.95, 1, 1)
+color_ramp = SubResource("Gradient_steam")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="SteamVents/SharedSteamMask" unique_id=1465894976]
+position = Vector2(1166, 781)
+amount = 26
+texture = ExtResource("11_oq25w")
+lifetime = 5.46
+preprocess = 3.69
+randomness = 1.0
+lifetime_randomness = 0.07
+fixed_fps = 60
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(51, 1)
+direction = Vector2(0, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 35.0
+angular_velocity_min = -8.0
+angular_velocity_max = 8.0
+scale_amount_min = 0.3
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_sy46o")
+color = Color(0.9, 0.95, 1, 1)
+color_ramp = SubResource("Gradient_steam")

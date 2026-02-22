@@ -22,16 +22,16 @@ func _ready() -> void:
 	if is_empty:
 		shampoo_texture.modulate = Color.TRANSPARENT
 
-func _on_gui_input(event : InputEvent) -> void:
-	if  event is InputEventMouseButton :
-		if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT && event.pressed :
-			if is_empty && GlobalData.selected_slot && GlobalData.selected_slot.inventory_slot.item.id == id :
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT && event.pressed:
+			if is_empty && GlobalData.selected_slot && GlobalData.selected_slot.inventory_slot.item.id == id:
 				is_empty = false
 				shampoo_texture.modulate = Color.WHITE
 				GlobalData.player_inventory.remove_item(GlobalData.selected_slot.inventory_slot.item)
 				shampoo_game.check_solved()
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	if is_empty || clicks_disabled:
 		return null
 	var preview = Control.new()
@@ -46,18 +46,18 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 	shampoo_texture.modulate = Color.TRANSPARENT
 	shampoo_game.dragging_shampoo = self
 	return self
-	
+
 func reset_shampoo():
 	shampoo_game.dragging_shampoo.shampoo_texture.modulate = Color.WHITE
 	shampoo_game.dragging_shampoo = null
 
 func remove_shampoo():
-	shampoo_texture.modulate = Color.TRANSPARENT	
-	
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	shampoo_texture.modulate = Color.TRANSPARENT
+
+func _can_drop_data(_at_position: Vector2, _data: Variant) -> bool:
 	return true
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	print("drop")
 	if data != self:
 		var drag_idx = data.get_index()
@@ -70,4 +70,3 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	if ! audios.is_empty() :
 		AudioService.play_sound(audios, &"SFX", [-12, -8], [0.5, 1.2])
 	shampoo_game.check_solved()
-	

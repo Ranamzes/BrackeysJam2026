@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://b8e7f0oic26y" path="res://root/resources/effects/woo_effect.gd" id="7_woo"]
 [ext_resource type="Script" uid="uid://blswamk76gei2" path="res://root/resources/effects/red_sparkle_effect.gd" id="8_redsparkle"]
 [ext_resource type="Script" uid="uid://bwsc7udc4i460" path="res://root/resources/effects/embers_effect.gd" id="9_embers"]
+[ext_resource type="Script" uid="uid://df1e4couolgkg" path="res://root/resources/effects/gold_sparkle_effect.gd" id="10_goldsparkle"]
+[ext_resource type="Script" uid="uid://dhrpa5tdb1n1h" path="res://root/resources/effects/glitch_effect.gd" id="11_glitch"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1it2"]
 
@@ -23,6 +25,12 @@ script = ExtResource("8_redsparkle")
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_embers"]
 script = ExtResource("9_embers")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_goldsparkle"]
+script = ExtResource("10_goldsparkle")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_glitch"]
+script = ExtResource("11_glitch")
 
 [sub_resource type="Animation" id="Animation_reset"]
 resource_name = "RESET"
@@ -106,6 +114,17 @@ tracks/6/keys = {
 "points": PackedFloat32Array(-2, -0.2, 0, 0.2, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/SubViewportContainer/SubViewport/PortraitContent:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(373, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_close"]
 resource_name = "close"
@@ -176,7 +195,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/PortraitSprite:position:y")
+tracks/2/path = NodePath("DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/SubViewportContainer/SubViewport/PortraitContent:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -267,7 +286,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 1925.0
 offset_top = -2.0
-offset_right = 2941.0059
+offset_right = 2941.0063
 offset_bottom = 364.0
 mouse_filter = 2
 texture = ExtResource("2_7bbpj")
@@ -289,7 +308,27 @@ offset_right = 366.0
 offset_bottom = 366.0
 texture = ExtResource("3_m1it2")
 
-[node name="PortraitSprite" type="TextureRect" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask" unique_id=68479449]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask" unique_id=1249251586]
+layout_mode = 0
+offset_right = 366.0
+offset_bottom = 366.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/SubViewportContainer" unique_id=427071761]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(366, 366)
+render_target_update_mode = 4
+
+[node name="PortraitContent" type="Control" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/SubViewportContainer/SubViewport" unique_id=77777777]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 366.0
+offset_bottom = 366.0
+mouse_filter = 2
+
+[node name="PortraitSprite" type="TextureRect" parent="DialogueControl/DialoguePanel/PortraitContainer/PortraitMask/SubViewportContainer/SubViewport/PortraitContent" unique_id=68479449]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 366.0
@@ -313,7 +352,7 @@ mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("5_font")
 theme_override_font_sizes/normal_font_size = 42
 bbcode_enabled = true
-custom_effects = [SubResource("RichTextEffect_nervous"), SubResource("RichTextEffect_woo"), SubResource("RichTextEffect_redsparkle"), SubResource("RichTextEffect_embers")]
+custom_effects = [SubResource("RichTextEffect_nervous"), SubResource("RichTextEffect_woo"), SubResource("RichTextEffect_redsparkle"), SubResource("RichTextEffect_embers"), SubResource("RichTextEffect_goldsparkle"), SubResource("RichTextEffect_glitch")]
 script = ExtResource("4_dl_label")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 

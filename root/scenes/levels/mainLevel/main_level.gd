@@ -1,13 +1,19 @@
 extends Node2D
 
-@onready var door: Sprite2D = $Door
+@onready var door: Sprite2D = $BackgroundContainer/Door
 
 @export_group("Dialogue Settings")
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "open_door"
 @export var portrait_texture: Texture2D
+@export var portrait_scene: PackedScene
 
 func _ready() -> void:
+	var hud = $Hud
+	if ProgressionManager.get_flag("level_1_visited"):
+		hud.right_scene = "uid://dtxkforlylqrn"
+	hud.update_navigation()
+
 	if ProgressionManager.get_flag("door_1_opened"):
 		# Door already was revealed, show it immediately and skip sequence
 		door.modulate.a = 1.0
@@ -21,7 +27,7 @@ func _ready() -> void:
 
 func _on_sequence_start() -> void:
 	# Trigger dialogue directly passing [self] so it can call reveal_door()
-	DialogueService.start_dialogue(dialogue_resource, dialogue_start, [self], portrait_texture)
+	DialogueService.start_dialogue(dialogue_resource, dialogue_start, [self], portrait_texture, portrait_scene)
 
 
 func reveal_door() -> void:
@@ -33,5 +39,5 @@ func reveal_door() -> void:
 	tween.tween_property(door, "modulate:a", 1.0, 2.0).set_trans(Tween.TRANS_SINE)
 
 	# Play door sound
-	var sfx = load("res://root/assets/UI/audio/creak1.ogg")
+	var sfx = load("res://root/scenes/levels/mainLevel/door_open.wav")
 	AudioService.play_sound(sfx, &"SFX")
