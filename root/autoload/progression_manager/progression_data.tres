@@ -20,5 +20,6 @@ state_table = Dictionary[String, bool]({
 "soap_stars_picked_up": false,
 "sponges_solved": false,
 "telescope_solved": false,
-"toothbrush_picked_up": false
+"toothbrush_picked_up": false,
+"typing_solved": false
 })
