@@ -139,7 +139,7 @@ func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void
 	var sway_dir := 1.0 if i % 2 == 0 else -1.0
 
 	# Kill existing tweens on this object property to prevent overlap/leaks
-	var existing_tweens = get_tree().get_tweens().filter(func(t): return t.is_valid() and t.is_running())
+	var existing_tweens = get_tree().get_processed_tweens().filter(func(t): return t.is_valid() and t.is_running())
 	for t in existing_tweens:
 		# There's no direct way to check what an anonymous tween is targeting easily without a reference,
 		# simpler to just ensure we don't start it multiple times or use a dictionary to track.
