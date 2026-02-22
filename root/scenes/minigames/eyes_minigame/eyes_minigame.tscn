@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://bco88hjpney5g"]
+
+[ext_resource type="Script" uid="uid://dth45vfmolv1m" path="res://root/scenes/minigames/eyes_minigame/eyes_minigame.gd" id="1_qi1ji"]
+[ext_resource type="Script" uid="uid://32deeh5aiw8j" path="res://root/scripts/on_screen_object/object_with_states.gd" id="2_nwepg"]
+[ext_resource type="Script" uid="uid://d220gdh8idd4i" path="res://root/scripts/on_screen_object/onscreen_object_state.gd" id="3_154ch"]
+[ext_resource type="Script" uid="uid://badqbpg0t61d3" path="res://root/scripts/on_screen_object/object_state_transition.gd" id="4_tujwg"]
+[ext_resource type="Texture2D" uid="uid://bn62u6pyilblb" path="res://root/scenes/levels/level3/eye_on_a_wall1.png" id="5_lv0ls"]
+[ext_resource type="Texture2D" uid="uid://b47ybn51h068f" path="res://root/scenes/levels/level3/eye_on_a_wall_closed1.png" id="6_q621r"]
+[ext_resource type="Texture2D" uid="uid://bavvrk5kia33t" path="res://root/scenes/levels/level3/eye_on_a_wall2.png" id="7_g5glx"]
+[ext_resource type="Texture2D" uid="uid://tlf1bkclfqyc" path="res://root/scenes/levels/level3/eye_on_a_wall_closed2.png" id="8_pkx7e"]
+[ext_resource type="Texture2D" uid="uid://byasih50lgtec" path="res://root/scenes/levels/level3/eye_on_a_wall3.png" id="9_wan4m"]
+[ext_resource type="Texture2D" uid="uid://7qhehlumphxf" path="res://root/scenes/levels/level3/eye_on_a_wall_closed3.png" id="10_b22ut"]
+[ext_resource type="Texture2D" uid="uid://62wji4a38dd5" path="res://root/scenes/levels/level3/eye_on_a_wall4.png" id="11_oe3p2"]
+[ext_resource type="Texture2D" uid="uid://psr6ebq2p65x" path="res://root/scenes/levels/level3/eye_on_a_wall_closed4.png" id="12_p57dh"]
+[ext_resource type="Texture2D" uid="uid://d1xdl1yhq7tom" path="res://root/scenes/levels/level3/eye_on_a_wall5.png" id="13_cbt6a"]
+[ext_resource type="Texture2D" uid="uid://bkt8hwsoasao1" path="res://root/scenes/levels/level3/eye_on_a_wall_closed5.png" id="14_be6e7"]
+[ext_resource type="Texture2D" uid="uid://b322k1rtctxt0" path="res://root/scenes/levels/level3/eye_on_a_wall6.png" id="15_t54mm"]
+[ext_resource type="Texture2D" uid="uid://hmti6i6nnsb6" path="res://root/scenes/levels/level3/eye_on_a_wall_closed6.png" id="16_rivmg"]
+
+[node name="EyesMinigame" type="Node2D" unique_id=446005208]
+script = ExtResource("1_qi1ji")
+
+[node name="eye_1" type="Node2D" parent="." unique_id=1219490611]
+position = Vector2(983, 238)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_1" unique_id=1860548667]
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_1/open" unique_id=1071390834 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_1/open" unique_id=280156899]
+texture = ExtResource("5_lv0ls")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_1/open" unique_id=1987113443]
+polygon = PackedVector2Array(-76, 92, 109, 25, 145, -56, 33, -89, -143, -14)
+
+[node name="closed" type="Area2D" parent="eye_1" unique_id=47021294]
+visible = false
+position = Vector2(6, 14)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_1/closed" unique_id=2055646423 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_1/closed" unique_id=1366968744]
+texture = ExtResource("6_q621r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_1/closed" unique_id=1286139779]
+polygon = PackedVector2Array(-76, 92, 109, 25, 145, -56, 33, -89, -143, -14)
+
+[node name="eye_2" type="Node2D" parent="." unique_id=1579508903]
+position = Vector2(649, 453)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_2" unique_id=649982137]
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_2/open" unique_id=1617503848 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_2/open" unique_id=382059391]
+texture = ExtResource("7_g5glx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_2/open" unique_id=503865962]
+polygon = PackedVector2Array(-89, 65, 120, 37, 102, -38, -66, -75, -121, -18)
+
+[node name="closed" type="Area2D" parent="eye_2" unique_id=912138465]
+visible = false
+position = Vector2(-2, 24)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_2/closed" unique_id=434451956 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_2/closed" unique_id=1253258341]
+texture = ExtResource("8_pkx7e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_2/closed" unique_id=300723263]
+polygon = PackedVector2Array(-89, 65, 120, 37, 102, -38, -66, -75, -121, -18)
+
+[node name="eye_3" type="Node2D" parent="." unique_id=1854269779]
+position = Vector2(196, 155)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_3" unique_id=74769616]
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_3/open" unique_id=1198323548 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_3/open" unique_id=1642101242]
+texture = ExtResource("9_wan4m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_3/open" unique_id=1938231349]
+polygon = PackedVector2Array(-115, 111, 134, 78, 158, -80, -67, -116, -166, -14)
+
+[node name="closed" type="Area2D" parent="eye_3" unique_id=722795464]
+visible = false
+position = Vector2(2, -31)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_3/closed" unique_id=1327673206 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_3/closed" unique_id=2027537602]
+texture = ExtResource("10_b22ut")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_3/closed" unique_id=1675294578]
+polygon = PackedVector2Array(-137, 90, 135, 53, 161, -76, -43, -84, -166, -14)
+
+[node name="eye_4" type="Node2D" parent="." unique_id=971071841]
+position = Vector2(570, 179)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_4" unique_id=691473673]
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_4/open" unique_id=626871303 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_4/open" unique_id=492512336]
+texture = ExtResource("11_oe3p2")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_4/open" unique_id=575710891]
+polygon = PackedVector2Array(-58, 68, 89, 83, 105, -58, -60, -87, -128, -33)
+
+[node name="closed" type="Area2D" parent="eye_4" unique_id=374677106]
+visible = false
+position = Vector2(-1, -19)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_4/closed" unique_id=1182231131 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_4/closed" unique_id=1799531721]
+texture = ExtResource("12_p57dh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_4/closed" unique_id=144827180]
+polygon = PackedVector2Array(-57, 34, 135, 53, 91, -38, -32, -66, -146, -15)
+
+[node name="eye_5" type="Node2D" parent="." unique_id=1453166394]
+position = Vector2(256, 453)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_5" unique_id=1875174203]
+position = Vector2(-5, -30)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_5/open" unique_id=1382882889 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_5/open" unique_id=612614583]
+texture = ExtResource("13_cbt6a")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_5/open" unique_id=1722814225]
+polygon = PackedVector2Array(-93, 109, 107, 95, 188, -17, 110, -100, -102, -91, -165, 44)
+
+[node name="closed" type="Area2D" parent="eye_5" unique_id=345549184]
+visible = false
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_5/closed" unique_id=791266541 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_5/closed" unique_id=478969012]
+texture = ExtResource("14_be6e7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_5/closed" unique_id=17340896]
+polygon = PackedVector2Array(-85, 49, 95, 37, 187, -64, -5, -86, -168, -3)
+
+[node name="eye_6" type="Node2D" parent="." unique_id=564764881]
+position = Vector2(963, 529)
+script = ExtResource("2_nwepg")
+metadata/_custom_type_script = "uid://32deeh5aiw8j"
+
+[node name="open" type="Area2D" parent="eye_6" unique_id=1805553536]
+position = Vector2(-5, -30)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="close_eye" type="Node2D" parent="eye_6/open" unique_id=623436101 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../closed")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_6/open" unique_id=536285553]
+texture = ExtResource("15_t54mm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_6/open" unique_id=1828479315]
+polygon = PackedVector2Array(-77, 63, 57, 95, 136, -10, 84, -83, -69, -80, -140, -28)
+
+[node name="closed" type="Area2D" parent="eye_6" unique_id=1961479438]
+visible = false
+position = Vector2(-8, -11)
+script = ExtResource("3_154ch")
+metadata/_custom_type_script = "uid://d220gdh8idd4i"
+
+[node name="open_eye" type="Node2D" parent="eye_6/closed" unique_id=1259222989 node_paths=PackedStringArray("new_state")]
+script = ExtResource("4_tujwg")
+new_state = NodePath("../../open")
+metadata/_custom_type_script = "uid://badqbpg0t61d3"
+
+[node name="Sprite2D" type="Sprite2D" parent="eye_6/closed" unique_id=1366160549]
+texture = ExtResource("16_rivmg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="eye_6/closed" unique_id=1371480754]
+polygon = PackedVector2Array(-60, 43, 95, 37, 146, -32, 6, -41, -139, -33)
