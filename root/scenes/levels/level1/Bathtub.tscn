@@ -1,14 +1,260 @@
 [gd_scene format=3 uid="uid://csggopkacp6ep"]
 
+[ext_resource type="Script" uid="uid://bfpgr4yfv6yfc" path="res://root/scenes/levels/level1/bathtub.gd" id="1_2yxbk"]
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_v18t5"]
 [ext_resource type="Texture2D" uid="uid://2ggmi52jdb8g" path="res://root/scenes/levels/level1/cleancore_duck_background.png" id="2_v18t5"]
 [ext_resource type="PackedScene" uid="uid://cy4f0dweobs4k" path="res://root/components/interactable_area/InteractableArea.tscn" id="3_fxol1"]
 [ext_resource type="Resource" uid="uid://c65otytqxxvy5" path="res://root/assets/items/rubber_duck.tres" id="4_vjbqn"]
+[ext_resource type="Texture2D" uid="uid://cgeylom1v5ekl" path="res://root/scenes/levels/level1/green_duck_body.png" id="5_5ciuq"]
+[ext_resource type="Texture2D" uid="uid://cnmaettdb3q04" path="res://root/scenes/levels/level1/pink_duck_body.png" id="6_kojsi"]
+[ext_resource type="Texture2D" uid="uid://4gyuc3k6s56j" path="res://root/scenes/levels/level1/green_duck_head.png" id="7_o8vj8"]
+[ext_resource type="Texture2D" uid="uid://s75khqrf2y3o" path="res://root/scenes/levels/level1/blue_duck_body.png" id="8_142kw"]
+[ext_resource type="Texture2D" uid="uid://dvn2l1khdtrj" path="res://root/scenes/levels/level1/blue_duck_head.png" id="9_o8vj8"]
+[ext_resource type="Texture2D" uid="uid://dy6xgorp0h112" path="res://root/scenes/levels/level1/pink_duck_head.png" id="10_142kw"]
+[ext_resource type="PackedScene" uid="uid://cnoavpmsg0p8h" path="res://root/components/visibility_updater/VisibilityUpdater.tscn" id="11_jnsrc"]
+
+[sub_resource type="Animation" id="Animation_o8vj8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueDuckHead2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7504916]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissingDuck/BlueDuckHead:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.21991149]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GreenDuckHead:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.282817]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GreenDuckHead2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.95644045]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PinkDuckHead:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.3386675]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PinkDuckHead2:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.87441]
+}
+
+[sub_resource type="Animation" id="Animation_142kw"]
+resource_name = "solution"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueDuckHead2:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.624505),
+"update": 0,
+"values": [0.7504916, 2.4242623310201235]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissingDuck/BlueDuckHead:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.62),
+"update": 0,
+"values": [-0.21991149, -2.1519909677090086]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GreenDuckHead:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.62),
+"update": 0,
+"values": [1.282817, 0.13962634015954636]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GreenDuckHead2:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.62),
+"update": 0,
+"values": [-0.95644045, -2.2846359908605773]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PinkDuckHead:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.62),
+"update": 0,
+"values": [1.3386675, -0.04886921905584143]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PinkDuckHead2:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.62),
+"update": 0,
+"values": [-0.87441, -0.024434609527920217]
+}
+
+[sub_resource type="Animation" id="Animation_2yxbk"]
+resource_name = "solved"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlueDuckHead2:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.624505),
+"update": 0,
+"values": [2.4242623310201235]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissingDuck/BlueDuckHead:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62),
+"update": 0,
+"values": [-2.1519909677090086]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GreenDuckHead:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62),
+"update": 0,
+"values": [0.13962634015954636]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GreenDuckHead2:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62),
+"update": 0,
+"values": [-2.2846359908605773]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PinkDuckHead:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62),
+"update": 0,
+"values": [-0.04886921905584143]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PinkDuckHead2:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.62),
+"update": 0,
+"values": [-0.024434609527920217]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yxbk"]
+_data = {
+&"RESET": SubResource("Animation_o8vj8"),
+&"solution": SubResource("Animation_142kw"),
+&"solved": SubResource("Animation_2yxbk")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjbqn"]
 radius = 728.2038
 
 [node name="Bathtub" type="Node2D" unique_id=163530057]
+script = ExtResource("1_2yxbk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=550972045]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2yxbk")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_v18t5")]
 bottom_scene = "uid://bcyhhrogf6g01"
@@ -29,3 +275,82 @@ position = Vector2(864.99994, 440.00003)
 rotation = 0.51836276
 skew = 0.51312673
 shape = SubResource("CircleShape2D_vjbqn")
+
+[node name="GreenDuckBody" type="Sprite2D" parent="." unique_id=1486908685]
+position = Vector2(1203, 275)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_5ciuq")
+
+[node name="PinkDuckBody" type="Sprite2D" parent="." unique_id=1636786113]
+position = Vector2(859.00006, 378)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_kojsi")
+flip_h = true
+
+[node name="GreenDuckBody2" type="Sprite2D" parent="." unique_id=816159020]
+position = Vector2(513, 715)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_5ciuq")
+flip_h = true
+
+[node name="GreenDuckHead" type="Sprite2D" parent="." unique_id=235526173]
+position = Vector2(429.99994, 656.99994)
+rotation = 1.282817
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_o8vj8")
+flip_h = true
+
+[node name="BlueDuckBody" type="Sprite2D" parent="." unique_id=664410841]
+position = Vector2(525, 280)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_142kw")
+flip_h = true
+
+[node name="BlueDuckHead2" type="Sprite2D" parent="." unique_id=1597554123]
+position = Vector2(429, 224.00002)
+rotation = 0.7504916
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_o8vj8")
+flip_h = true
+
+[node name="PinkDuckBody2" type="Sprite2D" parent="." unique_id=2032501196]
+position = Vector2(1248, 686)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_kojsi")
+
+[node name="GreenDuckHead2" type="Sprite2D" parent="." unique_id=225585175]
+position = Vector2(1269, 216)
+rotation = -0.95644045
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_o8vj8")
+
+[node name="MissingDuck" type="Node2D" parent="." unique_id=499953313]
+position = Vector2(864.99994, 440.00003)
+
+[node name="BlueDuckBody2" type="Sprite2D" parent="MissingDuck" unique_id=656790975]
+position = Vector2(6.000061, 200.99997)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_142kw")
+
+[node name="BlueDuckHead" type="Sprite2D" parent="MissingDuck" unique_id=1426386258]
+position = Vector2(87.00006, 144.99997)
+rotation = -0.21991149
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_o8vj8")
+
+[node name="VisibilityUpdater" parent="MissingDuck" unique_id=1413650788 instance=ExtResource("11_jnsrc")]
+flags = Array[String](["duck_placed"])
+should_be_visible_if_flags_true = true
+
+[node name="PinkDuckHead" type="Sprite2D" parent="." unique_id=1763147260]
+position = Vector2(776, 323.00003)
+rotation = 1.3386675
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_142kw")
+flip_h = true
+
+[node name="PinkDuckHead2" type="Sprite2D" parent="." unique_id=64539970]
+position = Vector2(1327, 637)
+rotation = -0.87441
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_142kw")
