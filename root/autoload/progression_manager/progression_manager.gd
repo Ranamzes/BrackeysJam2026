@@ -1,5 +1,6 @@
 extends Node
 
+signal flag_changed
 @export var progression_data: ProgressionData
 
 func _ready() -> void:
