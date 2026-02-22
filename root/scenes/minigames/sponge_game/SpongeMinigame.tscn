@@ -26,6 +26,7 @@ point_count = 2
 curve = SubResource("Curve2D_0dsg8")
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_k185b")]
+bottom_scene = "uid://c3odhd3retu8g"
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1798040954]
 scale = Vector2(0.9375, 0.9375)
