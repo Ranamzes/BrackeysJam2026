@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 		if child is SpongeComponent:
 			var local_pos = child.make_input_local(InputEventMouseMotion.new()).position
 			# make_input_local needs an event to get the position, or we can just convert manually
-			local_pos = child.to_local(mouse_pos)
+			local_pos = mouse_pos - child.global_position
 			if child.get_rect().has_point(local_pos):
 				hovering = true
 				break
@@ -52,7 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		for child in sponges:
 			if child is SpongeComponent:
-				var local_pos = child.to_local(event.position)
+				var local_pos = event.position
 				if child.get_rect().has_point(local_pos):
 					child.handle_click(local_pos)
 					_on_sponge_clicked(child.id)
