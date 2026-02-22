@@ -133,7 +133,7 @@ metadata/_edit_lock_ = true
 
 [node name="Hud" parent="." unique_id=1101607946 instance=ExtResource("1_adajf")]
 right_scene = "uid://bcyhhrogf6g01"
-bottom_scene = "uid://dcuqmytsaw3xa"
+bottom_scene = "uid://dk1v0j23ftkqu"
 right_flag = "quest_bottles_started"
 bottom_flag = "quest_bottles_started"
 
