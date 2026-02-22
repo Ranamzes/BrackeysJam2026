@@ -8,7 +8,7 @@ func _ready() -> void:
 	if progression_data:
 		progression_data = progression_data.duplicate()
 
-func set_flag(flag: String, value: bool) -> void:
+func set_flag(flag: String, value: bool = true) -> void:
 	if not progression_data:
 		push_error("ProgressionData not properly assigned!")
 		return
@@ -26,3 +26,9 @@ func get_flag(flag: String) -> bool:
 		return false
 
 	return progression_data.state_table.get(flag, false)
+
+func check_flags(flags_names : Array[String], state : bool = true) -> bool :
+	for flag in flags_names :
+		if get_flag(flag) != state :
+			return false
+	return true
