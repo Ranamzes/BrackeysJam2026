@@ -16,6 +16,14 @@ extends Area2D
 
 
 @export_group("Interaction Settings")
+## Press to manually (re)generate the collision area based on current settings.
+## Useful if you have auto_setup disabled but want to start with a generated shape.
+@export var regenerate_collision: bool = false:
+	set(value):
+		if value:
+			_perform_auto_setup(true)
+		regenerate_collision = false
+
 ## If enabled, clicks on transparent pixels will be ignored using a generated collision polygon.
 @export var pixel_perfect: bool = true:
 	set(value):
@@ -34,7 +42,9 @@ extends Area2D
 		simplification_factor = value
 		if auto_setup: _perform_auto_setup()
 
-## If enabled and no CollisionShape2D exists, it will be created based on parent Sprite/Texture size.
+## If enabled, collision will be automatically created.
+## WARNING: If enabled, it may overwrite manual edits when properties change or on scene load if no collision exists.
+## Turn this OFF if you want to keep manual adjustments to the CollisionPolygon2D/CollisionShape2D.
 @export var auto_setup: bool = true:
 	set(value):
 		auto_setup = value
@@ -45,7 +55,15 @@ func _ready() -> void:
 	input_pickable = true
 
 	if auto_setup:
-		_perform_auto_setup()
+		# Only perform auto-setup if no collision child already exists (prevents overwriting manual edits on load)
+		var has_collision = false
+		for child in get_children():
+			if child is CollisionShape2D or child is CollisionPolygon2D:
+				has_collision = true
+				break
+
+		if not has_collision:
+			_perform_auto_setup()
 
 
 func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
@@ -75,8 +93,11 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 		print("DialogueTrigger: [", name, "] Triggering dialogue start...")
 		start_dialogue()
 
-func _perform_auto_setup() -> void:
-	print("DialogueTrigger: [", name, "] Performing auto-setup...")
+func _perform_auto_setup(force: bool = false) -> void:
+	if not force and not auto_setup:
+		return
+
+	print("DialogueTrigger: [", name, "] Performing auto-setup (Force: ", force, ")...")
 	# 1. Handle mouse filter for Control parents
 	var parent = get_parent()
 	if not parent:
@@ -87,10 +108,21 @@ func _perform_auto_setup() -> void:
 		parent.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		print("DialogueTrigger: Set parent %s mouse_filter to IGNORE" % parent.name)
 
-	# 2. Check if we already have a collision child
+	# 2. Check if we already have a collision child and manage it
+	var existing_auto_nodes = []
 	for child in get_children():
 		if child.name.begins_with("AutoCollision"):
-			child.free()
+			existing_auto_nodes.append(child)
+
+	if existing_auto_nodes.size() > 0:
+		if not force:
+			# If not forcing, and we have auto-nodes, we might want to skip to avoid overwriting
+			# but usually setters WANT to overwrite if auto_setup is ON.
+			# We'll stick to overwriting ONLY if it starts with "AutoCollision"
+			pass
+
+		for node in existing_auto_nodes:
+			node.free()
 
 	var size := Vector2.ZERO
 
