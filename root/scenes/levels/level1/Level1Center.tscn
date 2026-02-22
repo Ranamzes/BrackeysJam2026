@@ -128,6 +128,7 @@ position = Vector2(0, -6.1035156e-05)
 scale = Vector2(1, 1.0000001)
 
 [node name="InteractableArea" parent="pena" unique_id=463221873 instance=ExtResource("12_a0k7e")]
+visible = false
 position = Vector2(318.50003, 807.94104)
 scale = Vector2(0.7217676, 0.5752176)
 required_item = ExtResource("16_8hyj7")
