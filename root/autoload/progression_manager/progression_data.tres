@@ -10,7 +10,7 @@ state_table = Dictionary[String, bool]({
 "duck_placed": false,
 "floor_tile_unlocked": false,
 "level_1_visited": false,
-"levers_solved": true,
+"levers_solved": false,
 "pipes_solved": false,
 "puzzle_colors_solved": false,
 "puzzle_pieces_solved": false,
