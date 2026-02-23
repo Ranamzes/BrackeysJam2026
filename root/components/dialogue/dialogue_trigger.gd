@@ -2,8 +2,13 @@
 class_name DialogueTrigger
 extends Area2D
 
-@export var dialogue_resource: DialogueResource
-@export var dialogue_start: String = "start"
+@export var dialogue_resource: DialogueResource:
+	set(v):
+		dialogue_resource = v
+		_update_variant_resources()
+		notify_property_list_changed()
+
+@export var default_head: String = "start"
 
 @export var portrait_texture: Texture2D
 
@@ -12,7 +17,17 @@ extends Area2D
 @export var portrait_scene: PackedScene
 
 ## Optional list of conditional dialogue paths. The first one that meets its conditions will be used.
-@export var variants: Array[DialogueVariant] = []
+@export var variants: Array[DialogueVariant] = []:
+	set(v):
+		var changed = false
+		for i in range(v.size()):
+			if v[i] == null:
+				v[i] = DialogueVariant.new()
+				changed = true
+		variants = v
+		_update_variant_resources()
+		if changed:
+			notify_property_list_changed()
 
 
 @export_group("Interaction Settings")
@@ -53,6 +68,9 @@ extends Area2D
 func _ready() -> void:
 	# Ensure the area is pickable so it receives input events
 	input_pickable = true
+
+	if Engine.is_editor_hint():
+		_update_variant_resources()
 
 	if auto_setup:
 		# Only perform auto-setup if no collision child already exists (prevents overwriting manual edits on load)
@@ -271,7 +289,7 @@ func start_dialogue(extra_game_states: Array = []) -> void:
 				chosen_variant = v
 				break
 
-		var title = _get_start_title()
+		var title = _get_active_dialogue_head()
 
 		# Handle item consumption if variant requires it
 		if chosen_variant and chosen_variant.consume_item and chosen_variant.required_item:
@@ -295,15 +313,42 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 # Virtual method: Override this in attached scripts to add conditional logic
 # e.g. return "start_quest_2" if has_flag("quest_1_complete")
-func _get_start_title() -> String:
+func _get_active_dialogue_head() -> String:
 	# 1. Check variants in order (from newest/highest priority to oldest)
 	for i in range(variants.size() - 1, -1, -1):
 		var variant = variants[i]
 		if variant.are_conditions_met():
-			return variant.start_title
+			return variant.dialogue_head
 
 	# 2. Fallback to default
-	return dialogue_start
+	return default_head
+
+
+func _validate_property(property: Dictionary):
+	if property.name == "default_head" and dialogue_resource:
+		_update_variant_resources()
+		var titles = _get_titles(dialogue_resource)
+		if titles.size() > 0:
+			property.hint = PROPERTY_HINT_ENUM
+			property.hint_string = ",".join(titles)
+
+
+func _get_titles(res: Resource) -> PackedStringArray:
+	if not res: return []
+	if res.has_method("get_titles"):
+		return res.get_titles()
+	if "titles" in res:
+		var t = res.get("titles")
+		if t is Dictionary:
+			return PackedStringArray(t.keys())
+		if t is Array:
+			return PackedStringArray(t)
+	return []
+
+
+func _update_variant_resources():
+	for v in variants:
+		if v: v.editor_dialogue_resource = dialogue_resource
 
 # --- Helper Methods for Cleaner Logic in Child Scripts ---
 

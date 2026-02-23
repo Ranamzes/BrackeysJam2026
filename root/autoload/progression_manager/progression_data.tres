@@ -9,6 +9,7 @@ state_table = Dictionary[String, bool]({
 "button_on_right_screen_clicked": false,
 "duck_placed": false,
 "floor_tile_unlocked": false,
+"flower_picked_up": false,
 "frame_placed": false,
 "level_1_visited": false,
 "levers_solved": false,

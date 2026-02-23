@@ -148,7 +148,7 @@ func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void
 	var sway_dir := 1.0 if i % 2 == 0 else -1.0
 
 	var actual_start = func():
-		if not is_instance_valid(child):
+		if not is_instance_valid(child) or not is_inside_tree():
 			return
 		var loop_tween = create_tween().set_loops()
 		loop_tween.tween_property(child, "position:x", rest_x + sway_amp * sway_dir, sway_dur) \
@@ -164,7 +164,7 @@ func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void
 
 func _start_duck_idle(duck: Sprite2D, rest_pos: Vector2, rest_rot: float, start_delay: float = 0.0) -> void:
 	var actual_start = func():
-		if not is_instance_valid(duck):
+		if not is_instance_valid(duck) or not is_inside_tree():
 			return
 		var bob_tween = create_tween().set_loops()
 		bob_tween.tween_property(duck, "position:y", rest_pos.y - 4.0, 1.2) \

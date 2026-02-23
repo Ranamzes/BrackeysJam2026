@@ -1,17 +1,43 @@
+@tool
 class_name DialogueVariant
 extends Resource
 
-## The title of the dialogue node to start if conditions are met.
-@export var start_title: String = "start"
-
-## Dictionary of flag names to their required boolean values.
-## Example: { "has_key": true, "enemy_alive": false }
-@export var conditions: Dictionary[String, bool] = {}
+@export var dialogue_head: String = "start"
 
 ## Optional item required to trigger this variant.
 @export var required_item: ItemData
 ## If true, the required item will be removed from inventory when dialogue starts.
 @export var consume_item: bool = false
+
+## Dictionary of flag names to their required boolean values.
+## Example: { "has_key": true, "enemy_alive": false }
+@export var conditions: Dictionary[String, bool] = {}
+
+# Internal helper for the editor dropdown, populated by DialogueTrigger
+var editor_dialogue_resource: Resource:
+	set(v):
+		editor_dialogue_resource = v
+		notify_property_list_changed()
+func _validate_property(property: Dictionary):
+	if property.name == "dialogue_head" and editor_dialogue_resource:
+		var titles = _get_titles(editor_dialogue_resource)
+		if titles.size() > 0:
+			property.hint = PROPERTY_HINT_ENUM
+			property.hint_string = ",".join(titles)
+
+
+func _get_titles(res: Resource) -> PackedStringArray:
+	if not res: return []
+	if res.has_method("get_titles"):
+		return res.get_titles()
+	if "titles" in res:
+		var t = res.get("titles")
+		if t is Dictionary:
+			return PackedStringArray(t.keys())
+		if t is Array:
+			return PackedStringArray(t)
+	return []
+
 
 ## Checks if all conditions are met based on the global ProgressionManager.
 func are_conditions_met() -> bool:

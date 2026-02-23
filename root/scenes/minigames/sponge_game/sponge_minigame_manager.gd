@@ -84,7 +84,7 @@ func _on_success() -> void:
 	if success_sound:
 		success_sound.play()
 
-	AudioService.play_sound("res://root/assets/sounds/sponges_wow.wav", &"SFX")
+	AudioService.play_sound(load("res://root/assets/sounds/sponges_wow.wav"), &"SFX")
 
 	current_index = 0
 	ProgressionManager.set_flag("sponges_solved", true)

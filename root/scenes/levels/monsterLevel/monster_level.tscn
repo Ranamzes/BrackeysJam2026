@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_q1"]
 script = ExtResource("4_var")
-start_title = "quest_1"
+dialogue_head = "quest_1"
 conditions = Dictionary[String, bool]({
 "flower_delivered": false,
 "level_1_visited": true
@@ -19,7 +19,7 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_q2"]
 script = ExtResource("4_var")
-start_title = "quest_2"
+dialogue_head = "quest_2"
 conditions = Dictionary[String, bool]({
 "flower_delivered": true,
 "planet_quest": false
@@ -27,7 +27,7 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_q3"]
 script = ExtResource("4_var")
-start_title = "quest_3"
+dialogue_head = "quest_3"
 conditions = Dictionary[String, bool]({
 "planet_delivered": false,
 "planet_quest": true
@@ -35,7 +35,7 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_q4"]
 script = ExtResource("4_var")
-start_title = "quest_4"
+dialogue_head = "quest_4"
 conditions = Dictionary[String, bool]({
 "planet_delivered": false,
 "planet_picked_up": true
@@ -43,7 +43,7 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_flower"]
 script = ExtResource("4_var")
-start_title = "flower_delivery"
+dialogue_head = "flower_delivery"
 conditions = Dictionary[String, bool]({
 "flower_delivered": false
 })
@@ -52,7 +52,8 @@ consume_item = true
 
 [sub_resource type="Resource" id="Resource_end"]
 script = ExtResource("4_var")
-start_title = "end_game"
+dialogue_head = "end_game"
+preview_dialogue_resource = ExtResource("2_dlg")
 conditions = Dictionary[String, bool]({
 "planet_delivered": true
 })

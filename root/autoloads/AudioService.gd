@@ -56,7 +56,7 @@ func play_sound(stream: Variant, bus: StringName, volume_db: Variant = 0.0, pitc
 
 	var player = AudioStreamPlayer.new()
 	player.stream = actual_stream
-	player.bus = bus
+	player.bus = str(bus).to_lower()
 
 	if volume_db is Array and volume_db.size() >= 2:
 		player.volume_db = randf_range(volume_db[0], volume_db[1])
@@ -109,7 +109,7 @@ func play_music(stream: AudioStream, bus: StringName, fade_duration: float = 1.0
 	elif stream is AudioStreamOggVorbis:
 		stream.loop = true
 	new_player.stream = stream
-	new_player.bus = bus
+	new_player.bus = str(bus).to_lower()
 	new_player.volume_db = -80.0 # Начинаем с тишины для фейда
 	add_child(new_player)
 	new_player.play()

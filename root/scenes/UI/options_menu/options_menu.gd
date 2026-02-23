@@ -23,8 +23,8 @@ const CONFIG_PATH = "user://settings.cfg"
 var initial_volumes: Dictionary = {}
 var pre_mute_volumes: Dictionary = {
 	"Master": 1.0,
-	"music": 1.0,
-	"sfx": 1.0
+	"Music": 1.0,
+	"SFX": 1.0
 }
 
 func _ready() -> void:
@@ -38,20 +38,20 @@ func _ready() -> void:
 
 	# Cache initial volumes
 	initial_volumes["Master"] = get_bus_volume_percent("Master")
-	initial_volumes["music"] = get_bus_volume_percent("music")
-	initial_volumes["sfx"] = get_bus_volume_percent("sfx")
+	initial_volumes["Music"] = get_bus_volume_percent("Music")
+	initial_volumes["SFX"] = get_bus_volume_percent("SFX")
 	print("[Options] Initial volumes cached: ", initial_volumes)
 
 	reset_button.pressed.connect(on_reset_button_pressed)
 	apply_button.pressed.connect(on_apply_button_pressed)
 
 	master_slider.value_changed.connect(on_audio_slider_value_changed.bind("Master"))
-	music_slider.value_changed.connect(on_audio_slider_value_changed.bind("music"))
-	sfx_slider.value_changed.connect(on_audio_slider_value_changed.bind("sfx"))
+	music_slider.value_changed.connect(on_audio_slider_value_changed.bind("Music"))
+	sfx_slider.value_changed.connect(on_audio_slider_value_changed.bind("SFX"))
 
 	master_icon.pressed.connect(on_icon_pressed.bind("Master"))
-	music_icon.pressed.connect(on_icon_pressed.bind("music"))
-	sfx_icon.pressed.connect(on_icon_pressed.bind("sfx"))
+	music_icon.pressed.connect(on_icon_pressed.bind("Music"))
+	sfx_icon.pressed.connect(on_icon_pressed.bind("SFX"))
 
 	update_display()
 
@@ -62,14 +62,14 @@ func _load_settings():
 	if err == OK:
 		print("[Options] Settings loaded from ", CONFIG_PATH)
 		set_bus_volume_percent("Master", config.get_value("Audio", "Master", 1.0))
-		set_bus_volume_percent("music", config.get_value("Audio", "music", 1.0))
-		set_bus_volume_percent("sfx", config.get_value("Audio", "sfx", 1.0))
+		set_bus_volume_percent("Music", config.get_value("Audio", "Music", 1.0))
+		set_bus_volume_percent("SFX", config.get_value("Audio", "SFX", 1.0))
 	else:
 		print("[Options] No settings found at ", CONFIG_PATH, ", using defaults 1.0")
 		# Default everything to 100%
 		set_bus_volume_percent("Master", 1.0)
-		set_bus_volume_percent("music", 1.0)
-		set_bus_volume_percent("sfx", 1.0)
+		set_bus_volume_percent("Music", 1.0)
+		set_bus_volume_percent("SFX", 1.0)
 
 func _save_settings():
 	var config = ConfigFile.new()
@@ -77,14 +77,14 @@ func _save_settings():
 	config.load(CONFIG_PATH)
 
 	var m = get_bus_volume_percent("Master")
-	var mu = get_bus_volume_percent("music")
-	var s = get_bus_volume_percent("sfx")
+	var mu = get_bus_volume_percent("Music")
+	var s = get_bus_volume_percent("SFX")
 
 	print("[Options] SAVING: Master=", m, " Music=", mu, " SFX=", s)
 
 	config.set_value("Audio", "Master", m)
-	config.set_value("Audio", "music", mu)
-	config.set_value("Audio", "sfx", s)
+	config.set_value("Audio", "Music", mu)
+	config.set_value("Audio", "SFX", s)
 
 	var err = config.save(CONFIG_PATH)
 	if err != OK:
@@ -94,8 +94,8 @@ func _save_settings():
 
 
 func update_display():
-	sfx_slider.value = get_bus_volume_percent("sfx")
-	music_slider.value = get_bus_volume_percent("music")
+	sfx_slider.value = get_bus_volume_percent("SFX")
+	music_slider.value = get_bus_volume_percent("Music")
 	master_slider.value = get_bus_volume_percent("Master")
 
 	update_icons()

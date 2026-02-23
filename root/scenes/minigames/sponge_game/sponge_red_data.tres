@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpongeData" format=3 uid="uid://4g45kxny1ad"]
 
 [ext_resource type="Script" uid="uid://ciuaoct6e2kah" path="res://root/scenes/minigames/sponge_game/sponge_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="2_texture"]
+[ext_resource type="Texture2D" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="2_texture"]
 
 [resource]
 script = ExtResource("1_script")
