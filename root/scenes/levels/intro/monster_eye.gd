@@ -62,6 +62,7 @@ extends Node2D
 @onready var iris_sprite: Sprite2D = find_child("Iris", true, false)
 @onready var anim_player: AnimationPlayer = find_child("AnimationPlayer", true, false)
 @onready var light_sprite: Sprite2D = find_child("Light", true, false)
+@onready var mask_node: Polygon2D = find_child("Mask", true, false)
 
 var can_track: bool = false
 var original_iris_pos: Vector2 = Vector2.ZERO
@@ -177,9 +178,7 @@ func _process(delta: float) -> void:
 	if can_track:
 		blink_timer -= delta
 		if blink_timer <= 0:
-			if can_blink and anim_player.has_animation("blink"):
-				anim_player.play("blink")
-			blink_timer = randf_range(blink_min, blink_max)
+			trigger_blink()
 
 		var mouse_pos = get_viewport().get_mouse_position()
 		var local_mouse = to_local(mouse_pos)
@@ -215,6 +214,23 @@ func enable_tracking() -> void:
 
 func disable_tracking() -> void:
 	can_track = false
+
+func trigger_blink() -> void:
+	if can_blink and anim_player and anim_player.has_animation("blink"):
+		anim_player.play("blink")
+	blink_timer = randf_range(blink_min, blink_max)
+
+func _input(event: InputEvent) -> void:
+	if not can_track or Engine.is_editor_hint():
+		return
+
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if mask_node:
+			var local_pos = mask_node.to_local(get_global_mouse_position())
+			if Geometry2D.is_point_in_polygon(local_pos, mask_node.polygon):
+				trigger_blink()
+				# IMPORTANT: Do not call set_input_as_handled()
+				# so that the dialogue in intro.gd can still progress.
 
 func open_eye() -> void:
 	if anim_player.has_animation("open"):
