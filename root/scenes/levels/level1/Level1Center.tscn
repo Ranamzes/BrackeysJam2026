@@ -93,7 +93,7 @@ consume_item = true
 conditions = Dictionary[String, bool]({
 "flower_picked_up": false,
 "shampoo_gived": false,
-"soap_stars_picked_up": true
+"sponges_solved": true
 })
 
 [sub_resource type="Resource" id="Resource_waiting_for_stars_variant"]
@@ -159,6 +159,10 @@ scale = Vector2(1, 1.0000001)
 clip_children = 1
 polygon = PackedVector2Array(399, 600, 540, 601, 576, 544, 599, 65.00005, 344, 50.000053, 178, 614, 209, 603, 279, 601, 325, 601)
 
+[node name="Shower" type="Sprite2D" parent="pena/FoamMask" unique_id=1261101968]
+position = Vector2(539, 382.00003)
+texture = ExtResource("18_abyie")
+
 [node name="Pena1" type="Sprite2D" parent="pena/FoamMask" unique_id=1257308614]
 position = Vector2(426, 582)
 texture = ExtResource("foam1")
@@ -218,10 +222,6 @@ texture = ExtResource("foam8")
 [node name="Pena9" type="Sprite2D" parent="pena/FoamMask" unique_id=1300000007]
 position = Vector2(473, 569)
 texture = ExtResource("foam9")
-
-[node name="Shower" type="Sprite2D" parent="pena/FoamMask" unique_id=1261101968]
-position = Vector2(539, 382.00003)
-texture = ExtResource("18_abyie")
 
 [node name="CharacterTv" type="Sprite2D" parent="." unique_id=1432416579]
 position = Vector2(691, 476)

@@ -16,12 +16,15 @@ func _ready() -> void:
 	var pipes_solved = ProgressionManager.get_flag("pipes_solved")
 	var duck_picked = ProgressionManager.get_flag("rubber_duck_picked_up")
 
-	if pipes_solved and not duck_picked:
+	if pipes_solved:
 		$pena.visible = true
-		if ProgressionManager.get_flag("duck_surfaced"):
-			_show_foam_static()
+		if not duck_picked:
+			if ProgressionManager.get_flag("duck_surfaced"):
+				_show_foam_static()
+			else:
+				_animate_shower_entrance()
 		else:
-			_animate_shower_entrance()
+			_show_foam_static()
 	else:
 		$pena.visible = false
 
@@ -111,6 +114,7 @@ func _animate_foam_appearance() -> void:
 	get_tree().create_timer(0.8).timeout.connect(_animate_duck_surface)
 
 func _animate_duck_surface() -> void:
+	ProgressionManager.set_flag("duck_surfaced", true)
 	var duck: Sprite2D = $pena/FoamMask/Duck
 	if not duck: return
 
@@ -132,10 +136,12 @@ func _animate_duck_surface() -> void:
 	duck_tween.tween_property(duck, "rotation", rest_rot, 0.4) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-	duck_tween.tween_callback(func(): ProgressionManager.set_flag("duck_surfaced", true))
 	_start_duck_idle(duck, rest_pos, rest_rot, 2.0)
 
 func _exit_tree() -> void:
+	_stop_all_loop_tweens()
+
+func _stop_all_loop_tweens() -> void:
 	for t in _loop_tweens:
 		if is_instance_valid(t):
 			t.kill()
@@ -150,7 +156,7 @@ func _start_foam_sway(child: Sprite2D, i: int, start_delay: float = 0.0) -> void
 	var actual_start = func():
 		if not is_instance_valid(child) or not is_inside_tree():
 			return
-		var loop_tween = create_tween().set_loops()
+		var loop_tween = create_tween().set_loops().bind_node(child)
 		loop_tween.tween_property(child, "position:x", rest_x + sway_amp * sway_dir, sway_dur) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		loop_tween.tween_property(child, "position:x", rest_x - sway_amp * sway_dir, sway_dur) \
@@ -166,14 +172,14 @@ func _start_duck_idle(duck: Sprite2D, rest_pos: Vector2, rest_rot: float, start_
 	var actual_start = func():
 		if not is_instance_valid(duck) or not is_inside_tree():
 			return
-		var bob_tween = create_tween().set_loops()
+		var bob_tween = create_tween().set_loops().bind_node(duck)
 		bob_tween.tween_property(duck, "position:y", rest_pos.y - 4.0, 1.2) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		bob_tween.tween_property(duck, "position:y", rest_pos.y, 1.2) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		_loop_tweens.append(bob_tween)
 
-		var rot_tween = create_tween().set_loops()
+		var rot_tween = create_tween().set_loops().bind_node(duck)
 		rot_tween.tween_property(duck, "rotation", rest_rot + 0.08, 1.5) \
 			.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		rot_tween.tween_property(duck, "rotation", rest_rot - 0.08, 1.5) \

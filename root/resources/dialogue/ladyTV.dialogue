@@ -101,8 +101,6 @@ LadyTV: [center][shake rate=10.0 level=2]You want... her [color=red]head[/color]
 LadyTV: [center][shake rate=20.0 level=8][color=red]FINE! TAKE IT![/color] I didn't even [nervous]like[/nervous] her that much anyway! She was always so... [woo]quiet[/woo].[/center]
 LadyTV: [center][shake rate=30.0 level=12][color=red]JUST GIVE ME MY STARS![/color][/shake][/center]
 do ProgressionManager.set_flag("give_me_stars", true)
-do ProgressionManager.set_flag("shampoo_gived", true)
-do Global.player_inventory.remove_item_by_path("res://root/assets/items/soap_stars.tres")
 => END
 
 ~ shampoo_accepted
@@ -110,6 +108,8 @@ LadyTV: [center][shake rate=40.0 level=15][color=red]YES! THE STARS![/color][/sh
 LadyTV: [center][pulse freq=4.0 color=#ffccff][woo]Oh, my preciouses...[/woo][/pulse][/center]
 LadyTV: [center][shake rate=20.0 level=10][color=red]What friend? Just take whatever you want and get out already![/color][/shake][/center]
 LadyTV: [center][center]I want to take a bath with glitter as soon as possible! [gold_sparkle]DON'T DISTURB ME![/gold_sparkle][/center][/center]
+do ProgressionManager.set_flag("shampoo_gived", true)
+do Global.player_inventory.remove_item_by_path("res://root/assets/items/soap_stars.tres")
 => END
 
 ~ waiting_for_stars
