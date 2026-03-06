@@ -18,8 +18,11 @@ var eyes_per_line = [2, 2, 2, 2, 1]
 var waiting_for_input = false
 var sequence_finished = false
 
+var _last_input_time: int = 0
+const INPUT_COOLDOWN_MS: int = 200
+
 func _ready() -> void:
-	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music",1.0,-10)
+	AudioService.play_music(preload("res://root/assets/music/calming.mp3"), &"Music", 1.0, -10)
 	darkness_rect.modulate = Color(1, 1, 1, 0)
 	darkness_rect.scale = Vector2(0.1, 0.1)
 
@@ -118,6 +121,11 @@ func _on_typing_finished() -> void:
 func _input(event: InputEvent) -> void:
 	# Progress dialogue on left mouse click or any potential 'interact' action if defined
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var current_time = Time.get_ticks_msec()
+		if current_time - _last_input_time < INPUT_COOLDOWN_MS:
+			return
+		_last_input_time = current_time
+
 		if waiting_for_input:
 			# Go to next line (which will trigger transition if it's the end)
 			start_next_dialogue_line()
