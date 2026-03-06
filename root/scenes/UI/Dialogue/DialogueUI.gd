@@ -15,6 +15,8 @@ signal finished
 var resource: DialogueResource
 var temporary_game_states: Array = []
 var is_waiting_for_input: bool = false
+var _last_input_time: int = 0
+const INPUT_COOLDOWN_MS: int = 200
 
 func _ready() -> void:
 	hide()
@@ -127,6 +129,11 @@ signal response_selected(response)
 
 func _on_dialogue_control_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var current_time = Time.get_ticks_msec()
+		if current_time - _last_input_time < INPUT_COOLDOWN_MS:
+			return
+		_last_input_time = current_time
+
 		print("DialogueUI: Click received via gui_input.")
 		get_viewport().set_input_as_handled()
 		_advance_conversation()
@@ -135,6 +142,11 @@ func _input(event: InputEvent) -> void:
 	if not visible or is_queued_for_deletion(): return
 
 	if event.is_action_pressed("ui_accept"):
+		var current_time = Time.get_ticks_msec()
+		if current_time - _last_input_time < INPUT_COOLDOWN_MS:
+			return
+		_last_input_time = current_time
+
 		print("DialogueUI: Key received.")
 		get_viewport().set_input_as_handled()
 		_advance_conversation()
