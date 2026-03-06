@@ -17,6 +17,7 @@ var tex_sound_on = preload("res://root/assets/atlases/ui_buttons.sprites/sound_2
 var tex_sound_off = preload("res://root/assets/atlases/ui_buttons.sprites/sound_1.tres")
 var tex_music_on = preload("res://root/assets/atlases/ui_buttons.sprites/music_button_on.tres")
 var tex_music_off = preload("res://root/assets/atlases/ui_buttons.sprites/music_button_off.tres")
+var sfx_preview_sound = preload("res://root/assets/sounds/sponges_wow.wav")
 
 const CONFIG_PATH = "user://settings.cfg"
 
@@ -26,6 +27,9 @@ var pre_mute_volumes: Dictionary = {
 	"music": 1.0,
 	"sfx": 1.0
 }
+
+var _last_sfx_preview_time: int = 0
+const SFX_PREVIEW_COOLDOWN_MS: int = 1200
 
 func _ready() -> void:
 	print("[Options] Initializing Menu. Checking sliders...")
@@ -167,3 +171,9 @@ func close_menu():
 func on_audio_slider_value_changed(value: float, bus_name: String):
 	set_bus_volume_percent(bus_name, value)
 	update_icons()
+
+	if bus_name == "sfx":
+		var current_time = Time.get_ticks_msec()
+		if current_time - _last_sfx_preview_time >= SFX_PREVIEW_COOLDOWN_MS:
+			_last_sfx_preview_time = current_time
+			AudioService.play_sound(sfx_preview_sound, &"sfx")
