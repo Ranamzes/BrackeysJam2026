@@ -2,7 +2,7 @@
 LadyTV: [center][shake rate=20.0 level=10]NO! NO NO NO! I can't... I can't [nervous]live[/nervous] without her![/shake][/center]
 LadyTV: [center]She was the only one who... who [gold_sparkle]satisfied[/gold_sparkle] my lonely soul just by being there...[/center]
 LadyTV: [center]Everything is so... [woo]hollow[/woo] now... the world has lost its color...[/center]
-LadyTV: [center][br][pulse freq=5.0 color=#ffffff44]Oh! Oh my goodness! A [red_sparkle]NEW[/red_sparkle] face![/pulse][/center]
+LadyTV: [center][pulse freq=5.0 color=#ffffff44]Oh! Oh my goodness! A [red_sparkle]NEW[/red_sparkle] face![/pulse][/center]
 LadyTV: [center]I haven't seen someone so... [br][woo]vibrant[/woo] in forever! You! [br]You're going to be my new [red_sparkle]BEST FRIEND[/red_sparkle]![/center]
 LadyTV: [center]Don't be shy, come closer! We are going to spend [shake rate=10.0 level=2]EVERY SECOND[/shake] together! I just know it![/center]
 LadyTV: [center]Do you like glitter? I [shake rate=10.0 level=2]ADORE[/shake] shampoos with [gold_sparkle]glitter[/gold_sparkle]! They make my world feel... [woo]magical[/woo].[/center]
@@ -26,10 +26,10 @@ LadyTV: [center][shake rate=30.0 level=10][color=red]DO NOT[/color][/shake] let 
 ~ solved_bottles
 LadyTV: [center][shake rate=15.0 level=5][gold_sparkle]PERFECT![/gold_sparkle] ASCENDING! BEAUTIFUL![/shake][/center]
 LadyTV: [center][shake rate=20.0 level=10]But... [color=red]STILL NO FOAM![/color] My precious bubbles... missing for a whole hour![/shake][/center]
-LadyTV: [center][br]I bet you don't even care. Leaving me to [woo]wither away[/woo] in this dry filth...[/center]
-LadyTV: [center][br]Oh, sorry! It's just... the [shake rate=10.0 level=2]tangled[/shake] pipes. My friend always [gold_sparkle]satisfied[/gold_sparkle] my whims... she'd fix them instantly.[/center]
+LadyTV: [center]I bet you don't even care. Leaving me to [woo]wither away[/woo] in this dry filth...[/center]
+LadyTV: [center]Oh, sorry! It's just... the [shake rate=10.0 level=2]tangled[/shake] pipes. My friend always [gold_sparkle]satisfied[/gold_sparkle] my whims... she'd fix them instantly.[/center]
 LadyTV: [center]But she's gone. [br]Yet... I have a [shake rate=10.0 level=5][red_sparkle]NEW FRIEND[/red_sparkle][/shake] now, don't I?[/center]
-LadyTV: [center][br]Go on, try to reach the pipes here in the floor. But the lid is [shake rate=10.0 level=2]STUCK![/shake][/center]
+LadyTV: [center]Go on, try to reach the pipes here in the floor. But the lid is [shake rate=10.0 level=2]STUCK![/shake][/center]
 LadyTV: [center]What could you use to [shake rate=20.0 level=10]PRY[/shake] the lid open? Surely you're clever enough? I'd hate to be [woo]disappointed[/woo] again...[/center]
 do ProgressionManager.set_flag("quest_pipes_started", true)
 => END
@@ -109,7 +109,6 @@ LadyTV: [center][pulse freq=4.0 color=#ffccff][woo]Oh, my preciouses...[/woo][/p
 LadyTV: [center][shake rate=20.0 level=10][color=red]What friend? Just take whatever you want and get out already![/color][/shake][/center]
 LadyTV: [center][center]I want to take a bath with glitter as soon as possible! [gold_sparkle]DON'T DISTURB ME![/gold_sparkle][/center][/center]
 do ProgressionManager.set_flag("shampoo_gived", true)
-do Global.player_inventory.remove_item_by_path("res://root/assets/items/soap_stars.tres")
 => END
 
 ~ waiting_for_stars

@@ -50,15 +50,15 @@ script = ExtResource("1_vars")
 dialogue_head = "solved_bottles"
 conditions = Dictionary[String, bool]({
 "bottles_solved": true,
-"floor_tile_unlocked": false
+"quest_pipes_started": false
 })
 
 [sub_resource type="Resource" id="Resource_waiting_pipes_variant"]
 script = ExtResource("1_vars")
 dialogue_head = "waiting_pipes"
 conditions = Dictionary[String, bool]({
-"floor_tile_unlocked": true,
-"pipes_solved": false
+"pipes_solved": false,
+"quest_pipes_started": true
 })
 
 [sub_resource type="Resource" id="Resource_pipes_solved_variant"]
@@ -88,8 +88,6 @@ conditions = Dictionary[String, bool]({
 [sub_resource type="Resource" id="Resource_stars_found_variant"]
 script = ExtResource("1_vars")
 dialogue_head = "stars_found"
-required_item = ExtResource("24_soap_stars")
-consume_item = true
 conditions = Dictionary[String, bool]({
 "flower_picked_up": false,
 "shampoo_gived": false,
@@ -108,9 +106,11 @@ conditions = Dictionary[String, bool]({
 [sub_resource type="Resource" id="Resource_shampoo_accepted_variant"]
 script = ExtResource("1_vars")
 dialogue_head = "shampoo_accepted"
+required_item = ExtResource("24_soap_stars")
+consume_item = true
 conditions = Dictionary[String, bool]({
 "flower_picked_up": false,
-"shampoo_gived": true
+"shampoo_gived": false
 })
 
 [sub_resource type="Resource" id="Resource_stars_given_variant"]
