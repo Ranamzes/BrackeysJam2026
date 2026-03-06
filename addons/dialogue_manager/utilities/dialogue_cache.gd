@@ -27,9 +27,10 @@ static var known_static_ids: Dictionary = {}
 
 # Build the initial cache for dialogue files
 static func prepare() -> void:
-	_update_dependency_timer = Timer.new()
-	_update_dependency_timer.timeout.connect(_on_dependency_timer_timeout)
-	DMPlugin.instance.add_child(_update_dependency_timer)
+	if Engine.is_editor_hint():
+		_update_dependency_timer = Timer.new()
+		_update_dependency_timer.timeout.connect(_on_dependency_timer_timeout)
+		DMPlugin.instance.add_child(_update_dependency_timer)
 
 	var current_files: PackedStringArray = _get_dialogue_files_in_filesystem()
 	for file: String in current_files:
@@ -60,15 +61,16 @@ static func reimport_files(and_files: PackedStringArray = []) -> void:
 
 	if _files_marked_for_reimport.is_empty(): return
 
-	# Guard against recursive reimport calls. Don't mark for reimport unless attempted once.
-	var filesystem: EditorFileSystem = EditorInterface.get_resource_filesystem()
-	if filesystem.is_scanning():
-		# Defer the reimport to the next idle frame.
-		_schedule_deferred_reimport.call_deferred()
-		return
+	if Engine.is_editor_hint():
+		# Guard against recursive reimport calls. Don't mark for reimport unless attempted once.
+		var filesystem: EditorFileSystem = EditorInterface.get_resource_filesystem()
+		if filesystem.is_scanning():
+			# Defer the reimport to the next idle frame.
+			_schedule_deferred_reimport.call_deferred()
+			return
 
-	# Attempt reimport immediately if not busy.
-	EditorInterface.get_resource_filesystem().reimport_files(_files_marked_for_reimport)
+		# Attempt reimport immediately if not busy.
+		EditorInterface.get_resource_filesystem().reimport_files(_files_marked_for_reimport)
 	_files_marked_for_reimport.clear()
 
 
@@ -77,14 +79,15 @@ static func _schedule_deferred_reimport() -> void:
 	# Wait before trying again.
 	if _files_marked_for_reimport.is_empty(): return
 
-	var filesystem: EditorFileSystem = EditorInterface.get_resource_filesystem()
-	if filesystem.is_scanning():
-		# Still working on it. Try again later.
-		await Engine.get_main_loop().create_timer(0.1).timeout
-		_schedule_deferred_reimport()
-		return
+	if Engine.is_editor_hint():
+		var filesystem: EditorFileSystem = EditorInterface.get_resource_filesystem()
+		if filesystem.is_scanning():
+			# Still working on it. Try again later.
+			await Engine.get_main_loop().create_timer(0.1).timeout
+			_schedule_deferred_reimport()
+			return
 
-	filesystem.reimport_files(_files_marked_for_reimport)
+		filesystem.reimport_files(_files_marked_for_reimport)
 	_files_marked_for_reimport.clear()
 
 

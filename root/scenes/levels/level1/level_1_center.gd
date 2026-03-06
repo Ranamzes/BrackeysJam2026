@@ -14,7 +14,7 @@ func _ready() -> void:
 
 	# Setup initial foam visibility
 	var pipes_solved = ProgressionManager.get_flag("pipes_solved")
-	var duck_picked = ProgressionManager.get_flag("duck_picker")
+	var duck_picked = ProgressionManager.get_flag("rubber_duck_picked_up")
 
 	if pipes_solved and not duck_picked:
 		$pena.visible = true
@@ -41,7 +41,7 @@ func flags_changed(flag_name: String, _flag_value: bool) -> void:
 			GlobalData.player_inventory.remove_item(preload("res://root/assets/items/soap_empty.tres"))
 			GlobalData.player_inventory.add_item(preload("res://root/assets/items/soap_full.tres"))
 		"pipes_solved":
-			if _flag_value and not ProgressionManager.get_flag("duck_picker"):
+			if _flag_value and not ProgressionManager.get_flag("rubber_duck_picked_up"):
 				if not ProgressionManager.get_flag("duck_surfaced"):
 					_animate_shower_entrance()
 

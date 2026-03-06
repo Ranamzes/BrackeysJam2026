@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c5751d427tfbr" path="res://root/scenes/levels/level2/dreamcore_balls_decor.png" id="5_8wc6k"]
 [ext_resource type="PackedScene" uid="uid://b8q7x6y504w3" path="res://root/components/dialogue/DialogueTrigger.tscn" id="6_bfrqa"]
 [ext_resource type="Texture2D" uid="uid://cg0hl08vh3kud" path="res://root/scenes/characters/player/starhead_mouth2.png" id="6_hbm65"]
-[ext_resource type="Resource" uid="uid://c373amhpm2bp7" path="res://root/resources/dialogue/starhead.dialogue" id="7_7e2il"]
+[ext_resource type="Resource" uid="uid://d2tk57qd8m42x" path="res://root/resources/dialogue/starhead.dialogue" id="7_7e2il"]
 [ext_resource type="Texture2D" uid="uid://bhe25h5250h0m" path="res://root/scenes/levels/level2/dreamcoreTip_ForTelescoope.png" id="7_xlaos"]
 [ext_resource type="Texture2D" uid="uid://bbjo27us1g7tl" path="res://root/scenes/levels/level2/dreamcore_paint.png" id="8_jrxik"]
 [ext_resource type="PackedScene" uid="uid://xqrbdbbwuu8p" path="res://root/scenes/UI/Dialogue/Portraits/StarheadPortrait.tscn" id="8_nf4dr"]
@@ -28,7 +28,6 @@
 
 [sub_resource type="Resource" id="Resource_v1"]
 script = ExtResource("22_vars")
-start_title = "waiting_telescope"
 conditions = Dictionary[String, bool]({
 "level_2_visited": true,
 "telescope_solved": false
@@ -36,7 +35,6 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_v2"]
 script = ExtResource("22_vars")
-start_title = "after_telescope"
 conditions = Dictionary[String, bool]({
 "puzzle_colors_solved": false,
 "telescope_solved": true
@@ -44,7 +42,6 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_v3"]
 script = ExtResource("22_vars")
-start_title = "after_puzzle"
 conditions = Dictionary[String, bool]({
 "puzzle_colors_solved": true,
 "typing_solved": false
@@ -52,7 +49,6 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_v4"]
 script = ExtResource("22_vars")
-start_title = "trade_item"
 conditions = Dictionary[String, bool]({
 "paper_text_picked_up": true,
 "planet_picked_up": false,
@@ -61,7 +57,6 @@ conditions = Dictionary[String, bool]({
 
 [sub_resource type="Resource" id="Resource_v5"]
 script = ExtResource("22_vars")
-start_title = "post_trade"
 conditions = Dictionary[String, bool]({
 "planet_picked_up": true
 })
@@ -106,10 +101,9 @@ texture = ExtResource("2_5cdhr")
 dialogue_resource = ExtResource("7_7e2il")
 portrait_scene = ExtResource("8_nf4dr")
 variants = Array[ExtResource("22_vars")]([SubResource("Resource_v1"), SubResource("Resource_v2"), SubResource("Resource_v3"), SubResource("Resource_v4"), SubResource("Resource_v5")])
-regenerate_collision = null
 
 [node name="AutoCollisionPolygon" type="CollisionPolygon2D" parent="StarheadBase/DialogueClickable" unique_id=1341987281]
-polygon = PackedVector2Array(66.56354, -706.39777, 28, -698.6655, -3.6759033, -529.2684, -66.433655, -527, -100.96295, -527, -112.285095, -495.01917, -29.11853, -427.69382, -81.32776, -346.10977, -140.949, -361.24597, -172.94135, -302.2601, -204, -207.90143, -225.13745, -158.30975, -246.0586, -95.444275, -249.95068, -52.631042, -250, -51.544067, -250, -30.058899, -249, -29.058899, -249, 6.8828735, -248.87027, 8.64386, -245, 34.768127, -245, 54.11798, -185.33337, 116, 334.66663, 121.33331, 307.22937, 55.809204, 305.5896, 50.83197, 269.62628, 2.1757813, 296.2337, -26.284058, 319.5257, -46.19226, 330.6515, -78.479004, 332, -117.5863, 329, -135, 227.86804, -155.65338, 215.25049, -180.78494, 209, -244.94113, 198.25769, -255.68341, 243.31836, -280.0604, 248.96521, -328.23764, 296.72668, -330.47647, 310, -344.38657, 310, -360.86896, 306.20508, -369.83698, 211.14606, -462.04422, 239, -631.20337, 211.50836, -644.1949, 122.95648, -571.4245)
+polygon = PackedVector2Array(66.56354, -706.39777, 28, -698.6655, -3.6759033, -529.2684, -66.433655, -527, -100.96295, -527, -112.285095, -495.01917, -29.11853, -427.69382, -81.32776, -346.10977, -140.949, -361.24597, -172.94135, -302.2601, -204, -207.90143, -225.13745, -158.30975, -246.0586, -95.444275, -249.95068, -52.631042, -250, -51.544067, -250, -30.058899, -249, -29.058899, -249.33337, -13.333374, -77.333374, -10.666687, -70.66669, -6.666687, -68, 0, -66.66669, 112, 317.3333, 113.33331, 307.22937, 55.809204, 305.5896, 50.83197, 269.62628, 2.1757813, 296.2337, -26.284058, 319.5257, -46.19226, 330.6515, -78.479004, 332, -117.5863, 329, -135, 227.86804, -155.65338, 215.25049, -180.78494, 209, -244.94113, 198.25769, -255.68341, 243.31836, -280.0604, 248.96521, -328.23764, 296.72668, -330.47647, 310, -344.38657, 310, -360.86896, 306.20508, -369.83698, 211.14606, -462.04422, 239, -631.20337, 211.50836, -644.1949, 122.95648, -571.4245)
 
 [node name="DreamcoreTvDecor" type="Sprite2D" parent="." unique_id=1332715569]
 position = Vector2(245, 606)
