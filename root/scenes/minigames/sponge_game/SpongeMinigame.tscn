@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dugsxqisa0n8i" path="res://root/scenes/UI/HUD/HUD.tscn" id="1_k185b"]
 [ext_resource type="Script" uid="uid://i614mmmowlpc" path="res://root/scenes/minigames/sponge_game/sponge_minigame_manager.gd" id="1_manager"]
-[ext_resource type="Texture2D" uid="uid://dv86t2wxlm77v" path="res://root/assets/sponge_background.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bx7exc3tfx6p2" path="res://root/assets/sponge_background.png" id="2_bg"]
 [ext_resource type="PackedScene" uid="uid://dvfl0xdvxfc1m" path="res://root/scenes/minigames/sponge_game/SpongeComponent.tscn" id="3_sponge_scene"]
 [ext_resource type="Texture2D" uid="uid://cj2q0onrsx5bi" path="res://root/assets/atlases/sponges.sprites/sponge_red.tres" id="5_0md0p"]
 [ext_resource type="Texture2D" uid="uid://cuhdchqv4hycl" path="res://root/assets/atlases/sponges.sprites/sponge_green.tres" id="6_76uhp"]
