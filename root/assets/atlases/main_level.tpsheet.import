@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://chtusdspg0gm8"
+path="res://.godot/imported/main_level.tpsheet-f58945a068bee4eb401bd0186520870a.res"
+
+[deps]
+
+files=["res://root/assets/atlases/main_level.sprites/startscene_flower.tres", "res://root/assets/atlases/main_level.sprites/startscene_chair_part.tres", "res://root/assets/atlases/main_level.sprites/open_door.tres"]
+
+source_file="res://root/assets/atlases/main_level.tpsheet"
+dest_files=["res://.godot/imported/main_level.tpsheet-f58945a068bee4eb401bd0186520870a.res", "res://root/assets/atlases/main_level.sprites/startscene_flower.tres", "res://root/assets/atlases/main_level.sprites/startscene_chair_part.tres", "res://root/assets/atlases/main_level.sprites/open_door.tres"]
+
+[params]
+

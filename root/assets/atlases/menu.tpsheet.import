@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://brdxkqxvy8l2u"
+path="res://.godot/imported/menu.tpsheet-faa48a844ececbaecd7d1cab4d70d3fc.res"
+
+[deps]
+
+files=["res://root/assets/atlases/menu.sprites/play_click.tres", "res://root/assets/atlases/menu.sprites/play_point.tres", "res://root/assets/atlases/menu.sprites/play_rest.tres", "res://root/assets/atlases/menu.sprites/options_click.tres", "res://root/assets/atlases/menu.sprites/options_point.tres", "res://root/assets/atlases/menu.sprites/options_rest.tres", "res://root/assets/atlases/menu.sprites/credits_point.tres", "res://root/assets/atlases/menu.sprites/credits_click.tres", "res://root/assets/atlases/menu.sprites/credits_rest.tres", "res://root/assets/atlases/menu.sprites/exit_click.tres", "res://root/assets/atlases/menu.sprites/exit_point.tres", "res://root/assets/atlases/menu.sprites/options_base.tres", "res://root/assets/atlases/menu.sprites/exit_rest.tres", "res://root/assets/atlases/menu.sprites/options_base_2.tres"]
+
+source_file="res://root/assets/atlases/menu.tpsheet"
+dest_files=["res://.godot/imported/menu.tpsheet-faa48a844ececbaecd7d1cab4d70d3fc.res", "res://root/assets/atlases/menu.sprites/play_click.tres", "res://root/assets/atlases/menu.sprites/play_point.tres", "res://root/assets/atlases/menu.sprites/play_rest.tres", "res://root/assets/atlases/menu.sprites/options_click.tres", "res://root/assets/atlases/menu.sprites/options_point.tres", "res://root/assets/atlases/menu.sprites/options_rest.tres", "res://root/assets/atlases/menu.sprites/credits_point.tres", "res://root/assets/atlases/menu.sprites/credits_click.tres", "res://root/assets/atlases/menu.sprites/credits_rest.tres", "res://root/assets/atlases/menu.sprites/exit_click.tres", "res://root/assets/atlases/menu.sprites/exit_point.tres", "res://root/assets/atlases/menu.sprites/options_base.tres", "res://root/assets/atlases/menu.sprites/exit_rest.tres", "res://root/assets/atlases/menu.sprites/options_base_2.tres"]
+
+[params]
+

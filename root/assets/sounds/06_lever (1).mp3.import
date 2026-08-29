@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy2dmtrt0wu7d"
+path="res://.godot/imported/06_lever (1).mp3-9c2c6433533e3dff9bd85d3bc49268dc.mp3str"
+
+[deps]
+
+source_file="res://root/assets/sounds/06_lever (1).mp3"
+dest_files=["res://.godot/imported/06_lever (1).mp3-9c2c6433533e3dff9bd85d3bc49268dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

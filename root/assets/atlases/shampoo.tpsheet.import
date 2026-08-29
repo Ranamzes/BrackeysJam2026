@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://d0mnnvglvsng6"
+path="res://.godot/imported/shampoo.tpsheet-61f0f4ab35a6f6c5390e05d1e0de9472.res"
+
+[deps]
+
+files=["res://root/assets/atlases/shampoo.sprites/jar_1.tres", "res://root/assets/atlases/shampoo.sprites/jar_3.tres", "res://root/assets/atlases/shampoo.sprites/jar_5.tres", "res://root/assets/atlases/shampoo.sprites/jar_2.tres", "res://root/assets/atlases/shampoo.sprites/jar_4.tres"]
+
+source_file="res://root/assets/atlases/shampoo.tpsheet"
+dest_files=["res://.godot/imported/shampoo.tpsheet-61f0f4ab35a6f6c5390e05d1e0de9472.res", "res://root/assets/atlases/shampoo.sprites/jar_1.tres", "res://root/assets/atlases/shampoo.sprites/jar_3.tres", "res://root/assets/atlases/shampoo.sprites/jar_5.tres", "res://root/assets/atlases/shampoo.sprites/jar_2.tres", "res://root/assets/atlases/shampoo.sprites/jar_4.tres"]
+
+[params]
+

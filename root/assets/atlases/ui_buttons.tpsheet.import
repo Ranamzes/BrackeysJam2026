@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bm8ay2b7jokpp"
+path="res://.godot/imported/ui_buttons.tpsheet-0539191ce4058dfde5191636d1b59704.res"
+
+[deps]
+
+files=["res://root/assets/atlases/ui_buttons.sprites/music_button_on.tres", "res://root/assets/atlases/ui_buttons.sprites/music_button_off.tres", "res://root/assets/atlases/ui_buttons.sprites/check_click.tres", "res://root/assets/atlases/ui_buttons.sprites/check_1.tres", "res://root/assets/atlases/ui_buttons.sprites/inventory_2.tres", "res://root/assets/atlases/ui_buttons.sprites/cursor.tres", "res://root/assets/atlases/ui_buttons.sprites/sound_1.tres", "res://root/assets/atlases/ui_buttons.sprites/cross_click.tres", "res://root/assets/atlases/ui_buttons.sprites/cursor_click.tres", "res://root/assets/atlases/ui_buttons.sprites/cross_1.tres", "res://root/assets/atlases/ui_buttons.sprites/sound_2.tres", "res://root/assets/atlases/ui_buttons.sprites/slider.tres", "res://root/assets/atlases/ui_buttons.sprites/pointer_click.tres", "res://root/assets/atlases/ui_buttons.sprites/pointer_rest.tres"]
+
+source_file="res://root/assets/atlases/ui_buttons.tpsheet"
+dest_files=["res://.godot/imported/ui_buttons.tpsheet-0539191ce4058dfde5191636d1b59704.res", "res://root/assets/atlases/ui_buttons.sprites/music_button_on.tres", "res://root/assets/atlases/ui_buttons.sprites/music_button_off.tres", "res://root/assets/atlases/ui_buttons.sprites/check_click.tres", "res://root/assets/atlases/ui_buttons.sprites/check_1.tres", "res://root/assets/atlases/ui_buttons.sprites/inventory_2.tres", "res://root/assets/atlases/ui_buttons.sprites/cursor.tres", "res://root/assets/atlases/ui_buttons.sprites/sound_1.tres", "res://root/assets/atlases/ui_buttons.sprites/cross_click.tres", "res://root/assets/atlases/ui_buttons.sprites/cursor_click.tres", "res://root/assets/atlases/ui_buttons.sprites/cross_1.tres", "res://root/assets/atlases/ui_buttons.sprites/sound_2.tres", "res://root/assets/atlases/ui_buttons.sprites/slider.tres", "res://root/assets/atlases/ui_buttons.sprites/pointer_click.tres", "res://root/assets/atlases/ui_buttons.sprites/pointer_rest.tres"]
+
+[params]
+

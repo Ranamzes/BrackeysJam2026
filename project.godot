@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="BrakaeysJam2026"
+config/name="BrakeysJam2026"
 run/main_scene="res://root/scenes/UI/main_menu/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://bomwynmijb8qc"
+config/icon="uid://bnt5bki3nul56"
 
 [audio]
 

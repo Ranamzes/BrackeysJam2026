@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtavwckbiesns"
+path="res://.godot/imported/calming (1).mp3-21cf7a1dd49dfec306b84f43c2c8920b.mp3str"
+
+[deps]
+
+source_file="res://root/assets/sounds/calming (1).mp3"
+dest_files=["res://.godot/imported/calming (1).mp3-21cf7a1dd49dfec306b84f43c2c8920b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

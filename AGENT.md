@@ -26,9 +26,11 @@ The project's foundation is a component-based architecture where logic (Systems)
 5.  **Feature-Based Project Structure:** The project **MUST** be organized by features/entities (e.g., `res://player/`, `res://enemies/`), not by file types (e.g., `res://scripts/`). This makes features modular and easy to migrate.
 6.  **`class_name` is Mandatory:** Every custom GDScript file (components, resources, systems) **MUST** have a `class_name` to enforce project-wide type safety.
 7.  **Godot 4 Syntax Only:** All code **MUST** adhere strictly to Godot 4 syntax and best practices. Godot 3 syntax (e.g., `onready var`, `export var`, `setget`, `yield`) is strictly forbidden. Use Godot 4 equivalents like `@onready`, `@export`, property setters/getters, and `await`. class_name is NOT allowed to be used for variable and parameter names, it is a reserved name.
-8. Mandatory Godot API Verification (Smart Mode)
-
-Before using or generating any **GDScript code**, the agent must **verify API availability** using the **official Godot documentation and structured introspection**, if not helped use *general search queries*.
+8.  **Mandatory Godot API Verification (Smart Mode):**
+    Before using or generating any **GDScript code**, the agent must **verify API availability** using the **official Godot documentation and structured introspection**, if not helped use *general search queries*.
+9.  **Git / VCS Best Practices (Always Track `.import` and `.uid` files):**
+    * **NEVER add `*.import` or `*.uid` to `.gitignore`:** In Godot 4, `.import` files store asset import settings and deterministic UIDs (`uid://...`), while `.uid` files store script/resource UIDs. If `.import` or `.uid` files are omitted from Git, each machine/clone generates new random UIDs upon import, which causes Godot to continuously rewrite UID references in `.tres`, `.tscn`, and `project.godot`.
+    * **Only `.godot/` cache and export artifacts should be ignored**, never the `.import` or `.uid` files themselves.
 
 ---
 

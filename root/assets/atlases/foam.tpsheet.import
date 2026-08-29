@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://450wlc470fn6"
+path="res://.godot/imported/foam.tpsheet-58b6d22ae7ad544bc0d8e49470c5a06a.res"
+
+[deps]
+
+files=["res://root/assets/atlases/foam.sprites/shower_active.tres", "res://root/assets/atlases/foam.sprites/pena9.tres", "res://root/assets/atlases/foam.sprites/pena8.tres", "res://root/assets/atlases/foam.sprites/pena2.tres", "res://root/assets/atlases/foam.sprites/pena4.tres", "res://root/assets/atlases/foam.sprites/pena6.tres", "res://root/assets/atlases/foam.sprites/pena7.tres", "res://root/assets/atlases/foam.sprites/pena1.tres", "res://root/assets/atlases/foam.sprites/pena3.tres", "res://root/assets/atlases/foam.sprites/pena5.tres"]
+
+source_file="res://root/assets/atlases/foam.tpsheet"
+dest_files=["res://.godot/imported/foam.tpsheet-58b6d22ae7ad544bc0d8e49470c5a06a.res", "res://root/assets/atlases/foam.sprites/shower_active.tres", "res://root/assets/atlases/foam.sprites/pena9.tres", "res://root/assets/atlases/foam.sprites/pena8.tres", "res://root/assets/atlases/foam.sprites/pena2.tres", "res://root/assets/atlases/foam.sprites/pena4.tres", "res://root/assets/atlases/foam.sprites/pena6.tres", "res://root/assets/atlases/foam.sprites/pena7.tres", "res://root/assets/atlases/foam.sprites/pena1.tres", "res://root/assets/atlases/foam.sprites/pena3.tres", "res://root/assets/atlases/foam.sprites/pena5.tres"]
+
+[params]
+

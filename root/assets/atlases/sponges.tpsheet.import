@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://ddgqifxy2bx4n"
+path="res://.godot/imported/sponges.tpsheet-d21f482a34477611e38dbae1e4c8d939.res"
+
+[deps]
+
+files=["res://root/assets/atlases/sponges.sprites/sponge_green.tres", "res://root/assets/atlases/sponges.sprites/sponge_red.tres"]
+
+source_file="res://root/assets/atlases/sponges.tpsheet"
+dest_files=["res://.godot/imported/sponges.tpsheet-d21f482a34477611e38dbae1e4c8d939.res", "res://root/assets/atlases/sponges.sprites/sponge_green.tres", "res://root/assets/atlases/sponges.sprites/sponge_red.tres"]
+
+[params]
+

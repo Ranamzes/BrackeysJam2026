@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brlp86gusp7wp"
+path="res://.godot/imported/doorOpen_2 (1).ogg-94a5a8303c0fa30af5f4617473c2576d.oggvorbisstr"
+
+[deps]
+
+source_file="res://root/assets/sounds/doorOpen_2 (1).ogg"
+dest_files=["res://.godot/imported/doorOpen_2 (1).ogg-94a5a8303c0fa30af5f4617473c2576d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g27hjelr7mft"
+path="res://.godot/imported/clean (1).mp3-cf74e6e46c28d182e9f02109ac52f10a.mp3str"
+
+[deps]
+
+source_file="res://root/assets/sounds/clean (1).mp3"
+dest_files=["res://.godot/imported/clean (1).mp3-cf74e6e46c28d182e9f02109ac52f10a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

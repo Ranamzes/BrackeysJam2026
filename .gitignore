@@ -6,8 +6,6 @@
 *.gd-
 export_presets.cfg
 
-# Imported formats
-*.import
 
 # Compiled script files
 *.gdc

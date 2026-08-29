@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b63s7aicbeqoh"
+path="res://.godot/imported/ladyTV.dialogue-54803931bc4edbaa0b2bc7a473515b34.tres"
+
+[deps]
+
+source_file="res://root/resources/dialogue/ladyTV.dialogue"
+dest_files=["res://.godot/imported/ladyTV.dialogue-54803931bc4edbaa0b2bc7a473515b34.tres"]
+
+[params]
+
+defaults=true

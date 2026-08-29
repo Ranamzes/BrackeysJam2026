@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://begvw6q8luvjk"
+path="res://.godot/imported/fog.tpsheet-cdd7ee6cd091f4506ab5011887b788cf.res"
+
+[deps]
+
+files=["res://root/assets/atlases/fog.sprites/fog1.tres", "res://root/assets/atlases/fog.sprites/fog2.tres", "res://root/assets/atlases/fog.sprites/fog3.tres"]
+
+source_file="res://root/assets/atlases/fog.tpsheet"
+dest_files=["res://.godot/imported/fog.tpsheet-cdd7ee6cd091f4506ab5011887b788cf.res", "res://root/assets/atlases/fog.sprites/fog1.tres", "res://root/assets/atlases/fog.sprites/fog2.tres", "res://root/assets/atlases/fog.sprites/fog3.tres"]
+
+[params]
+

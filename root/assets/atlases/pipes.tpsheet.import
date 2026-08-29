@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bym4gt1ip0ox5"
+path="res://.godot/imported/pipes.tpsheet-9d894c5da0681573d1e7d282d94df9cf.res"
+
+[deps]
+
+files=["res://root/assets/atlases/pipes.sprites/gamecomplete_tubeLight.tres", "res://root/assets/atlases/pipes.sprites/angle.tres", "res://root/assets/atlases/pipes.sprites/angle_fill.tres", "res://root/assets/atlases/pipes.sprites/angle_pinned.tres", "res://root/assets/atlases/pipes.sprites/angle_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/cross.tres", "res://root/assets/atlases/pipes.sprites/cross_fill.tres", "res://root/assets/atlases/pipes.sprites/cross_pinned.tres", "res://root/assets/atlases/pipes.sprites/cross_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/line.tres", "res://root/assets/atlases/pipes.sprites/line_fill.tres", "res://root/assets/atlases/pipes.sprites/line_pinned.tres", "res://root/assets/atlases/pipes.sprites/line_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/t_form.tres", "res://root/assets/atlases/pipes.sprites/T_form_fill.tres"]
+
+source_file="res://root/assets/atlases/pipes.tpsheet"
+dest_files=["res://.godot/imported/pipes.tpsheet-9d894c5da0681573d1e7d282d94df9cf.res", "res://root/assets/atlases/pipes.sprites/gamecomplete_tubeLight.tres", "res://root/assets/atlases/pipes.sprites/angle.tres", "res://root/assets/atlases/pipes.sprites/angle_fill.tres", "res://root/assets/atlases/pipes.sprites/angle_pinned.tres", "res://root/assets/atlases/pipes.sprites/angle_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/cross.tres", "res://root/assets/atlases/pipes.sprites/cross_fill.tres", "res://root/assets/atlases/pipes.sprites/cross_pinned.tres", "res://root/assets/atlases/pipes.sprites/cross_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/line.tres", "res://root/assets/atlases/pipes.sprites/line_fill.tres", "res://root/assets/atlases/pipes.sprites/line_pinned.tres", "res://root/assets/atlases/pipes.sprites/line_pinned_fill.tres", "res://root/assets/atlases/pipes.sprites/t_form.tres", "res://root/assets/atlases/pipes.sprites/T_form_fill.tres"]
+
+[params]
+
